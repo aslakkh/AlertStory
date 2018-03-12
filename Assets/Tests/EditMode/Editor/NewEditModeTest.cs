@@ -6,10 +6,14 @@ using System.Collections;
 
 public class NewEditModeTest {
 
-	[Test]
-	public void NewEditModeTestSimplePasses() {
-		// Use the Assert class to test conditions.
-	}
+    public GameObject testobject;
+
+    [Test]
+	public void CheckForWhoaImage() {
+        // Use the Assert class to test conditions.
+        var go = GameObject.Find("whoa");
+        Assert.IsNotNull(go, "No whoa object found in scene.");
+    }
 
 	// A UnityTest behaves like a coroutine in PlayMode
 	// and allows you to yield null to skip a frame in EditMode
