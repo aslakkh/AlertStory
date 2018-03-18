@@ -26,7 +26,11 @@ public class AppManager : MonoBehaviour {
         Debug.Log(gm.apps);
         foreach(string x in appNamez)
         {
-            App = Instantiate(App,this.transform) ;
+            var newApp = Instantiate(App,this.transform) ;
+            AppScript appscpt = newApp.GetComponent<AppScript>();
+            appscpt.appName = x;
+            // TODO: Add XML import of each app's settings as dict.
+            // appscpt.appSettings = 
             
         }
         Debug.Log("Entered start method and this game was all I found:" + gm);
