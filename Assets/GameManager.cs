@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Instantiated App prefab");
             Debug.Log("Entered else loop");
         }
 

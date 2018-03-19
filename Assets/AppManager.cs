@@ -21,7 +21,9 @@ public class AppManager : MonoBehaviour {
         appNamez.Add("1881");
         appNamez.Add("Strava");
         appNamez.Add("Instaskjegg");
-        GameManager gm = GetComponentInParent<GameManager>();
+
+        // retrival and connection to the gameManager script in the GameMng gameobject.
+        GameManager gm = GetComponentInParent<GameManager>(); 
 
         Debug.Log(gm.apps);
         foreach(string x in appNamez)
@@ -29,8 +31,7 @@ public class AppManager : MonoBehaviour {
             var newApp = Instantiate(App,this.transform) ;
             AppScript appscpt = newApp.GetComponent<AppScript>();
             appscpt.appName = x;
-            // TODO: Add XML import of each app's settings as dict.
-            // appscpt.appSettings = 
+            // TODO: Add XML import of each app's settings as dict (optional)
             
         }
         Debug.Log("Entered start method and this game was all I found:" + gm);
