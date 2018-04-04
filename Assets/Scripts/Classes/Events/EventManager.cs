@@ -4,35 +4,62 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour {
 
+    private GameManager gameManager;
+
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
 
-    public StoryEvent storyEvent;
+    public StoryEventModel storyEventModel;
+    public List<StoryEvent> storyEvents;
 
-    private void Awake()
+    private void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void InitializeEvent()
     {
+        StoryEvent storyEvent = FindFirstRelevantEvent(); //TODO: Find first relevant
+
         Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
-        GameObject e;
+        GameObject eventObject;
         //check whether storyEvent is multiple choice, and instantiate correct prefab
         if (storyEvent.IsMultipleChoice())
         {
-            e = Instantiate(binaryChoicePrefab, phoneMainScreen);
+            eventObject = Instantiate(binaryChoicePrefab, phoneMainScreen);
         }
         else
         {
-            e = Instantiate(informativeEventPrefab, phoneMainScreen);
+            eventObject = Instantiate(informativeEventPrefab, phoneMainScreen);
         }
         
-        EventController eventController = e.GetComponent<EventController>();
+        EventController eventController = eventObject.GetComponent<EventController>();
         eventController.storyEvent = storyEvent;
 
 
 
         //EventController.CreateEvent(storyEvent);
     }
+
+    public StoryEvent FindFirstRelevantEvent()
+    {
+        StoryEvent e = null;
+        for(int i = 0; i < storyEvents.Count; i++)
+        {
+            if(CanBeFired(storyEvents[i]))
+            {
+                e = storyEvents[i];
+                storyEvents.RemoveAt(i);
+                break;
+            }
+        }
+        return e;
+    }
+
+    private bool CanBeFired(StoryEvent e) //return if e fits requirements and dependencies in gamemanager
+    {
+        //return (e.requirements.FitsRequirements(gameManager.requirements) && e.dependencies.FitsRequirements(gameManager.eventsFired));
+        return true;
+    }
+
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
+[System.Serializable]
 public class Choice{
 
     public string _choiceDescription { get; set; }

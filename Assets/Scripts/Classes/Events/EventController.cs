@@ -7,7 +7,7 @@ public abstract class EventController : MonoBehaviour {
 
     //public static GameObject eventPrefab;
 
-    protected StoryEvent _storyEvent;
+    private StoryEvent _storyEvent;
     public StoryEvent storyEvent
     {
         get { return _storyEvent; }
