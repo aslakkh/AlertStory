@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 222828013859793738}
   - component: {fileID: 114483405376242778}
   - component: {fileID: 114882437829789576}
+  - component: {fileID: 114478621997727282}
+  - component: {fileID: 114735967476195810}
   m_Layer: 5
   m_Name: InformativeEvent
   m_TagString: Untagged
@@ -402,7 +404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114933048574958184}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114478621997727282}
+        m_MethodName: DestroyFromScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114401300035823402
@@ -477,6 +490,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!114 &114478621997727282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240329766399940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24445297647964740831a4f4ece38aec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventView: {fileID: 114735967476195810}
 --- !u!114 &114483405376242778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,7 +620,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114401300035823402}
   m_HandleRect: {fileID: 224706523494528144}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -682,7 +707,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224138194206351916}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -747,6 +772,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114735967476195810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240329766399940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3422d500af6dfb24e83c6d54f0debc39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventIllustration: {fileID: 114573489870117814}
+  eventTitle: {fileID: 114414799534442854}
+  eventDescription: {fileID: 114161180088417088}
+  button: {fileID: 114003733493215070}
 --- !u!114 &114773445523544496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1064,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0.000040968625}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0.0000105134495}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224358631824397828
