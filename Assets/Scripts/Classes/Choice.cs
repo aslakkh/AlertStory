@@ -4,10 +4,10 @@ using System;
 [System.Serializable]
 public class Choice{
 
-    public string _choiceDescription { get; set; }
-    public int _affectScore { get; private set; }
-    public int _affectSecretScore { get; private set; }
-    public StoryEvent _triggersStoryEvent { get; private set; }
+    public string _choiceDescription;
+    public int _affectScore;
+    public int _affectSecretScore;
+    public StoryEvent _triggersStoryEvent;
         
     public Choice(string choiceDescription, int affectScore, int affectSecretScore, StoryEvent triggersStoryEvent) {
         _choiceDescription = choiceDescription;
