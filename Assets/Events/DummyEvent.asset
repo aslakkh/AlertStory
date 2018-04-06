@@ -9,17 +9,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20f40adce5afce44f8d179f42a05fb60, type: 3}
-  m_Name: Event3
+  m_Name: DummyEvent
   m_EditorClassIdentifier: 
-  _text: This is the description of Event3
-  _title: Event3
+  _text: This is an event. It has some great text, text is always nice, everybody
+    loves reading. Reading is better than being on Facebook. Did you know that Facebook
+    is bad, and that privacy is good?
+  _title: DummyEvent
   _choices:
-  - _choiceDescription: Choice3.1
+  - _choiceDescription: Yes, ofc
+    _affectScore: 10
+    _affectSecretScore: 20
+    _triggersStoryEvent: {fileID: 0}
+  - _choiceDescription: Lol nope
     _affectScore: -10
     _affectSecretScore: -5
-    _triggersStoryEvent: {fileID: 0}
-  - _choiceDescription: Choice3.2
-    _affectScore: 10
-    _affectSecretScore: 15
     _triggersStoryEvent: {fileID: 0}
   requirements: {fileID: 0}

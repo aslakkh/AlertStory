@@ -12,7 +12,14 @@ public class InformativeEventController : EventController {
         eventView.SetEventTitle(storyEvent._title);
         eventView.SetEventDescription(storyEvent._text);
         eventView.SetButtonText(storyEvent._choices[0]._choiceDescription);
+    }
 
-        //TODO: set choice descriptions
+    public void HandleChoice()
+    {
+        //add the score values of this._choices[0] to gamemanager
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.SetScore(storyEvent._choices[0]._affectScore);
+        gameManager.SetPrivateScore(storyEvent._choices[0]._affectSecretScore);
+        DestroyFromScene();
     }
 }

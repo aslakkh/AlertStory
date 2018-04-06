@@ -15,7 +15,7 @@ MonoBehaviour:
   _title: Event2
   _choices:
   - _choiceDescription: Single choice
-    _affectScore: 100
-    _affectSecretScore: 100
+    _affectScore: 5
+    _affectSecretScore: 10
     _triggersStoryEvent: {fileID: 0}
   requirements: {fileID: 0}

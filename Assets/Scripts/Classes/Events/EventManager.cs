@@ -9,7 +9,7 @@ public class EventManager : MonoBehaviour {
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
 
-    public StoryEventModel storyEventModel;
+    //public StoryEventModel storyEventModel;
     public List<StoryEvent> storyEvents;
 
     private void Start()
@@ -17,28 +17,31 @@ public class EventManager : MonoBehaviour {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    public void InitializeEvent()
+    public void InitializeEvent() //finds first relevant event, instantiates prefab, and assigns event to prefab
     {
-        StoryEvent storyEvent = FindFirstRelevantEvent(); //TODO: Find first relevant
-
-        Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
-        GameObject eventObject;
-        //check whether storyEvent is multiple choice, and instantiate correct prefab
-        if (storyEvent.IsMultipleChoice())
+        StoryEvent storyEvent = FindFirstRelevantEvent();
+        if(storyEvent != null)
         {
-            eventObject = Instantiate(binaryChoicePrefab, phoneMainScreen);
+            Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
+            GameObject eventObject;
+            //check whether storyEvent is multiple choice, and instantiate correct prefab
+            if (storyEvent.IsMultipleChoice())
+            {
+                eventObject = Instantiate(binaryChoicePrefab, phoneMainScreen);
+            }
+            else
+            {
+                eventObject = Instantiate(informativeEventPrefab, phoneMainScreen);
+            }
+
+            EventController eventController = eventObject.GetComponent<EventController>();
+            eventController.storyEvent = storyEvent;
         }
         else
         {
-            eventObject = Instantiate(informativeEventPrefab, phoneMainScreen);
+            Debug.Log("No relvant storyevents can be fired. ", this);
         }
         
-        EventController eventController = eventObject.GetComponent<EventController>();
-        eventController.storyEvent = storyEvent;
-
-
-
-        //EventController.CreateEvent(storyEvent);
     }
 
     public StoryEvent FindFirstRelevantEvent()
@@ -56,7 +59,7 @@ public class EventManager : MonoBehaviour {
         return e;
     }
 
-    private bool CanBeFired(StoryEvent e) //return if e fits requirements and dependencies in gamemanager
+    private bool CanBeFired(StoryEvent e) //checks if e fits requirements and dependencies in gamemanager
     {
         //return (e.requirements.FitsRequirements(gameManager.requirements) && e.dependencies.FitsRequirements(gameManager.eventsFired));
         return true;
