@@ -10,10 +10,12 @@ public class BinaryEventController : EventController {
         //Set UI elements
         eventView.SetEventTitle(storyEvent._title);
         eventView.SetEventDescription(storyEvent._text);
-        eventView.SetAffirmativeButtonText("Test");
-        eventView.SetDissentiveButtonText("NOPE");
+        //eventView.SetAffirmativeButtonText("Test");
+        //eventView.SetDissentiveButtonText("NOPE");
 
         //TODO: set choice descriptions
+        eventView.SetAffirmativeButtonText(storyEvent._choices[0]._choiceDescription);
+        eventView.SetDissentiveButtonText(storyEvent._choices[1]._choiceDescription);
     }
 
 }

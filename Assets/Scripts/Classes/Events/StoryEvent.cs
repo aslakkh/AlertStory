@@ -9,7 +9,7 @@ public class StoryEvent : ScriptableObject
 
     public string _text;
     public string _title;
-    public List<Choice> _choices;
+    public List<Choice> _choices = new List<Choice>();
     public RequirementList requirements;
     public Dependencies dependencies;
 

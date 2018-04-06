@@ -11,7 +11,7 @@ public class InformativeEventController : EventController {
         //Set UI elements
         eventView.SetEventTitle(storyEvent._title);
         eventView.SetEventDescription(storyEvent._text);
-        eventView.SetButtonText("TESTING");
+        eventView.SetButtonText(storyEvent._choices[0]._choiceDescription);
 
         //TODO: set choice descriptions
     }
