@@ -13,5 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: This is the description of Event2
   _title: Event2
-  _choices: []
+  _choices:
+  - _choiceDescription: Single choice
+    _affectScore: 100
+    _affectSecretScore: 100
+    _triggersStoryEvent: {fileID: 0}
   requirements: {fileID: 0}

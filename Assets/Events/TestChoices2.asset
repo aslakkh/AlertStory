@@ -8,10 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f40adce5afce44f8d179f42a05fb60, type: 3}
-  m_Name: Event5
+  m_Script: {fileID: 11500000, guid: b5055fd4a98016b48b811dd5f31db9e4, type: 3}
+  m_Name: TestChoices2
   m_EditorClassIdentifier: 
-  _text: This is the description of Event5
-  _title: Event5
-  _choices: []
-  requirements: {fileID: 0}
+  choicesList:
+  - _choiceDescription: Single choice
+    _affectScore: 0
+    _affectSecretScore: 0
+    _triggersStoryEvent: {fileID: 0}
