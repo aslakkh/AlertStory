@@ -1,6 +1,13 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    investigator,
+    eventhandler,
+    paused
+}
+
 public class GameManager : MonoBehaviour {
 
     public int score;
@@ -40,6 +47,16 @@ public class GameManager : MonoBehaviour {
 
     public void FireEvent() {
         //Find list of events and fire first suitable.??
+    }
+
+    public void SetScore(int value)
+    {
+        score += value;
+    }
+
+    public void SetPrivateScore(int value)
+    {
+        privateScore += value;
     }
     
 }
