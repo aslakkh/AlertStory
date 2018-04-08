@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 
+[System.Serializable]
 public class Dependencies {
     //Made public so they can later be interacted with in unity editor script.
     public Dictionary<StoryEvent, bool> dependenciesDict;
@@ -12,5 +13,19 @@ public class Dependencies {
             }
         }
         return true;
+    }
+    
+    public void Add(StoryEvent storyEvent, bool value) {
+        dependenciesDict.Add(storyEvent, value);   
+    }
+    
+    public void Remove(StoryEvent storyEvent) {
+        dependenciesDict.Remove(storyEvent);
+    }
+
+    public void Update(StoryEvent storyEvent, bool newValue) {
+        if (dependenciesDict.ContainsKey(storyEvent)) {
+            dependenciesDict[storyEvent] = newValue;
+        }
     }
 }
