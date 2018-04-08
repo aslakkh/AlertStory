@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 using System.Collections.Generic;
 
 [Serializable]
@@ -33,5 +32,9 @@ public class StoryEvent {
         this.dependencies = dependencies;
     }
 
+    public bool IsMultipleChoice()
+    {
+        return choices.Count > 1;
+    }
     
 }

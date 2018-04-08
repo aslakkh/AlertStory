@@ -9,17 +9,17 @@ public class InformativeEventController : EventController {
     void Start()
     {
         //Set UI elements
-        eventView.SetEventTitle(storyEvent._title);
-        eventView.SetEventDescription(storyEvent._text);
-        eventView.SetButtonText(storyEvent._choices[0]._choiceDescription);
+        eventView.SetEventTitle(storyEvent.title);
+        eventView.SetEventDescription(storyEvent.text);
+        eventView.SetButtonText(storyEvent.choices[0].choiceDescription);
     }
 
     public void HandleChoice()
     {
-        //add the score values of this._choices[0] to gamemanager
+        //add the score values of this.choices[0] to gamemanager
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.SetScore(storyEvent._choices[0]._affectScore);
-        gameManager.SetPrivateScore(storyEvent._choices[0]._affectSecretScore);
+        gameManager.SetScore(storyEvent.choices[0].affectScore);
+        gameManager.SetPrivateScore(storyEvent.choices[0].affectSecretScore);
         DestroyFromScene();
     }
 }
