@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour {
     public int privateScore;
     public int dayCount;
     public int turnCount;
-    private RequirementList requirementList;
+    private RequirementDict requirementDict;
     private List<StoryEvent> _eventsFired;
 
     //Set this when new state is added.
-    public RequirementList requirements {
-        get { return requirementList; }
-        set { requirementList = value; }
+    public RequirementDict requirements {
+        get { return requirementDict; }
+        set { requirementDict = value; }
     }
     
     //Add all events that has fired here.
