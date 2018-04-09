@@ -837,8 +837,8 @@ MonoBehaviour:
   eventIllustration: {fileID: 114382221116784070}
   eventTitle: {fileID: 114647088559507628}
   eventDescription: {fileID: 114187937706877220}
-  affirmativeButton: {fileID: 114893384394976872}
-  dissentiveButton: {fileID: 114816264385856724}
+  affirmativeButton: {fileID: 114479594937026376}
+  dissentiveButton: {fileID: 114949079630641884}
 --- !u!114 &114747848386045380
 MonoBehaviour:
   m_ObjectHideFlags: 1
