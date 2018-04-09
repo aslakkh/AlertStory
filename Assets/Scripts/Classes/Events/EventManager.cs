@@ -9,8 +9,8 @@ public class EventManager : MonoBehaviour {
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
 
-    //public StoryEventModel storyEventModel;
-    public List<StoryEvent> storyEvents;
+    //public List<StoryEvent> storyEvents;
+    public StoryEventList storyEvents;
 
     private void Start()
     {
@@ -47,12 +47,12 @@ public class EventManager : MonoBehaviour {
     public StoryEvent FindFirstRelevantEvent()
     {
         StoryEvent e = null;
-        for(int i = 0; i < storyEvents.Count; i++)
+        for(int i = 0; i < storyEvents.GetCount(); i++)
         {
-            if(CanBeFired(storyEvents[i]))
+            if(CanBeFired(storyEvents.GetElement(i)))
             {
-                e = storyEvents[i];
-                storyEvents.RemoveAt(i);
+                e = storyEvents.GetElement(i);
+                storyEvents.RemoveElement(i);
                 break;
             }
         }
