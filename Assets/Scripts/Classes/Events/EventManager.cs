@@ -12,8 +12,11 @@ public class EventManager : MonoBehaviour {
     //public List<StoryEvent> storyEvents;
     public StoryEventList storyEvents;
 
+    private List<StoryEvent> storyEventsInternal;
+
     private void Start()
     {
+        storyEventsInternal = new List<StoryEvent>(storyEvents.list);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -47,12 +50,12 @@ public class EventManager : MonoBehaviour {
     public StoryEvent FindFirstRelevantEvent()
     {
         StoryEvent e = null;
-        for(int i = 0; i < storyEvents.GetCount(); i++)
+        for(int i = 0; i < storyEventsInternal.Count; i++)
         {
-            if(CanBeFired(storyEvents.GetElement(i)))
+            if(CanBeFired(storyEventsInternal[i]))
             {
-                e = storyEvents.GetElement(i);
-                storyEvents.RemoveElement(i);
+                e = storyEventsInternal[i];
+                storyEventsInternal.RemoveAt(i);
                 break;
             }
         }

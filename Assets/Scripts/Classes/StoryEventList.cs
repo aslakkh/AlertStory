@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+
+[CreateAssetMenu(fileName = "StoryEventList", menuName = "Alert/StoryEventList", order = 1)]
 public class StoryEventList : ScriptableObject {
     public List<StoryEvent> list;
 
