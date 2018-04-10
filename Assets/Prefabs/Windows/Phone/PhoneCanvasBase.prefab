@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 224972935986248400}
   - component: {fileID: 222786314919800908}
   - component: {fileID: 114208592024270398}
+  - component: {fileID: 114735968459016400}
   m_Layer: 5
   m_Name: ButtonBarPhone
   m_TagString: Untagged
@@ -143,6 +144,7 @@ GameObject:
   - component: {fileID: 224659864615952472}
   - component: {fileID: 222537668649611684}
   - component: {fileID: 114335443521533284}
+  - component: {fileID: 114247914111187362}
   m_Layer: 5
   m_Name: PhoneMainScreen
   m_TagString: Untagged
@@ -532,7 +534,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114558551853001612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: InitializeEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114179337693625380
@@ -583,6 +596,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114247914111187362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1677959417831000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1254083943, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 0
+  m_AspectRatio: 0.6
 --- !u!114 &114258751221162984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -696,6 +722,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114735968459016400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380355320092088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce62317d78080a74a92a296123f012d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 114174783994807462}
+  - {fileID: 114120995092473028}
+  - {fileID: 114078990325677406}
 --- !u!114 &114910931860758740
 MonoBehaviour:
   m_ObjectHideFlags: 1
