@@ -32,7 +32,7 @@ MonoBehaviour:
   - title: Event2
     text: This is the description of event2
     choices:
-    - choiceDescription: Informative choice
+    - choiceDescription: Single choice
       affectScore: 20
       affectSecretScore: -10
       triggersStoryEvent:
