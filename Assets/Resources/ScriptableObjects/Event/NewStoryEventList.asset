@@ -12,20 +12,12 @@ MonoBehaviour:
   m_Name: NewStoryEventList
   m_EditorClassIdentifier: 
   list:
-  - title: Event1
-    text: This is the description of event1
-    choices:
-    - choiceDescription: Choice 1.1
-      affectScore: 10
-      affectSecretScore: 20
-      triggersStoryEvent:
-        title: 
-        text: 
-        choices: []
-    - choiceDescription: Choice 2.1
-      affectScore: 10
-      affectSecretScore: -10
-      triggersStoryEvent:
-        title: 
-        text: 
-        choices: []
+  - title: 
+    text: 
+    choices: []
+  - title: 
+    text: 
+    choices: []
+  - title: 
+    text: 
+    choices: []

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 
-[CreateAssetMenu(fileName = "StoryEventList", menuName = "Alert/StoryEventList", order = 1)]
 public class StoryEventList : ScriptableObject {
     public List<StoryEvent> list;
 
@@ -11,9 +10,9 @@ public class StoryEventList : ScriptableObject {
         return list.Count;
     }
 
-    public StoryEvent GetElement(int i)
+    public StoryEvent this[int itemIndex]
     {
-        return list[i];
+        get { return list[itemIndex]; }
     }
 
     public void RemoveElement(int i)

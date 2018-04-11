@@ -15,15 +15,15 @@ MonoBehaviour:
   - title: Event1
     text: This is the description of event1
     choices:
-    - choiceDescription: Choice 1
+    - choiceDescription: Choice 1.1
       affectScore: 10
       affectSecretScore: -10
       triggersStoryEvent:
         title: 
         text: 
         choices: []
-    - choiceDescription: Choice 2
-      affectScore: 20
+    - choiceDescription: Choice 1.2
+      affectScore: 30
       affectSecretScore: 10
       triggersStoryEvent:
         title: 
@@ -33,7 +33,7 @@ MonoBehaviour:
     text: This is the description of event2
     choices:
     - choiceDescription: Single choice
-      affectScore: 20
+      affectScore: 10
       affectSecretScore: -10
       triggersStoryEvent:
         title: 
@@ -42,16 +42,16 @@ MonoBehaviour:
   - title: Event3
     text: This is the description of event3
     choices:
-    - choiceDescription: Choice 1
+    - choiceDescription: Choice 3.1
       affectScore: 20
-      affectSecretScore: 10
+      affectSecretScore: 20
       triggersStoryEvent:
         title: 
         text: 
         choices: []
-    - choiceDescription: Choice 2
-      affectScore: 20
-      affectSecretScore: -30
+    - choiceDescription: Choice 3.2
+      affectScore: -10
+      affectSecretScore: -20
       triggersStoryEvent:
         title: 
         text: 
