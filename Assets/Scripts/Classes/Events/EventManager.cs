@@ -42,7 +42,7 @@ public class EventManager : MonoBehaviour {
     //Returns true if an event was initialized, false otherwise
     public bool InitializeEvent() 
     {
-        StoryEvent storyEvent = FindFirstRelevantEvent();
+        StoryEvent storyEvent = FindFirstRelevantEvent(storyEventsInternal);
         if(storyEvent != null)
         {
             Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
@@ -70,15 +70,15 @@ public class EventManager : MonoBehaviour {
         
     }
 
-    public StoryEvent FindFirstRelevantEvent()
+    public StoryEvent FindFirstRelevantEvent(List<StoryEvent> storyEventList)
     {
         StoryEvent e = null;
-        for(int i = 0; i < storyEventsInternal.Count; i++)
+        for(int i = 0; i < storyEventList.Count; i++)
         {
-            if(CanBeFired(storyEventsInternal[i]))
+            if(CanBeFired(storyEventList[i]))
             {
-                e = storyEventsInternal[i];
-                storyEventsInternal.RemoveAt(i);
+                e = storyEventList[i];
+                storyEventList.RemoveAt(i);
                 break;
             }
         }
