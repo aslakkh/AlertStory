@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DropDownItemController : MonoBehaviour {
 
@@ -24,6 +25,8 @@ public class DropDownItemController : MonoBehaviour {
     public Text settingFinnAppNameText; //UI-element object in the scene. Text related to the the current name of the app.
     public Text settingTrainerAppNameText; //UI-element object in the scene. Text related to the the current name of the app.
     public Text settingSnapAppNameText; //UI-element object in the scene. Text related to the the current name of the app.
+
+    public bool validated = false;
 
 
     // Dict with the setting name and its description.
@@ -65,53 +68,96 @@ public class DropDownItemController : MonoBehaviour {
 
     // Updates the text corresponding to the option. Dictionairy approach with less if-conditions wasnt supported
     // in unity's event system.
-    public void settingsDropdown_OnIndexChanged(int index)
-    {
 
-        GameObject temp = GameObject.Find("AppSettingFacebookInformationText");
-        Text tempText = temp.GetComponentInChildren<Text>();
-        tempText.text = "Hello world!";
-        Debug.Log("In setting Dropdown On changed menu");
-        /*
+    public void settingsDropDownFacebookOnValueCHanged (int index)
+    {
+        settingsDropdown_OnIndexChanged(settingsFacebookInformationText, index);
+    }
+    public void settingsDropDownInstabartOnValueCHanged(int index)
+    {
+        settingsDropdown_OnIndexChanged(settingsInstabartInformationText, index);
+    }
+    public void settingsDropDownFinnOnValueCHanged(int index)
+    {
+        settingsDropdown_OnIndexChanged(settingsFinnInformationText, index);
+    }
+    public void settingsDropDownTrainerOnValueCHanged(int index)
+    {
+        settingsDropdown_OnIndexChanged(settingsTrainerInformationText, index);
+    }
+    public void settingsDropDownSnapOnValueCHanged(int index)
+    {
+        settingsDropdown_OnIndexChanged(settingsSnapInformationText, index);
+    }
+
+    public void settingsDropdown_OnIndexChanged(Text text, int index)
+    {
+        
         if (index == 0)
         {
-            this.text = "Please choose a option for the app.";
-            settingsInformationText.color = Color.red;
+            text.text = "Please choose a option for the app.";
+            text.color = Color.red;
         }
         else if (index == 1)
         {
-            settingsInformationText.text = settingsInfo["Private"];
-            settingsInformationText.color = Color.black;
+            text.text = settingsInfo["Public"];
+            text.color = Color.black;
         }
         else if (index == 2)
         {
-            settingsInformationText.text = settingsInfo["Friends"];
-            settingsInformationText.color = Color.black;
+            text.text = settingsInfo["Friends"];
+            text.color = Color.black;
         }
         else if (index == 3)
         {
-            settingsInformationText.text = settingsInfo["Public"];
-            settingsInformationText.color = Color.black;
+            text.text = settingsInfo["Private"];
+            text.color = Color.black;
         }
         else
         {
-            settingsInformationText.text = "Please choose a option for the  app.";
-            settingsInformationText.color = Color.red;
+            text.text = "Please choose a option for the  app.";
+            text.color = Color.red;
         }
-        */
+        
     }
 
-    // Validates that the dropbox have a valid option selected.Useful to check before changing scenes. 
-    private bool validateDropDownChoice(Dropdown x)
+    // Validates that the dropboxes have a valid option selected.Useful to check before changing scenes. 
+    public void validateDropDownChoices()
     {
-        int val = x.value;
-        if (val < 1 && val > 3)
+        foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
         {
-            return false;
+            if (d.value < 1 || d.value > 3)
+            {
+                validated = false;
+                break;
+            }
+            else
+            {
+                validated = true;
+                continue;
+            }
         }
-        else
-        {
-            return true;
+        if (validated == true) {
+            saveRequirements();
+            // TODO: change scene!
         }
+    }
+
+    public void saveRequirements()
+    {
+        GameObject gm = GameObject.Find("Gmanager");
+        GameManager gamemanager = gm.GetComponent<GameManager>();
+        RequirementList rl = gamemanager.requirements;
+        foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()){
+            foreach (Text text in d.GetComponentsInChildren<Text>())
+            {
+                if (text.name.Contains("NameText")){
+                    Requirement temp = new Requirement("temp");
+                    rl.requirementDictionary.Add(temp, d.value);
+                }
+            }
+        }
+        gamemanager.requirements.requirementDictionary = rl.requirementDictionary;
+        //Debug.Log(gamemanager.requirements.requirementDictionary);
     }
 }
