@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     private RequirementList requirementList;
     private List<StoryEvent> _eventsFired;
+    private List<string> objectivesList;
 
     //Set this when new state is added.
     public RequirementList requirements {
@@ -20,6 +21,11 @@ public class GameManager : MonoBehaviour {
     public List<StoryEvent> eventsFired {
         get { return _eventsFired; }
         set { _eventsFired = value; }
+    }
+
+    public List<string> objectives {
+        get { return objectives; }
+        set { objectivesList = value; }
     }
     
     //Singleton instanciating
