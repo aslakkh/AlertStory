@@ -337,11 +337,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 332116132}
-    - target: {fileID: 114174783994807462, guid: 1dfcdf138156d594baac95127544d21e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FireEvent
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1dfcdf138156d594baac95127544d21e, type: 2}
   m_IsPrefabParent: 0

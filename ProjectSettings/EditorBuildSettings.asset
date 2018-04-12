@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TEMP_MainMenu.unity
+    guid: 8b6cc6b339e3f544cb63efe17de54b39
+  - enabled: 1
+    path: Assets/Scenes/TEMP_EventsScene.unity
+    guid: 917ead355d42e7741b1fef31bf1dd77f

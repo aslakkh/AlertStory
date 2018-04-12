@@ -12,46 +12,47 @@ MonoBehaviour:
   m_Name: StoryEventList
   m_EditorClassIdentifier: 
   list:
-  - title: Event1
-    text: This is the description of event1
+  - title: Binary Event Example
+    text: This is the description of the event. Did you know that privacy is good??
     choices:
-    - choiceDescription: Choice 1.1
+    - choiceDescription: Of course
       affectScore: 10
       affectSecretScore: -10
       triggersStoryEvent:
         title: 
         text: 
         choices: []
-    - choiceDescription: Choice 1.2
+    - choiceDescription: Privacy???
       affectScore: 30
       affectSecretScore: 10
       triggersStoryEvent:
         title: 
         text: 
         choices: []
-  - title: Event2
-    text: This is the description of event2
+  - title: Single choice event
+    text: This is an example of a single choice event. Do you like Facebook?
     choices:
-    - choiceDescription: Single choice
-      affectScore: 10
-      affectSecretScore: -10
+    - choiceDescription: Love them.
+      affectScore: 100
+      affectSecretScore: 100
       triggersStoryEvent:
         title: 
         text: 
         choices: []
-  - title: Event3
-    text: This is the description of event3
+  - title: Another event
+    text: Looks like all you do in this game is press buttons. Who said serious games
+      can't be fun?
     choices:
-    - choiceDescription: Choice 3.1
-      affectScore: 20
-      affectSecretScore: 20
+    - choiceDescription: No one
+      affectScore: 100
+      affectSecretScore: 100
       triggersStoryEvent:
         title: 
         text: 
         choices: []
-    - choiceDescription: Choice 3.2
-      affectScore: -10
-      affectSecretScore: -20
+    - choiceDescription: Literally everyone
+      affectScore: -100
+      affectSecretScore: -100
       triggersStoryEvent:
         title: 
         text: 
