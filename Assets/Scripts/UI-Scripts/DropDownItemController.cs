@@ -138,22 +138,24 @@ public class DropDownItemController : MonoBehaviour {
             }
         }
         if (validated == true) {
-            saveRequirements();
+            //saveRequirements();
             // TODO: change scene!
+            SceneLoader sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+            sceneLoader.LoadOnClick(2);
         }
     }
 
     public void saveRequirements()
     {
-        GameObject gm = GameObject.Find("Gmanager");
+        GameObject gm = GameObject.Find("GameManager");
         GameManager gamemanager = gm.GetComponent<GameManager>();
-        RequirementList rl = gamemanager.requirements;
+        RequirementDict rl = gamemanager.requirements;
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()){
             foreach (Text text in d.GetComponentsInChildren<Text>())
             {
                 if (text.name.Contains("NameText")){
                     Requirement temp = new Requirement("temp");
-                    rl.requirementDictionary.Add(temp, d.value);
+                    rl.requirementDictionary.Add(temp, true);
                 }
             }
         }
