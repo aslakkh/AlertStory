@@ -11,7 +11,6 @@ public class ConfirmationWindow : EditorWindow
     {
         ConfirmationWindow w = EditorWindow.GetWindow<ConfirmationWindow>();
         w.textString = s;
-
     }
 
     private void OnGUI()
@@ -100,10 +99,15 @@ public class CharacterListEditor : EditorWindow {
                 Character c = characterList[i];
                 GUILayout.BeginHorizontal();
                 GUILayout.Label(string.Format("{0} {1}", c.firstName, c.lastName));
+                if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false)))
+                {
+                    EditCharacter(c);
+                }
                 if (GUILayout.Button("Remove", GUILayout.ExpandWidth(false)))
                 {
                     RemoveCharacter(i);
                 }
+                
                 GUILayout.EndHorizontal();
             }
             GUILayout.EndScrollView();
@@ -130,7 +134,7 @@ public class CharacterListEditor : EditorWindow {
             if (characterList)
             {
                 EditorPrefs.SetString("ObjectPath", relPath);
-                folderPath = relPath.Substring(0, relPath.LastIndexOf("/")+1);
+                folderPath = relPath.Substring(0, relPath.LastIndexOf("/"));
             }
         }
     }
@@ -145,5 +149,10 @@ public class CharacterListEditor : EditorWindow {
     {
         //ConfirmationWindow.Init("Are you sure you want to permanently delete this character?");
         characterList.RemoveCharacter(i);
+    }
+
+    void EditCharacter(Character c)
+    {
+        CharacterEditor.Init(c);
     }
 }
