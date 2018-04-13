@@ -11,5 +11,9 @@ public class FriendsbookProfile : ScriptableObject {
 
     //should also include Facebook specific info, posts, etc...
 
+    public void Init()
+    {
+        friends = new List<Character>();
+    }
 
 }
