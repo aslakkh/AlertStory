@@ -1,19 +1,26 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    investigator,
+    eventhandler,
+    paused
+}
+
 public class GameManager : MonoBehaviour {
 
     public int score;
     public int privateScore;
     public int dayCount;
     public int turnCount;
-    private RequirementList requirementList;
+    private RequirementDict requirementDict;
     private List<StoryEvent> _eventsFired;
 
     //Set this when new state is added.
-    public RequirementList requirements {
-        get { return requirementList; }
-        set { requirementList = value; }
+    public RequirementDict requirements {
+        get { return requirementDict; }
+        set { requirementDict = value; }
     }
     
     //Add all events that has fired here.
@@ -40,6 +47,16 @@ public class GameManager : MonoBehaviour {
 
     public void FireEvent() {
         //Find list of events and fire first suitable.??
+    }
+
+    public void SetScore(int value)
+    {
+        score += value;
+    }
+
+    public void SetPrivateScore(int value)
+    {
+        privateScore += value;
     }
     
 }

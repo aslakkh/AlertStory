@@ -12,7 +12,7 @@ public class ChoiceScriptEditModeTest {
     public Choice ch;
     private StoryEvent se;
     private List <Choice> choiceList = new List<Choice>();
-    private RequirementList rL;
+    private RequirementsList rL;
     private Dependencies dp;
     public GameObject obj;
 
@@ -21,8 +21,7 @@ public class ChoiceScriptEditModeTest {
     public void SetUp()
     {
         //se = new StoryEvent("Another String", choiceList, rL, dp);
-        obj.AddComponent<StoryEvent>();
-        se = obj.GetComponent<StoryEvent>();
+        se = new StoryEvent();
         ch = new Choice("someString", 15, 0, se);
     }
 
@@ -34,7 +33,7 @@ public class ChoiceScriptEditModeTest {
     [Author("Ole Jakob Schjøth", "olejsc@stud.ntnu.no")]
     public void CheckChoiceStringDescription()
     {
-        Assert.That(ch._choiceDescription, Does.Contain("someString"));
+        Assert.That(ch.choiceDescription, Does.Contain("someString"));
     }
 
     [Test]
@@ -43,7 +42,7 @@ public class ChoiceScriptEditModeTest {
     [Author("Ole Jakob Schjøth", "olejsc@stud.ntnu.no")]
     public void CheckChoiceAffectScore()
     {
-        Assert.That(ch._affectScore, Is.EqualTo(15));
+        Assert.That(ch.affectScore, Is.EqualTo(15));
     }
 
 
