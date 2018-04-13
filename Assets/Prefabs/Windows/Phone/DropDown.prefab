@@ -121,7 +121,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'Score: 20'
 --- !u!114 &114849149139200872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,7 +154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Objectives: '
+  m_Text: "Objectives: Find personal data, Become friends with Ola Nordmann, \n"
 --- !u!222 &222652869329125316
 CanvasRenderer:
   m_ObjectHideFlags: 1

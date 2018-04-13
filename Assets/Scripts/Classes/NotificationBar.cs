@@ -22,15 +22,15 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         stats = dropDown.transform.Find("Stats").GetComponent<Text>();
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
-        GameManager.Instance.score = 10;
-        GameManager.Instance.objectives = new List<string> { "Find personal data, Become friends with Ola Nordmann" };
-        objectivesList = GameManager.Instance.objectives;
+        gameManager.score = 10;
+        gameManager.objectives = new List<string> { "Find personal data, Become friends with Ola Nordmann" };
+        objectivesList = gameManager.objectives;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        stats.text = "Score: " + GameManager.Instance.score.ToString();
-        objectives.text = "Objectives: " + GameManager.Instance.objectives.ToString();
+        stats.text = "Score: " + gameManager.score.ToString();
+        objectives.text = "Objectives: " + gameManager.objectives.ToString();
         StringBuilder sb = new StringBuilder();
         foreach (string objective in objectivesList)
         {
