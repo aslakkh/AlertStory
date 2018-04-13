@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     private RequirementDict requirementDict;
     private List<StoryEvent> _eventsFired;
+
     private EventManager eventManager;
     private GameState _gameState;
 
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour {
     //event to be published after gamestate change. Contains list of method pointers (subscribers)
     public event EventHandler<GameStateEventArgs> stateChanged;
 
+    private List<string> _objectives;
+
     //Set this when new state is added.
     public RequirementDict requirements {
         get { return requirementDict; }
@@ -53,6 +56,11 @@ public class GameManager : MonoBehaviour {
     public List<StoryEvent> eventsFired {
         get { return _eventsFired; }
         set { _eventsFired = value; }
+    }
+
+    public List<string> objectives {
+        get { return _objectives; }
+        set { _objectives = value; }
     }
     
     //Singleton instanciating

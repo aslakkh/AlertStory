@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: a43d77b2e339aed41a860933921f749b
+timeCreated: 1523004230
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - yourButton: {instanceID: 0}
+  - dropDown: {instanceID: 0}
+  - stats: {instanceID: 0}
+  - objectives: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
