@@ -5,33 +5,25 @@ using UnityEngine;
 
 public class Character : ScriptableObject {
 
-    public string firstName;
-    public string lastName;
+    //reference to characterList this character belongs to
+    public CharacterList characterList;
+
+    //General info
+    public string fullName;
     public string address;
     public string email;
     public string phoneNumber;
 
+    //Profiles
     public FriendsbookProfile friendsbookProfile;
     //public PhotochatProfile photochatProfile;
 
-    public void Init(string firstName, string lastName)
+    public void Init(CharacterList c, string fullName)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        characterList = c;
+        this.fullName = fullName;
     }
 
-    public void AddFriendsbookFriend(Character c)
-    {
-        if (!friendsbookProfile.friends.Contains(c)) //uses linear search (O(n))
-        {
-            friendsbookProfile.friends.Add(c);
-            c.friendsbookProfile.friends.Add(this);
-        }
-        else
-        {
-            Debug.Log("Tried adding duplicate FriendsbookFriend. ", this);
-        }
-        
-    }
+
 
 }

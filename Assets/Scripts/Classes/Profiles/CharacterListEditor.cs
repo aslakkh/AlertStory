@@ -43,8 +43,8 @@ public class CharacterListEditor : EditorWindow {
     string characterListTitle;
     string folderPath;
 
-    string firstName;
-    string lastName;
+    string fullName;
+    string charactersSearchString = "";
 
     public Vector2 scrollPosition;
 
@@ -79,11 +79,12 @@ public class CharacterListEditor : EditorWindow {
         else //GUI for editing existing CharacterList
         {
             GUILayout.Label("Add new character", EditorStyles.boldLabel);
-            firstName = EditorGUILayout.TextField("First name", firstName);
-            lastName = EditorGUILayout.TextField("Last name", lastName);
+            fullName = EditorGUILayout.TextField("Full name", fullName);
             if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
             {
-                CreateNewCharacter();
+                Character c = CreateNewCharacter();
+                EditorUtility.SetDirty(characterList);
+                EditCharacter(c);
             }
 
             GUILayout.Label("Add Existing character", EditorStyles.boldLabel);
@@ -93,24 +94,44 @@ public class CharacterListEditor : EditorWindow {
             }
 
             GUILayout.Label("Characters", EditorStyles.boldLabel);
-            scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(300), GUILayout.Height(300));
-            for(int i = 0; i < characterList.list.Count; i++) //inefficient?
+
+            //Search
+            GUILayout.BeginHorizontal(EditorStyles.toolbar);
+            GUILayout.Label("Search by name: ");
+            charactersSearchString = EditorGUILayout.TextField(charactersSearchString);
+            GUILayout.EndHorizontal();
+
+            //filter characters on searchstring
+            List<Character> filteredList = characterList.list.FindAll(c => c.fullName.ToLower().Contains(charactersSearchString.ToLower()));
+
+            if(filteredList.Count == 0)
             {
-                Character c = characterList[i];
-                GUILayout.BeginHorizontal();
-                GUILayout.Label(string.Format("{0} {1}", c.firstName, c.lastName));
-                if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false)))
-                {
-                    EditCharacter(c);
-                }
-                if (GUILayout.Button("Remove", GUILayout.ExpandWidth(false)))
-                {
-                    RemoveCharacter(i);
-                }
-                
-                GUILayout.EndHorizontal();
+                GUILayout.Label("None found.");
             }
-            GUILayout.EndScrollView();
+            else
+            {
+                //wraps character list in scrollview
+                scrollPosition = GUILayout.BeginScrollView(scrollPosition);
+                for (int i = 0; i < filteredList.Count; i++) //inefficient?
+                {
+                    Character c = filteredList[i];
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label(c.fullName);
+                    if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false)))
+                    {
+                        EditCharacter(c);
+                    }
+                    if (GUILayout.Button("Remove", GUILayout.ExpandWidth(false)))
+                    {
+                        RemoveCharacter(i);
+                    }
+
+                    GUILayout.EndHorizontal();
+                }
+                GUILayout.EndScrollView();
+            }
+            
+            
         }
 
 
@@ -139,10 +160,11 @@ public class CharacterListEditor : EditorWindow {
         }
     }
 
-    void CreateNewCharacter()
+    Character CreateNewCharacter()
     {
-        Character c = CreateCharacter.Create(firstName, lastName, folderPath);
+        Character c = CreateCharacter.Create(characterList, fullName, folderPath);
         characterList.AddCharacter(c);
+        return c;
     }
 
     void RemoveCharacter(int i)
@@ -153,6 +175,6 @@ public class CharacterListEditor : EditorWindow {
 
     void EditCharacter(Character c)
     {
-        CharacterEditor.Init(c);
+        CharacterEditor.Init(c, folderPath);
     }
 }
