@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Settings;
 
 public class CharacterEditor : EditorWindow {
 
@@ -14,6 +15,11 @@ public class CharacterEditor : EditorWindow {
     public string address;
     public string email;
     public string phoneNumber;
+
+    //Friendsbook settings
+    public Setting informationSetting;
+    public Setting friendsSetting;
+    public Setting postsSetting;
 
     /// SEARCH STRINGS ///
     public string charactersSearchString = "";
@@ -42,17 +48,30 @@ public class CharacterEditor : EditorWindow {
     //style for margins
     GUIStyle marginStyle = new GUIStyle();
 
+    [MenuItem("Window/Alert/Character/CharacterEditor")]
+    public static void Init()
+    {
+        EditorWindow.GetWindow<CharacterEditor>(typeof(CharacterListEditor));
+    }
 
     //call this to instantiate editor window
-    public static void Init(Character c, string folderPath)
+    public static void Init(Character c)
     {
         //getwindow, attempt to dock next to existing CharacterListEditor
         CharacterEditor w = EditorWindow.GetWindow<CharacterEditor>(typeof(CharacterListEditor));
         w.character = c;
+
+        //set folderPath
+        string folderPath = AssetDatabase.GetAssetPath(c); //gives relative path of asset
+        folderPath = folderPath.Substring(0, folderPath.LastIndexOf("/")); //strip to give path to asset folder
         w.folderPath = folderPath;
 
         //init editable strings
         w.SetStrings(c);
+        if (c.hasFriendsbookProfile())
+        {
+            w.SetSettings();
+        }
     }
 
     private void OnFocus()
@@ -64,7 +83,10 @@ public class CharacterEditor : EditorWindow {
     {
         if(character == null)
         {
-            Debug.LogError("No character in CharacterEditor...", this);
+            if (GUILayout.Button("Open", GUILayout.ExpandWidth(false)))
+            {
+                OpenCharacter();
+            }
         }
         else
         {
@@ -119,13 +141,31 @@ public class CharacterEditor : EditorWindow {
                     showFriendsbookSettings = EditorGUILayout.Foldout(showFriendsbookSettings, "Settings", true);
                     if (showFriendsbookSettings)
                     {
-                        GUILayout.Label("Settings here. ");
+                        marginStyle.margin.left = 10;
+                        GUILayout.BeginVertical(marginStyle);
+                        informationSetting = (Setting)EditorGUILayout.EnumPopup("Information:", informationSetting);
+                        friendsSetting = (Setting)EditorGUILayout.EnumPopup("Friends:", friendsSetting);
+                        postsSetting = (Setting)EditorGUILayout.EnumPopup("Posts:", postsSetting);
+                        GUILayout.EndVertical();
+                        GUILayout.BeginHorizontal();
+                        if (GUILayout.Button("Save", GUILayout.ExpandWidth(false)))
+                        {
+                            //save settings and set profile to dirty
+                            SaveSettings();
+                        }
+                        if (GUILayout.Button("Revert", GUILayout.ExpandWidth(false)))
+                        {
+                            //revert editor fields to those currently saved in character
+                            SetSettings();
+                        }
+                        GUILayout.EndHorizontal();
                     }
 
                     showFriendsbookFriends = EditorGUILayout.Foldout(showFriendsbookFriends, "Friends", true);
                     if (showFriendsbookFriends)
                     {
-
+                        marginStyle.margin.left = 10;
+                        GUILayout.BeginVertical(marginStyle);
                         GUILayout.Label("Add friend", EditorStyles.boldLabel);
                         //display all possible friends to add (using search??)
                         GUILayout.Label("Note: Only characters with attached Friendsbook profiles appear here.", EditorStyles.helpBox);
@@ -196,7 +236,7 @@ public class CharacterEditor : EditorWindow {
                             GUILayout.Label("No current friends.");
                         }
 
-                        
+                        GUILayout.EndVertical();
 
                     }
 
@@ -275,6 +315,14 @@ public class CharacterEditor : EditorWindow {
         GUI.FocusControl(null);
     }
 
+    private void SaveSettings()
+    {
+        character.friendsbookProfile.informationSetting = informationSetting;
+        character.friendsbookProfile.friendsSetting = friendsSetting;
+        character.friendsbookProfile.postsSetting = postsSetting;
+        EditorUtility.SetDirty(character.friendsbookProfile);
+    }
+
     //sets all strings used in editable fields to corresponding strings in character
     private void SetStrings(Character c) 
     {
@@ -284,6 +332,22 @@ public class CharacterEditor : EditorWindow {
         phoneNumber = c.phoneNumber;
     }
 
+    //sets editor setting fields to equal character fields
+    private void SetSettings()
+    {
+        if(character.friendsbookProfile != null)
+        {
+            informationSetting = character.friendsbookProfile.informationSetting;
+            friendsSetting = character.friendsbookProfile.friendsSetting;
+            postsSetting = character.friendsbookProfile.postsSetting;
+        }
+        else
+        {
+            Debug.LogError("Tried setting editor settings field on character without Friendsbook profile", this);
+        }
+
+    }
+
     //Creates new friendsbookprofile asset, and assigns this to character
     void InitFriendsbookProfile()
     {
@@ -291,6 +355,7 @@ public class CharacterEditor : EditorWindow {
         var posts = CreateFriendsbookPostList.Create(folderPath, character.fullName);
         p.posts = posts;
         character.friendsbookProfile = p;
+        SetSettings();
         EditorUtility.SetDirty(character);
         EditorUtility.SetDirty(character.friendsbookProfile);
     }
@@ -323,6 +388,28 @@ public class CharacterEditor : EditorWindow {
         //set profiles dirty to ensure changes are saved
         EditorUtility.SetDirty(character.friendsbookProfile);
         EditorUtility.SetDirty(c.friendsbookProfile);
+    }
+
+    void OpenCharacter()
+    {
+        string absPath = EditorUtility.OpenFilePanel("Select Character", "", "");
+        if (absPath.StartsWith(Application.dataPath))
+        {
+            string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+            character = AssetDatabase.LoadAssetAtPath(relPath, typeof(Character)) as Character;
+            if (character)
+            {
+                EditorPrefs.SetString("ObjectPath", relPath);
+                folderPath = relPath.Substring(0, relPath.LastIndexOf("/"));
+
+                //init editable strings
+                SetStrings(character);
+                if (character.hasFriendsbookProfile())
+                {
+                    SetSettings();
+                }
+            }
+        }
     }
 
 

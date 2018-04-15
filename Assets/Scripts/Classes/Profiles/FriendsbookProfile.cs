@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Settings;
 
 public class FriendsbookProfile : ScriptableObject {
 
@@ -10,12 +11,16 @@ public class FriendsbookProfile : ScriptableObject {
     public List<Character> friends;
     public FriendsbookPostList posts;
 
-    //should also include Facebook specific info, posts, etc...
+    //settings
+    public Setting informationSetting;
+    public Setting friendsSetting;
+    public Setting postsSetting;
 
     public void Init(Character c)
     {
         character = c;
         friends = new List<Character>();
+        UseStandardSettings(); //init with standard settings, defined in Settings namespace. Can be overwritten
     }
 
     public void AddFriend(Character c)
@@ -64,6 +69,13 @@ public class FriendsbookProfile : ScriptableObject {
             return false;
         }
         
+    }
+
+    public void UseStandardSettings()
+    {
+        informationSetting = StandardFriendsbookSettings.informationSetting;
+        friendsSetting = StandardFriendsbookSettings.friendsSetting;
+        postsSetting = StandardFriendsbookSettings.postsSetting;
     }
 
 }

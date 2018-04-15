@@ -12,7 +12,7 @@ public class CreateFriendsbookPostList
         FriendsbookPostList asset = ScriptableObject.CreateInstance<FriendsbookPostList>();
         asset.Init();
         fullName = fullName.Replace(" ", ""); //strip whitespace
-        AssetDatabase.CreateAsset(asset, string.Format("{0}/{1}/{1}FriendsbookPosts.asset", path, fullName));
+        AssetDatabase.CreateAsset(asset, string.Format("{0}/{1}FriendsbookPosts.asset", path, fullName));
         AssetDatabase.SaveAssets();
         return asset;
     }

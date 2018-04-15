@@ -24,6 +24,9 @@ public class Character : ScriptableObject {
         this.fullName = fullName;
     }
 
-
+    public bool hasFriendsbookProfile()
+    {
+        return (friendsbookProfile != null);
+    }
 
 }

@@ -49,10 +49,18 @@ public class CharacterListEditor : EditorWindow {
     public Vector2 scrollPosition;
 
     [MenuItem("Window/Alert/Character/CharacterListEditor")]
-    static void Init()
+    public static void Init()
     {
-        EditorWindow.GetWindow(typeof(CharacterListEditor));
+        EditorWindow.GetWindow<CharacterListEditor>();
         //EditorWindow.GetWindow<CharacterListEditor>(Type_to_tab_next_to);
+    }
+
+    public static void Init(CharacterList l)
+    {
+        var w = EditorWindow.GetWindow<CharacterListEditor>();
+        w.characterList = l;
+        string folderPath = AssetDatabase.GetAssetPath(l);
+        w.folderPath = folderPath.Substring(0, folderPath.LastIndexOf("/"));
     }
 
     private void OnFocus()
@@ -180,6 +188,6 @@ public class CharacterListEditor : EditorWindow {
 
     void EditCharacter(Character c)
     {
-        CharacterEditor.Init(c, folderPath);
+        CharacterEditor.Init(c);
     }
 }
