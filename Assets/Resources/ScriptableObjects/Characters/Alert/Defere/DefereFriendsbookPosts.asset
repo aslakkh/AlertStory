@@ -8,8 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
-  m_Name: TestPersonFriendsbook
+  m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
+  m_Name: DefereFriendsbookPosts
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 3d4e155d9a7dfaf43bdd336022d0b260, type: 2}
-  friends: []
+  list: []

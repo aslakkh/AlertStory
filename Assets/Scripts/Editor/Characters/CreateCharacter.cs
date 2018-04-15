@@ -18,8 +18,4 @@ public class CreateCharacter
         return asset;
     }
 
-    public static void Delete()
-    {
-
-    }
 }

@@ -9,7 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
-  m_Name: OlaNordmannFriendsbook
+  m_Name: grtrtrtFriendsbook
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 0424f1a46efa05c439ec447a38639f7c, type: 2}
-  friends: []
+  character: {fileID: 11400000, guid: c12c973020f9f6a469d9688db90933aa, type: 2}
+  friends:
+  - {fileID: 11400000, guid: 5676f89b67bb1654e81add6782e374f1, type: 2}
+  posts: {fileID: 11400000, guid: 4bb596b9b2440ea49942a491401fb2a0, type: 2}

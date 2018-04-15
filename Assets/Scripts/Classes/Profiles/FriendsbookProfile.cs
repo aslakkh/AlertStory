@@ -1,13 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 public class FriendsbookProfile : ScriptableObject {
 
     public Character character; //the character this profile belongs to
     [SerializeField]
     public List<Character> friends;
+    public FriendsbookPostList posts;
 
     //should also include Facebook specific info, posts, etc...
 
@@ -49,6 +50,20 @@ public class FriendsbookProfile : ScriptableObject {
     public bool HasFriends()
     {
         return friends.Count > 0;
+    }
+
+    public bool HasPosts()
+    {
+        if(posts.list != null)
+        {
+            return posts.list.Count > 0;
+        }
+        else
+        {
+            Debug.LogError("No post list initiated", this);
+            return false;
+        }
+        
     }
 
 }

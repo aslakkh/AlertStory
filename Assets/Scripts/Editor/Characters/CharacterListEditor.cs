@@ -55,6 +55,11 @@ public class CharacterListEditor : EditorWindow {
         //EditorWindow.GetWindow<CharacterListEditor>(Type_to_tab_next_to);
     }
 
+    private void OnFocus()
+    {
+        GUI.FocusControl(null);
+    }
+
     private void OnGUI()
     {
         if(characterList == null) //GUI for creating new or opening existing CharacterList

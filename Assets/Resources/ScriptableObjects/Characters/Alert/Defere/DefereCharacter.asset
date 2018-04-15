@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d176141e01b7d44816164c78aa2b94, type: 3}
-  m_Name: TestPersonCharacter
+  m_Name: DefereCharacter
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: d731e8a330191a3468d6c15883b6be63, type: 2}
-  fullName: Test Person
+  fullName: De fere
   address: 
   email: 
   phoneNumber: 
-  friendsbookProfile: {fileID: 11400000, guid: 454726424929b9946a16af813989670a, type: 2}
+  friendsbookProfile: {fileID: 11400000, guid: fc513adad133b3844b264d8d36edd833, type: 2}

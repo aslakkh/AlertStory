@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -29,6 +30,8 @@ public class CharacterEditor : EditorWindow {
     bool showFriendsbookFriends;
     bool showFriendsbookInfo;
     bool showFriendsbookPosts;
+    bool showAddNewFriendsbookPost;
+    bool showAllFriendsbookPosts;
     Vector2 addFriendsbookFriendsScrollPosition;
     Vector2 friendsbookCurrentFriendsScrollPosition;
 
@@ -52,6 +55,11 @@ public class CharacterEditor : EditorWindow {
         w.SetStrings(c);
     }
 
+    private void OnFocus()
+    {
+        GUI.FocusControl(null);
+    }
+
     private void OnGUI()
     {
         if(character == null)
@@ -68,7 +76,7 @@ public class CharacterEditor : EditorWindow {
 
 
             GUILayout.Label("Personal Information", EditorStyles.boldLabel);
-            fullName = EditorGUILayout.TextField("Full name: ", fullName);
+            //fullName = EditorGUILayout.TextField("Full name: ", fullName);
             address = EditorGUILayout.TextField("Address: ", address);
             email = EditorGUILayout.TextField("Email: ", email);
             phoneNumber = EditorGUILayout.TextField("Phone number: ", phoneNumber);
@@ -117,6 +125,7 @@ public class CharacterEditor : EditorWindow {
                     showFriendsbookFriends = EditorGUILayout.Foldout(showFriendsbookFriends, "Friends", true);
                     if (showFriendsbookFriends)
                     {
+
                         GUILayout.Label("Add friend", EditorStyles.boldLabel);
                         //display all possible friends to add (using search??)
                         GUILayout.Label("Note: Only characters with attached Friendsbook profiles appear here.", EditorStyles.helpBox);
@@ -136,7 +145,7 @@ public class CharacterEditor : EditorWindow {
                             Character c = filteredCharacters[i];
                             if (c != character)
                             {
-                                listItemStyle.normal.background = MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
+                                listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
                                 GUILayout.BeginHorizontal(listItemStyle);
                                 GUILayout.Label(c.fullName);
                                 if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
@@ -147,6 +156,7 @@ public class CharacterEditor : EditorWindow {
                                 GUILayout.EndHorizontal();
                             }
                         }
+
                         GUILayout.EndScrollView();
 
                         GUILayout.Label("Current friends", EditorStyles.boldLabel);
@@ -168,7 +178,7 @@ public class CharacterEditor : EditorWindow {
                             for (int i = 0; i < filteredFriends.Count; i++)
                             {
                                 Character c = filteredFriends[i];
-                                listItemStyle.normal.background = MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
+                                listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
                                 GUILayout.BeginHorizontal(listItemStyle);
                                 GUILayout.Label(c.fullName);
                                 if (GUILayout.Button("Remove", GUILayout.ExpandWidth(false)))
@@ -186,7 +196,7 @@ public class CharacterEditor : EditorWindow {
                             GUILayout.Label("No current friends.");
                         }
 
-
+                        
 
                     }
 
@@ -199,7 +209,45 @@ public class CharacterEditor : EditorWindow {
                     showFriendsbookPosts = EditorGUILayout.Foldout(showFriendsbookPosts, "Posts", true);
                     if (showFriendsbookPosts)
                     {
-                        GUILayout.Label("Posts here. ");
+                        marginStyle.margin.left = 10;
+                        GUILayout.BeginVertical(marginStyle);
+
+                        if (GUILayout.Button("Create new", GUILayout.ExpandWidth(true)))
+                        {
+                            //create and assign new post, open post editor window
+                            FriendsbookPostEditor.Init(character);
+                        }
+
+                        //Show all posts
+                        GUILayout.Label("Posts", EditorStyles.boldLabel);
+                        if (character.friendsbookProfile.HasPosts())
+                        {
+                            //DISPLAY POSTS (editable + deleteable)
+                            for (int i = 0; i < character.friendsbookProfile.posts.Count; i++)
+                            {
+                                var post = character.friendsbookProfile.posts[i];
+                                listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
+                                GUILayout.BeginHorizontal(listItemStyle);
+                                GUILayout.Label(string.Format("From: {0}, {1}.{2}.{3}", post.from.character.fullName, post.date.Day, post.date.Month, post.date.Year));
+                                if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false)))
+                                {
+                                    FriendsbookPostEditor.Init(post);
+                                }
+                                if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false)))
+                                {
+                                    //DELETE POST
+                                    character.friendsbookProfile.posts.RemoveAt(i);
+                                    EditorUtility.SetDirty(character.friendsbookProfile);
+                                }
+                                GUILayout.EndHorizontal();
+                            }
+                        }
+                        else
+                        {
+                            GUILayout.Label("No posts");
+                        }
+                        GUILayout.EndVertical();
+                        
                     }
                 }
                 GUILayout.EndVertical();
@@ -213,7 +261,7 @@ public class CharacterEditor : EditorWindow {
 
     private void SaveCharacterInformation()
     {
-        character.fullName = fullName;
+        //character.fullName = fullName;
         character.address = address;
         character.phoneNumber = phoneNumber;
         character.email = email;
@@ -240,8 +288,11 @@ public class CharacterEditor : EditorWindow {
     void InitFriendsbookProfile()
     {
         var p = CreateFriendsbookProfile.Create(character, folderPath, character.fullName);
+        var posts = CreateFriendsbookPostList.Create(folderPath, character.fullName);
+        p.posts = posts;
         character.friendsbookProfile = p;
         EditorUtility.SetDirty(character);
+        EditorUtility.SetDirty(character.friendsbookProfile);
     }
 
     void AddFriendship(Character c)
@@ -274,18 +325,5 @@ public class CharacterEditor : EditorWindow {
         EditorUtility.SetDirty(c.friendsbookProfile);
     }
 
-    private Texture2D MakeTex(int width, int height, Color col)
-    {
-        Color[] pix = new Color[width * height];
-
-        for (int i = 0; i < pix.Length; i++)
-            pix[i] = col;
-
-        Texture2D result = new Texture2D(width, height);
-        result.SetPixels(pix);
-        result.Apply();
-
-        return result;
-    }
 
 }

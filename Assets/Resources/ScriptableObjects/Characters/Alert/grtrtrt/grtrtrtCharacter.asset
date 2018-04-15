@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d176141e01b7d44816164c78aa2b94, type: 3}
-  m_Name: OlaNordmannCharacter
+  m_Name: grtrtrtCharacter
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: d731e8a330191a3468d6c15883b6be63, type: 2}
-  fullName: Ola Nordmann
+  fullName: gr trtrt
   address: 
   email: 
   phoneNumber: 
-  friendsbookProfile: {fileID: 11400000, guid: 391a1726534acd04783e0dac0e97bce5, type: 2}
+  friendsbookProfile: {fileID: 11400000, guid: 6f5a849546774aa4996ff9118d9a7ee6, type: 2}
