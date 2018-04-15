@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: AlertCharacterList
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 11400000, guid: 5676f89b67bb1654e81add6782e374f1, type: 2}
-  - {fileID: 11400000, guid: c12c973020f9f6a469d9688db90933aa, type: 2}
+  - {fileID: 11400000, guid: c7d4a84b579b8034aa22c34d4927830f, type: 2}
+  - {fileID: 11400000, guid: c3ea319c6a4664746aad33fd72481595, type: 2}
+  - {fileID: 11400000, guid: cdf5c01e1871f154eb7baef409612cea, type: 2}
