@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Settings;
 
 public class DropDownItemController : MonoBehaviour {
 
@@ -124,6 +125,10 @@ public class DropDownItemController : MonoBehaviour {
     // Validates that the dropboxes have a valid option selected.Useful to check before changing scenes. 
     public void validateDropDownChoices()
     {
+        GameObject gm = GameObject.Find("Gmanager");
+        GameManager gamemanager = gm.GetComponent<GameManager>();
+        Debug.Log(gm.name);
+        Debug.Log(gamemanager);
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
         {
             if (d.value < 1 || d.value > 3)
@@ -140,6 +145,7 @@ public class DropDownItemController : MonoBehaviour {
         if (validated == true) {
             saveRequirements();
             // TODO: change scene!
+            // ...
         }
     }
 
@@ -147,17 +153,29 @@ public class DropDownItemController : MonoBehaviour {
     {
         GameObject gm = GameObject.Find("Gmanager");
         GameManager gamemanager = gm.GetComponent<GameManager>();
-        RequirementList rl = gamemanager.requirements;
+        RequirementDict rl = new RequirementDict();
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()){
             foreach (Text text in d.GetComponentsInChildren<Text>())
             {
                 if (text.name.Contains("NameText")){
-                    Requirement temp = new Requirement("temp");
-                    rl.requirementDictionary.Add(temp, d.value);
+                    Requirement temp = new Requirement(text.text);
+                    if (d.value == 1)
+                    {
+                        rl.Add(temp, Setting.Public);
+                    }
+                    if (d.value == 2) {
+                        rl.Add(temp, Setting.Friends);
+                    } 
+                    if (d.value == 3)
+                    {
+                        rl.Add(temp, Setting.Private);
+                    }
+
                 }
             }
         }
-        gamemanager.requirements.requirementDictionary = rl.requirementDictionary;
-        //Debug.Log(gamemanager.requirements.requirementDictionary);
+        // Saves the requirements to the gamemanager
+        gamemanager.requirements = rl;
+        // TODO: Save the requirements to a file
     }
 }
