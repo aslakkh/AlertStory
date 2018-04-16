@@ -125,10 +125,6 @@ public class DropDownItemController : MonoBehaviour {
     // Validates that the dropboxes have a valid option selected.Useful to check before changing scenes. 
     public void validateDropDownChoices()
     {
-        GameObject gm = GameObject.Find("Gmanager");
-        GameManager gamemanager = gm.GetComponent<GameManager>();
-        Debug.Log(gm.name);
-        Debug.Log(gamemanager);
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
         {
             if (d.value < 1 || d.value > 3)
