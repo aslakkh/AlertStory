@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-[Serializable]
-public class StoryEvent {
-    
-    public string title { get; set; }
-    public string text { get; set; }
-    [NonSerialized] 
-    public List<Choice> choices;
-    public RequirementDict requirements { get; set; }
-    public Dependencies dependencies { get; set; }
 
-    public List<Choice> Choices {
-        get { return choices; }
-        set { choices = value; }
-    }
+public class StoryEvent : ScriptableObject {
+
+    public string title;
+    public string text;
+    public RequirementDict requirements;
+    public Dependencies dependencies;
+    [NonSerialized] public List<Choice> choices;
 
     public StoryEvent() {
         this.title = "";
         this.text = "";
-        this.choices = null;
+        this.choices = new List<Choice>();
         this.requirements = new RequirementDict();
         this.dependencies = new Dependencies();
     }

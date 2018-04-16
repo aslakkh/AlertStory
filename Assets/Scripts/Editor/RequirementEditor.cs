@@ -117,6 +117,7 @@ public class RequirementEditor : EditorWindow
         if (GUI.changed)
         {
             EditorUtility.SetDirty(requirementList);
+            AssetDatabase.SaveAssets();
         }
     }
 

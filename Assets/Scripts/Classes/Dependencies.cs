@@ -3,7 +3,7 @@
 [System.Serializable]
 public class Dependencies {
     //Made public so they can later be interacted with in unity editor script.
-    public Dictionary<StoryEvent, bool> dependenciesDict;
+    public Dictionary<StoryEvent, bool> dependenciesDict = new Dictionary<StoryEvent, bool>();
 
     //Loops each element in remote dict, if local dict also has the same key and their values doesn't match return false
     public bool FitsRequirements(List<StoryEvent> eventList) {

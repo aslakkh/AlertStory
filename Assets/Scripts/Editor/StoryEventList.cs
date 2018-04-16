@@ -2,10 +2,5 @@
 using System.Collections.Generic;
 
 public class StoryEventList : ScriptableObject {
-       public List<StoryEvent> list;
-
-    public void Init()
-    {
-        list = new List<StoryEvent>();
-    }
+       public List<StoryEvent> list = new List<StoryEvent>();
 }
