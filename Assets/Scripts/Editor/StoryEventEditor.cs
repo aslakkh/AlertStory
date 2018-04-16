@@ -14,24 +14,35 @@ public class StoryEventEditor : EditorWindow
     private int _choiceIndex = 0;
     private int _reqIndex = 0;
     private int _depIndex = 0;
-    private List<string> choiceListString;
-    private List<string> requiremetListString;
-    private List<string> storyEventListString;
-    private string choicePath = "Assets/Resources/ScriptableObjects/Events/EventList.asset";
-    private string requiremetPath = "Assets/Resources/ScriptableObjects/Events/RequirementList.asset";
+    private List<string> choiceListString = new List<string>();
+    private List<string> requiremetListString = new List<string>();
+    private List<string> storyEventListString = new List<string>();
+    private string choicePath;
+    private string requiremetPath;
     private string storyEventPath;
-    
 
     [MenuItem("Window/Event/StoryEditor")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(StoryEventEditor));
     }
+
+
     //Update on change.
     private void OnFocus() {
-        SetChoiceList(choicePath);
-        SetRequirementsList(requiremetPath);
-        SetDepenedencyList(storyEventPath);
+        if (!string.IsNullOrEmpty(choicePath))
+        {
+            SetChoiceList(choicePath);
+        }
+        if (!string.IsNullOrEmpty(requiremetPath)){
+            SetRequirementsList(requiremetPath);
+        }
+
+        if (!string.IsNullOrEmpty(storyEventPath))
+        {
+            SetDepenedencyList(storyEventPath);
+        }
+        
     }
 
     void OnEnable() {
@@ -307,8 +318,13 @@ public class StoryEventEditor : EditorWindow
     //Helper function to set requiremenlist after update.
     void SetRequirementsList(string path) {
         requirementList = AssetDatabase.LoadAssetAtPath(path, typeof(RequirementsList)) as RequirementsList;
-        requiremetListString.Clear();
+        if(requiremetListString != null)
+        {
+            requiremetListString.Clear();
+        }
+        
         if (requirementList == null) return;
+        Debug.Log(requirementList.list);
         foreach (Requirement item in requirementList.list) {
             requiremetListString.Add(item.requirementName);
         }
@@ -327,6 +343,7 @@ public class StoryEventEditor : EditorWindow
     
     void AddItem() {
         StoryEvent newItem = new StoryEvent {title = "New story event"};
+        Debug.Log(storyEventList.list);
         storyEventList.list.Add(newItem);
         viewIndex = storyEventList.list.Count;
     }

@@ -5,7 +5,7 @@ public class CreateStoryEvent : MonoBehaviour {
     [MenuItem("Assets/Create/Event/StoryEventList")]
     public static StoryEventList Create() {
         StoryEventList asset = ScriptableObject.CreateInstance<StoryEventList>();
-
+        asset.Init();
         AssetDatabase.CreateAsset(asset, "Assets/Resources/ScriptableObjects/Event/NewStoryEventList.asset");
         AssetDatabase.SaveAssets();
         return asset;
