@@ -11,4 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15dacfcb1544c4b419b9906d03b6289e, type: 3}
   m_Name: AlertCharacterList
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - {fileID: 11400000, guid: 015cfee1f60acf942a3c59117994bca0, type: 2}
+  - {fileID: 11400000, guid: 47cb64bfb1cd9774587f253392226803, type: 2}
+  - {fileID: 11400000, guid: cdba3b676c48e6e42a3a49aeda4eb48e, type: 2}
