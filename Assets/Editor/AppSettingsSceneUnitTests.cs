@@ -129,7 +129,10 @@ public class AppSettingsSceneUnitTests {
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]
 	public IEnumerator AppSettingsSceneUnitTestsWithEnumeratorPasses() {
-		// Use the Assert class to test conditions.
+        yield return null;
+        // Use the Assert class to test conditions.
+        GameManager gm = GameObject.Find("Gmanager").GetComponent<GameManager>();
+        Assert.That(gm.score.Equals(0), "gm score is not zero");
 		// yield to skip a frame
 		yield return null;
 	}

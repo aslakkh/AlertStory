@@ -575,7 +575,7 @@ Prefab:
     - target: {fileID: 224101856789589328, guid: 6328a65b809783b4892e95571ea8f9bc,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: -0.000000014901161
+      value: -0.000000029802322
       objectReference: {fileID: 0}
     - target: {fileID: 224101856789589328, guid: 6328a65b809783b4892e95571ea8f9bc,
         type: 2}

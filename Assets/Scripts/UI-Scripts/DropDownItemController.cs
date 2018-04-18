@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Settings;
+using UnityEngine.SceneManagement;
 
 public class DropDownItemController : MonoBehaviour {
 
@@ -141,7 +142,7 @@ public class DropDownItemController : MonoBehaviour {
         if (validated == true) {
             saveRequirements();
             // TODO: change scene!
-            // ...
+            SceneManager.LoadScene("TEMP_EventsScene");
         }
     }
 
