@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: tilfeldigpersonFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: b9429dd089285c049b10dcf228aa9872, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 015cfee1f60acf942a3c59117994bca0, type: 2}
   posts: {fileID: 11400000, guid: 7ab64aeca85901346a79d29592363887, type: 2}
   informationSetting: 1
   friendsSetting: 2

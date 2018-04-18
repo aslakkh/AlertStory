@@ -11,4 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: OlaNordmannFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Tesetstete
+    to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+    from: {fileID: 11400000, guid: a4a82958445432b4ca55f29068795c63, type: 2}
+  - content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis
+      sem sem, at lacinia diam gravida non. Vivamus a viverra lacus, eget ultricies
+      nibh. Integer ut justo mauris. Ut eu congue est. Donec blandit efficitur aliquam.
+      Etiam in ante id magna tempor molestie. Suspendisse vel vulputate ex. Nullam
+      dignissim odio non porta tempor.\r"
+    to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+    from: {fileID: 11400000, guid: 531e534663c59fb49bdefba3acc122d6, type: 2}

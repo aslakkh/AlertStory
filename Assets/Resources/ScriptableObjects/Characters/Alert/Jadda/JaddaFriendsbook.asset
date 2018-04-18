@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: JaddaFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 99f1398b4fd74e640839adf21c5b5c57, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 015cfee1f60acf942a3c59117994bca0, type: 2}
   posts: {fileID: 11400000, guid: de3b1e3277292c6439ec0e0a18309bc2, type: 2}
   informationSetting: 1
   friendsSetting: 2

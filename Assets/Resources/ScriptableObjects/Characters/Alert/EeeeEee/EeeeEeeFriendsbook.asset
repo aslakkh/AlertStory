@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: EeeeEeeFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: a229661e6de135b4aae866ea9e76d2d6, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 015cfee1f60acf942a3c59117994bca0, type: 2}
   posts: {fileID: 11400000, guid: 44ed6f49503a5ea43af031262de58bcc, type: 2}
   informationSetting: 1
   friendsSetting: 2

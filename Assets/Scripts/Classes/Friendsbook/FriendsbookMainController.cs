@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class FriendsbookMainController : MonoBehaviour {
 
+    public GameObject personViewPrefab;
+
+    private GameObject personView;
+
     //Friendsbook friends view:
     //- display list of 20-25 friends, with a next/prev button?
     //- include search through friends?
@@ -15,6 +19,14 @@ public class FriendsbookMainController : MonoBehaviour {
 	
 	public void EnterFriendsbookProfile(Character c)
     {
-        Debug.Log(c.fullName);
+        if(personView != null)
+        {
+            GameObject.Destroy(personView);
+        }
+        //Debug.Log(c.fullName);
+        GameObject p = Instantiate(personViewPrefab);
+        personView = p;
+        p.transform.SetParent(transform, false);
+        p.GetComponent<FriendsbookPersonController>().SetCharacter(c);
     }
 }
