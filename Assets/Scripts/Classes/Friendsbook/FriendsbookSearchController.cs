@@ -29,7 +29,16 @@ public class FriendsbookSearchController : MonoBehaviour {
             friendsbookProfiles = characterList.list.FindAll(c => c.fullName.ToLower().Contains(term.ToLower()));
             view.DisplaySearchResult(friendsbookProfiles);
         }
+        else
+        {
+            view.DisplaySearchResult(null);
+        }
         
+    }
+
+    public void OnSearchResultClick(Character c)
+    {
+        //debug.log character clicked
     }
 	
 }
