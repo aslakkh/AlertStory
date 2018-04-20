@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -110,7 +111,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void AddToScore(int value)
-    {
+    { 
         score += value;
     }
 
