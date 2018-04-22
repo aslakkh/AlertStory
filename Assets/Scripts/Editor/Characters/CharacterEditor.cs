@@ -20,6 +20,7 @@ public class CharacterEditor : EditorWindow {
     public Setting informationSetting;
     public Setting friendsSetting;
     public Setting postsSetting;
+    public Sprite profilePicture;
 
     /// SEARCH STRINGS ///
     public string charactersSearchString = "";
@@ -71,6 +72,7 @@ public class CharacterEditor : EditorWindow {
         if (c.hasFriendsbookProfile())
         {
             w.SetSettings();
+            w.SetProfilePicture();
         }
     }
 
@@ -136,6 +138,13 @@ public class CharacterEditor : EditorWindow {
                 else
                 {
                     //editor for friendsbook profile.
+                    //set picture
+                    GUILayout.Label("Add profile picture here. Leave empty to use default picture.", EditorStyles.helpBox);
+                    profilePicture = (Sprite)EditorGUILayout.ObjectField("Image Sprite", profilePicture, typeof(Sprite), false);
+                    if(GUILayout.Button("Save Image", GUILayout.ExpandWidth(false)))
+                    {
+                        SaveFriendsbookPicture();
+                    }
                     //Contains foldout for settings, friends, info and posts
 
                     showFriendsbookSettings = EditorGUILayout.Foldout(showFriendsbookSettings, "Settings", true);
@@ -323,6 +332,12 @@ public class CharacterEditor : EditorWindow {
         EditorUtility.SetDirty(character.friendsbookProfile);
     }
 
+    private void SaveFriendsbookPicture()
+    {
+        character.friendsbookProfile.SetProfilePicture(profilePicture);
+        EditorUtility.SetDirty(character.friendsbookProfile);
+    }
+
     //sets all strings used in editable fields to corresponding strings in character
     private void SetStrings(Character c) 
     {
@@ -348,6 +363,11 @@ public class CharacterEditor : EditorWindow {
 
     }
 
+    private void SetProfilePicture()
+    {
+        profilePicture = character.friendsbookProfile.profilePicture;
+    }
+
     //Creates new friendsbookprofile asset, and assigns this to character
     void InitFriendsbookProfile()
     {
@@ -356,6 +376,7 @@ public class CharacterEditor : EditorWindow {
         p.posts = posts;
         character.friendsbookProfile = p;
         SetSettings();
+        SetProfilePicture();
         EditorUtility.SetDirty(character);
         EditorUtility.SetDirty(character.friendsbookProfile);
     }

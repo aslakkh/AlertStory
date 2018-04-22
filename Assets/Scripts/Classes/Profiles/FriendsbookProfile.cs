@@ -10,6 +10,7 @@ public class FriendsbookProfile : ScriptableObject {
     [SerializeField]
     public List<Character> friends;
     public FriendsbookPostList posts;
+    public Sprite profilePicture;
 
     //settings
     public Setting informationSetting;
@@ -20,6 +21,7 @@ public class FriendsbookProfile : ScriptableObject {
     {
         character = c;
         friends = new List<Character>();
+        //profilePicture = (Sprite)Resources.Load("Art/FriendsbookProfilePictures/profilepicture.png");
         UseStandardSettings(); //init with standard settings, defined in Settings namespace. Can be overwritten
     }
 
@@ -72,11 +74,21 @@ public class FriendsbookProfile : ScriptableObject {
         
     }
 
+    public bool HasProfilePicture()
+    {
+        return (profilePicture != null);
+    }
+
     public void UseStandardSettings()
     {
         informationSetting = StandardFriendsbookSettings.informationSetting;
         friendsSetting = StandardFriendsbookSettings.friendsSetting;
         postsSetting = StandardFriendsbookSettings.postsSetting;
+    }
+
+    public void SetProfilePicture(Sprite s)
+    {
+        profilePicture = s;
     }
 
 }

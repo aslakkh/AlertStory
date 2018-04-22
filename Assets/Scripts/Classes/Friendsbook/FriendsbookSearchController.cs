@@ -15,18 +15,20 @@ public class FriendsbookSearchController : MonoBehaviour {
     public Text text;
 
     private List<Character> friendsbookProfiles; //internal reference to all characters with friendsbookProfiles
+    private List<Character> searchResult;
 
 	// Use this for initialization
 	void Start () {
         friendsbookProfiles = characterList.list.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
+        searchResult = new List<Character>();
 	}
 
     public void Search(string term)
     {
         if (!string.IsNullOrEmpty(term))
         {
-            friendsbookProfiles = characterList.list.FindAll(c => c.fullName.ToLower().Contains(term.ToLower()));
-            view.DisplaySearchResult(friendsbookProfiles);
+            searchResult = friendsbookProfiles.FindAll(c => c.fullName.ToLower().Contains(term.ToLower()));
+            view.DisplaySearchResult(searchResult);
         }
         else
         {

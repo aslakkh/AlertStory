@@ -41,6 +41,10 @@ public class FriendsbookSearchView : MonoBehaviour {
                 GameObject element = Instantiate(searchResultElement);
                 element.transform.SetParent(scrollRect.content, false); //recommended way of setting parent of UI element
                 element.GetComponentInChildren<Text>().text = name;
+                if (c.friendsbookProfile.HasProfilePicture())
+                {
+                    element.transform.GetChild(0).GetComponent<Image>().sprite = c.friendsbookProfile.profilePicture;
+                }
                 element.GetComponent<Image>().color = (counter % 2 == 0) ? color1 : color2; //color alternates
                 Button b = element.AddComponent<Button>();
                 b.onClick.AddListener(delegate () { OnSearchElementClick(c); });

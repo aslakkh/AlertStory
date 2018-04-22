@@ -7,6 +7,7 @@ using Settings;
 public class FriendsbookPersonController : MonoBehaviour {
 
     public Text personName;
+    public Image profilePicture;
     public GameObject aboutViewPrefab;
     public GameObject friendsViewPrefab;
     public GameObject hiddenViewPrefab;
@@ -34,6 +35,12 @@ public class FriendsbookPersonController : MonoBehaviour {
         if(character != null)
         {
             personName.text = character.fullName;
+            if (character.friendsbookProfile.HasProfilePicture())
+            {
+                profilePicture.sprite = character.friendsbookProfile.profilePicture;
+            }
+
+            
         }
         else
         {

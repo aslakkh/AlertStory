@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   personName: {fileID: 114162286245758446}
+  profilePicture: {fileID: 114610360541264006}
   aboutViewPrefab: {fileID: 1377828195691746, guid: 5e13e0ad7307bfa479c39929f384829d,
     type: 2}
   friendsViewPrefab: {fileID: 1015603342978786, guid: dec0059af2ecba64c84bee5713838819,
@@ -870,7 +871,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a62fedf19c55e344eaa0bba4be5caba2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
