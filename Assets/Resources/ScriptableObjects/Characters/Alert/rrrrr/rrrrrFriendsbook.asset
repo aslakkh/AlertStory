@@ -14,6 +14,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 9718c988a8ca794478fa7dd274855f5d, type: 2}
   friends:
   - {fileID: 11400000, guid: 015cfee1f60acf942a3c59117994bca0, type: 2}
+  - {fileID: 11400000, guid: 47cb64bfb1cd9774587f253392226803, type: 2}
   posts: {fileID: 11400000, guid: 9edf8d9e54bdfd0459d02cb3451081b1, type: 2}
   informationSetting: 1
   friendsSetting: 2

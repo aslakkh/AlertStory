@@ -27,7 +27,15 @@ public class FriendsbookPostsController : MonoBehaviour {
             GameObject post = Instantiate(postPrefab);
             post.transform.SetParent(transform, false);
             var postView = post.GetComponent<PostView>();
-            postView.SetTitle(string.Format("{0} -> {1}", p.from.character.fullName, p.to.character.fullName));
+            if(p.from == p.to)
+            {
+                postView.SetTitle(p.to.character.fullName);
+            }
+            else
+            {
+                postView.SetTitle(string.Format("{0} -> {1}", p.from.character.fullName, p.to.character.fullName));
+            }
+            
             postView.SetContent(p.content);
             postView.SetDate(p.date.ToString());
         }

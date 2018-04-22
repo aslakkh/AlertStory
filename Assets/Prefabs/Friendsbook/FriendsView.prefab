@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friendsPerPage: 10
-  listElementPrefab: {fileID: 114375275987346410, guid: b983c5ddcca56624194a49608be24a96,
+  listElementPrefab: {fileID: 1855484792027544, guid: 1fb8085f336fdfd42bdb7dd047dcdb6b,
     type: 2}
   previousButton: {fileID: 114648971164019036}
   nextButton: {fileID: 114806733285661594}

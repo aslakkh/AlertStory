@@ -30,6 +30,7 @@ public class FriendsbookProfile : ScriptableObject {
             if (!friends.Contains(c))
             {
                 friends.Add(c);
+                friends.Sort((x, y) => x.CompareTo(y)); //sort alphabetical order
             }
             else
             {

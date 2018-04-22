@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Character : ScriptableObject {
+public class Character : ScriptableObject, IComparable<Character> {
 
     //reference to characterList this character belongs to
     public CharacterList characterList;
@@ -29,4 +30,8 @@ public class Character : ScriptableObject {
         return (friendsbookProfile != null);
     }
 
+    public int CompareTo(Character that)
+    {
+        return fullName.CompareTo(that.fullName); 
+    }
 }

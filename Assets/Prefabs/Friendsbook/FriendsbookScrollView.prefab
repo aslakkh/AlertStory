@@ -535,6 +535,8 @@ MonoBehaviour:
     type: 2}
   friendsViewPrefab: {fileID: 1015603342978786, guid: dec0059af2ecba64c84bee5713838819,
     type: 2}
+  hiddenViewPrefab: {fileID: 1166157541284680, guid: 5bbd8905e2d9e1446a1e67b3570f14c6,
+    type: 2}
   postsViewPrefab: {fileID: 1726797469882628, guid: ac75508cc91a12244bcc8ab5c4ce39e0,
     type: 2}
   scrollRect: {fileID: 114605583741500564}

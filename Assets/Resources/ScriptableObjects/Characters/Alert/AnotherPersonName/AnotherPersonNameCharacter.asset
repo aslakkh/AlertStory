@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d176141e01b7d44816164c78aa2b94, type: 3}
-  m_Name: OlaNordmannCharacter
+  m_Name: AnotherPersonNameCharacter
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: d731e8a330191a3468d6c15883b6be63, type: 2}
-  fullName: Ola Nordmann
-  address: En gate en plass
-  email: enepost@post.pest
-  phoneNumber: 11233312323123123123123
-  friendsbookProfile: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+  fullName: Another PersonName
+  address: 
+  email: 
+  phoneNumber: 
+  friendsbookProfile: {fileID: 11400000, guid: 73bbbfafcba2cd54d80616372aa06aeb, type: 2}

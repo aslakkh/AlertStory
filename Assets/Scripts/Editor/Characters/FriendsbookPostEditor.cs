@@ -91,6 +91,7 @@ public class FriendsbookPostEditor : EditorWindow {
         }
         GUILayout.EndHorizontal();
         GUILayout.Space(10);
+        GUILayout.Label("Who is the post from? Select the current character if the post has no sender (status updates)", EditorStyles.helpBox);
         //searchable list of characters to set as from
         GUILayout.BeginHorizontal(EditorStyles.toolbar);
         GUILayout.Label("Search: ");
@@ -103,17 +104,14 @@ public class FriendsbookPostEditor : EditorWindow {
         for (int i = 0; i < filteredCharacters.Count; i++)
         {
             Character c = filteredCharacters[i];
-            if (c != character)
+            listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
+            GUILayout.BeginHorizontal(listItemStyle);
+            GUILayout.Label(c.fullName);
+            if (GUILayout.Button("Select", GUILayout.ExpandWidth(false)))
             {
-                listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
-                GUILayout.BeginHorizontal(listItemStyle);
-                GUILayout.Label(c.fullName);
-                if (GUILayout.Button("Select", GUILayout.ExpandWidth(false)))
-                {
-                    postFrom = c.friendsbookProfile;
-                }
-                GUILayout.EndHorizontal();
+                postFrom = c.friendsbookProfile;
             }
+            GUILayout.EndHorizontal();
         }
 
         GUILayout.EndScrollView();
@@ -146,11 +144,11 @@ public class FriendsbookPostEditor : EditorWindow {
     public void SetEditableValues()
     {
         postContent = post.content;
-        postDay = post.date.Day;
-        postMonth = post.date.Month;
-        postYear = post.date.Year;
-        postHour = post.date.Hour;
-        postMinute = post.date.Minute;
+        postDay = post.date.day;
+        postMonth = post.date.month;
+        postYear = post.date.year;
+        postHour = post.date.hour;
+        postMinute = post.date.minute;
         postFrom = post.from;
     }
 
@@ -167,7 +165,7 @@ public class FriendsbookPostEditor : EditorWindow {
         {
             displayError = false;
             post.content = postContent;
-            post.date = new DateTime(postYear, postMonth, postDay, postHour, postMinute, 0);
+            post.date = new Date(postYear, postMonth, postDay, postHour, postMinute);
             post.to = character.friendsbookProfile;
             post.from = postFrom;
 

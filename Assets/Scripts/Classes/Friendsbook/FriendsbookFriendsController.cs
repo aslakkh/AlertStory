@@ -8,17 +8,20 @@ public class FriendsbookFriendsController : MonoBehaviour
 
     
     public int friendsPerPage;
-    public Text listElementPrefab;
+    public GameObject listElementPrefab;
     public Button previousButton;
     public Button nextButton;
     public GameObject friendsListWrapperPrefab;
     private List<Character> friends;
     private GameObject friendsListWrapper;
+    private FriendsbookMainController friendsbookMain;
 
     private int friendsListIndex;
 
     private void Start()
     {
+        friendsbookMain = GameObject.Find("FriendsbookMainView").GetComponent<FriendsbookMainController>();
+        Debug.Assert(friendsbookMain != null, "Error: FriendsbookFriendsController could not find FriendsbookMainController.", this);
         friendsListIndex = 0;
         DisplayFriends();
         previousButton.interactable = false;
@@ -46,10 +49,16 @@ public class FriendsbookFriendsController : MonoBehaviour
             }
 
             Character c = friends[i];
-            Text t = Instantiate(listElementPrefab);
+            GameObject t = Instantiate(listElementPrefab);
             t.transform.SetParent(friendsListWrapper.transform, false);
-            t.text = c.fullName;
+            t.GetComponentInChildren<Text>().text = c.fullName;
+            t.GetComponent<Button>().onClick.AddListener(delegate () { OnListElementClick(c); });
         }
+    }
+
+    public void OnListElementClick(Character c)
+    {
+        friendsbookMain.EnterFriendsbookProfile(c);
     }
 
     public void IncrementFriendsListIndex()

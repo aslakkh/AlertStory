@@ -268,7 +268,7 @@ public class CharacterEditor : EditorWindow {
                                 var post = character.friendsbookProfile.posts[i];
                                 listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
                                 GUILayout.BeginHorizontal(listItemStyle);
-                                GUILayout.Label(string.Format("From: {0}, {1}.{2}.{3}", post.from.character.fullName, post.date.Day, post.date.Month, post.date.Year));
+                                GUILayout.Label(string.Format("From: {0}, {1}.{2}.{3}", post.from.character.fullName, post.date.day, post.date.month, post.date.year));
                                 if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false)))
                                 {
                                     FriendsbookPostEditor.Init(post);

@@ -31,5 +31,6 @@ public class FriendsbookPostList : ScriptableObject
     public void Add(FriendsbookPost post)
     {
         list.Add(post);
+        list.Sort((y, x) => x.CompareTo(y));
     }
 }

@@ -27,6 +27,7 @@ public class FriendsbookMainController : MonoBehaviour {
         GameObject p = Instantiate(personViewPrefab);
         personView = p;
         p.transform.SetParent(transform, false);
+        p.transform.SetSiblingIndex(1); //ui rendering position
         p.GetComponent<FriendsbookPersonController>().SetCharacter(c);
     }
 }

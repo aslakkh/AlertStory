@@ -12,13 +12,48 @@ MonoBehaviour:
   m_Name: OlaNordmannFriendsbookPosts
   m_EditorClassIdentifier: 
   list:
-  - content: Tesetstete
+  - content: wrgwrgwrgwrg
+    date:
+      year: 2018
+      month: 12
+      day: 1
+      hour: 7
+      minute: 0
+    to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+    from: {fileID: 11400000, guid: d9dce6682d9795a41b51990b3d37da05, type: 2}
+  - content: bvbbgbgbgbgbgbgbgb
+    date:
+      year: 2018
+      month: 12
+      day: 1
+      hour: 0
+      minute: 0
+    to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+    from: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+  - content: ergsergsergserg
+    date:
+      year: 2018
+      month: 1
+      day: 1
+      hour: 0
+      minute: 0
     to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
     from: {fileID: 11400000, guid: a4a82958445432b4ca55f29068795c63, type: 2}
-  - content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis
-      sem sem, at lacinia diam gravida non. Vivamus a viverra lacus, eget ultricies
-      nibh. Integer ut justo mauris. Ut eu congue est. Donec blandit efficitur aliquam.
-      Etiam in ante id magna tempor molestie. Suspendisse vel vulputate ex. Nullam
-      dignissim odio non porta tempor.\r"
+  - content: sdfsdfsdfsdfsdfsd
+    date:
+      year: 2017
+      month: 9
+      day: 1
+      hour: 0
+      minute: 0
     to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
-    from: {fileID: 11400000, guid: 531e534663c59fb49bdefba3acc122d6, type: 2}
+    from: {fileID: 11400000, guid: 8e44b05e8e0d68341bd90153dc453b00, type: 2}
+  - content: wertwertwertwertwertwert
+    date:
+      year: 2017
+      month: 1
+      day: 1
+      hour: 0
+      minute: 0
+    to: {fileID: 11400000, guid: d0f9130f8c165314da476d74b79e9b2c, type: 2}
+    from: {fileID: 11400000, guid: a4a82958445432b4ca55f29068795c63, type: 2}

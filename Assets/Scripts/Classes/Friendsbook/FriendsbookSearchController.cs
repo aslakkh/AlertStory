@@ -6,14 +6,13 @@ using UnityEngine.UI;
 public class FriendsbookSearchController : MonoBehaviour {
 
     /// TODO
-    /// - display/hide search results
-    /// - handle clicks on search element
     /// - optimization
     /// 
 
     public CharacterList characterList; //reference to ScriptableObject containing all in-game characters
     public InputField searchBar;
     public FriendsbookSearchView view;
+    public Text text;
 
     private List<Character> friendsbookProfiles; //internal reference to all characters with friendsbookProfiles
 
@@ -36,9 +35,10 @@ public class FriendsbookSearchController : MonoBehaviour {
         
     }
 
-    public void OnSearchResultClick(Character c)
+    public void OnClick()
     {
         //debug.log character clicked
+        Search(text.text);
     }
 	
 }

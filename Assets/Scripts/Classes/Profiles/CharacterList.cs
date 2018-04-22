@@ -22,6 +22,7 @@ public class CharacterList : ScriptableObject
         if (!list.Contains(c))
         {
             list.Add(c);
+            list.Sort((x, y) => x.CompareTo(y)); //sort alphabetical order
         }
     }
 
