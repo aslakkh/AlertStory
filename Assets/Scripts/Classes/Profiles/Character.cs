@@ -30,6 +30,24 @@ public class Character : ScriptableObject, IComparable<Character> {
         return (friendsbookProfile != null);
     }
 
+    public List<Character> GetFriendsbookFriends()
+    {
+        if (hasFriendsbookProfile())
+        {
+            if (friendsbookProfile.friends != null) { return friendsbookProfile.friends; }
+            else
+            {
+                Debug.Log(string.Format("Character {0} has no Friendsbook friends.", fullName), this);
+                return null;
+            }
+        }
+        else
+        {
+            Debug.Log(string.Format("Tried getting FriendsbookFriends from character {0}, which has no friendsbook profile.", fullName), this);
+            return null;
+        }
+    }
+
     public int CompareTo(Character that)
     {
         return fullName.CompareTo(that.fullName); 

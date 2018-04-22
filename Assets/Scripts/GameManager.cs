@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public int privateScore;
     public int dayCount;
     public int turnCount;
+    public Character playerCharacter; //reference to scriptable object holding information about playercharacter
     private RequirementDict requirementDict;
     private List<StoryEvent> _eventsFired;
 

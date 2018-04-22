@@ -5,8 +5,11 @@ using UnityEngine;
 public class FriendsbookMainController : MonoBehaviour {
 
     public GameObject personViewPrefab;
+    public GameObject playerViewPrefab;
 
     private GameObject personView;
+
+    private GameManager gameManager;
 
     //Friendsbook friends view:
     //- display list of 20-25 friends, with a next/prev button?
@@ -14,8 +17,23 @@ public class FriendsbookMainController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Debug.Assert(gameManager != null, "FriendsbookMainController could not find GameManager...");
 	}
+
+    public void EnterPlayerCharacterProfile()
+    {
+        //EnterFriendsbookProfile(gameManager.playerCharacter);
+        if (personView != null)
+        {
+            GameObject.Destroy(personView);
+        }
+        GameObject p = Instantiate(playerViewPrefab);
+        personView = p;
+        p.transform.SetParent(transform, false);
+        p.transform.SetSiblingIndex(1); //ui rendering position
+        p.GetComponent<FriendsbookPersonController>().SetCharacter(gameManager.playerCharacter);
+    }
 	
 	public void EnterFriendsbookProfile(Character c)
     {
