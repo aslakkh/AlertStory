@@ -21,6 +21,7 @@ public class CharacterEditor : EditorWindow {
     public Setting friendsSetting;
     public Setting postsSetting;
     public Sprite profilePicture;
+    public bool acceptsFriendRequest;
 
     /// SEARCH STRINGS ///
     public string charactersSearchString = "";
@@ -71,8 +72,8 @@ public class CharacterEditor : EditorWindow {
         w.SetStrings(c);
         if (c.hasFriendsbookProfile())
         {
-            w.SetSettings();
-            w.SetProfilePicture();
+            //set editable values
+            w.SetEditableFriendsbookValues();
         }
     }
 
@@ -144,6 +145,15 @@ public class CharacterEditor : EditorWindow {
                     if(GUILayout.Button("Save Image", GUILayout.ExpandWidth(false)))
                     {
                         SaveFriendsbookPicture();
+                    }
+
+                    GUILayout.Space(10);
+                    //accepts requests
+                    acceptsFriendRequest = EditorGUILayout.Toggle("Accept Friend Request: ", acceptsFriendRequest);
+                    if (GUILayout.Button("Save", GUILayout.ExpandWidth(false)))
+                    {
+                        character.friendsbookProfile.acceptsFriendRequest = acceptsFriendRequest;
+                        EditorUtility.SetDirty(character.friendsbookProfile);
                     }
                     //Contains foldout for settings, friends, info and posts
 
@@ -347,6 +357,13 @@ public class CharacterEditor : EditorWindow {
         phoneNumber = c.phoneNumber;
     }
 
+    private void SetEditableFriendsbookValues()
+    {
+        SetSettings();
+        SetProfilePicture();
+        acceptsFriendRequest = character.friendsbookProfile.acceptsFriendRequest;
+    }
+
     //sets editor setting fields to equal character fields
     private void SetSettings()
     {
@@ -375,8 +392,7 @@ public class CharacterEditor : EditorWindow {
         var posts = CreateFriendsbookPostList.Create(folderPath, character.fullName);
         p.posts = posts;
         character.friendsbookProfile = p;
-        SetSettings();
-        SetProfilePicture();
+        SetEditableFriendsbookValues();
         EditorUtility.SetDirty(character);
         EditorUtility.SetDirty(character.friendsbookProfile);
     }

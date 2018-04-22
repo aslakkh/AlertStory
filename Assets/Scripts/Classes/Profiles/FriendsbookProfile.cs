@@ -11,6 +11,7 @@ public class FriendsbookProfile : ScriptableObject {
     public List<Character> friends;
     public FriendsbookPostList posts;
     public Sprite profilePicture;
+    public bool acceptsFriendRequest;
 
     //settings
     public Setting informationSetting;
@@ -22,6 +23,7 @@ public class FriendsbookProfile : ScriptableObject {
         character = c;
         friends = new List<Character>();
         //profilePicture = (Sprite)Resources.Load("Art/FriendsbookProfilePictures/profilepicture.png");
+        acceptsFriendRequest = false;
         UseStandardSettings(); //init with standard settings, defined in Settings namespace. Can be overwritten
     }
 
