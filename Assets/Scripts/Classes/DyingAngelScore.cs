@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.UI.Text;
+using UnityEngine.UI;
 
 public class DyingAngelScore : MonoBehaviour {
 
@@ -14,7 +14,7 @@ public class DyingAngelScore : MonoBehaviour {
 	}
 
 	public void fireDyingAngelAnimation (int score) {
-		gameObject.GetComponent<UnityEngine.UI.Text>().text = score.toString();
+		gameObject.GetComponent<UnityEngine.UI.Text>().text = score.ToString();
 		gameObject.SetActive(true);
 		animation.Play();
 	}
