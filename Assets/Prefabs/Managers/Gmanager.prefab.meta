@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Managers/Gmanager.prefab.meta
 guid: 924b03b9bf6e2404995226dd31ed208e
 timeCreated: 1522844956
+=======
+guid: 2982cf182101c4829a3f3a6808e6f6c5
+timeCreated: 1523875618
+>>>>>>> b1fd4b8b37acdf4343eb4bb933447f77b16b5f44:Assets/Resources/ScriptableObjects/Event/NewStoryEventList.asset.meta
 licenseType: Free
 NativeFormatImporter:
   externalObjects: {}
