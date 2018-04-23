@@ -11,14 +11,11 @@ public class FriendsbookMainController : MonoBehaviour {
 
     private GameManager gameManager;
 
-    //Friendsbook friends view:
-    //- display list of 20-25 friends, with a next/prev button?
-    //- include search through friends?
-
 	// Use this for initialization
 	void Start () {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Debug.Assert(gameManager != null, "FriendsbookMainController could not find GameManager...");
+        EnterPlayerCharacterProfile();
 	}
 
     public void EnterPlayerCharacterProfile()
@@ -31,8 +28,8 @@ public class FriendsbookMainController : MonoBehaviour {
         GameObject p = Instantiate(playerViewPrefab);
         personView = p;
         p.transform.SetParent(transform, false);
-        p.transform.SetSiblingIndex(1); //ui rendering position
-        p.GetComponent<FriendsbookPersonController>().SetCharacter(gameManager.playerCharacter);
+        p.transform.SetAsFirstSibling(); //assures that this is rendered before overlay elements
+        p.GetComponent<FriendsbookPlayerController>().SetCharacter(gameManager.playerCharacter);
     }
 	
 	public void EnterFriendsbookProfile(Character c)
@@ -45,7 +42,19 @@ public class FriendsbookMainController : MonoBehaviour {
         GameObject p = Instantiate(personViewPrefab);
         personView = p;
         p.transform.SetParent(transform, false);
-        p.transform.SetSiblingIndex(1); //ui rendering position
+        p.transform.SetAsFirstSibling(); //assures that this is rendered before overlay elements
         p.GetComponent<FriendsbookPersonController>().SetCharacter(c);
+        p.GetComponent<FriendsbookPersonController>().SetFriendsbookMainController(this);
+    }
+
+    public void AddFriendship(Character c)
+    {
+        gameManager.playerCharacter.friendsbookProfile.AddFriend(c);
+        c.friendsbookProfile.AddFriend(gameManager.playerCharacter);
+    }
+
+    public bool PlayerIsFriendsWith(Character c)
+    {
+        return (gameManager.playerCharacter.friendsbookProfile.IsFriendWith(c));
     }
 }

@@ -20,6 +20,7 @@ public class FriendsbookFriendsController : MonoBehaviour
 
     private void Start()
     {
+        //sets up controller and displays friends
         friendsbookMain = GameObject.Find("FriendsbookMainView").GetComponent<FriendsbookMainController>();
         Debug.Assert(friendsbookMain != null, "Error: FriendsbookFriendsController could not find FriendsbookMainController.", this);
         friendsListIndex = 0;

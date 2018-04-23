@@ -19,9 +19,18 @@ public class FriendsbookSearchController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        friendsbookProfiles = characterList.list.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
+        if(characterList != null)
+        {
+            friendsbookProfiles = characterList.list.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
+        }
+        
         searchResult = new List<Character>();
 	}
+
+    public void SetFriendsbookProfiles(List<Character> list) //can be used to search from lists other than characterList
+    {
+        friendsbookProfiles = list;
+    }
 
     public void Search(string term)
     {
