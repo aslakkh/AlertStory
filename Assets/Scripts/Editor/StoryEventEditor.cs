@@ -177,7 +177,7 @@ public class StoryEventEditor : EditorWindow
                         
                         //Dispalys name as Static and boolean as interchangable
                         EditorGUILayout.TextArea(item.Key.requirementName);
-                        var value = EditorGUILayout.Toggle("Required?", item.Value);
+                        var value = EditorGUILayout.IntField("Required?", item.Value);
                         //Update only on value change check
                         if (value != item.Value) {
                             storyEventList.list[viewIndex - 1].requirements.Update(item.Key, value);
@@ -203,7 +203,7 @@ public class StoryEventEditor : EditorWindow
                     _reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
                         requiremetListString.ToArray());
                     if (GUILayout.Button("Add", GUILayout.ExpandWidth(false))) {
-                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], false);
+                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], 0);
                     }
                     GUILayout.EndHorizontal();
                     GUILayout.Space(3);

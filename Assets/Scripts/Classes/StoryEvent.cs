@@ -12,11 +12,11 @@ public class StoryEvent : ScriptableObject {
     [NonSerialized] public List<Choice> choices;
 
     public StoryEvent() {
-        this.title = "";
-        this.text = "";
-        this.choices = new List<Choice>();
-        this.requirements = new RequirementDict();
-        this.dependencies = new Dependencies();
+        title = "";
+        text = "";
+        choices = new List<Choice>();
+        requirements = new RequirementDict();
+        dependencies = new Dependencies();
     }
 
     public StoryEvent(string title, string text, List<Choice> choices, RequirementDict requirements, Dependencies dependencies) {
