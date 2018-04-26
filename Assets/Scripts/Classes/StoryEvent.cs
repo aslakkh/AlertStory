@@ -1,40 +1,21 @@
-﻿using System;
+﻿
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
 
-[Serializable]
-public class StoryEvent {
-    
-    public string title { get; set; }
-    public string text { get; set; }
-    [NonSerialized] 
+[CreateAssetMenu(fileName = "TEST", menuName = "Alert/test", order = 1)]
+public class StoryEvent : ScriptableObject
+{
+
+    public string title;
+    public string text;
+    //public RequirementDict requirements;
+    public List<StoryEvent> dependencies;
     public List<Choice> choices;
-    public RequirementDict requirements { get; set; }
-    public Dependencies dependencies { get; set; }
-
-    public List<Choice> Choices {
-        get { return choices; }
-        set { choices = value; }
-    }
-
-    public StoryEvent() {
-        this.title = "";
-        this.text = "";
-        this.choices = null;
-        this.requirements = new RequirementDict();
-        this.dependencies = new Dependencies();
-    }
-
-    public StoryEvent(string title, string text, List<Choice> choices, RequirementDict requirements, Dependencies dependencies) {
-        this.title = title;
-        this.text = text;
-        this.choices = choices;
-        this.requirements = requirements;
-        this.dependencies = dependencies;
-    }
 
     public bool IsMultipleChoice()
     {
         return choices.Count > 1;
     }
-    
 }

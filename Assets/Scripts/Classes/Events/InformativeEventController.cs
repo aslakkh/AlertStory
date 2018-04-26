@@ -18,8 +18,8 @@ public class InformativeEventController : EventController {
     {
         //add the score values of this.choices[0] to gamemanager
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.SetScore(storyEvent.choices[0].affectScore);
-        gameManager.SetPrivateScore(storyEvent.choices[0].affectSecretScore);
+        //gameManager.SetScore(storyEvent.choices[0].affectScore);
+        //gameManager.SetPrivateScore(storyEvent.choices[0].affectSecretScore);
         DestroyFromScene();
     }
 }

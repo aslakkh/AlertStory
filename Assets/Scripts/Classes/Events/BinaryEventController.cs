@@ -18,8 +18,8 @@ public class BinaryEventController : EventController {
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //TODO: USE MESSAGING INSTEAD
         Choice c = affirmative ? storyEvent.choices[0] : storyEvent.choices[1];
-        gameManager.SetScore(c.affectScore);
-        gameManager.SetPrivateScore(c.affectSecretScore);
+        //gameManager.SetScore(c.affectScore);
+        //gameManager.SetPrivateScore(c.affectSecretScore);
         DestroyFromScene();
     }
 }
