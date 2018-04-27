@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
-
+using Settings;
 [System.Serializable]
 [CreateAssetMenu(fileName = "Test", menuName = "Alert/RequirementDictTest", order = 1)]
 
@@ -18,7 +18,6 @@ public class RequirementDict : ScriptableObject {
         }
         return true;
     }
-    
     public void Add(Requirement requirement, int value) {
          requirementDictionary.Add(requirement, value);   
     }

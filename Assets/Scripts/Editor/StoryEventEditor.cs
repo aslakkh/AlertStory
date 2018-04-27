@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Linq;
 using System.Collections.Generic;
-
+using Settings;
 public class StoryEventEditor : EditorWindow
 {
 
@@ -170,14 +170,21 @@ public class StoryEventEditor : EditorWindow
                     GUILayout.Space(2);
                 }
                 else {
+                    if(storyEventList.list[viewIndex - 1].requirements.requirementDictionary.Count > 0)
+                    {
+                        //Debug.Log(storyEventList.list[viewIndex - 1].requirements.requirementDictionary.ElementAt(0));
+                    }
                     //Loops trough each requirement in list
-                    foreach (var item in storyEventList.list[viewIndex - 1].requirements.requirementDictionary
-                        .ToArray()) {
+                    for (int i = 0; i < storyEventList.list[viewIndex - 1].requirements.requirementDictionary
+                        .Count; i++) {
+                        var item = storyEventList.list[viewIndex - 1].requirements.requirementDictionary.ElementAt(i);
                         GUILayout.BeginHorizontal();
                         
                         //Dispalys name as Static and boolean as interchangable
-                        EditorGUILayout.TextArea(item.Key.requirementName);
-                        var value = EditorGUILayout.IntField("Required?", item.Value);
+
+                        EditorGUILayout.TextArea(item.Key.ToString());
+                        var value =(Setting)EditorGUILayout.EnumPopup("Required?", item.Value);
+
                         //Update only on value change check
                         if (value != item.Value) {
                             storyEventList.list[viewIndex - 1].requirements.UpdateValue(item.Key, value);
@@ -187,6 +194,8 @@ public class StoryEventEditor : EditorWindow
                         }
                         //Delete Button for choice, only in relevant story.
                         if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false))) {
+                            Debug.Log(item.Key);
+                            Debug.Log(storyEventList.list[viewIndex - 1].requirements.requirementDictionary.ElementAt(0));
                             storyEventList.list[viewIndex - 1].requirements.Remove(item.Key);
                             EditorUtility.SetDirty(storyEventList);
                             EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
@@ -209,7 +218,8 @@ public class StoryEventEditor : EditorWindow
                     _reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
                         requiremetListString.ToArray());
                     if (GUILayout.Button("Add", GUILayout.ExpandWidth(false))) {
-                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], 0);
+                        Debug.Log(requirementList.list[_reqIndex]);
+                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
                         EditorUtility.SetDirty(storyEventList);
                         EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
                         EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].requirements);
@@ -218,6 +228,11 @@ public class StoryEventEditor : EditorWindow
                     GUILayout.Space(3);
                     if(GUILayout.Button("Select other requirementlist", GUILayout.ExpandWidth(false))) {
                         OpenRequirementList();
+                    } else {
+                        // Create popup and add to list
+                        //_reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
+                        //    requiremetListString.ToArray());
+                        //storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
                     }
                 }
                 
