@@ -19,4 +19,5 @@ namespace Settings
         public static Setting friendsSetting = Setting.Public;
         public static Setting postsSetting = Setting.Friends;
     }
+
 }
