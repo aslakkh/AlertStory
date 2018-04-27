@@ -489,7 +489,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c8775c4b57989604d8fbac51fbe91f00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a6dbbd9b9bcc11458c53b892b7e375f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -837,8 +837,8 @@ MonoBehaviour:
   eventIllustration: {fileID: 114382221116784070}
   eventTitle: {fileID: 114647088559507628}
   eventDescription: {fileID: 114187937706877220}
-  affirmativeButton: {fileID: 114893384394976872}
-  dissentiveButton: {fileID: 114816264385856724}
+  affirmativeButton: {fileID: 114479594937026376}
+  dissentiveButton: {fileID: 114949079630641884}
 --- !u!114 &114747848386045380
 MonoBehaviour:
   m_ObjectHideFlags: 1

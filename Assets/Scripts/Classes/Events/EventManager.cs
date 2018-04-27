@@ -9,17 +9,40 @@ public class EventManager : MonoBehaviour {
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
 
-    //public StoryEventModel storyEventModel;
-    public List<StoryEvent> storyEvents;
+    //public List<StoryEvent> storyEvents;
+    public StoryEventList storyEvents;
+
+    private List<StoryEvent> storyEventsInternal;
+
+    //Singleton instanciating
+    public static EventManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        //Check if there are any other instances conflicting
+        if (Instance != null && Instance != this)
+        {
+            // If that is the case, we destroy other instances
+            Destroy(gameObject);
+        }
+        // Here we save our singleton instance
+        Instance = this;
+
+        // Makes sure that we don't destroy between scenes
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
+        storyEventsInternal = new List<StoryEvent>(storyEvents.list);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    public void InitializeEvent() //finds first relevant event, instantiates prefab, and assigns event to prefab
+    //finds first relevant event, instantiates prefab, and assigns event to prefab. 
+    //Returns true if an event was initialized, false otherwise
+    public bool InitializeEvent() 
     {
-        StoryEvent storyEvent = FindFirstRelevantEvent();
+        StoryEvent storyEvent = FindFirstRelevantEvent(storyEventsInternal);
         if(storyEvent != null)
         {
             Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
@@ -36,23 +59,26 @@ public class EventManager : MonoBehaviour {
 
             EventController eventController = eventObject.GetComponent<EventController>();
             eventController.storyEvent = storyEvent;
+
+            return true;
         }
         else
         {
-            Debug.Log("No relvant storyevents can be fired. ", this);
+            Debug.Log("No relevant storyevents can be fired. ", this);
+            return false;
         }
         
     }
 
-    public StoryEvent FindFirstRelevantEvent()
+    public StoryEvent FindFirstRelevantEvent(List<StoryEvent> storyEventList)
     {
         StoryEvent e = null;
-        for(int i = 0; i < storyEvents.Count; i++)
+        for(int i = 0; i < storyEventList.Count; i++)
         {
-            if(CanBeFired(storyEvents[i]))
+            if(CanBeFired(storyEventList[i]))
             {
-                e = storyEvents[i];
-                storyEvents.RemoveAt(i);
+                e = storyEventList[i];
+                storyEventList.RemoveAt(i);
                 break;
             }
         }
