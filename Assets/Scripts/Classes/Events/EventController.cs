@@ -16,31 +16,6 @@ public abstract class EventController : MonoBehaviour {
         set { _storyEvent = value; }
     }
 
-    private void Awake()
-    {
-        //eventPrefab = Resources.Load("BinaryChoiceEvent") as GameObject;
-    }
-
-
-    //public static void CreateEvent(StoryEvent storyEvent)
-    //{
-    //    Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
-    //    GameObject e = Instantiate(EventController.eventPrefab, phoneMainScreen);
-    //    EventController eventController = e.GetComponent<EventController>();
-    //    eventController._storyEvent = storyEvent;
-    //}
-
-    //private void Start()
-    //{
-    //    //Set UI elements
-    //    eventView.SetEventTitle(_storyEvent._title);
-    //    eventView.SetEventDescription(_storyEvent._text);
-    //    eventView.SetAffirmativeButtonText("Test");
-    //    eventView.SetDissentiveButtonText("NOPE");
-
-    //    //TODO: set choice descriptions
-    //}
-
     public void DestroyFromScene()
     {
         Destroy(gameObject);

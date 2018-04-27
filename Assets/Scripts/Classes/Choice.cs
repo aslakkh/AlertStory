@@ -3,9 +3,9 @@ using System;
 
 [Serializable]
 public class Choice{
-    public string choiceDescription { get; set; }
-    public int affectScore { get; set; }
-    public int affectSecretScore { get; set; }
+    public string choiceDescription;
+    public int affectScore;
+    public int affectSecretScore;
     [SerializeField]
     public StoryEvent triggersStoryEvent;
     

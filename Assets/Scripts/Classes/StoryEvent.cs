@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 [Serializable]
 public class StoryEvent {
-    
-    public string title { get; set; }
-    public string text { get; set; }
-    [NonSerialized] 
+
+    public string title;
+    public string text;
     public List<Choice> choices;
-    public RequirementDict requirements { get; set; }
-    public Dependencies dependencies { get; set; }
+    public RequirementDict requirements;
+    public Dependencies dependencies;
 
     public List<Choice> Choices {
         get { return choices; }

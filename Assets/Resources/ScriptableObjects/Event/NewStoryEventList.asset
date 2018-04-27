@@ -11,4 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9d65ba813e4f39b89adec05b2cd3ab, type: 3}
   m_Name: NewStoryEventList
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - title: 
+    text: 
+    choices: []
+  - title: 
+    text: 
+    choices: []
+  - title: 
+    text: 
+    choices: []
