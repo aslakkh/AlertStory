@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -19,8 +20,20 @@ public class GameManager : MonoBehaviour {
 
     public int score;
     public int privateScore;
-    public int dayCount;
+    public int dayCount {
+        get {
+            return this.dayCount;
+        }
+        set {
+            dayCount += value;
+            if (dayCount >= endDay)
+            {
+                SceneManager.LoadScene("TEMP_EndGameScene");
+            }
+        }
+    }
     public int turnCount;
+    public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
     private RequirementDict requirementDict;
     private List<StoryEvent> _eventsFired;

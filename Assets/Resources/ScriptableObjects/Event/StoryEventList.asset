@@ -56,3 +56,13 @@ MonoBehaviour:
         title: 
         text: 
         choices: []
+  - title: The Apocalypse of ignorance
+    text: You loose because you did nothing! HAH, LOOSER!
+    choices:
+    - choiceDescription: OK,Whatever man
+      affectScore: -100
+      affectSecretScore: 20
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []
