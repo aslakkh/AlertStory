@@ -540,7 +540,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 224586115737097538, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}
       propertyPath: m_RootOrder
@@ -575,8 +574,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-=======
->>>>>>> 23ecbee64b7253ca6d8c722039b579fbf06fa8b5
     - target: {fileID: 114174783994807462, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
