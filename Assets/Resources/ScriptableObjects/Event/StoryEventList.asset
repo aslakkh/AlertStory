@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9d65ba813e4f39b89adec05b2cd3ab, type: 3}
+  m_Name: StoryEventList
+  m_EditorClassIdentifier: 
+  list:
+  - title: Event1
+    text: This is the description of event1
+    choices:
+    - choiceDescription: Choice 1.1
+      affectScore: 10
+      affectSecretScore: -10
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []
+    - choiceDescription: Choice 1.2
+      affectScore: 30
+      affectSecretScore: 10
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []
+  - title: Event2
+    text: This is the description of event2
+    choices:
+    - choiceDescription: Single choice
+      affectScore: 10
+      affectSecretScore: -10
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []
+  - title: Event3
+    text: This is the description of event3
+    choices:
+    - choiceDescription: Choice 3.1
+      affectScore: 20
+      affectSecretScore: 20
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []
+    - choiceDescription: Choice 3.2
+      affectScore: -10
+      affectSecretScore: -20
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []

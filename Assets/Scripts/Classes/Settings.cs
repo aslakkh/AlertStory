@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Settings {
+namespace Settings
+{
 
     public enum Setting
     {
@@ -18,4 +19,5 @@ namespace Settings {
         public static Setting friendsSetting = Setting.Public;
         public static Setting postsSetting = Setting.Friends;
     }
+
 }

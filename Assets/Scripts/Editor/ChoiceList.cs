@@ -7,4 +7,9 @@ public class ChoiceList: ScriptableObject {
     public Choice this[int itemIndex] {
         get { return list[itemIndex]; }
     }
+
+    public int GetCount()
+    {
+        return list.Count;
+    }
 }

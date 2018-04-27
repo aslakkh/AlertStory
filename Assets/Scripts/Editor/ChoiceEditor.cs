@@ -9,6 +9,8 @@ public class ChoiceEditor : EditorWindow
     public ChoiceList choiceList;
     private int viewIndex = 1;
     private StoryEventList eventList;
+    private string storyEventPath = "Assets/Resources/ScriptableObjects/Events/EventList.asset";
+
     private int _itemIndex = 0;
     private List<string> typeListString;
 
@@ -20,12 +22,8 @@ public class ChoiceEditor : EditorWindow
 
     private void OnFocus()
     {
-        eventList = AssetDatabase.LoadAssetAtPath("Assets/Resources/ScriptableObjects/Events/EventList.asset", typeof(StoryEventList)) as StoryEventList;
-        typeListString.Clear();
-        if (eventList == null) return;
-        foreach (StoryEvent item in eventList.list) {
-            typeListString.Add(item.title);
-        }
+        
+        SetEventList(storyEventPath);
     }
 
     void OnEnable()
@@ -122,10 +120,24 @@ public class ChoiceEditor : EditorWindow
 
                 GUILayout.Space(10);
 
-                _itemIndex = EditorGUILayout.Popup("Event", _itemIndex, typeListString.ToArray());
+                if (eventList == null)
+                {
+                    if (GUILayout.Button("Open Dependency List", GUILayout.ExpandWidth(false)))
+                    {
+                        OpenEventList();
+                    }
+                }
+                else
+                {
+                    _itemIndex = EditorGUILayout.Popup("Event", _itemIndex,
+                        typeListString.ToArray());
+                    if (GUILayout.Button("Add Dependencies", GUILayout.ExpandWidth(false)))
+                    {
+                        // Create popup and add to list
+                        choiceList.list[viewIndex - 1].triggersStoryEvent = eventList.list[_itemIndex];
+                    }
+                }
 
-                choiceList.list[viewIndex - 1].triggersStoryEvent = eventList.list[_itemIndex];            
-                
                 GUILayout.Space(10);
 
                 choiceList.list[viewIndex - 1].affectScore = EditorGUILayout.IntField("Affects Score", choiceList.list[viewIndex - 1].affectScore);
@@ -190,5 +202,26 @@ public class ChoiceEditor : EditorWindow
     void DeleteItem(int index)
     {
         choiceList.list.RemoveAt(index);
+    }
+
+    void OpenEventList()
+    {
+        string absPath = EditorUtility.OpenFilePanel("Select StoryEventList", "", "");
+        if (absPath.StartsWith(Application.dataPath))
+        {
+            storyEventPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+            SetEventList(storyEventPath);
+        }
+    }
+
+    void SetEventList(string path)
+    {
+        eventList = AssetDatabase.LoadAssetAtPath(path, typeof(StoryEventList)) as StoryEventList;
+        typeListString.Clear();
+        if (eventList == null) return;
+        foreach (StoryEvent item in eventList.list)
+        {
+            typeListString.Add(item.title);
+        }
     }
 }
