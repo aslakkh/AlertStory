@@ -148,7 +148,7 @@ public class DropDownItemController : MonoBehaviour {
 
     public void saveRequirements()
     {
-        GameObject gm = GameObject.Find("Gmanager");
+        GameObject gm = GameObject.Find("GameManager");
         GameManager gamemanager = gm.GetComponent<GameManager>();
         RequirementDict rl = new RequirementDict();
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()){
