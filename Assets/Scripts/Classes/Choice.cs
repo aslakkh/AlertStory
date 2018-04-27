@@ -6,7 +6,6 @@ public class Choice{
     public string choiceDescription;
     public int affectScore;
     public int affectSecretScore;
-    [SerializeField]
     public StoryEvent triggersStoryEvent;
     
     public StoryEvent TriggersStoryEvent {
