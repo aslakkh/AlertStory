@@ -153,7 +153,8 @@ public class RequirementEditor : EditorWindow
 
     void AddItem()
     {
-        Requirement newItem = new Requirement {requirementName = "New requirement"};
+        string name = "New Requirement";
+        Requirement newItem = new Requirement(name);
         requirementList.list.Add(newItem);
         viewIndex = requirementList.list.Count;
     }

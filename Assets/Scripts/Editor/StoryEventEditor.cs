@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.Linq;
 using System.Collections.Generic;
-
+using Settings;
 public class StoryEventEditor : EditorWindow
 {
 
@@ -157,7 +157,7 @@ public class StoryEventEditor : EditorWindow
                         
                         //Dispalys name as Static and boolean as interchangable
                         EditorGUILayout.TextArea(item.Key.ToString());
-                        var value = EditorGUILayout.Toggle("Required?", item.Value);
+                        var value =(Setting)EditorGUILayout.EnumPopup("Required?", item.Value);
                         //Update only on value change check
                         if (value != item.Value) {
                             storyEventList.list[viewIndex - 1].requirements.Update(item.Key, value);
@@ -180,7 +180,7 @@ public class StoryEventEditor : EditorWindow
                         // Create popup and add to list
                         _reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
                             requiremetListString.ToArray());
-                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], false);
+                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
                     }
                 }
                 GUILayout.Space(5);
