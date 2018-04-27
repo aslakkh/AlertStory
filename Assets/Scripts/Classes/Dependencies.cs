@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
-public class Dependencies {
+[CreateAssetMenu(fileName = "Test", menuName = "Alert/DependenciesTest", order = 1)]
+
+public class Dependencies : ScriptableObject {
     //Made public so they can later be interacted with in unity editor script.
     public StoryEventToBoolDictionary dependenciesDict = new StoryEventToBoolDictionary();
 
@@ -23,7 +26,7 @@ public class Dependencies {
         dependenciesDict.Remove(storyEvent);
     }
 
-    public void Update(StoryEvent storyEvent, bool newValue) {
+    public void UpdateValue(StoryEvent storyEvent, bool newValue) {
         if (dependenciesDict.ContainsKey(storyEvent)) {
             dependenciesDict[storyEvent] = newValue;
         }

@@ -3,7 +3,9 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class RequirementDict {
+[CreateAssetMenu(fileName = "Test", menuName = "Alert/RequirementDictTest", order = 1)]
+
+public class RequirementDict : ScriptableObject {
     //bool needs to be exact in Compared Dictionary
     public RequirementToIntDictionary requirementDictionary = new RequirementToIntDictionary();
     
@@ -25,7 +27,7 @@ public class RequirementDict {
         requirementDictionary.Remove(requirement);
     }
 
-    public void Update(Requirement requirement, int newValue) {
+    public void UpdateValue(Requirement requirement, int newValue) {
         if (requirementDictionary.ContainsKey(requirement)) {
             requirementDictionary[requirement] = newValue;
         }

@@ -1,30 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-
+[CreateAssetMenu(fileName = "Test", menuName = "Alert/StoryEventTest", order = 1)]
 public class StoryEvent : ScriptableObject {
 
     public string title;
     public string text;
     public RequirementDict requirements;
     public Dependencies dependencies;
-    [NonSerialized] public List<Choice> choices;
+    public List<Choice> choices;
 
-    public StoryEvent() {
-        title = "";
-        text = "";
-        choices = new List<Choice>();
-        requirements = new RequirementDict();
-        dependencies = new Dependencies();
-    }
+    public void Init()
+    {
+        var req = ScriptableObject.CreateInstance<RequirementDict>();
+        var dep = ScriptableObject.CreateInstance<Dependencies>();
+        this.requirements = req;
+        this.dependencies = dep;
+        AssetDatabase.AddObjectToAsset(req, this);
+        AssetDatabase.AddObjectToAsset(dep, this);
+        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(this));
 
-    public StoryEvent(string title, string text, List<Choice> choices, RequirementDict requirements, Dependencies dependencies) {
-        this.title = title;
-        this.text = text;
-        this.choices = choices;
-        this.requirements = requirements;
-        this.dependencies = dependencies;
     }
 
     public bool IsMultipleChoice()
