@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -45,7 +46,15 @@ public class EndGameController : MonoBehaviour {
         gm.score = 0;
         gm.playerCharacter.friendsbookProfile.friends.Clear();
         gm.turnCount = 0;
-        Debug.Log(gm.eventsFired); // returns null in unity editor.. 
+        // gm.eventsFired can return null if no events have passed (or the player is really lazy!)
+        try
+        {
+            gm.eventsFired.Clear();
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.Log("Eventsfired equal to null, moving on.");
+        }
 
         // TODO: Access gamestate in gm and set it to investigator (default)
 
