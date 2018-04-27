@@ -219,7 +219,7 @@ public class StoryEventEditor : EditorWindow
                         requiremetListString.ToArray());
                     if (GUILayout.Button("Add", GUILayout.ExpandWidth(false))) {
                         Debug.Log(requirementList.list[_reqIndex]);
-                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
+                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex].requirementName, Setting.Public);
                         EditorUtility.SetDirty(storyEventList);
                         EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
                         EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].requirements);

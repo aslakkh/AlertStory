@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public int dayCount;
     public int turnCount;
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
-    private RequirementDict requirementDict;
+    public RequirementDict requirementDict;
     private List<StoryEvent> _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
@@ -78,11 +79,17 @@ public class GameManager : MonoBehaviour {
     {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
+        _eventsFired = new List<StoryEvent>();
+        Debug.Log(requirementDict.requirementDictionary.ElementAt(0));
     }
 
     public void FireEvent() {
-        bool eventFired = eventManager.InitializeEvent(); //fires first suitable event
-        if (eventFired) { gameState = GameState.eventhandler; }
+        StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
+        if (eventFired)
+        {
+            gameState = GameState.eventhandler;
+            _eventsFired.Add(eventFired);
+        }
         
     }
 

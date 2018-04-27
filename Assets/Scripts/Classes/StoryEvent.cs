@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-[CreateAssetMenu(fileName = "Test", menuName = "Alert/StoryEventTest", order = 1)]
+//[CreateAssetMenu(fileName = "Test", menuName = "Alert/StoryEventTest", order = 1)]
 public class StoryEvent : ScriptableObject {
 
     public string title;
@@ -18,9 +17,9 @@ public class StoryEvent : ScriptableObject {
         var dep = ScriptableObject.CreateInstance<Dependencies>();
         this.requirements = req;
         this.dependencies = dep;
-        AssetDatabase.AddObjectToAsset(req, this);
-        AssetDatabase.AddObjectToAsset(dep, this);
-        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(this));
+        //AssetDatabase.AddObjectToAsset(req, this);
+        //AssetDatabase.AddObjectToAsset(dep, this);
+        //AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(this));
 
     }
 

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: NewRequirementList
   m_EditorClassIdentifier: 
   list:
-  - requirementName: TestReq
+  - requirementName: Test

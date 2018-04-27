@@ -2,7 +2,7 @@
 using SerializableCollections;
 
 [Serializable]
-public class RequirementToSettingDictionary : SerializableDictionary<Requirement, Settings.Setting> {
+public class RequirementToSettingDictionary : SerializableDictionary<string, Settings.Setting> {
     
 }
 

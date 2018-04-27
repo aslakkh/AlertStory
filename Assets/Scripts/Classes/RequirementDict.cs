@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 using Settings;
 
@@ -11,22 +12,24 @@ public class RequirementDict : ScriptableObject {
     
     //Loops each element in remote dict, if local dict also has the same key and their values doesn't match return false
     public bool FitsRequirements(RequirementDict requirementList) {
-        foreach(KeyValuePair<Requirement, Setting> item in requirementList.requirementDictionary) {
+        if(this.requirementDictionary.Count == 0 || requirementList.requirementDictionary.Count == 0) { return true; }
+        foreach(KeyValuePair<string, Setting> item in requirementList.requirementDictionary) {
             if (this.requirementDictionary.ContainsKey(item.Key) && (this.requirementDictionary[item.Key] != item.Value)) {
+                Debug.Log("Hey");
                 return false;
             }
         }
         return true;
     }
-    public void Add(Requirement requirement, Setting value) {
+    public void Add(string requirement, Setting value) {
          requirementDictionary.Add(requirement, value);   
     }
     
-    public void Remove(Requirement requirement) {
+    public void Remove(string requirement) {
         requirementDictionary.Remove(requirement);
     }
 
-    public void UpdateValue(Requirement requirement, Setting newValue) {
+    public void UpdateValue(string requirement, Setting newValue) {
         if (requirementDictionary.ContainsKey(requirement)) {
             requirementDictionary[requirement] = newValue;
         }
