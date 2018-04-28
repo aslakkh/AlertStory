@@ -182,7 +182,7 @@ public class StoryEventEditor : EditorWindow
                         
                         //Dispalys name as Static and boolean as interchangable
 
-                        EditorGUILayout.TextArea(item.Key.ToString());
+                        EditorGUILayout.TextArea(item.Key.requirementName);
                         var value =(Setting)EditorGUILayout.EnumPopup("Required?", item.Value);
 
                         //Update only on value change check
@@ -219,7 +219,7 @@ public class StoryEventEditor : EditorWindow
                         requiremetListString.ToArray());
                     if (GUILayout.Button("Add", GUILayout.ExpandWidth(false))) {
                         Debug.Log(requirementList.list[_reqIndex]);
-                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex].requirementName, Setting.Public);
+                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
                         EditorUtility.SetDirty(storyEventList);
                         EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
                         EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].requirements);
@@ -411,7 +411,13 @@ public class StoryEventEditor : EditorWindow
         AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(storyEventList));
 
 
-        newItem.Init();
+        var req = ScriptableObject.CreateInstance<RequirementDict>();
+        var dep = ScriptableObject.CreateInstance<Dependencies>();
+        newItem.requirements = req;
+        newItem.dependencies = dep;
+        AssetDatabase.AddObjectToAsset(req, newItem);
+        AssetDatabase.AddObjectToAsset(dep, newItem);
+        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(newItem));
 
 
         viewIndex = storyEventList.list.Count;

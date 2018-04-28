@@ -12,14 +12,6 @@ MonoBehaviour:
   m_Name: GMReq
   m_EditorClassIdentifier: 
   requirementDictionary:
-    buckets: ffffffffffffffff00000000
-    count: 1
-    entriesHashCode: b2b827000000000000000000
-    entriesNext: ffffffff0000000000000000
-    entriesKey:
-    - Test
-    - 
-    - 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
+    m_keys:
+    - requirementName: Test
+    m_values: 00000000

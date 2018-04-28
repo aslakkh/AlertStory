@@ -12,60 +12,10 @@ MonoBehaviour:
   m_Name: NewStoryEventList
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 114198400394119500}
-  - {fileID: 114917679042132622}
-  - {fileID: 114654334517912990}
---- !u!114 &114148240158320834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dependenciesDict:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114171450121758722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dependenciesDict:
-    buckets: ffffffff01000000ffffffffffffffffffffffffffffffffffffffff
-    count: 4
-    entriesHashCode: 0291ff7fac320000ffffffffffffffff000000000000000000000000
-    entriesNext: ffffffff0000000003000000ffffffff000000000000000000000000
-    entriesKey:
-    - {fileID: 114917679042132622}
-    - {fileID: 114198400394119500}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 01010000000000
-    freeCount: 2
-    freeList: 2
---- !u!114 &114198400394119500
+  - {fileID: 114173451555576868}
+  - {fileID: 114895243649679732}
+  - {fileID: 114389190554860528}
+--- !u!114 &114173451555576868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -76,16 +26,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: What the fuck
+  title: Story1
   text: 
-  requirements: {fileID: 114387955840299868}
-  dependencies: {fileID: 114171450121758722}
+  requirements: {fileID: 114714085095336962}
+  dependencies: {fileID: 114539290421682348}
   choices:
-  - choiceDescription: FEFEF
+  - choiceDescription: sefsef
     affectScore: 0
     affectSecretScore: 0
     triggersStoryEvent: {fileID: 0}
---- !u!114 &114218024126210444
+--- !u!114 &114286860172350454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -97,18 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - 
-    - 
-    - 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114306723065593014
+    m_keys:
+    - requirementName: Test
+    m_values: 00000000
+--- !u!114 &114382448653586954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -120,197 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114361159185724902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dependenciesDict:
-    buckets: ffffffff00000000ffffffff
-    count: 1
-    entriesHashCode: 9e9aff7f0000000000000000
-    entriesNext: ffffffff0000000000000000
-    entriesKey:
-    - {fileID: 114516742921671428}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 010000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114387955840299868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirementDictionary:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - 
-    - 
-    - 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114500831685615646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirementDictionary:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - 
-    - 
-    - 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114516742921671428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Story2
-  text: This is storyy 2
-  requirements: {fileID: 114218024126210444}
-  dependencies: {fileID: 114306723065593014}
-  choices:
-  - choiceDescription: Omg
-    affectScore: 0
-    affectSecretScore: 0
-    triggersStoryEvent: {fileID: 0}
-  - choiceDescription: Great job
-    affectScore: 0
-    affectSecretScore: 0
-    triggersStoryEvent: {fileID: 0}
---- !u!114 &114565991232354586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Story 1
-  text: This is story 1
-  requirements: {fileID: 114759878817329034}
-  dependencies: {fileID: 114361159185724902}
-  choices:
-  - choiceDescription: All good
-    affectScore: 0
-    affectSecretScore: 0
-    triggersStoryEvent: {fileID: 0}
---- !u!114 &114636016829604786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirementDictionary:
-    buckets: ffffffffffffffff00000000
-    count: 1
-    entriesHashCode: b2b827000000000000000000
-    entriesNext: ffffffff0000000000000000
-    entriesKey:
-    - Test
-    - 
-    - 
-    entriesValue: 010000000000000000000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114652330538030972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dependenciesDict:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114654334517912990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Third event
-  text: 
-  requirements: {fileID: 114636016829604786}
-  dependencies: {fileID: 114148240158320834}
-  choices:
-  - choiceDescription: efefefef
-    affectScore: 0
-    affectSecretScore: 0
-    triggersStoryEvent: {fileID: 0}
---- !u!114 &114674872413375000
+    m_keys: []
+    m_values: 
+--- !u!114 &114389190554860528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -322,15 +76,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Story3
-  text: What
-  requirements: {fileID: 114810891321713244}
-  dependencies: {fileID: 114652330538030972}
+  text: 
+  requirements: {fileID: 114286860172350454}
+  dependencies: {fileID: 114614836376123026}
   choices:
-  - choiceDescription: nice
+  - choiceDescription: sefsef
     affectScore: 0
     affectSecretScore: 0
     triggersStoryEvent: {fileID: 0}
---- !u!114 &114759878817329034
+--- !u!114 &114407371981365388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -342,41 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - 
-    - 
-    - 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114810891321713244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirementDictionary:
-    buckets: 00000000ffffffffffffffff
-    count: 1
-    entriesHashCode: 005bf3530000000000000000
-    entriesNext: ffffffff0000000000000000
-    entriesKey:
-    - 
-    - 
-    - 
-    entriesValue: 010000000000000000000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114904211164053894
+    m_keys: []
+    m_values: 
+--- !u!114 &114539290421682348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -388,18 +110,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 000000
-    freeCount: 0
-    freeList: -1
---- !u!114 &114917679042132622
+    m_keys:
+    - {fileID: 114895243649679732}
+    m_values: 01
+--- !u!114 &114614836376123026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys: []
+    m_values: 
+--- !u!114 &114714085095336962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys: []
+    m_values: 
+--- !u!114 &114895243649679732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -410,16 +152,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Second event
+  title: Story2
   text: 
-  requirements: {fileID: 114500831685615646}
-  dependencies: {fileID: 114904211164053894}
+  requirements: {fileID: 114407371981365388}
+  dependencies: {fileID: 114382448653586954}
   choices:
-  - choiceDescription: EGEGEG
+  - choiceDescription: sefsef
     affectScore: 0
     affectSecretScore: 0
-    triggersStoryEvent: {fileID: 114654334517912990}
-  - choiceDescription: SDasfafaf
+    triggersStoryEvent: {fileID: 0}
+  - choiceDescription: asdfasdf
     affectScore: 0
     affectSecretScore: 0
     triggersStoryEvent: {fileID: 0}
