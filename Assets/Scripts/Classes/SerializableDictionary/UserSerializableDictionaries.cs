@@ -4,7 +4,10 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class StoryEventBoolDictionary : SerializableDictionary<StoryEvent, bool> {}
+public class StoryEventBoolDictionary : SerializableDictionary<StoryEvent, StoryDependencyBool> {}
 
 [Serializable]
 public class StringSettingDictionary : SerializableDictionary<string, Settings.Setting> {}
+
+[Serializable]
+public class StoryEventChoiceDictionary : SerializableDictionary<StoryEvent, Choice> { }

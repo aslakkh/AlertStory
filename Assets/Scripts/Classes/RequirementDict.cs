@@ -15,7 +15,6 @@ public class RequirementDict : ScriptableObject {
         if(this.requirementDictionary.Count == 0 || requirementList.requirementDictionary.Count == 0) { return true; }
         foreach(KeyValuePair<string, Setting> item in requirementList.requirementDictionary) {
             if (this.requirementDictionary.ContainsKey(item.Key) && (this.requirementDictionary[item.Key] != item.Value)) {
-                Debug.Log("Hey");
                 return false;
             }
         }

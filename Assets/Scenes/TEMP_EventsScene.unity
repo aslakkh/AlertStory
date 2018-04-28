@@ -144,7 +144,7 @@ MonoBehaviour:
     type: 2}
   informativeEventPrefab: {fileID: 1240329766399940, guid: 30cb855960e556740b736bf7a347f85f,
     type: 2}
-  storyEvents: {fileID: 11400000, guid: ae75d62a2c3650f49b05dbf6e5dee41e, type: 2}
+  storyEvents: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1, type: 2}
 --- !u!4 &199792152
 Transform:
   m_ObjectHideFlags: 0

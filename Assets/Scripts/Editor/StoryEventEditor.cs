@@ -43,6 +43,7 @@ public class StoryEventEditor : EditorWindow
         string folderPath = AssetDatabase.GetAssetPath(s); //gives relative path of asset
         folderPath = folderPath.Substring(0, folderPath.LastIndexOf("/")); //strip to give path to asset folder
         w.folderPath = folderPath;
+        w.SetEventInfoValues();
 
     }
 
@@ -67,8 +68,20 @@ public class StoryEventEditor : EditorWindow
 
             GUILayout.Space(10);
 
-            storyText = EditorGUILayout.TextField("Story Text", storyText);
+            GUILayout.Label("Story Text");
+            storyText = GUILayout.TextArea(storyText, GUILayout.Height(50));
 
+            GUILayout.Space(10);
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Save Info", GUILayout.ExpandWidth(false)))
+            {
+                SaveInfoValues();
+            }
+            if (GUILayout.Button("Revert Info", GUILayout.ExpandWidth(false)))
+            {
+                SetEventInfoValues();
+            }
+            GUILayout.EndHorizontal();
             GUILayout.Space(10);
 
             GUILayout.Label("Choices", EditorStyles.boldLabel);
@@ -244,23 +257,28 @@ public class StoryEventEditor : EditorWindow
 
                     //Dispalys name as Static and boolean as interchangable
                     GUILayout.Label(item.Key.title);
-                    var value = EditorGUILayout.Toggle("Must be fired", item.Value);
-                    //if(item.Key.choices.Count > 1)
-                    //{
-                    //    var choiceARequired = EditorGUILayout.Toggle("Require Choice: " + item.Key.choices[0].choiceDescription, item.Value);
-                    //    if(item.Key.choices.Count == 2)
-                    //    {
-                    //        var choiceBRequired = EditorGUILayout.Toggle("Require Choice: " + item.Key.choices[1].choiceDescription, item.Value);
-                    //    }
-                    //}
-                    //Update only on value change check
-                    if (value != item.Value)
+                    var firedRequired = EditorGUILayout.Toggle("Must be fired", item.Value.fired);
+                    if (item.Key.choices.Count == 2)
                     {
-                        storyEvent.dependencies.UpdateValue(item.Key, value);
-                        //EditorUtility.SetDirty(storyEventList);
-                        //EditorUtility.SetDirty(storyEvent);
-                        EditorUtility.SetDirty(storyEvent.dependencies);
+                        var choiceARequired = EditorGUILayout.Toggle("Require Choice: " + item.Key.choices[0].choiceDescription, item.Value.choiceA);
+                        var choiceBRequired = EditorGUILayout.Toggle("Require Choice: " + item.Key.choices[1].choiceDescription, !item.Value.choiceA);
 
+                        if(choiceARequired != item.Value.choiceA)
+                        {
+                            storyEvent.dependencies.UpdateValue(item.Key, new StoryDependencyBool(item.Value.fired, choiceARequired));
+                            EditorUtility.SetDirty(storyEvent.dependencies);
+                        }
+                        if(choiceBRequired != !item.Value.choiceA)
+                        {
+                            storyEvent.dependencies.UpdateValue(item.Key, new StoryDependencyBool(item.Value.fired, !choiceBRequired));
+                            EditorUtility.SetDirty(storyEvent.dependencies);
+                        }
+                    }
+                    //Update only on value change check
+                    if (firedRequired != item.Value.fired)
+                    {
+                        storyEvent.dependencies.UpdateValue(item.Key, new StoryDependencyBool(firedRequired, item.Value.choiceA));
+                        EditorUtility.SetDirty(storyEvent.dependencies);
                     }
                     //Delete Button for choice, only in relevant story.
                     if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false)))
@@ -292,7 +310,8 @@ public class StoryEventEditor : EditorWindow
                 if (GUILayout.Button("Add Dependencies", GUILayout.ExpandWidth(false)))
                 {
                     // Create popup and add to list
-                    storyEvent.dependencies.Add(DependencyList.list[_depIndex], true);
+                    //add dependency (with fired-requirement set to true, choiceA requirement set to false);
+                    storyEvent.dependencies.Add(DependencyList.list[_depIndex], new StoryDependencyBool(true, false));
                     //EditorUtility.SetDirty(storyEventList);
                     //EditorUtility.SetDirty(storyEvent);
                     EditorUtility.SetDirty(storyEvent.dependencies);
@@ -354,5 +373,25 @@ public class StoryEventEditor : EditorWindow
 
     void DeleteItem(int index) { 
         storyEventList.list.RemoveAt(index);
+    }
+
+    void SetEventInfoValues()
+    {
+        if(storyEvent != null)
+        {
+            storyTitle = storyEvent.title;
+            storyText = storyEvent.text;
+            EditorUtility.SetDirty(storyEvent);
+        }
+        
+    }
+
+    public void SaveInfoValues()
+    {
+        if(storyEvent != null)
+        {
+            storyEvent.title = storyTitle;
+            storyEvent.text = storyText;
+        }
     }
 }

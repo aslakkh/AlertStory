@@ -61,7 +61,7 @@ public class StoryEventListEditor : EditorWindow
             if (GUILayout.Button("Create", GUILayout.ExpandWidth(false)))
             {
                 StoryEvent s = CreateNewStoryEvent();
-                EditStoryEvent(s);
+                //EditStoryEvent(s);
             }
             GUILayout.EndHorizontal();
 
@@ -80,37 +80,45 @@ public class StoryEventListEditor : EditorWindow
 
             GUILayout.Space(10);
             GUILayout.Label("Events:", EditorStyles.boldLabel);
-            //wraps storyeventlist in scrollview
-            scrollPosition = GUILayout.BeginScrollView(scrollPosition);
-            for (int i = 0; i < storyEventList.list.Count; i++) 
+            if(storyEventList.list.Count > 0)
             {
-                StoryEvent c = storyEventList.list[i];
-                GUILayout.BeginHorizontal();
-                GUILayout.Label(c.title);
-                if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false))) //opens storyeventeditor
+                //wraps storyeventlist in scrollview
+                scrollPosition = GUILayout.BeginScrollView(scrollPosition);
+                for (int i = 0; i < storyEventList.list.Count; i++)
                 {
-                    EditStoryEvent(storyEventList.list[i]);
-                }
-                if (GUILayout.Button("Remove", GUILayout.ExpandWidth(false))) //removes reference from list
-                {
-                    RemoveStoryEvent(i);
-                }
-                GUILayout.Space(10);
-                //allow developer to swap positions in list
-                string eventPosition = EditorGUILayout.TextField("Position: ", i.ToString(), GUILayout.ExpandWidth(false));
-                int eventPositionInt;
-                if(Int32.TryParse(eventPosition, out eventPositionInt))
-                {
-                    if(eventPositionInt != i)
+                    StoryEvent c = storyEventList.list[i];
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label(c.title);
+                    if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false))) //opens storyeventeditor
                     {
-                        storyEventList.Swap(i, eventPositionInt);
-                        EditorUtility.SetDirty(storyEventList);
-                        GUI.FocusControl(null);
+                        EditStoryEvent(storyEventList.list[i]);
                     }
+                    if (GUILayout.Button("Remove", GUILayout.ExpandWidth(false))) //removes reference from list
+                    {
+                        RemoveStoryEvent(i);
+                    }
+                    GUILayout.Space(10);
+                    //allow developer to swap positions in list
+                    string eventPosition = EditorGUILayout.TextField("Position: ", i.ToString(), GUILayout.ExpandWidth(false));
+                    int eventPositionInt;
+                    if (Int32.TryParse(eventPosition, out eventPositionInt))
+                    {
+                        if (eventPositionInt != i)
+                        {
+                            storyEventList.Swap(i, eventPositionInt);
+                            EditorUtility.SetDirty(storyEventList);
+                            GUI.FocusControl(null);
+                        }
+                    }
+                    GUILayout.EndHorizontal();
                 }
-                GUILayout.EndHorizontal();
+                GUILayout.EndScrollView();
             }
-            GUILayout.EndScrollView();
+            else
+            {
+                GUILayout.Label("No Story Events");
+            }
+            
         }
     }
 

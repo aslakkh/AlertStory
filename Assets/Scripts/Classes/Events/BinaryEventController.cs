@@ -17,8 +17,7 @@ public class BinaryEventController : EventController {
     public void HandleChoice(bool affirmative) //called on affirmative button or dissentive button push
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>(); //TODO: USE MESSAGING INSTEAD
-        Choice c = affirmative ? storyEvent.choices[0] : storyEvent.choices[1];
-        //gameManager.HandleChoice(c.affectScore, c.affectSecretScore);
+        gameManager.HandleChoice(storyEvent, affirmative ? storyEvent.choices[0] : storyEvent.choices[1]); //sends choice chosen as parameter
         DestroyFromScene();
     }
 }

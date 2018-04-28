@@ -9,28 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: FirstStoryEvent
+  m_Name: Event3
   m_EditorClassIdentifier: 
-  title: Test
+  title: Event3
   text: 
-  requirements: {fileID: 114341864786021846}
-  dependencies: {fileID: 114568712318604898}
-  choices: []
---- !u!114 &114341864786021846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requirementDictionary:
-    m_keys: []
-    m_values: 
---- !u!114 &114568712318604898
+  requirements: {fileID: 114649349814284528}
+  dependencies: {fileID: 114398754651912166}
+  choices:
+  - choiceDescription: Nice
+    affectScorePrivate: 0
+    affectScoreFriends: 0
+    affectScorePublic: 0
+    triggersStoryEventPrivate: {fileID: 0}
+    triggersStoryEventFriends: {fileID: 0}
+    triggersStoryEventPublic: {fileID: 0}
+--- !u!114 &114398754651912166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -42,5 +35,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: e96548ba9fa210d478c67fe13b296f20, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+--- !u!114 &114649349814284528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
     m_keys: []
     m_values: 

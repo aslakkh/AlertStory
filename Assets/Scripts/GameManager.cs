@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
     public RequirementDict requirementDict;
-    private List<StoryEvent> _eventsFired;
+    private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
     }
     
     //Add all events that has fired here.
-    public List<StoryEvent> eventsFired {
+    public StoryEventChoiceDictionary eventsFired {
         get { return _eventsFired; }
         set { _eventsFired = value; }
     }
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
     {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
-        _eventsFired = new List<StoryEvent>();
+        _eventsFired = new StoryEventChoiceDictionary();
         Debug.Log(requirementDict.requirementDictionary.ElementAt(0));
     }
 
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour {
         if (eventFired)
         {
             gameState = GameState.eventhandler;
-            _eventsFired.Add(eventFired);
+            _eventsFired.Add(eventFired, null);
         }
         
     }
@@ -102,10 +102,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void HandleChoice(int score, int privateScore)
+    public void HandleChoice(StoryEvent storyEvent, Choice choice)
     {
-        AddToScore(score);
-        AddToPrivateScore(score);
+        //TODO: Add score handling
+        _eventsFired[storyEvent] = choice;
         gameState = GameState.investigator;
     }
 

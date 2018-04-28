@@ -9,21 +9,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: ThirdStoryEvent
+  m_Name: Event1
   m_EditorClassIdentifier: 
-  title: ThirdStoryEvent
-  text: 
-  requirements: {fileID: 114736205037401468}
-  dependencies: {fileID: 114844266648906494}
+  title: This is the first one
+  text: TETETE
+  requirements: {fileID: 114164534738070470}
+  dependencies: {fileID: 114239400541558298}
   choices:
-  - choiceDescription: Blank
+  - choiceDescription: Choice 1
     affectScorePrivate: 0
     affectScoreFriends: 0
     affectScorePublic: 0
     triggersStoryEventPrivate: {fileID: 0}
     triggersStoryEventFriends: {fileID: 0}
     triggersStoryEventPublic: {fileID: 0}
---- !u!114 &114736205037401468
+  - choiceDescription: Choice 2
+    affectScorePrivate: 0
+    affectScoreFriends: 0
+    affectScorePublic: 0
+    triggersStoryEventPrivate: {fileID: 0}
+    triggersStoryEventFriends: {fileID: 0}
+    triggersStoryEventPublic: {fileID: 0}
+--- !u!114 &114164534738070470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -35,10 +42,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Test
-    m_values: 02000000
---- !u!114 &114844266648906494
+    m_keys: []
+    m_values: 
+--- !u!114 &114239400541558298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -50,6 +56,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    m_keys:
-    - {fileID: 11400000, guid: e0ae405527bb0b444884190424ffc971, type: 2}
-    m_values: 01
+    m_keys: []
+    m_values: []
