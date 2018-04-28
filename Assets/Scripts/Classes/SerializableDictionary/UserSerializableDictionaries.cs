@@ -7,4 +7,4 @@ using UnityEngine;
 public class StoryEventBoolDictionary : SerializableDictionary<StoryEvent, bool> {}
 
 [Serializable]
-public class RequirementSettingDictionary : SerializableDictionary<Requirement, Settings.Setting> {}
+public class StringSettingDictionary : SerializableDictionary<string, Settings.Setting> {}

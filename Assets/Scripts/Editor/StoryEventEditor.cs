@@ -8,7 +8,8 @@ public class StoryEventEditor : EditorWindow
 
     public StoryEventList storyEventList;
     public StoryEventList DependencyList;
-    private int viewIndex = 1;
+    private StoryEvent storyEvent; //storyEvent being edited
+    private string folderPath; //path of storyEvent being edited
     private ChoiceList choiceList;
     private RequirementsList requirementList;
     private int _choiceIndex = 0;
@@ -18,342 +19,303 @@ public class StoryEventEditor : EditorWindow
     private List<string> requiremetListString = new List<string>();
     private List<string> storyEventListString = new List<string>();
     private string choicePath;
-    private string requiremetPath;
+    private string requirementPath;
     private string storyEventPath;
 
-    [MenuItem("Window/Event/StoryEditor")]
+    //editor values
+    string storyTitle;
+    string storyText;
+
+    [MenuItem("Window/Event/StoryEventEditor")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(StoryEventEditor));
     }
 
+    //call this to instantiate editor window
+    public static void Init(StoryEvent s)
+    {
+        //getwindow, attempt to dock next to existing CharacterListEditor
+        StoryEventEditor w = EditorWindow.GetWindow<StoryEventEditor>(typeof(StoryEventListEditor));
+        w.storyEvent = s;
+
+        //set folderPath
+        string folderPath = AssetDatabase.GetAssetPath(s); //gives relative path of asset
+        folderPath = folderPath.Substring(0, folderPath.LastIndexOf("/")); //strip to give path to asset folder
+        w.folderPath = folderPath;
+
+    }
+
 
     //Update on change.
     private void OnFocus() {
-        if (!string.IsNullOrEmpty(choicePath))
-        {
-            SetChoiceList(choicePath);
-        }
-        if (!string.IsNullOrEmpty(requiremetPath)){
-            SetRequirementsList(requiremetPath);
-        }
 
-        if (!string.IsNullOrEmpty(storyEventPath))
-        {
-            SetDepenedencyList(storyEventPath);
-        }
-        
-    }
-
-    void OnEnable() {
-        if (EditorPrefs.HasKey("StoryPath")){
-            string objectPath = EditorPrefs.GetString("StoryPath");
-            storyEventPath = objectPath;
-            storyEventList = AssetDatabase.LoadAssetAtPath(objectPath, typeof(StoryEventList)) as StoryEventList;
-        }
-       
+        GUI.FocusControl(null);
     }
 
     void OnGUI() {
-       
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Choice Editor", EditorStyles.boldLabel);
-        if (storyEventList != null) {
-            if (GUILayout.Button("Show Item List")) {
-                EditorUtility.FocusProjectWindow();
-                Selection.activeObject = storyEventList;
-            }
-        }
-        if (GUILayout.Button("Open Item List")) {
-            OpenItemList();
-        }
-        GUILayout.EndHorizontal();
 
-        if (storyEventList == null) {
-            GUILayout.BeginHorizontal();
-            GUILayout.Space(10);
-            if (GUILayout.Button("Create New StoryEvent List", GUILayout.ExpandWidth(false))) {
-                CreateEventStoryList();
-            }
-            if (GUILayout.Button("Open Existing StoryEvent List", GUILayout.ExpandWidth(false))) {
-                OpenItemList();
-            }
-            GUILayout.EndHorizontal();
+        if(storyEvent == null)
+        {
+            //do something
         }
 
-        GUILayout.Space(20);
-
-        if (storyEventList != null) {
-            GUILayout.BeginHorizontal();
+        else
+        {
+            GUILayout.Label("Info", EditorStyles.boldLabel);
+            storyTitle = EditorGUILayout.TextField("Story title", storyTitle);
 
             GUILayout.Space(10);
 
-            if (GUILayout.Button("Prev", GUILayout.ExpandWidth(false))) {
-                if (viewIndex > 1)
-                    viewIndex--;
-            }
-            GUILayout.Space(5);
-            if (GUILayout.Button("Next", GUILayout.ExpandWidth(false))) {
-                if (viewIndex < storyEventList.list.Count) {
-                    viewIndex++;
+            storyText = EditorGUILayout.TextField("Story Text", storyText);
+
+            GUILayout.Space(10);
+
+            GUILayout.Label("Choices", EditorStyles.boldLabel);
+            //Choicelist
+            //Does it exsist??
+            if (storyEvent.choices == null || storyEvent.choices.Count == 0)
+            {
+                GUILayout.Label("Warning: No choices. Every StoryEvent needs minimum 1 choice.", EditorStyles.helpBox);
+                GUILayout.Space(2);
+
+                //adds new choice to storyEvent
+                if (GUILayout.Button("Add New Choice", GUILayout.ExpandWidth(false)))
+                {
+                    storyEvent.choices.Add(new Choice());
                 }
             }
-
-            GUILayout.Space(60);
-
-            if (GUILayout.Button("Add Item", GUILayout.ExpandWidth(false))) {
-                AddItem();
-            }
-            if (GUILayout.Button("Delete Item", GUILayout.ExpandWidth(false))) {
-                DeleteItem(viewIndex - 1);
-            }
-
-            GUILayout.EndHorizontal();
-            if (storyEventList.list != null && storyEventList.list.Count > 0) {
-                GUILayout.BeginHorizontal();
-                viewIndex = Mathf.Clamp(EditorGUILayout.IntField("Current Story Event", viewIndex, GUILayout.ExpandWidth(false)), 1, storyEventList.list.Count);
-                //Mathf.Clamp (viewIndex, 1, itemTypeList.list.Count);
-                EditorGUILayout.LabelField("of   " + storyEventList.list.Count.ToString() + "  events", "", GUILayout.ExpandWidth(false));
-                GUILayout.EndHorizontal();
-
-                storyEventList.list[viewIndex - 1].title = EditorGUILayout.TextField("Story title", storyEventList.list[viewIndex - 1].title);
-
-                GUILayout.Space(10);
-                
-                storyEventList.list[viewIndex - 1].text = EditorGUILayout.TextField("Story Text", storyEventList.list[viewIndex - 1].text);
-
-                GUILayout.Space(10);
-                
-                //Choicelist
-                //Does it exsist??
-                if (storyEventList.list[viewIndex - 1].choices == null) {
-                    GUILayout.Label(" No choices yo.");
-                    GUILayout.Space(2);
-                } else {
-                    //Loop trough each Choice
-                    foreach (Choice choice in storyEventList.list[viewIndex - 1].choices.ToArray()) {
-                        GUILayout.BeginHorizontal();
-                        GUILayout.Label(choice.choiceDescription);
-                        //Delete button for choice
-                        if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false))) {
-                            storyEventList.list[viewIndex - 1].choices.Remove(choice);
-                        }
-                        GUILayout.EndHorizontal();
-                        GUILayout.Space(2);
-                    }
-                }
-                
-                //Open finder if no choice assets are loaded
-                if (choiceList == null) {
-                    if (GUILayout.Button("Open Choices", GUILayout.ExpandWidth(false))) {
-                        OpenChoiceList();
-                    };
-                } else {
+            else
+            {
+                //Loop trough each Choice
+                foreach (Choice choice in storyEvent.choices.ToArray())
+                {
+                    GUILayout.BeginVertical();
                     GUILayout.BeginHorizontal();
-                    _choiceIndex = EditorGUILayout.Popup("Add Choices", _choiceIndex, choiceListString.ToArray());
-                    if (GUILayout.Button("Add", GUILayout.ExpandWidth(false))) {
-                        storyEventList.list[viewIndex - 1].choices.Add(choiceList[_choiceIndex]);
-                    }
-                    GUILayout.EndHorizontal();
-                    GUILayout.Space(3);
-                    if(GUILayout.Button("Select other choicelist", GUILayout.ExpandWidth(false))) {
-                        OpenChoiceList();
-                    }
-                }
-                
-                GUILayout.Space(20);
-                
-                //Requirements list
-                //Does it exsist??
-                if (storyEventList.list[viewIndex - 1].requirements == null || storyEventList.list[viewIndex - 1].requirements.requirementDictionary == null) {
-                    GUILayout.Label(" No requirements.");
-                    GUILayout.Space(2);
-                }
-                else {
-                    if(storyEventList.list[viewIndex - 1].requirements.requirementDictionary.Count > 0)
+                    GUILayout.Label(choice.choiceDescription, EditorStyles.largeLabel);
+                    //Delete button for choice
+                    if (GUILayout.Button("Delete Choice", GUILayout.ExpandWidth(false)))
                     {
-                        //Debug.Log(storyEventList.list[viewIndex - 1].requirements.requirementDictionary.ElementAt(0));
-                    }
-                    //Loops trough each requirement in list
-                    for (int i = 0; i < storyEventList.list[viewIndex - 1].requirements.requirementDictionary
-                        .Count; i++) {
-                        var item = storyEventList.list[viewIndex - 1].requirements.requirementDictionary.ElementAt(i);
-                        GUILayout.BeginHorizontal();
-                        
-                        //Dispalys name as Static and boolean as interchangable
-
-                        EditorGUILayout.TextArea(item.Key.requirementName);
-                        var value =(Setting)EditorGUILayout.EnumPopup("Required?", item.Value);
-
-                        //Update only on value change check
-                        if (value != item.Value) {
-                            storyEventList.list[viewIndex - 1].requirements.UpdateValue(item.Key, value);
-                            EditorUtility.SetDirty(storyEventList);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].requirements);
-                        }
-                        //Delete Button for choice, only in relevant story.
-                        if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false))) {
-                            Debug.Log(item.Key);
-                            Debug.Log(storyEventList.list[viewIndex - 1].requirements.requirementDictionary.ElementAt(0));
-                            storyEventList.list[viewIndex - 1].requirements.Remove(item.Key);
-                            EditorUtility.SetDirty(storyEventList);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].requirements);
-                        }
-
-                        GUILayout.EndHorizontal();
-                        GUILayout.Space(2);
-                    }
-                }
-                
-                //Open finder if no requirements asset is loaded
-                if (requirementList == null) {
-                    if (GUILayout.Button("Open requirement", GUILayout.ExpandWidth(false))) {
-                        OpenRequirementList();
-                    }
-                } else {
-                    GUILayout.BeginHorizontal();
-                    // Create popup and add to list
-                    _reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
-                        requiremetListString.ToArray());
-                    if (GUILayout.Button("Add", GUILayout.ExpandWidth(false))) {
-                        Debug.Log(requirementList.list[_reqIndex]);
-                        storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
-                        EditorUtility.SetDirty(storyEventList);
-                        EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
-                        EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].requirements);
+                        storyEvent.choices.Remove(choice);
+                        EditorUtility.SetDirty(storyEvent);
                     }
                     GUILayout.EndHorizontal();
-                    GUILayout.Space(3);
-                    if(GUILayout.Button("Select other requirementlist", GUILayout.ExpandWidth(false))) {
-                        OpenRequirementList();
-                    } else {
-                        // Create popup and add to list
-                        //_reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
-                        //    requiremetListString.ToArray());
-                        //storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
+
+                    //edit choiceDescription
+                    string choiceDescription = EditorGUILayout.TextField("Choice Description", choice.choiceDescription);
+                    int affectScorePrivate = EditorGUILayout.IntField("Affect Score Private", choice.affectScorePrivate);
+                    int affectScoreFriends = EditorGUILayout.IntField("Affect Score Friends", choice.affectScoreFriends);
+                    int affectScorePublic = EditorGUILayout.IntField("Affect Score Public", choice.affectScorePublic);
+                    if (choiceDescription != choice.choiceDescription)
+                    {
+                        choice.choiceDescription = choiceDescription;
+                        EditorUtility.SetDirty(storyEvent);
+                    }
+                    if(affectScorePrivate != choice.affectScorePrivate)
+                    {
+                        choice.affectScorePrivate = affectScorePrivate;
+                        EditorUtility.SetDirty(storyEvent);
+                    }
+                    if(affectScoreFriends != choice.affectScoreFriends)
+                    {
+                        choice.affectScoreFriends = affectScoreFriends;
+                        EditorUtility.SetDirty(storyEvent);
+                    }
+                    if(affectScorePublic != choice.affectScorePublic)
+                    {
+                        choice.affectScorePublic = affectScorePublic;
+                        EditorUtility.SetDirty(storyEvent);
+                    }
+
+                    GUILayout.EndVertical();
+                    GUILayout.Space(10);
+                }
+
+                if(storyEvent.choices.Count < 2) //allow at most 2 choices
+                {
+                    //adds new choice to storyEvent
+                    if (GUILayout.Button("Add New Choice", GUILayout.ExpandWidth(false)))
+                    {
+                        storyEvent.choices.Add(new Choice());
                     }
                 }
                 
-                GUILayout.Space(20);
-                //Dependencies list
-                //Does it exsist??
-                if (storyEventList.list[viewIndex - 1].dependencies == null || storyEventList.list[viewIndex - 1].dependencies.dependenciesDict == null) {
-                    GUILayout.Label(" No dependencies.");
+            }
+
+            GUILayout.Space(20);
+
+            GUILayout.Label("Requirements", EditorStyles.boldLabel);
+            //Requirements list
+            //Does it exsist??
+            if (storyEvent.requirements == null || storyEvent.requirements.requirementDictionary == null)
+            {
+                GUILayout.Label(" No requirements.");
+                GUILayout.Space(2);
+            }
+            else
+            {
+                //Loops trough each requirement in list
+                for (int i = 0; i < storyEvent.requirements.requirementDictionary.Count; i++)
+                {
+                    var item = storyEvent.requirements.requirementDictionary.ElementAt(i);
+                    GUILayout.BeginHorizontal();
+
+                    //Dispalys name as Static and boolean as interchangable
+                    GUILayout.Label(item.Key);
+                    var value = (Setting)EditorGUILayout.EnumPopup("Setting", item.Value);
+
+                    //Update only on value change check
+                    if (value != item.Value)
+                    {
+                        storyEvent.requirements.UpdateValue(item.Key, value);
+                        //EditorUtility.SetDirty(storyEventList);
+                        //EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
+                        EditorUtility.SetDirty(storyEvent.requirements);
+                    }
+                    //Delete Button for choice, only in relevant story.
+                    if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false)))
+                    {
+                        storyEvent.requirements.Remove(item.Key);
+                        //EditorUtility.SetDirty(storyEventList);
+                        //EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
+                        EditorUtility.SetDirty(storyEvent.requirements);
+                    }
+
+                    GUILayout.EndHorizontal();
                     GUILayout.Space(2);
                 }
-                else {
-                    //Loops trough each Dependencies in list
-                    for (int i = 0; i < storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.Count; i++) {
-                        var item = storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ElementAt(i);
-                        //Debug.Log(storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ContainsKey(item.Key));
-                        GUILayout.BeginHorizontal();
-                        
-                        //Dispalys name as Static and boolean as interchangable
-                        EditorGUILayout.TextArea(item.Key.title);
-                        var value = EditorGUILayout.Toggle("Checked for must", item.Value);
-                        //Update only on value change check
-                        if (value != item.Value) {
-                            Debug.Log(storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ElementAt(0).GetHashCode() == item.GetHashCode());
-                            storyEventList.list[viewIndex - 1].dependencies.UpdateValue(item.Key, value);
-                            EditorUtility.SetDirty(storyEventList);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].dependencies);
+            }
 
-                        }
-                        //Delete Button for choice, only in relevant story.
-                        if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false))) {
-                            storyEventList.list[viewIndex - 1].dependencies.Remove(item.Key);
-                            EditorUtility.SetDirty(storyEventList);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
-                            EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].dependencies);
-                        }
+            //Open finder if no requirements asset is loaded
+            if (requirementList == null)
+            {
+                if (GUILayout.Button("Open requirement", GUILayout.ExpandWidth(false)))
+                {
+                    OpenRequirementList();
+                }
+            }
+            else
+            {
+                GUILayout.BeginHorizontal();
+                // Create popup and add to list
+                _reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
+                    requiremetListString.ToArray());
+                if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
+                {
+                    Debug.Log(requirementList.list[_reqIndex]);
+                    storyEvent.requirements.Add(requirementList.list[_reqIndex].requirementName, Setting.Public);
+                    //EditorUtility.SetDirty(storyEventList);
+                    //EditorUtility.SetDirty(storyEvent);
+                    EditorUtility.SetDirty(storyEvent.requirements);
+                }
+                GUILayout.EndHorizontal();
+                GUILayout.Space(3);
+                if (GUILayout.Button("Select other requirementlist", GUILayout.ExpandWidth(false)))
+                {
+                    OpenRequirementList();
+                }
+                else
+                {
+                    // Create popup and add to list
+                    //_reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
+                    //    requiremetListString.ToArray());
+                    //storyEventList.list[viewIndex - 1].requirements.Add(requirementList.list[_reqIndex], Setting.Public);
+                }
+            }
 
-                        GUILayout.EndHorizontal();
-                        GUILayout.Space(2);
-                    }
-                }
-                //Add button for Dependencies
-                if (DependencyList == null) {
-                    if (GUILayout.Button("Open Dependency List", GUILayout.ExpandWidth(false))) {
-                        OpenDependencyList();
-                    }
-                }
-                else {
+            GUILayout.Space(20);
+
+            GUILayout.Label("Dependencies", EditorStyles.boldLabel);
+            //Dependencies list
+            //Does it exsist??
+            if (storyEvent.dependencies == null || storyEvent.dependencies.dependenciesDict == null)
+            {
+                GUILayout.Label(" No dependencies.");
+                GUILayout.Space(2);
+            }
+            else
+            {
+                //Loops trough each Dependencies in list
+                for (int i = 0; i < storyEvent.dependencies.dependenciesDict.Count; i++)
+                {
+                    var item = storyEvent.dependencies.dependenciesDict.ElementAt(i);
+                    //Debug.Log(storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ContainsKey(item.Key));
                     GUILayout.BeginHorizontal();
-                    _depIndex = EditorGUILayout.Popup("Add Dependencies", _depIndex,
-                        storyEventListString.ToArray());
-                    if (GUILayout.Button("Add Dependencies", GUILayout.ExpandWidth(false))) {
-                        // Create popup and add to list
-                        Debug.Log(storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.Count);
-                        storyEventList.list[viewIndex - 1].dependencies.Add(DependencyList.list[_depIndex], true);
-                        EditorUtility.SetDirty(storyEventList);
-                        EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
-                        EditorUtility.SetDirty(storyEventList.list[viewIndex - 1].dependencies);
+
+                    //Dispalys name as Static and boolean as interchangable
+                    GUILayout.Label(item.Key.title);
+                    var value = EditorGUILayout.Toggle("Must be fired", item.Value);
+                    //if(item.Key.choices.Count > 1)
+                    //{
+                    //    var choiceARequired = EditorGUILayout.Toggle("Require Choice: " + item.Key.choices[0].choiceDescription, item.Value);
+                    //    if(item.Key.choices.Count == 2)
+                    //    {
+                    //        var choiceBRequired = EditorGUILayout.Toggle("Require Choice: " + item.Key.choices[1].choiceDescription, item.Value);
+                    //    }
+                    //}
+                    //Update only on value change check
+                    if (value != item.Value)
+                    {
+                        storyEvent.dependencies.UpdateValue(item.Key, value);
+                        //EditorUtility.SetDirty(storyEventList);
+                        //EditorUtility.SetDirty(storyEvent);
+                        EditorUtility.SetDirty(storyEvent.dependencies);
+
                     }
+                    //Delete Button for choice, only in relevant story.
+                    if (GUILayout.Button("Delete", GUILayout.ExpandWidth(false)))
+                    {
+                        storyEvent.dependencies.Remove(item.Key);
+                        //EditorUtility.SetDirty(storyEventList);
+                        //EditorUtility.SetDirty(storyEvent);
+                        EditorUtility.SetDirty(storyEvent.dependencies);
+                    }
+
                     GUILayout.EndHorizontal();
-                    GUILayout.Space(3);
-                    if(GUILayout.Button("Select other Dependencylist", GUILayout.ExpandWidth(false))) {
-                        OpenDependencyList();
-                    }
+                    GUILayout.Space(2);
                 }
-                
-                GUILayout.Space(5);
-                
-                
-            } else {
-                // If no StoryEvent is in list
-                GUILayout.Label("This StoryEventList is Empty.");
             }
+            //Add button for Dependencies
+            if (DependencyList == null)
+            {
+                if (GUILayout.Button("Open Dependency List", GUILayout.ExpandWidth(false)))
+                {
+                    OpenDependencyList();
+                }
+            }
+            else
+            {
+                GUILayout.Label("Use Select Dependency List to select StoryEventList to browse", EditorStyles.helpBox);
+                GUILayout.BeginHorizontal();
+                _depIndex = EditorGUILayout.Popup("Add Dependencies", _depIndex,
+                    storyEventListString.ToArray());
+                if (GUILayout.Button("Add Dependencies", GUILayout.ExpandWidth(false)))
+                {
+                    // Create popup and add to list
+                    storyEvent.dependencies.Add(DependencyList.list[_depIndex], true);
+                    //EditorUtility.SetDirty(storyEventList);
+                    //EditorUtility.SetDirty(storyEvent);
+                    EditorUtility.SetDirty(storyEvent.dependencies);
+                }
+                GUILayout.EndHorizontal();
+                GUILayout.Space(3);
+                if (GUILayout.Button("Select Dependency List", GUILayout.ExpandWidth(false)))
+                {
+                    OpenDependencyList();
+                }
+            }
+
+            GUILayout.Space(5);
         }
-        //Update changes on new changes to editor.
-        if (GUI.changed) {
-            EditorUtility.SetDirty(storyEventList);
-            AssetDatabase.SaveAssets();
-        }
-    }
-    
-    void CreateEventStoryList() {
-        // There is no overwrite protection here!
-        // There is No "Are you sure you want to overwrite your existing object?" if it exists.
-        // This should probably get a string from the user to create a new name and pass it ...
-        // TODO Set new protocol for defining name
         
-        viewIndex = 1;
-        storyEventList = CreateStoryEvent.Create();
-        if (choiceList){
-            choiceList.list = new List<Choice>();
-            string relPath = AssetDatabase.GetAssetPath(choiceList);
-            EditorPrefs.SetString("StoryPath", relPath);
-        }
-    }
 
-    void OpenItemList(){
-        string absPath = EditorUtility.OpenFilePanel("Select StoryEventList", "", "");
-        if (absPath.StartsWith(Application.dataPath)){
-            string relPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-            storyEventList = AssetDatabase.LoadAssetAtPath(relPath, typeof(StoryEventList)) as StoryEventList;
-            if (storyEventList.list == null)storyEventList.list = new List<StoryEvent>();
-            if (storyEventList){
-                EditorPrefs.SetString("StoryPath", relPath);
-            }
-        }
     }
-
-    void OpenChoiceList(){
-        string absPath = EditorUtility.OpenFilePanel("Select ChoiceList", "", "");
-        if (absPath.StartsWith(Application.dataPath)){
-            choicePath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-            SetChoiceList(choicePath);
-        }
-    } 
     
     void OpenRequirementList(){
         string absPath = EditorUtility.OpenFilePanel("Select RequirementList", "", "");
         if (absPath.StartsWith(Application.dataPath)){
-            requiremetPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
-            SetRequirementsList(requiremetPath);
+            requirementPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
+            SetRequirementsList(requirementPath);
         }
     }
     
@@ -362,16 +324,6 @@ public class StoryEventEditor : EditorWindow
         if (absPath.StartsWith(Application.dataPath)){
             storyEventPath = absPath.Substring(Application.dataPath.Length - "Assets".Length);
             SetDepenedencyList(storyEventPath);
-        }
-    }
-    
-    //Helper function to set choicelist after update.
-    void SetChoiceList(string path) {
-        choiceList = AssetDatabase.LoadAssetAtPath(path, typeof(ChoiceList)) as ChoiceList;
-        choiceListString.Clear();
-        if (choiceList == null) return;
-        foreach (Choice item in choiceList.list) {
-            choiceListString.Add(item.choiceDescription);
         }
     }
     
@@ -399,29 +351,6 @@ public class StoryEventEditor : EditorWindow
         }
     }
     
-    void AddItem() {
-        StoryEvent newItem = ScriptableObject.CreateInstance<StoryEvent>();
-        //Debug.Log(storyEventList.list);
-        storyEventList.list.Add(newItem);
-        //newItem.Init();
-        AssetDatabase.AddObjectToAsset(newItem, storyEventList);
-
-        // Reimport the asset after adding an object.
-        // Otherwise the change only shows up when saving the project
-        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(storyEventList));
-
-
-        var req = ScriptableObject.CreateInstance<RequirementDict>();
-        var dep = ScriptableObject.CreateInstance<Dependencies>();
-        newItem.requirements = req;
-        newItem.dependencies = dep;
-        AssetDatabase.AddObjectToAsset(req, newItem);
-        AssetDatabase.AddObjectToAsset(dep, newItem);
-        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(newItem));
-
-
-        viewIndex = storyEventList.list.Count;
-    }
 
     void DeleteItem(int index) { 
         storyEventList.list.RemoveAt(index);

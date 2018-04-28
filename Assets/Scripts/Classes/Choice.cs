@@ -1,30 +1,23 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class Choice{
     public string choiceDescription;
-    public int affectScore;
-    public int affectSecretScore;
-    public StoryEvent triggersStoryEvent;
+    public int affectScorePrivate;
+    public int affectScoreFriends;
+    public int affectScorePublic;
+    public StoryEvent triggersStoryEventPrivate;
+    public StoryEvent triggersStoryEventFriends;
+    public StoryEvent triggersStoryEventPublic;
     
-    public StoryEvent TriggersStoryEvent {
-        get { return triggersStoryEvent; }
-        set { triggersStoryEvent = value; }
-    }
     
     public Choice() {
-        this.choiceDescription = "Blank";
-        this.affectScore = 0;
-        this.affectSecretScore = 0;
-        this.triggersStoryEvent = null;
+        choiceDescription = "Blank";
+        affectScorePrivate = affectScoreFriends = affectScorePublic = 0;
+        triggersStoryEventPrivate = triggersStoryEventFriends = triggersStoryEventPublic = null;
     }
 
-    public Choice(string choiceDescription, int affectScore, int affectSecretScore, StoryEvent triggersStoryEvent) {
-        this.choiceDescription = choiceDescription;
-        this.affectScore = affectScore;
-        this.affectSecretScore = affectSecretScore;
-        this.triggersStoryEvent = triggersStoryEvent;
-    }
 
 }

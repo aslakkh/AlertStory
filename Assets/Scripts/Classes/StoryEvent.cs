@@ -11,17 +11,17 @@ public class StoryEvent : ScriptableObject {
     public Dependencies dependencies;
     public List<Choice> choices;
 
-    //public void Init()
-    //{
-    //    var req = ScriptableObject.CreateInstance<RequirementDict>();
-    //    var dep = ScriptableObject.CreateInstance<Dependencies>();
-    //    this.requirements = req;
-    //    this.dependencies = dep;
-    //    AssetDatabase.AddObjectToAsset(req, this);
-    //    AssetDatabase.AddObjectToAsset(dep, this);
-    //    AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(this));
+    public void Init(string title)
+    {
+        SetTitle(title);
+        choices = new List<Choice>();
+        choices.Add(new global::Choice());
+    }
 
-    //}
+    public void SetTitle(string title)
+    {
+        this.title = title;
+    }
 
     public bool IsMultipleChoice()
     {

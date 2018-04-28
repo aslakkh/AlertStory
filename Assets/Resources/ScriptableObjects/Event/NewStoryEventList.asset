@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requirementDictionary:
     m_keys:
-    - requirementName: Test
-    m_values: 00000000
+    - Test
+    m_values: 01000000
 --- !u!114 &114382448653586954
 MonoBehaviour:
   m_ObjectHideFlags: 0
