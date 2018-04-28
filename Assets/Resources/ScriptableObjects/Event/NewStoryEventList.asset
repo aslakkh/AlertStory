@@ -50,17 +50,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    buckets: ffffffff00000000ffffffff
-    count: 1
-    entriesHashCode: 0291ff7f0000000000000000
-    entriesNext: ffffffff0000000000000000
+    buckets: ffffffff01000000ffffffffffffffffffffffffffffffffffffffff
+    count: 4
+    entriesHashCode: 0291ff7fac320000ffffffffffffffff000000000000000000000000
+    entriesNext: ffffffff0000000003000000ffffffff000000000000000000000000
     entriesKey:
     - {fileID: 114917679042132622}
+    - {fileID: 114198400394119500}
     - {fileID: 0}
     - {fileID: 0}
-    entriesValue: 010000
-    freeCount: 0
-    freeList: -1
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    entriesValue: 01010000000000
+    freeCount: 2
+    freeList: 2
 --- !u!114 &114198400394119500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: First event
+  title: What the fuck
   text: 
   requirements: {fileID: 114387955840299868}
   dependencies: {fileID: 114171450121758722}

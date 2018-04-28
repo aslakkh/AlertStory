@@ -245,8 +245,9 @@ public class StoryEventEditor : EditorWindow
                 }
                 else {
                     //Loops trough each Dependencies in list
-                    foreach (var item in storyEventList.list[viewIndex - 1].dependencies.dependenciesDict
-                        .ToArray()) {
+                    for (int i = 0; i < storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.Count; i++) {
+                        var item = storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ElementAt(i);
+                        //Debug.Log(storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ContainsKey(item.Key));
                         GUILayout.BeginHorizontal();
                         
                         //Dispalys name as Static and boolean as interchangable
@@ -254,6 +255,7 @@ public class StoryEventEditor : EditorWindow
                         var value = EditorGUILayout.Toggle("Checked for must", item.Value);
                         //Update only on value change check
                         if (value != item.Value) {
+                            Debug.Log(storyEventList.list[viewIndex - 1].dependencies.dependenciesDict.ElementAt(0).GetHashCode() == item.GetHashCode());
                             storyEventList.list[viewIndex - 1].dependencies.UpdateValue(item.Key, value);
                             EditorUtility.SetDirty(storyEventList);
                             EditorUtility.SetDirty(storyEventList.list[viewIndex - 1]);
