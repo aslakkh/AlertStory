@@ -19,7 +19,6 @@ public class GameStateEventArgs : EventArgs
 public class GameManager : MonoBehaviour {
 
     public int score;
-    public int privateScore;
     public int dayCount;
     public int turnCount;
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
-        Debug.Log(requirementDict.requirementDictionary.ElementAt(0));
     }
 
     public void FireEvent() {
@@ -106,6 +104,29 @@ public class GameManager : MonoBehaviour {
     {
         //TODO: Add score handling
         _eventsFired[storyEvent] = choice;
+
+        //add scores
+        if(choice.scores != null)
+        {
+            foreach (Score score in choice.scores)
+            {
+                if(!string.IsNullOrEmpty(score.requirementName))
+                {
+                    //score has a requirement, check if requirement matches requirementdict
+                    if (requirementDict.requirementDictionary.ContainsKey(score.requirementName) && requirementDict.requirementDictionary[score.requirementName] == score.setting)
+                    {
+                        AddToScore(score.value);
+                    }
+                }
+                else //score has no requirement
+                {
+                    AddToScore(score.value);
+                }
+                
+
+            }
+        }
+        
         gameState = GameState.investigator;
     }
 
@@ -114,9 +135,5 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    public void AddToPrivateScore(int value)
-    {
-        privateScore += value;
-    }
     
 }

@@ -36,15 +36,6 @@ public class ChoiceScriptEditModeTest {
         Assert.That(ch.choiceDescription, Does.Contain("someString"));
     }
 
-    [Test]
-    [Description("Test the Choice affectScore to be 15")]
-    [Category("Unit test")]
-    [Author("Ole Jakob Schjøth", "olejsc@stud.ntnu.no")]
-    public void CheckChoiceAffectScore()
-    {
-       Assert.That(ch.affectScorePrivate, Is.EqualTo(15));
-    }
-
 
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode

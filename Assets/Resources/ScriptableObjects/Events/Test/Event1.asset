@@ -21,26 +21,26 @@ MonoBehaviour:
     affectScoreFriends: 0
     affectScorePublic: 0
     scores:
-    - requirement:
-        requirementName: Test
+    - requirementName: Test
+      setting: 0
+      value: -100
+    - requirementName: Test
       setting: 2
-      value: 0
+      value: 100
     triggersStoryEventPrivate: {fileID: 0}
     triggersStoryEventFriends: {fileID: 0}
     triggersStoryEventPublic: {fileID: 0}
-  - choiceDescription: Blank
+  - choiceDescription: Choice2
     affectScorePrivate: 0
     affectScoreFriends: 0
     affectScorePublic: 0
     scores:
-    - requirement:
-        requirementName: Test
-      setting: 0
-      value: 200
-    - requirement:
-        requirementName: Test
+    - requirementName: Test
       setting: 2
-      value: -10
+      value: 100
+    - requirementName: 
+      setting: 2
+      value: 10
     triggersStoryEventPrivate: {fileID: 0}
     triggersStoryEventFriends: {fileID: 0}
     triggersStoryEventPublic: {fileID: 0}
@@ -56,8 +56,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys: []
-    m_values: 
+    m_keys:
+    - Test
+    m_values: 02000000
 --- !u!114 &114239400541558298
 MonoBehaviour:
   m_ObjectHideFlags: 0

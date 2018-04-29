@@ -14,7 +14,7 @@ public class StoryEventListEditor : EditorWindow
     private string storyEventListTitle;
     private Vector2 scrollPosition;
     private string storyEventTitle;
-    //private int eventPosition;
+    Vector2 mainScrollPosition;
 
     [MenuItem("Window/Event/StoryEventList")]
     static void Init()
@@ -37,8 +37,11 @@ public class StoryEventListEditor : EditorWindow
 
     private void OnGUI()
     {
+        //entire window should be scrollable
+        mainScrollPosition = GUILayout.BeginScrollView(mainScrollPosition);
+
         //check for storyEventList
-        if(storyEventList == null)
+        if (storyEventList == null)
         {
             //let user open existing or create new list
             storyEventListTitle = EditorGUILayout.TextField("New StoryEventList", storyEventListTitle);
@@ -60,8 +63,7 @@ public class StoryEventListEditor : EditorWindow
             storyEventTitle = EditorGUILayout.TextField("New story event title", storyEventTitle);
             if (GUILayout.Button("Create", GUILayout.ExpandWidth(false)))
             {
-                StoryEvent s = CreateNewStoryEvent();
-                //EditStoryEvent(s);
+                CreateNewStoryEvent();
             }
             GUILayout.EndHorizontal();
 
@@ -120,6 +122,9 @@ public class StoryEventListEditor : EditorWindow
             }
             
         }
+
+        GUILayout.EndScrollView();
+
     }
 
     void CreateEventStoryList(string name)

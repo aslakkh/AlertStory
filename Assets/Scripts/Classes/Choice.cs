@@ -7,13 +7,13 @@ using System.Collections.Generic;
 [Serializable]
 public class Score
 {
-    public Requirement requirement;
+    public string requirementName;
     public Setting setting;
     public int value;
 
     public Score()
     {
-        requirement = null;
+        requirementName = null;
         setting = Setting.Public;
         value = 0;
     }
@@ -23,9 +23,9 @@ public class Score
         this.setting = setting;
     }
 
-    public void SetRequirement(Requirement requirement)
+    public void SetRequirementName(string requirementName)
     {
-        this.requirement = requirement;
+        this.requirementName = requirementName;
     }
 
     public void SetValue(int value)
@@ -37,19 +37,11 @@ public class Score
 [Serializable]
 public class Choice{
     public string choiceDescription;
-    public int affectScorePrivate;
-    public int affectScoreFriends;
-    public int affectScorePublic;
     public List<Score> scores;
-    public StoryEvent triggersStoryEventPrivate;
-    public StoryEvent triggersStoryEventFriends;
-    public StoryEvent triggersStoryEventPublic;
     
     
     public Choice() {
         choiceDescription = "Blank";
-        affectScorePrivate = affectScoreFriends = affectScorePublic = 0;
-        triggersStoryEventPrivate = triggersStoryEventFriends = triggersStoryEventPublic = null;
         scores = new List<Score>();
     }
 

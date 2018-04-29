@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  privateScore: 0
   dayCount: 0
   turnCount: 0
   playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
-  requirementDict: {fileID: 11400000, guid: 0ea5cb9ac16e0c848b5a10b9c9288dbe, type: 2}
+  requirementDict: {fileID: 114164534738070470, guid: e96548ba9fa210d478c67fe13b296f20,
+    type: 2}
 --- !u!4 &332116133
 Transform:
   m_ObjectHideFlags: 0

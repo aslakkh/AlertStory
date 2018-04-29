@@ -146,9 +146,9 @@ public class StoryEventEditor : EditorWindow
                         foreach(Score score in choice.scores.ToArray())
                         {
                             GUILayout.BeginHorizontal();
-                            if(score.requirement != null) //allow setting of requirement to be changed
+                            if(!string.IsNullOrEmpty(score.requirementName)) //allow setting of requirement to be changed
                             {
-                                GUILayout.Label("If " + score.requirement.requirementName + " is ");
+                                GUILayout.Label("If " + score.requirementName + " is ");
                                 var setting = (Setting)EditorGUILayout.EnumPopup(score.setting);
 
                                 //Update only on value change check
@@ -165,7 +165,7 @@ public class StoryEventEditor : EditorWindow
                                     requiremetListString.ToArray());
                                 if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
                                 {
-                                    score.SetRequirement(requirementList.list[_reqIndex]);
+                                    score.SetRequirementName(requirementList.list[_reqIndex].requirementName);
                                     score.SetSetting(Setting.Public);
                                     EditorUtility.SetDirty(storyEvent.requirements);
                                 }

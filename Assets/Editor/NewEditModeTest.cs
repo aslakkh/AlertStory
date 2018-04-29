@@ -37,24 +37,6 @@ public class GameManagerEditModeTest {
         Assert.That(gm.dayCount.Equals(0), "Score is not null in GameManager");
     }
 
-    [Test]
-    [Description("Test the initial privateScore value to be 0")]
-    [Category("Unit test")]
-    [Author("Ole Jakob Schjøth")]
-    public void CheckPrivateScoreIsZero()
-    {
-        Assert.That(gm.privateScore.Equals(0), "Score is not null in GameManager");
-    }
-
-    [Test]
-    [Description("Check that privatscore is not negative")]
-    [Category("Negative Unit test")]
-    [Author("Ole Jakob Schjøth")]
-    public void CheckPrivateScoreIsNotNegative()
-    {
-        Assert.That<int>(gm.privateScore, Is.GreaterThanOrEqualTo(0));
-    }
-
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]
