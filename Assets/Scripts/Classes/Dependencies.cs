@@ -6,23 +6,16 @@ using System.Linq;
 public struct StoryDependencyBool
 {
     public bool fired; //dependent on being fired
-    public bool choiceA; //true if dependent on choice A, false if dependent on choice B
+    public bool choiceA; //true if dependent on choice A
+    public bool choiceB;
 
-    public StoryDependencyBool(bool fired, bool choiceA)
+    public StoryDependencyBool(bool fired, bool choiceA, bool choiceB)
     {
         this.fired = fired;
         this.choiceA = choiceA;
+        this.choiceB = choiceB;
     }
 
-    public void SetFired(bool fired)
-    {
-        this.fired = fired;
-    }
-
-    public void SetChoiceA(bool choiceA)
-    {
-        this.choiceA = choiceA;
-    }
 }
 
 [System.Serializable]
@@ -48,7 +41,7 @@ public class Dependencies : ScriptableObject {
                             return false;
                         }
                     }
-                    else
+                    else if(item.Value.choiceB)
                     {
                         //item is dependent on choice B, check that choice B was taken
                         if (remoteDict[item.Key] != item.Key.choices[1])

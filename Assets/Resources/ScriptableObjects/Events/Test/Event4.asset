@@ -20,6 +20,7 @@ MonoBehaviour:
     affectScorePrivate: 0
     affectScoreFriends: 0
     affectScorePublic: 0
+    scores: []
     triggersStoryEventPrivate: {fileID: 0}
     triggersStoryEventFriends: {fileID: 0}
     triggersStoryEventPublic: {fileID: 0}
@@ -35,8 +36,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - {fileID: 11400000, guid: e96548ba9fa210d478c67fe13b296f20, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 0
 --- !u!114 &114638270089968656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,6 +54,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Test
-    m_values: 02000000
+    m_keys: []
+    m_values: 
