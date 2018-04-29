@@ -217,7 +217,7 @@ MonoBehaviour:
   dayCount: 0
   turnCount: 0
   playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
-  requirementDict: {fileID: 114164534738070470, guid: e96548ba9fa210d478c67fe13b296f20,
+  requirementDict: {fileID: 114257674276251798, guid: 08eb63235f8969b4fb03bb0635605231,
     type: 2}
 --- !u!4 &332116133
 Transform:

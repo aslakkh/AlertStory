@@ -8,8 +8,9 @@ public class RequirementEditor : EditorWindow
 
     public RequirementsList requirementList;
     private int viewIndex = 1;
+    private string requirementListTitle;
 
-    [MenuItem("Window/Event/RequirementEditor")]
+    [MenuItem("Window/Event/RequirementListEditor")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(RequirementEditor));
@@ -41,26 +42,30 @@ public class RequirementEditor : EditorWindow
         {
             OpenItemList();
         }
-        if (GUILayout.Button("New Item List"))
-        {
-            EditorUtility.FocusProjectWindow();
-            Selection.activeObject = requirementList;
-        }
+
         GUILayout.EndHorizontal();
+
+        requirementListTitle = EditorGUILayout.TextField("New Requirement List", requirementListTitle);
+        if (GUILayout.Button("Create New Requirement List", GUILayout.ExpandWidth(false)))
+        {
+                CreateNewItemList(requirementListTitle);
+        }
 
         if (requirementList == null)
         {
             GUILayout.BeginHorizontal();
             GUILayout.Space(10);
-            if (GUILayout.Button("Create New Requirement List", GUILayout.ExpandWidth(false)))
-            {
-                CreateNewItemList();
-            }
             if (GUILayout.Button("Open Existing Item List", GUILayout.ExpandWidth(false)))
             {
                 OpenItemList();
             }
             GUILayout.EndHorizontal();
+
+            requirementListTitle = EditorGUILayout.TextField("New Requirement List", requirementListTitle);
+            if (GUILayout.Button("Create New Requirement List", GUILayout.ExpandWidth(false)))
+            {
+                CreateNewItemList(requirementListTitle);
+            }
         }
 
         GUILayout.Space(20);
@@ -121,13 +126,13 @@ public class RequirementEditor : EditorWindow
         }
     }
 
-    void CreateNewItemList()
+    void CreateNewItemList(string title)
     {
         // There is no overwrite protection here!
         // There is No "Are you sure you want to overwrite your existing object?" if it exists.
         // This should probably get a string from the user to create a new name and pass it ...
         viewIndex = 1;
-        requirementList = CreateRequirementList.Create();
+        requirementList = CreateRequirementList.Create(title);
         if (requirementList)
         {
             requirementList.list = new List<Requirement>();

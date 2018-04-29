@@ -9,42 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: Event1
+  m_Name: First event
   m_EditorClassIdentifier: 
-  title: This is the first one
-  text: TETETE
-  requirements: {fileID: 114164534738070470}
-  dependencies: {fileID: 114239400541558298}
+  title: First event
+  text: 
+  requirements: {fileID: 114257674276251798}
+  dependencies: {fileID: 114261970985087972}
   choices:
-  - choiceDescription: Choice1
-    affectScorePrivate: 0
-    affectScoreFriends: 0
-    affectScorePublic: 0
-    scores:
-    - requirementName: Test
-      setting: 0
-      value: -100
-    - requirementName: Test
-      setting: 2
-      value: 100
-    triggersStoryEventPrivate: {fileID: 0}
-    triggersStoryEventFriends: {fileID: 0}
-    triggersStoryEventPublic: {fileID: 0}
-  - choiceDescription: Choice2
-    affectScorePrivate: 0
-    affectScoreFriends: 0
-    affectScorePublic: 0
-    scores:
-    - requirementName: Test
-      setting: 2
-      value: 100
-    - requirementName: 
-      setting: 2
-      value: 10
-    triggersStoryEventPrivate: {fileID: 0}
-    triggersStoryEventFriends: {fileID: 0}
-    triggersStoryEventPublic: {fileID: 0}
---- !u!114 &114164534738070470
+  - choiceDescription: Blank
+    scores: []
+--- !u!114 &114257674276251798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -57,9 +31,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requirementDictionary:
     m_keys:
-    - Test
+    - One
     m_values: 02000000
---- !u!114 &114239400541558298
+--- !u!114 &114261970985087972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
