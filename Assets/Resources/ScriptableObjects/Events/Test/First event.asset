@@ -17,7 +17,10 @@ MonoBehaviour:
   dependencies: {fileID: 114261970985087972}
   choices:
   - choiceDescription: Blank
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 100
 --- !u!114 &114257674276251798
 MonoBehaviour:
   m_ObjectHideFlags: 0
