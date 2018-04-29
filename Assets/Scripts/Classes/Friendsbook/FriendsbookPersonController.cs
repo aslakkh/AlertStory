@@ -8,6 +8,8 @@ public class FriendsbookPersonController : MonoBehaviour {
 
     public Text personName;
     public Image profilePicture;
+    public Button addFriendButton;
+    public Text friendRequestFeedback;
     public GameObject aboutViewPrefab;
     public GameObject friendsViewPrefab;
     public GameObject hiddenViewPrefab;
@@ -19,14 +21,19 @@ public class FriendsbookPersonController : MonoBehaviour {
     private Setting postsSetting;
     private GameObject currentView;
     private Character character;
-    private Character playerCharacter;
+    private FriendsbookMainController friendsbookMainController;
 
 	// Use this for initialization
 	void Start () {
+        friendRequestFeedback.gameObject.SetActive(false);
         SetPersonName();
-        SetSettings();
+        bool friendsWithPlayer = friendsbookMainController.PlayerIsFriendsWith(character);
+        SetSettings(friendsWithPlayer);
+        if (friendsWithPlayer)
+        {
+            addFriendButton.gameObject.SetActive(false);
+        }
         DisplayAboutView();
-
 	}
 	
 
@@ -54,15 +61,48 @@ public class FriendsbookPersonController : MonoBehaviour {
 
     //}
 
-    public void SetSettings()
+    public void SetSettings(bool friendsWithPlayer)
     {
         friendsSetting = character.friendsbookProfile.friendsSetting;
         informationSetting = character.friendsbookProfile.informationSetting;
         postsSetting = character.friendsbookProfile.postsSetting;
+        //"FRIEND" setting behaves as public if player is friend with the character
+        if(friendsSetting == Setting.Friends && friendsWithPlayer) { friendsSetting = Setting.Public; }
+        if (informationSetting == Setting.Friends && friendsWithPlayer) { informationSetting = Setting.Public; }
+        if (postsSetting == Setting.Friends && friendsWithPlayer) { postsSetting = Setting.Public; }
+
     }
 
 
     public void SetCharacter(Character c) { character = c; }
+
+    public void SetFriendsbookMainController(FriendsbookMainController c) { friendsbookMainController = c; }
+
+    //checks if friend request is accepted. Displays feedback
+    public void OnAddFriendButtonClick()
+    {
+        if (character.friendsbookProfile.acceptsFriendRequest)
+        {
+            friendsbookMainController.AddFriendship(character);
+            friendRequestFeedback.text = "Friend request accepted!";
+            friendRequestFeedback.color = Color.green;
+            addFriendButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            friendRequestFeedback.text = "Friend request denied";
+            friendRequestFeedback.color = Color.red;
+        }
+        StartCoroutine(ShowFriendRequestFeedback());
+        
+    }
+
+    public IEnumerator ShowFriendRequestFeedback()
+    {
+        friendRequestFeedback.gameObject.SetActive(true);
+        yield return new WaitForSeconds(7f);
+        friendRequestFeedback.gameObject.SetActive(false);
+    }
 
     public void DisplayAboutView()
     {
@@ -86,7 +126,6 @@ public class FriendsbookPersonController : MonoBehaviour {
         }
         else
         {
-            //check if characters are friends
             currentView = Instantiate(hiddenViewPrefab);
             currentView.transform.SetParent(scrollRect.content, false);
             currentView.GetComponentInChildren<Text>().text = "This person only shares their personal information with friends.";
@@ -102,10 +141,20 @@ public class FriendsbookPersonController : MonoBehaviour {
         }
         if(postsSetting == Setting.Public)
         {
-            currentView = Instantiate(postsViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            var postsController = currentView.GetComponent<FriendsbookPostsController>();
-            postsController.SetPosts(character.friendsbookProfile.posts.list);
+            if(character.friendsbookProfile.HasPosts())
+            {
+                currentView = Instantiate(postsViewPrefab);
+                currentView.transform.SetParent(scrollRect.content, false);
+                var postsController = currentView.GetComponent<FriendsbookPostsController>();
+                postsController.SetPosts(character.friendsbookProfile.posts.list);
+            }
+            else
+            {
+                currentView = Instantiate(hiddenViewPrefab);
+                currentView.transform.SetParent(scrollRect.content, false);
+                currentView.GetComponentInChildren<Text>().text = "No posts.";
+            }
+            
         }
         else if(postsSetting == Setting.Private)
         {
@@ -115,10 +164,9 @@ public class FriendsbookPersonController : MonoBehaviour {
         }
         else //postsSetting is friends
         {
-            //check if player is friends with character
             currentView = Instantiate(hiddenViewPrefab);
             currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person only displays their friendslist to other friends.";
+            currentView.GetComponentInChildren<Text>().text = "This person only displays their posts to other friends.";
         }
         
     }
@@ -131,10 +179,20 @@ public class FriendsbookPersonController : MonoBehaviour {
         }
         if (friendsSetting == Setting.Public)
         {
-            currentView = Instantiate(friendsViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            var friendsbookFriendsController = currentView.GetComponent<FriendsbookFriendsController>();
-            friendsbookFriendsController.SetFriends(character.friendsbookProfile.friends);
+            if (character.friendsbookProfile.HasFriends())
+            {
+                currentView = Instantiate(friendsViewPrefab);
+                currentView.transform.SetParent(scrollRect.content, false);
+                var friendsbookFriendsController = currentView.GetComponent<FriendsbookFriendsController>();
+                friendsbookFriendsController.SetFriends(character.friendsbookProfile.friends);
+            }
+            else
+            {
+                currentView = Instantiate(hiddenViewPrefab);
+                currentView.transform.SetParent(scrollRect.content, false);
+                currentView.GetComponentInChildren<Text>().text = "No friends.";
+            }
+
         }
         else if(friendsSetting == Setting.Private)
         {
@@ -144,7 +202,9 @@ public class FriendsbookPersonController : MonoBehaviour {
         }
         else if(friendsSetting == Setting.Friends)
         {
-            //should check if player is friends with character
+            currentView = Instantiate(hiddenViewPrefab);
+            currentView.transform.SetParent(scrollRect.content, false);
+            currentView.GetComponentInChildren<Text>().text = "This person only displays their friendslist to other friends.";
         }
 
         

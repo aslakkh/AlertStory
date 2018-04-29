@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/TEMP_MainMenu.unity
     guid: 8b6cc6b339e3f544cb63efe17de54b39
   - enabled: 1
+=======
+>>>>>>> d73e6e23e49ab48d2591c539e4fa728e4dc9fca9
     path: Assets/Scenes/AppSettingsScene.unity
     guid: a6150a8d9acdaca4186513a922067ff4
   - enabled: 1

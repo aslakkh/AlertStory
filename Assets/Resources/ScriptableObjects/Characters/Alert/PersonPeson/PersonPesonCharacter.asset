@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d176141e01b7d44816164c78aa2b94, type: 3}
-  m_Name: SveinSvenssonCharacter
+  m_Name: PersonPesonCharacter
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: d731e8a330191a3468d6c15883b6be63, type: 2}
-  fullName: Svein Svensson
+  fullName: Person Peson
   address: 
   email: 
   phoneNumber: 
-  friendsbookProfile: {fileID: 11400000, guid: a58d1b97ba7d4ff4e93d5584076c412d, type: 2}
+  friendsbookProfile: {fileID: 11400000, guid: 6afa7a3b585dffe4d8ff0894c0fecd65, type: 2}

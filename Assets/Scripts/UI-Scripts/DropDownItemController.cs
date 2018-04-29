@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Settings;
+using UnityEngine.SceneManagement;
 
 public class DropDownItemController : MonoBehaviour {
 
@@ -140,8 +142,12 @@ public class DropDownItemController : MonoBehaviour {
         if (validated == true) {
             //saveRequirements();
             // TODO: change scene!
+<<<<<<< HEAD
             SceneLoader sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
             sceneLoader.LoadOnClick(2);
+=======
+            SceneManager.LoadScene("TEMP_EventsScene");
+>>>>>>> d73e6e23e49ab48d2591c539e4fa728e4dc9fca9
         }
     }
 
@@ -149,17 +155,38 @@ public class DropDownItemController : MonoBehaviour {
     {
         GameObject gm = GameObject.Find("GameManager");
         GameManager gamemanager = gm.GetComponent<GameManager>();
+<<<<<<< HEAD
         RequirementDict rl = gamemanager.requirements;
+=======
+        RequirementDict rl = new RequirementDict();
+>>>>>>> d73e6e23e49ab48d2591c539e4fa728e4dc9fca9
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()){
             foreach (Text text in d.GetComponentsInChildren<Text>())
             {
                 if (text.name.Contains("NameText")){
+<<<<<<< HEAD
                     Requirement temp = new Requirement("temp");
                     rl.requirementDictionary.Add(temp, true);
+=======
+                    Requirement temp = new Requirement(text.text);
+                    if (d.value == 1)
+                    {
+                        rl.Add(temp, Setting.Public);
+                    }
+                    if (d.value == 2) {
+                        rl.Add(temp, Setting.Friends);
+                    } 
+                    if (d.value == 3)
+                    {
+                        rl.Add(temp, Setting.Private);
+                    }
+
+>>>>>>> d73e6e23e49ab48d2591c539e4fa728e4dc9fca9
                 }
             }
         }
-        gamemanager.requirements.requirementDictionary = rl.requirementDictionary;
-        //Debug.Log(gamemanager.requirements.requirementDictionary);
+        // Saves the requirements to the gamemanager
+        gamemanager.requirements = rl;
+        // TODO: Save the requirements to a file
     }
 }

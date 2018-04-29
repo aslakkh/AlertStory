@@ -93,4 +93,9 @@ public class FriendsbookProfile : ScriptableObject {
         profilePicture = s;
     }
 
+    public bool IsFriendWith(Character c)
+    {
+        return (friends.Contains(c));
+    }
+
 }
