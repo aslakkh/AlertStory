@@ -55,10 +55,8 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         //Sets settings string 
         settings.text = "Settings: " + "\n";
         StringBuilder settingsString = new StringBuilder();
-        Debug.Log(settingsList.Count);
         foreach (KeyValuePair<string, Setting> item in settingsList)
         {
-            Debug.Log(item);
             settingsString.Append(item.Key + ": " + item.Value + ", " + "\n");
         }
         settings.text = "Settings: " + "\n" + settingsString.ToString();
