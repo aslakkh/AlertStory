@@ -66,3 +66,13 @@ MonoBehaviour:
         title: 
         text: 
         choices: []
+  - title: New story event5
+    text: GOnna break yo shit!
+    choices:
+    - choiceDescription: GOT IT!
+      affectScore: 1
+      affectSecretScore: 0
+      triggersStoryEvent:
+        title: 
+        text: 
+        choices: []
