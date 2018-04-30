@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Settings;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "Test", menuName = "Alert/RequirementDictTest", order = 1)]
 public class RequirementDict : ScriptableObject {
     //bool needs to be exact in Compared Dictionary
     public StringSettingDictionary requirementDictionary = new StringSettingDictionary();
