@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
     private RequirementDict requirementDict;
+    private List<string> _objectives;
     private List<StoryEvent> _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
@@ -55,7 +56,14 @@ public class GameManager : MonoBehaviour {
         get { return _eventsFired; }
         set { _eventsFired = value; }
     }
-    
+
+    //Contains objectives displayed in dropdown
+    public List<string> objectives
+    {
+        get { return _objectives; }
+        set { _objectives = value; }
+    }
+
     //Singleton instanciating
     public static GameManager Instance { get; private set; }
 
