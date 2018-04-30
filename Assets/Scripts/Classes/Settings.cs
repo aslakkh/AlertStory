@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Settings
 {
 
+    [System.Serializable]
     public enum Setting
     {
         Private,

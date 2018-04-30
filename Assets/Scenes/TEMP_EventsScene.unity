@@ -144,7 +144,7 @@ MonoBehaviour:
     type: 2}
   informativeEventPrefab: {fileID: 1240329766399940, guid: 30cb855960e556740b736bf7a347f85f,
     type: 2}
-  storyEvents: {fileID: 11400000, guid: 151bdc6aa65015e42a168c9ae51d5178, type: 2}
+  storyEvents: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1, type: 2}
 --- !u!4 &199792152
 Transform:
   m_ObjectHideFlags: 0
@@ -214,10 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  privateScore: 0
   dayCount: 0
   turnCount: 0
   playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
+  requirementDict: {fileID: 114257674276251798, guid: 08eb63235f8969b4fb03bb0635605231,
+    type: 2}
 --- !u!4 &332116133
 Transform:
   m_ObjectHideFlags: 0
