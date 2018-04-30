@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   privateScore: 0
-  dayCount: 0
   turnCount: 0
+  endDay: 0
   playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
+  requirementDict: {fileID: 0}

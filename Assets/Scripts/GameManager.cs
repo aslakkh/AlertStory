@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
-    public RequirementDict requirementDict;
+    public RequirementDict backupRequirementDict; // Used if requirement dict is empty
+    public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour {
     public event EventHandler<GameStateEventArgs> stateChanged;
 
     //Set this when new state is added.
-    public RequirementDict requirements {
+    public StringSettingDictionary requirements {
         get { return requirementDict; }
         set { requirementDict = value; }
     }
@@ -93,9 +94,27 @@ public class GameManager : MonoBehaviour {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
+
+        // for playtesting eventscene
+        if(requirementDict == null || requirementDict.Count == 0)
+        {
+            if (backupRequirementDict != null)
+            {
+                requirementDict = backupRequirementDict.requirementDictionary;
+            }
+            else
+            {
+                Debug.Log("backupRequirementdict in GameManager == Null");
+            }
+            requirementDict = backupRequirementDict.requirementDictionary;
+        }
     }
 
     public void FireEvent() {
+        foreach (var k in requirementDict)
+        {
+            Debug.Log(k.Key + " " + k.Value);
+        }
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
@@ -127,7 +146,7 @@ public class GameManager : MonoBehaviour {
                 if(!string.IsNullOrEmpty(score.requirementName))
                 {
                     //score has a requirement, check if requirement matches requirementdict
-                    if (requirementDict.requirementDictionary.ContainsKey(score.requirementName) && requirementDict.requirementDictionary[score.requirementName] == score.setting)
+                    if (requirementDict.ContainsKey(score.requirementName) && requirementDict[score.requirementName] == score.setting)
                     {
                         AddToScore(score.value);
                     }

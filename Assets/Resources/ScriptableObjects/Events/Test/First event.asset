@@ -34,8 +34,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requirementDictionary:
     m_keys:
-    - One
-    m_values: 02000000
+    - Facebook
+    m_values: 00000000
 --- !u!114 &114261970985087972
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -152,6 +152,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114175138789726656, guid: be501b130dffa444194bba1c83ae26bf,
+        type: 2}
+      propertyPath: storyEvents
+      value: 
+      objectReference: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
   m_IsPrefabParent: 0
@@ -294,6 +300,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: requirementDict
+      value: 
+      objectReference: {fileID: 114257674276251798, guid: 08eb63235f8969b4fb03bb0635605231,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
   m_IsPrefabParent: 0
@@ -617,7 +629,7 @@ Prefab:
     - target: {fileID: 224101856789589328, guid: 6328a65b809783b4892e95571ea8f9bc,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.000000014901161
+      value: -0.000000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 224101856789589328, guid: 6328a65b809783b4892e95571ea8f9bc,
         type: 2}
