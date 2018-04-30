@@ -28,7 +28,7 @@ public class StoryEventEditor : EditorWindow
     GUIStyle listItemStyle = new GUIStyle();
     Color[] colors = new Color[] { Color.white, Color.grey };
 
-    [MenuItem("Window/Event/StoryEventEditor")]
+    [MenuItem("Window/Alert/Events/StoryEventEditor")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(StoryEventEditor));

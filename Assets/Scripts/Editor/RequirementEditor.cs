@@ -10,7 +10,7 @@ public class RequirementEditor : EditorWindow
     private int viewIndex = 1;
     private string requirementListTitle;
 
-    [MenuItem("Window/Event/RequirementListEditor")]
+    [MenuItem("Window/Alert/Requirements/RequirementListEditor")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(RequirementEditor));

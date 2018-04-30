@@ -18,7 +18,7 @@ public class RequirementDictEditor : EditorWindow {
     private Vector2 mainScrollPosition;
 
     //init being called on opening via menu
-    [MenuItem("Window/Alert/RequirementDictEditor")]
+    [MenuItem("Window/Alert/Requirements/RequirementDictEditor")]
 	static void Init()
     {
         EditorWindow.GetWindow(typeof(RequirementDictEditor));
