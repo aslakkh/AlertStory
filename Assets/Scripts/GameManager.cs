@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
+    private List<string> _objectives;
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
@@ -70,7 +71,14 @@ public class GameManager : MonoBehaviour {
         get { return _eventsFired; }
         set { _eventsFired = value; }
     }
-    
+
+    //Contains objectives displayed in dropdown
+    public List<string> objectives
+    {
+        get { return _objectives; }
+        set { _objectives = value; }
+    }
+
     //Singleton instanciating
     public static GameManager Instance { get; private set; }
 
@@ -87,16 +95,9 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
-    }
-
-    private void Start()
-    {
-        //TODO: implement proper state flow
-        gameState = GameState.investigator;
-        _eventsFired = new StoryEventChoiceDictionary();
 
         // for playtesting eventscene
-        if(requirementDict == null || requirementDict.Count == 0)
+        if (requirementDict == null || requirementDict.Count == 0)
         {
             if (backupRequirementDict != null)
             {
@@ -108,6 +109,13 @@ public class GameManager : MonoBehaviour {
             }
             requirementDict = backupRequirementDict.requirementDictionary;
         }
+    }
+
+    private void Start()
+    {
+        //TODO: implement proper state flow
+        gameState = GameState.investigator;
+        _eventsFired = new StoryEventChoiceDictionary();
     }
 
     public void FireEvent() {
