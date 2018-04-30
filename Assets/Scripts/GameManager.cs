@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,12 +19,11 @@ public class GameStateEventArgs : EventArgs
 public class GameManager : MonoBehaviour {
 
     public int score;
-    public int privateScore;
     public int dayCount;
     public int turnCount;
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
-    private RequirementDict requirementDict;
-    private List<StoryEvent> _eventsFired;
+    public RequirementDict requirementDict;
+    private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
 
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
     }
     
     //Add all events that has fired here.
-    public List<StoryEvent> eventsFired {
+    public StoryEventChoiceDictionary eventsFired {
         get { return _eventsFired; }
         set { _eventsFired = value; }
     }
@@ -78,11 +78,16 @@ public class GameManager : MonoBehaviour {
     {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
+        _eventsFired = new StoryEventChoiceDictionary();
     }
 
     public void FireEvent() {
-        bool eventFired = eventManager.InitializeEvent(); //fires first suitable event
-        if (eventFired) { gameState = GameState.eventhandler; }
+        StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
+        if (eventFired)
+        {
+            gameState = GameState.eventhandler;
+            _eventsFired.Add(eventFired, null);
+        }
         
     }
 
@@ -95,10 +100,33 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void HandleChoice(int score, int privateScore)
+    public void HandleChoice(StoryEvent storyEvent, Choice choice)
     {
-        AddToScore(score);
-        AddToPrivateScore(score);
+        //TODO: Add score handling
+        _eventsFired[storyEvent] = choice;
+
+        //add scores
+        if(choice.scores != null)
+        {
+            foreach (Score score in choice.scores)
+            {
+                if(!string.IsNullOrEmpty(score.requirementName))
+                {
+                    //score has a requirement, check if requirement matches requirementdict
+                    if (requirementDict.requirementDictionary.ContainsKey(score.requirementName) && requirementDict.requirementDictionary[score.requirementName] == score.setting)
+                    {
+                        AddToScore(score.value);
+                    }
+                }
+                else //score has no requirement
+                {
+                    AddToScore(score.value);
+                }
+                
+
+            }
+        }
+        
         gameState = GameState.investigator;
     }
 
@@ -107,9 +135,5 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    public void AddToPrivateScore(int value)
-    {
-        privateScore += value;
-    }
     
 }
