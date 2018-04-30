@@ -13,7 +13,7 @@ public class StoryEventEditor : EditorWindow
     private RequirementsList requirementList;
     private int _reqIndex = 0;
     private int _depIndex = 0;
-    private List<string> requiremetListString = new List<string>();
+    private List<string> requirementListString = new List<string>();
     private List<string> storyEventListString = new List<string>();
     private string choicePath;
     private string requirementPath;
@@ -162,7 +162,7 @@ public class StoryEventEditor : EditorWindow
                             {
                                 // Create popup and add to list
                                 _reqIndex = EditorGUILayout.Popup("Add Requirement?", _reqIndex,
-                                    requiremetListString.ToArray());
+                                    requirementListString.ToArray());
                                 if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
                                 {
                                     score.SetRequirementName(requirementList.list[_reqIndex].requirementName);
@@ -256,7 +256,7 @@ public class StoryEventEditor : EditorWindow
             //Open finder if no requirements asset is loaded
             if (requirementList == null)
             {
-                if (GUILayout.Button("Open requirement", GUILayout.ExpandWidth(false)))
+                if (GUILayout.Button("Open requirement list", GUILayout.ExpandWidth(false)))
                 {
                     OpenRequirementList();
                 }
@@ -266,7 +266,7 @@ public class StoryEventEditor : EditorWindow
                 GUILayout.BeginHorizontal();
                 // Create popup and add to list
                 _reqIndex = EditorGUILayout.Popup("Add Requirement", _reqIndex,
-                    requiremetListString.ToArray());
+                    requirementListString.ToArray());
                 if (GUILayout.Button("Add", GUILayout.ExpandWidth(false)))
                 {
                     storyEvent.requirements.Add(requirementList.list[_reqIndex].requirementName, Setting.Public);
@@ -405,14 +405,14 @@ public class StoryEventEditor : EditorWindow
     //Helper function to set requiremenlist after update.
     void SetRequirementsList(string path) {
         requirementList = AssetDatabase.LoadAssetAtPath(path, typeof(RequirementsList)) as RequirementsList;
-        if(requiremetListString != null)
+        if(requirementListString != null)
         {
-            requiremetListString.Clear();
+            requirementListString.Clear();
         }
         
         if (requirementList == null) return;
         foreach (Requirement item in requirementList.list) {
-            requiremetListString.Add(item.requirementName);
+            requirementListString.Add(item.requirementName);
         }
     }
     
