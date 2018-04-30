@@ -95,16 +95,9 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
-    }
-
-    private void Start()
-    {
-        //TODO: implement proper state flow
-        gameState = GameState.investigator;
-        _eventsFired = new StoryEventChoiceDictionary();
 
         // for playtesting eventscene
-        if(requirementDict == null || requirementDict.Count == 0)
+        if (requirementDict == null || requirementDict.Count == 0)
         {
             if (backupRequirementDict != null)
             {
@@ -116,6 +109,13 @@ public class GameManager : MonoBehaviour {
             }
             requirementDict = backupRequirementDict.requirementDictionary;
         }
+    }
+
+    private void Start()
+    {
+        //TODO: implement proper state flow
+        gameState = GameState.investigator;
+        _eventsFired = new StoryEventChoiceDictionary();
     }
 
     public void FireEvent() {

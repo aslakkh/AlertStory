@@ -13,20 +13,28 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public Text objectives;
     public Text settings;
     private List<string> objectivesList;
-    private RequirementDict settingsList;
+    private StringSettingDictionary settingsList;
     private Requirement requirement;
 
+    public GameObject scrollView;
     public GameObject dropDown;
     private GameManager gameManager;
 
+    void Start()
+    {
+        settingsList = GameManager.Instance.requirements;
+        GameManager.Instance.objectives = new List<string> { "Objective 1, Objective 2" };
+        objectivesList = GameManager.Instance.objectives;
+
+    }
+
     void Awake()
     {
-        dropDown.SetActive(false);
+        scrollView.SetActive(false);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         stats = GameObject.Find("NotificationBar").transform.GetChild(0).GetComponent<Text>();
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
-        objectivesList = GameManager.Instance.objectives;
-        settingsList = GameManager.Instance.requirements;
+
     }
 
     //Opens dropdown
@@ -47,21 +55,23 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         //Sets settings string 
         settings.text = "Settings: " + "\n";
         StringBuilder settingsString = new StringBuilder();
-        foreach (KeyValuePair<string, Setting> item in settingsList.requirementDictionary)
+        Debug.Log(settingsList.Count);
+        foreach (KeyValuePair<string, Setting> item in settingsList)
         {
+            Debug.Log(item);
             settingsString.Append(item.Key + ": " + item.Value + ", " + "\n");
         }
         settings.text = "Settings: " + "\n" + settingsString.ToString();
         
-        if (dropDown.activeSelf)
+        if (scrollView.activeSelf)
         {
-            dropDown.SetActive(false);
-            dropDown.transform.SetAsFirstSibling();
+            scrollView.SetActive(false);
+            scrollView.transform.SetAsFirstSibling();
         }
         else
         {
-            dropDown.SetActive(true);
-            dropDown.transform.SetAsLastSibling();
+            scrollView.SetActive(true);
+            scrollView.transform.SetAsLastSibling();
         }
 
 
