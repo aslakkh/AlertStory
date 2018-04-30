@@ -40,7 +40,7 @@ public class EventManager : MonoBehaviour {
 
     //finds first relevant event, instantiates prefab, and assigns event to prefab. 
     //Returns true if an event was initialized, false otherwise
-    public bool InitializeEvent() 
+    public StoryEvent InitializeEvent() 
     {
         StoryEvent storyEvent = FindFirstRelevantEvent(storyEventsInternal);
         if(storyEvent != null)
@@ -60,12 +60,12 @@ public class EventManager : MonoBehaviour {
             EventController eventController = eventObject.GetComponent<EventController>();
             eventController.storyEvent = storyEvent;
 
-            return true;
+            return storyEvent;
         }
         else
         {
             Debug.Log("No relevant storyevents can be fired. ", this);
-            return false;
+            return null;
         }
         
     }
@@ -87,8 +87,8 @@ public class EventManager : MonoBehaviour {
 
     private bool CanBeFired(StoryEvent e) //checks if e fits requirements and dependencies in gamemanager
     {
-        //return (e.requirements.FitsRequirements(gameManager.requirements) && e.dependencies.FitsRequirements(gameManager.eventsFired));
-        return true;
+        return (e.requirements.FitsRequirements(gameManager.requirements) && e.dependencies.FitsRequirements(gameManager.eventsFired));
+        //turn true;
     }
 
 }

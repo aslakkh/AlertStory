@@ -156,17 +156,17 @@ public class DropDownItemController : MonoBehaviour {
             {
                 if (text.name.Contains("NameText")){
                     Requirement temp = new Requirement(text.text);
-                    if (d.value == 1)
-                    {
-                        rl.Add(temp, Setting.Public);
-                    }
-                    if (d.value == 2) {
-                        rl.Add(temp, Setting.Friends);
-                    } 
-                    if (d.value == 3)
-                    {
-                        rl.Add(temp, Setting.Private);
-                    }
+                    //if (d.value == 1)
+                    //{
+                    //    rl.Add(temp, Setting.Public);
+                    //}
+                    //if (d.value == 2) {
+                    //    rl.Add(temp, Setting.Friends);
+                    //} 
+                    //if (d.value == 3)
+                    //{
+                    //    rl.Add(temp, Setting.Private);
+                    //}
 
                 }
             }

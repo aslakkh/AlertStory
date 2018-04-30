@@ -1,31 +1,54 @@
 ﻿using UnityEngine;
 using System;
+using Settings;
+using System.Collections.Generic;
+
+//score with setting requirement (will be applied if requirements match user settings)
+[Serializable]
+public class Score
+{
+    public string requirementName;
+    public Setting setting;
+    public int value;
+
+    public Score()
+    {
+        requirementName = null;
+        setting = Setting.Public;
+        value = 0;
+    }
+
+    public void SetSetting(Setting setting)
+    {
+        this.setting = setting;
+    }
+
+    public void SetRequirementName(string requirementName)
+    {
+        this.requirementName = requirementName;
+    }
+
+    public void SetValue(int value)
+    {
+        this.value = value;
+    }
+}
 
 [Serializable]
 public class Choice{
     public string choiceDescription;
-    public int affectScore;
-    public int affectSecretScore;
-    [SerializeField]
-    public StoryEvent triggersStoryEvent;
+    public List<Score> scores;
     
-    public StoryEvent TriggersStoryEvent {
-        get { return triggersStoryEvent; }
-        set { triggersStoryEvent = value; }
-    }
     
     public Choice() {
-        this.choiceDescription = "Blank";
-        this.affectScore = 0;
-        this.affectSecretScore = 0;
-        this.triggersStoryEvent = null;
+        choiceDescription = "Blank";
+        scores = new List<Score>();
     }
 
-    public Choice(string choiceDescription, int affectScore, int affectSecretScore, StoryEvent triggersStoryEvent) {
-        this.choiceDescription = choiceDescription;
-        this.affectScore = affectScore;
-        this.affectSecretScore = affectSecretScore;
-        this.triggersStoryEvent = triggersStoryEvent;
+    public void AddNewScore()
+    {
+        scores.Add(new global::Score());
     }
+
 
 }

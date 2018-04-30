@@ -22,7 +22,7 @@ public class ChoiceScriptEditModeTest {
     {
         //se = new StoryEvent("Another String", choiceList, rL, dp);
         se = new StoryEvent();
-        ch = new Choice("someString", 15, 0, se);
+        ch = new Choice();
     }
 
 
@@ -34,15 +34,6 @@ public class ChoiceScriptEditModeTest {
     public void CheckChoiceStringDescription()
     {
         Assert.That(ch.choiceDescription, Does.Contain("someString"));
-    }
-
-    [Test]
-    [Description("Test the Choice affectScore to be 15")]
-    [Category("Unit test")]
-    [Author("Ole Jakob Schjøth", "olejsc@stud.ntnu.no")]
-    public void CheckChoiceAffectScore()
-    {
-        Assert.That(ch.affectScore, Is.EqualTo(15));
     }
 
 
