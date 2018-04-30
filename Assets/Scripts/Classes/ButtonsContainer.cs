@@ -35,4 +35,10 @@ public class ButtonsContainer : MonoBehaviour {
             b.interactable = interactable;
         }
     }
+
+    private void Start()
+    {
+        buttons[0].onClick.AddListener(delegate () { gameManager.FireEvent(); });
+    }
+
 }

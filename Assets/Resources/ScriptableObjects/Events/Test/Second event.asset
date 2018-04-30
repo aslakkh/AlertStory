@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requirementDictionary:
     m_keys:
-    - One
+    - Facebook
     m_values: 00000000

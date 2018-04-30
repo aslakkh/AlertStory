@@ -9,50 +9,50 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1067324580080548}
+  m_RootGameObject: {fileID: 1509442577907424}
   m_IsPrefabParent: 1
---- !u!1 &1067324580080548
+--- !u!1 &1509442577907424
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4092068345608464}
-  - component: {fileID: 114839510532089582}
+  - component: {fileID: 4382730588390390}
+  - component: {fileID: 114175138789726656}
   m_Layer: 0
-  m_Name: Gmanager
+  m_Name: EventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4092068345608464
+--- !u!4 &4382730588390390
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1067324580080548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 221.7386, y: 200.15489, z: -0.7792355}
+  m_GameObject: {fileID: 1509442577907424}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 466.53278, y: 215.8086, z: -14.499999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114839510532089582
+--- !u!114 &114175138789726656
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1067324580080548}
+  m_GameObject: {fileID: 1509442577907424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be9da9e4d8c1546419174dec59958984, type: 3}
+  m_Script: {fileID: 11500000, guid: 239b1591324a8944bb4fc952a170d1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  privateScore: 0
-  dayCount: 0
-  turnCount: 0
-  playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
+  binaryChoicePrefab: {fileID: 1174334740937988, guid: 18314346a2a252e45983cf223c29fc20,
+    type: 2}
+  informativeEventPrefab: {fileID: 1240329766399940, guid: 30cb855960e556740b736bf7a347f85f,
+    type: 2}
+  storyEvents: {fileID: 11400000, guid: 151bdc6aa65015e42a168c9ae51d5178, type: 2}

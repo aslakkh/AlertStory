@@ -38,8 +38,8 @@ public class DropDownItemController : MonoBehaviour {
         {"Public", "Public is the setting which makes any other use of the same app, able to see your actions in that app." }
     };
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         List<string> tempSettings = new List<string>(settingsInfo.Keys);
         tempSettings.Add("Select option");
         tempSettings.Reverse();
@@ -59,7 +59,7 @@ public class DropDownItemController : MonoBehaviour {
         settingsSnapInformationText.text = "Please choose a option for the app.";
         settingsSnapInformationText.color = Color.red;
     }
-	
+
 
     //Populates the list of options in the dropdown.
     void populatelist(Dropdown tempDropdown, List<string> settings)
@@ -71,7 +71,7 @@ public class DropDownItemController : MonoBehaviour {
     // Updates the text corresponding to the option. Dictionairy approach with less if-conditions wasnt supported
     // in unity's event system.
 
-    public void settingsDropDownFacebookOnValueCHanged (int index)
+    public void settingsDropDownFacebookOnValueCHanged(int index)
     {
         settingsDropdown_OnIndexChanged(settingsFacebookInformationText, index);
     }
@@ -94,7 +94,7 @@ public class DropDownItemController : MonoBehaviour {
 
     public void settingsDropdown_OnIndexChanged(Text text, int index)
     {
-        
+
         if (index == 0)
         {
             text.text = "Please choose a option for the app.";
@@ -120,7 +120,7 @@ public class DropDownItemController : MonoBehaviour {
             text.text = "Please choose a option for the  app.";
             text.color = Color.red;
         }
-        
+
     }
 
     // Validates that the dropboxes have a valid option selected.Useful to check before changing scenes. 
@@ -148,31 +148,30 @@ public class DropDownItemController : MonoBehaviour {
 
     public void saveRequirements()
     {
-        GameObject gm = GameObject.Find("Gmanager");
+        GameObject gm = GameObject.Find("GameManager");
         GameManager gamemanager = gm.GetComponent<GameManager>();
-        RequirementDict rl = new RequirementDict();
-        foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()){
-            foreach (Text text in d.GetComponentsInChildren<Text>())
-            {
-                if (text.name.Contains("NameText")){
-                    Requirement temp = new Requirement(text.text);
-                    //if (d.value == 1)
-                    //{
-                    //    rl.Add(temp, Setting.Public);
-                    //}
-                    //if (d.value == 2) {
-                    //    rl.Add(temp, Setting.Friends);
-                    //} 
-                    //if (d.value == 3)
-                    //{
-                    //    rl.Add(temp, Setting.Private);
-                    //}
-
+        GameObject tempObj = GameObject.Find("AppSettingsContent");
+        foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()) {
+            Transform text = d.transform.parent.GetChild(1);
+            if (text.name.Contains("NameText")) {
+                Requirement temp = new Requirement(text.GetComponent<Text>().text);
+                if (d.value == 1)
+                {
+                    gamemanager.requirements.Add(temp.requirementName, Setting.Public);
+                    // rl.requirementDictionary.Add(temp.requirementName, Setting.Public);
                 }
+                if (d.value == 2)
+                {
+                    gamemanager.requirements.Add(temp.requirementName, Setting.Friends);
+                    // rl.requirementDictionary.Add(temp.requirementName, Setting.Friends);
+                }
+                if (d.value == 3)
+                {
+                    gamemanager.requirements.Add(temp.requirementName, Setting.Private);
+                    //rl.requirementDictionary.Add(temp.requirementName, Setting.Private);
+                }
+
             }
         }
-        // Saves the requirements to the gamemanager
-        gamemanager.requirements = rl;
-        // TODO: Save the requirements to a file
     }
 }
