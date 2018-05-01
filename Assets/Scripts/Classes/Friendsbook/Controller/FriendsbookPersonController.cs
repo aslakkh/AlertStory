@@ -52,13 +52,6 @@ public class FriendsbookPersonController : MonoBehaviour {
 	}
 	
 
-    
-
-    //public void SetImage()
-    //{
-
-    //}
-
     public void SetSettings(bool friendsWithPlayer)
     {
         friendsSetting = character.friendsbookProfile.friendsSetting;
@@ -86,6 +79,11 @@ public class FriendsbookPersonController : MonoBehaviour {
             friendsbookMainController.AddFriendship(character);
             viewComponent.DisplayFriendRequestFeedback(positive:true);
             viewComponent.SetFriendButtonActive(false);
+
+            //update settings to reflect friendship status change
+            SetSettings(friendsWithPlayer: true);
+            DisplayAboutView();
+
         }
         else
         {
