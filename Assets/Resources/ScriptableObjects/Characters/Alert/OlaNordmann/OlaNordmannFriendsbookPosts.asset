@@ -11,11 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: OlaNordmannFriendsbookPosts
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 114831984818090744}
-  - {fileID: 114018672122568822}
-  - {fileID: 114127171972391244}
-  - {fileID: 114504235565642224}
+  list: []
 --- !u!114 &114018672122568822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,17 +25,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Event2
   text: 
-  requirements: {fileID: 11400000, guid: b188026907b06c94c9bc9654b8151545, type: 2}
-  dependencies: {fileID: 11400000, guid: 0785f0b4e10bb684cb885b33e148db5b, type: 2}
+  requirements: {fileID: 0}
+  dependencies: {fileID: 0}
   choices:
   - choiceDescription: 
-    affectScore: 0
-    affectSecretScore: 0
-    triggersStoryEvent: {fileID: 114831984818090744}
+    scores: []
   - choiceDescription: 
-    affectScore: 0
-    affectSecretScore: 0
-    triggersStoryEvent: {fileID: 0}
+    scores: []
 --- !u!114 &114127171972391244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,17 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - requirementName: 
-    - requirementName: 
-    - requirementName: 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
+    m_keys: []
+    m_values: 
 --- !u!114 &114373895887483744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,17 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 000000
-    freeCount: 0
-    freeList: -1
+    m_keys: []
+    m_values: []
 --- !u!114 &114504235565642224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,17 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    entriesValue: 000000
-    freeCount: 0
-    freeList: -1
+    m_keys: []
+    m_values: []
 --- !u!114 &114831984818090744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,14 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    buckets: ffffffffffffffffffffffff
-    count: 0
-    entriesHashCode: 000000000000000000000000
-    entriesNext: 000000000000000000000000
-    entriesKey:
-    - requirementName: 
-    - requirementName: 
-    - requirementName: 
-    entriesValue: 000000000000000000000000
-    freeCount: 0
-    freeList: -1
+    m_keys: []
+    m_values: 
