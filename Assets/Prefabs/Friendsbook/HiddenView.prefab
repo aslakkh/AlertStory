@@ -19,8 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224317957813565752}
+  - component: {fileID: 114584444090724040}
   m_Layer: 5
-  m_Name: FriendsViewHidden
+  m_Name: HiddenView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,6 +91,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Dude
+--- !u!114 &114584444090724040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166157541284680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2df9bd9f3bf8a44bb4594ffa6c5b455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 114421678746441102}
 --- !u!222 &222494757571556682
 CanvasRenderer:
   m_ObjectHideFlags: 1

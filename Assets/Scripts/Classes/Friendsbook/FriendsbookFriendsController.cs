@@ -3,29 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//controller for friendsbook friends view (subview of character profile page)
 public class FriendsbookFriendsController : MonoBehaviour
 {
+    public FriendsbookFriendsView viewComponent; //reference to view component script instance
+    public int friendsPerPage; //friends to view per page
+    private int friendsListIndex; //current index in friendsList
 
-    
-    public int friendsPerPage;
-    public GameObject listElementPrefab;
-    public Button previousButton;
-    public Button nextButton;
     public GameObject friendsListWrapperPrefab;
+    public GameObject listElementPrefab;
     private List<Character> friends;
     private GameObject friendsListWrapper;
     private FriendsbookMainController friendsbookMain;
 
-    private int friendsListIndex;
-
     private void Start()
     {
         //sets up controller and displays friends
+        friendsListIndex = 0;
         friendsbookMain = GameObject.Find("FriendsbookMainView").GetComponent<FriendsbookMainController>();
         Debug.Assert(friendsbookMain != null, "Error: FriendsbookFriendsController could not find FriendsbookMainController.", this);
-        friendsListIndex = 0;
         DisplayFriends();
-        previousButton.interactable = false;
+        
     }
 
     public void SetFriends(List<Character> friends)
@@ -45,7 +43,7 @@ public class FriendsbookFriendsController : MonoBehaviour
         {
             if(i >= friends.Count)
             {
-                nextButton.interactable = false;
+                viewComponent.SetNextButtonInteractable(false);
                 break;
             }
 
@@ -65,15 +63,15 @@ public class FriendsbookFriendsController : MonoBehaviour
     public void IncrementFriendsListIndex()
     {
         friendsListIndex += friendsPerPage;
-        previousButton.interactable = true;
+        viewComponent.SetPreviousButtonInteractable(true);
         DisplayFriends();
     }
 
     public void DecrementFriendsListIndex()
     {
         friendsListIndex -= friendsPerPage;
-        nextButton.interactable = true;
-        if(friendsListIndex == 0) { previousButton.interactable = false; }
+        viewComponent.SetNextButtonInteractable(true);
+        if(friendsListIndex == 0) { viewComponent.SetPreviousButtonInteractable(false); }
         DisplayFriends();
     }
 

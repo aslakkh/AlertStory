@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 222654768032537516}
   - component: {fileID: 114712870406629810}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: FriendRequestFeedbackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 114162286245758446}
   - component: {fileID: 114250293620823196}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PersonNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,8 +369,9 @@ GameObject:
   - component: {fileID: 222118926174386818}
   - component: {fileID: 114658046746155280}
   - component: {fileID: 114156478733791454}
+  - component: {fileID: 114707892719248822}
   m_Layer: 5
-  m_Name: FriendsbookScrollView
+  m_Name: FriendsbookPersonView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,10 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e0a425f9505cc489c4f35fcf5deea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personName: {fileID: 114162286245758446}
-  profilePicture: {fileID: 114610360541264006}
-  addFriendButton: {fileID: 114841574676351532}
-  friendRequestFeedback: {fileID: 114712870406629810}
+  viewComponent: {fileID: 114707892719248822}
   aboutViewPrefab: {fileID: 1377828195691746, guid: 5e13e0ad7307bfa479c39929f384829d,
     type: 2}
   friendsViewPrefab: {fileID: 1015603342978786, guid: dec0059af2ecba64c84bee5713838819,
@@ -627,7 +625,6 @@ MonoBehaviour:
     type: 2}
   postsViewPrefab: {fileID: 1726797469882628, guid: ac75508cc91a12244bcc8ab5c4ce39e0,
     type: 2}
-  scrollRect: {fileID: 114605583741500564}
 --- !u!114 &114162286245758446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1031,14 +1028,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114594613256405514}
   m_HandleRect: {fileID: 224860544967764994}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.9999999
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114707892719248822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967532533885894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9b2f23cbbff504198d17660d382d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  personName: {fileID: 114162286245758446}
+  profilePicture: {fileID: 114610360541264006}
+  addFriendButton: {fileID: 114841574676351532}
+  friendRequestFeedback: {fileID: 114712870406629810}
+  scrollRect: {fileID: 114605583741500564}
 --- !u!114 &114712870406629810
 MonoBehaviour:
   m_ObjectHideFlags: 1

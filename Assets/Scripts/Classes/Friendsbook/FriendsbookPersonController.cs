@@ -4,57 +4,55 @@ using UnityEngine;
 using UnityEngine.UI;
 using Settings;
 
+//Controls a character's friendsbook page
+//Displays 1 subview (currentView) at a time
+//interfaces with maincontroller
 public class FriendsbookPersonController : MonoBehaviour {
 
-    public Text personName;
-    public Image profilePicture;
-    public Button addFriendButton;
-    public Text friendRequestFeedback;
+    public FriendsbookPersonView viewComponent; //reference to view component script instance
+
+
+    //prefabs for views to be added as child of this
     public GameObject aboutViewPrefab;
     public GameObject friendsViewPrefab;
     public GameObject hiddenViewPrefab;
     public GameObject postsViewPrefab;
-    public ScrollRect scrollRect;
 
+    //settings determined what should be displayed in each subview. Set on initialization
     private Setting friendsSetting;
     private Setting informationSetting;
     private Setting postsSetting;
-    private GameObject currentView;
-    private Character character;
+
+    private GameObject currentSubView; //current subview being rendered
+    private Character character; //character this friendsbook page belongs to 
     private FriendsbookMainController friendsbookMainController;
 
 	// Use this for initialization
 	void Start () {
-        friendRequestFeedback.gameObject.SetActive(false);
-        SetPersonName();
-        bool friendsWithPlayer = friendsbookMainController.PlayerIsFriendsWith(character);
-        SetSettings(friendsWithPlayer);
-        if (friendsWithPlayer)
-        {
-            addFriendButton.gameObject.SetActive(false);
-        }
-        DisplayAboutView();
-	}
-	
 
-    public void SetPersonName()
-    {
-        if(character != null)
+        //set person name
+        if (character != null)
         {
-            personName.text = character.fullName;
-            if (character.friendsbookProfile.HasProfilePicture())
-            {
-                profilePicture.sprite = character.friendsbookProfile.profilePicture;
-            }
-
-            
+            viewComponent.SetPersonName(character);
         }
         else
         {
             Debug.LogError("FriendsbookPersonController missing character", this);
         }
-        
-    }
+
+        bool friendsWithPlayer = friendsbookMainController.PlayerIsFriendsWith(character);
+        SetSettings(friendsWithPlayer);
+
+        if (friendsWithPlayer) //hide addfriend button
+        {
+            viewComponent.SetFriendButtonActive(false);
+        }
+
+        DisplayAboutView();
+	}
+	
+
+    
 
     //public void SetImage()
     //{
@@ -66,6 +64,7 @@ public class FriendsbookPersonController : MonoBehaviour {
         friendsSetting = character.friendsbookProfile.friendsSetting;
         informationSetting = character.friendsbookProfile.informationSetting;
         postsSetting = character.friendsbookProfile.postsSetting;
+
         //"FRIEND" setting behaves as public if player is friend with the character
         if(friendsSetting == Setting.Friends && friendsWithPlayer) { friendsSetting = Setting.Public; }
         if (informationSetting == Setting.Friends && friendsWithPlayer) { informationSetting = Setting.Public; }
@@ -83,128 +82,127 @@ public class FriendsbookPersonController : MonoBehaviour {
     {
         if (character.friendsbookProfile.acceptsFriendRequest)
         {
+            //add friendship, update view with feedback + remove friendsbutton
             friendsbookMainController.AddFriendship(character);
-            friendRequestFeedback.text = "Friend request accepted!";
-            friendRequestFeedback.color = Color.green;
-            addFriendButton.gameObject.SetActive(false);
+            viewComponent.DisplayFriendRequestFeedback(positive:true);
+            viewComponent.SetFriendButtonActive(false);
         }
         else
         {
-            friendRequestFeedback.text = "Friend request denied";
-            friendRequestFeedback.color = Color.red;
+            //update view with negative feedback
+            viewComponent.DisplayFriendRequestFeedback(positive:false);
         }
-        StartCoroutine(ShowFriendRequestFeedback());
+        
         
     }
 
-    public IEnumerator ShowFriendRequestFeedback()
-    {
-        friendRequestFeedback.gameObject.SetActive(true);
-        yield return new WaitForSeconds(7f);
-        friendRequestFeedback.gameObject.SetActive(false);
-    }
 
+    //display aboutview as subview
     public void DisplayAboutView()
     {
-        
-        if(currentView != null)
+        if(currentSubView != null) //only one subview at a time
         {
-            GameObject.Destroy(currentView);
+            GameObject.Destroy(currentSubView);
         }
+
+        //subview content is decided by informationSetting
         if(informationSetting == Setting.Public)
         {
-            currentView = Instantiate(aboutViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.transform.localScale = Vector3.one;
-            currentView.GetComponent<FriendsbookAboutController>().SetInformation(character);
+            currentSubView = Instantiate(aboutViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.transform.localScale = Vector3.one;
+            //init about view with character information
+            currentSubView.GetComponent<FriendsbookAboutView>().SetInformation(character);
         }
         else if(informationSetting == Setting.Private)
         {
-            currentView = Instantiate(hiddenViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person has their personal information set to private.";
+            currentSubView = Instantiate(hiddenViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.GetComponent<FriendsbookHiddenView>().SetText("This person has their personal information set to private.");
         }
         else
         {
-            currentView = Instantiate(hiddenViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person only shares their personal information with friends.";
+            currentSubView = Instantiate(hiddenViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.GetComponent<FriendsbookHiddenView>().SetText("This person only shares their personal information with friends.");
         }
         
     }
 
+    //display posts view as subview
     public void DisplayPostsView()
     {
-        if (currentView != null)
+        if (currentSubView != null) //only one subview at a time
         {
-            GameObject.Destroy(currentView);
+            GameObject.Destroy(currentSubView);
         }
         if(postsSetting == Setting.Public)
         {
             if(character.friendsbookProfile.HasPosts())
             {
-                currentView = Instantiate(postsViewPrefab);
-                currentView.transform.SetParent(scrollRect.content, false);
-                var postsController = currentView.GetComponent<FriendsbookPostsController>();
-                postsController.SetPosts(character.friendsbookProfile.posts.list);
+                currentSubView = Instantiate(postsViewPrefab);
+                currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+                var postsview = currentSubView.GetComponent<FriendsbookPostsView>();
+                postsview.DisplayPosts(character.friendsbookProfile.posts.list);
             }
             else
             {
-                currentView = Instantiate(hiddenViewPrefab);
-                currentView.transform.SetParent(scrollRect.content, false);
-                currentView.GetComponentInChildren<Text>().text = "No posts.";
+                currentSubView = Instantiate(hiddenViewPrefab);
+                currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+                currentSubView.GetComponent<FriendsbookHiddenView>().SetText("No posts.");
             }
             
         }
         else if(postsSetting == Setting.Private)
         {
-            currentView = Instantiate(hiddenViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person has posts set to private.";
+            currentSubView = Instantiate(hiddenViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.GetComponent<FriendsbookHiddenView>().SetText("This person has posts set to private.");
         }
         else //postsSetting is friends
         {
-            currentView = Instantiate(hiddenViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person only displays their posts to other friends.";
+            currentSubView = Instantiate(hiddenViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.GetComponent<FriendsbookHiddenView>().SetText("This person only displays their posts to other friends.");
         }
         
     }
 
+    //display friendsview as subview
     public void DisplayFriendsView()
     {
-        if (currentView != null)
+        if (currentSubView != null) //only one subview at a time
         {
-            GameObject.Destroy(currentView);
+            GameObject.Destroy(currentSubView);
         }
         if (friendsSetting == Setting.Public)
         {
             if (character.friendsbookProfile.HasFriends())
             {
-                currentView = Instantiate(friendsViewPrefab);
-                currentView.transform.SetParent(scrollRect.content, false);
-                var friendsbookFriendsController = currentView.GetComponent<FriendsbookFriendsController>();
+                currentSubView = Instantiate(friendsViewPrefab);
+                currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+                var friendsbookFriendsController = currentSubView.GetComponent<FriendsbookFriendsController>();
                 friendsbookFriendsController.SetFriends(character.friendsbookProfile.friends);
             }
             else
             {
-                currentView = Instantiate(hiddenViewPrefab);
-                currentView.transform.SetParent(scrollRect.content, false);
-                currentView.GetComponentInChildren<Text>().text = "No friends.";
+                currentSubView = Instantiate(hiddenViewPrefab);
+                currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+                currentSubView.GetComponent<FriendsbookHiddenView>().SetText("No friends.");
             }
 
         }
         else if(friendsSetting == Setting.Private)
         {
-            currentView = Instantiate(hiddenViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person has friends set to private.";
+            currentSubView = Instantiate(hiddenViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.GetComponent<FriendsbookHiddenView>().SetText("This person has friends set to private.");
         }
         else if(friendsSetting == Setting.Friends)
         {
-            currentView = Instantiate(hiddenViewPrefab);
-            currentView.transform.SetParent(scrollRect.content, false);
-            currentView.GetComponentInChildren<Text>().text = "This person only displays their friendslist to other friends.";
+            currentSubView = Instantiate(hiddenViewPrefab);
+            currentSubView.transform.SetParent(viewComponent.scrollRect.content, false);
+            currentSubView.GetComponent<FriendsbookHiddenView>().SetText("This person only displays their friendslist to other friends.");
         }
 
         
