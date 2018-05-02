@@ -38,7 +38,9 @@ public class EventManager : MonoBehaviour {
         {
             storyEventsInternal = new List<StoryEvent>(storyEvents.list);
         }
+
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     //finds first relevant event, instantiates prefab, and assigns event to prefab. 
