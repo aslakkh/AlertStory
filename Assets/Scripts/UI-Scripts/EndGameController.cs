@@ -47,6 +47,7 @@ public class EndGameController : MonoBehaviour {
         gm.playerCharacter.friendsbookProfile.friends.Clear();
         gm.turnCount = 0;
         gm.requirementDict.Clear();
+        gm.eventsFired.Clear();
         // gm.eventsFired can return null if no events have passed (or the player is really lazy!)
         try
         {

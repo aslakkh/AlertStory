@@ -1124,6 +1124,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 216074286}
+--- !u!1001 &262945915
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 221.7386
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 200.15489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.7792355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &265934988
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,6 +4077,54 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334686344}
+--- !u!1001 &1352044104
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 466.53278
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 215.8086
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -14.499999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382730588390390, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114175138789726656, guid: be501b130dffa444194bba1c83ae26bf,
+        type: 2}
+      propertyPath: storyEvents
+      value: 
+      objectReference: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1399867719
 GameObject:
   m_ObjectHideFlags: 0
