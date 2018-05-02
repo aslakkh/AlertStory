@@ -13,9 +13,24 @@ public class EndGameController : MonoBehaviour {
     private int previousHighScore;
     private int currentScore;
     private Text SaveStatus;
+    public GameObject prefabPointer;
+
     // Use this for initialization
     void Start () {
-		GameObject gameObj = GameObject.Find("GameManager");
+        ControllScore();
+        RetrieveEventHistory();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+
+
+    public void ControllScore()
+    {
+        GameObject gameObj = GameObject.Find("GameManager");
         gm = gameObj.GetComponent<GameManager>();
         previousHighScore = PlayerPrefs.GetInt("highscore");
         currentScore = gm.score + gm.privateScore;
@@ -33,11 +48,23 @@ public class EndGameController : MonoBehaviour {
         Text score = GameObject.Find("YourScoreText").GetComponent<Text>();
         score.text = score.text + currentScore;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void RetrieveEventHistory()
+    {
+        GameObject panel = GameObject.Find("EndgameScrollviewContentPanel");
+
+        foreach (KeyValuePair<StoryEvent,Choice> entry in gm.eventsFired){
+            GameObject temp = Instantiate(prefabPointer) as GameObject;
+            if (panel != null)
+            {
+                temp.transform.SetParent(panel.transform, false);
+                Transform transformEvent = temp.transform.GetChild(0);
+                Transform transformChoice = temp.transform.GetChild(1);
+                transformEvent.GetComponent<Text>().text = entry.Key.text;
+                transformChoice.GetComponent<Text>().text = entry.Value.choiceDescription;
+            }
+        }
+    }
 
     public void StartNewGame()
     {
