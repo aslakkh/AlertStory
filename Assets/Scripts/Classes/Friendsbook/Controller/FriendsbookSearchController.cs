@@ -48,8 +48,15 @@ public class FriendsbookSearchController : MonoBehaviour {
 
     public void OnClick()
     {
-        //debug.log character clicked
         Search(text.text);
     }
 	
+    public void OnInputFieldValueChange(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            //hide
+            view.DisplaySearchResult(null);
+        }
+    }
 }
