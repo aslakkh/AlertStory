@@ -41,30 +41,13 @@ public class EndGameController : MonoBehaviour {
 
     public void StartNewGame()
     {
-        //gm.dayCount = 0;
-        gm.privateScore = 0;
-        gm.score = 0;
-        gm.playerCharacter.friendsbookProfile.friends.Clear();
-        gm.turnCount = 0;
-        gm.requirementDict.Clear();
-        gm.eventsFired.Clear();
-        // gm.eventsFired can return null if no events have passed (or the player is really lazy!)
-        try
-        {
-            gm.eventsFired.Clear();
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.Log("Eventsfired equal to null, moving on.");
-        }
+        gm.playerCharacter.friendsbookProfile.friends.Clear(); // its a file so better clear it, since its static. 
         GameObject.Destroy(gm.gameObject); // Destroys the gamemanager object.
         GameObject.Destroy(GameObject.Find("EventManager")); // Destroys the eventmanager object.
 
-        // TODO: Access gamestate in gm and set it to investigator (default)
 
         //Changing scene to the settingScene after clearing all values.
         SceneManager.LoadScene("AppSettingsScene");
-        //
     }
 
     public void ExitGame()
