@@ -126,24 +126,25 @@ public class DropDownItemController : MonoBehaviour {
     // Validates that the dropboxes have a valid option selected.Useful to check before changing scenes. 
     public void validateDropDownChoices()
     {
-        //foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
-        //{
-        //    if (d.value < 1 || d.value > 3)
-        //    {
-        //        validated = false;
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        validated = true;
-        //        continue;
-        //    }
-        //}
-        //if (validated == true) {
-        //    saveRequirements();
-        //    // TODO: change scene!
-        //    SceneManager.LoadScene("TEMP_EventsScene");
-        //}
+        foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
+        {
+            if (d.value < 1 || d.value > 3)
+            {
+                validated = false;
+                break;
+            }
+            else
+            {
+                validated = true;
+                continue;
+            }
+        }
+        if (validated == true)
+        {
+            saveRequirements();
+            // TODO: change scene!
+            SceneManager.LoadScene("TEMP_EventsScene");
+        }
         SceneManager.LoadScene("TEMP_EventsScene");
     }
 

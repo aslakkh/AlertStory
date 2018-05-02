@@ -21,6 +21,7 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 100
+    endGameTrigger: 1
 --- !u!114 &114502390200859522
 MonoBehaviour:
   m_ObjectHideFlags: 0

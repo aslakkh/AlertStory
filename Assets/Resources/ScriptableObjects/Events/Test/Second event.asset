@@ -16,8 +16,9 @@ MonoBehaviour:
   requirements: {fileID: 114994905884021142}
   dependencies: {fileID: 114359170966843414}
   choices:
-  - choiceDescription: Blank
+  - choiceDescription: Ok
     scores: []
+    endGameTrigger: 0
 --- !u!114 &114359170966843414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,4 +47,4 @@ MonoBehaviour:
   requirementDictionary:
     m_keys:
     - Facebook
-    m_values: 00000000
+    m_values: 02000000

@@ -16,15 +16,15 @@ MonoBehaviour:
   requirements: {fileID: 114257674276251798}
   dependencies: {fileID: 114261970985087972}
   choices:
-  - choiceDescription: trigger endgame
+  - choiceDescription: Choice 1
     scores:
     - requirementName: 
       setting: 2
       value: 100
-    endGameTrigger: 1
-  - choiceDescription: Blank
+    endGameTrigger: 0
+  - choiceDescription: Choice 2
     scores: []
-    endGameTrigger: 1
+    endGameTrigger: 0
 --- !u!114 &114257674276251798
 MonoBehaviour:
   m_ObjectHideFlags: 0

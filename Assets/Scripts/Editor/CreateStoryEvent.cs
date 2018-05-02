@@ -39,6 +39,7 @@ public class CreateStoryEvent : MonoBehaviour {
     public static StoryEvent CreateStoryEventAsset(string name, string path)
     {
         StoryEvent asset = ScriptableObject.CreateInstance<StoryEvent>();
+        //Debug.Log(string.Format("{0}/{1}.asset", path, name));
         AssetDatabase.CreateAsset(asset, string.Format("{0}/{1}.asset", path, name));
         AssetDatabase.SaveAssets();
         return asset;
