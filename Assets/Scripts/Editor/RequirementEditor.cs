@@ -10,10 +10,16 @@ public class RequirementEditor : EditorWindow
     private int viewIndex = 1;
     private string requirementListTitle;
 
-    [MenuItem("Window/Event/RequirementListEditor")]
+    [MenuItem("Window/Alert/Requirements/RequirementListEditor")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(RequirementEditor));
+    }
+
+    public static void Init(RequirementsList r)
+    {
+        RequirementEditor w = EditorWindow.GetWindow<RequirementEditor>();
+        w.requirementList = r;
     }
 
     void OnEnable()
@@ -60,12 +66,6 @@ public class RequirementEditor : EditorWindow
                 OpenItemList();
             }
             GUILayout.EndHorizontal();
-
-            requirementListTitle = EditorGUILayout.TextField("New Requirement List", requirementListTitle);
-            if (GUILayout.Button("Create New Requirement List", GUILayout.ExpandWidth(false)))
-            {
-                CreateNewItemList(requirementListTitle);
-            }
         }
 
         GUILayout.Space(20);
@@ -121,8 +121,12 @@ public class RequirementEditor : EditorWindow
         }
         if (GUI.changed)
         {
-            EditorUtility.SetDirty(requirementList);
-            AssetDatabase.SaveAssets();
+            if(requirementList != null)
+            {
+                EditorUtility.SetDirty(requirementList);
+                AssetDatabase.SaveAssets();
+            }
+            
         }
     }
 

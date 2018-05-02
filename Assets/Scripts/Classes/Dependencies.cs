@@ -19,7 +19,6 @@ public struct StoryDependencyBool
 }
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "Test", menuName = "Alert/DependenciesTest", order = 1)]
 public class Dependencies : ScriptableObject {
     //Made public so they can later be interacted with in unity editor script.
     public StoryEventBoolDictionary dependenciesDict = new StoryEventBoolDictionary();

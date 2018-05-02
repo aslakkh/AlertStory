@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FriendsbookSearchView : MonoBehaviour {
 
     public ScrollRect scrollRectPrefab;
+    public GameObject noResultPrefab;
     public GameObject searchResultElement;
     public Color color1;
     public Color color2;
@@ -27,7 +28,7 @@ public class FriendsbookSearchView : MonoBehaviour {
         {
             GameObject.Destroy(e);
         }
-        if(characters != null)
+        if(characters != null && characters.Count > 0)
         {
             SetVisible();
             int counter = 0;
@@ -54,7 +55,19 @@ public class FriendsbookSearchView : MonoBehaviour {
         }
         else
         {
-            Hide();
+            if(characters == null)
+            {
+                Hide();
+            }
+            else
+            {
+                SetVisible();
+                GameObject element = Instantiate(noResultPrefab);
+                element.transform.SetParent(scrollRect.content, false); //recommended way of setting parent of UI element
+                element.GetComponentInChildren<Text>().text = "No results...";
+                searchResults.Add(element);
+            }
+            
         }
         
     }

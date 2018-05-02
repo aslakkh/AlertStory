@@ -27,10 +27,22 @@ public class CustomOpener {
         else if(Selection.activeObject as StoryEvent != null) //open storyevent editor
         {
             StoryEventEditor.Init(Selection.activeObject as StoryEvent);
+            return true; //catch open file
         }
         else if(Selection.activeObject as StoryEventList != null) //open storyeventlist editor
         {
             StoryEventListEditor.Init(Selection.activeObject as StoryEventList);
+            return true; //catch open file
+        }
+        else if(Selection.activeObject as RequirementDict != null) //open requirementDict editor
+        {
+            RequirementDictEditor.Init(Selection.activeObject as RequirementDict);
+            return true; //catch open file
+        }
+        else if (Selection.activeObject as RequirementsList != null) //open open requirementList editor
+        {
+            RequirementEditor.Init(Selection.activeObject as RequirementsList);
+            return true; //catch open file
         }
         return false; // let unity open the file
     }
