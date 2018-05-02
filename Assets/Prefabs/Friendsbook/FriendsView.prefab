@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114872737253370322}
   - component: {fileID: 114104750512960230}
   - component: {fileID: 114369039335267560}
+  - component: {fileID: 114490521115887534}
   m_Layer: 5
   m_Name: FriendsView
   m_TagString: Untagged
@@ -200,13 +201,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415ea8f3fcc09cc44aefa8589d5ff55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewComponent: {fileID: 114490521115887534}
   friendsPerPage: 10
-  listElementPrefab: {fileID: 1855484792027544, guid: 1fb8085f336fdfd42bdb7dd047dcdb6b,
-    type: 2}
-  previousButton: {fileID: 114648971164019036}
-  nextButton: {fileID: 114806733285661594}
   friendsListWrapperPrefab: {fileID: 1922894027277124, guid: 5eef820df34deb943ac5d3fa6de9a558,
     type: 2}
+  listElementPrefab: {fileID: 1855484792027544, guid: 1fb8085f336fdfd42bdb7dd047dcdb6b,
+    type: 2}
+--- !u!114 &114490521115887534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015603342978786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f363bf6f71b1db4ebb7b5e354207a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousButton: {fileID: 114648971164019036}
+  nextButton: {fileID: 114806733285661594}
 --- !u!114 &114521329538613362
 MonoBehaviour:
   m_ObjectHideFlags: 1

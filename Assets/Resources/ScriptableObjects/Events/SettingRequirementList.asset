@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cddfb9515532bc540bf7fdc3a9a75031, type: 3}
-  m_Name: NewReq
+  m_Name: SettingRequirementList
   m_EditorClassIdentifier: 
   list:
-  - requirementName: One
+  - requirementName: Facebook
