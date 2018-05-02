@@ -74,6 +74,14 @@ public class StoryEventEditor : EditorWindow
             storyText = EditorGUILayout.TextArea(storyText, GUILayout.Height(50));
 
             GUILayout.Space(10);
+
+            var isMessage = EditorGUILayout.Toggle("Is message event:", storyEvent.isMessage);
+            if(isMessage != storyEvent.isMessage)
+            {
+                storyEvent.isMessage = isMessage;
+                EditorUtility.SetDirty(storyEvent);
+            }
+            GUILayout.Space(10);
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Save Info", GUILayout.ExpandWidth(false)))
             {
