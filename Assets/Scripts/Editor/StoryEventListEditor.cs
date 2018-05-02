@@ -157,7 +157,7 @@ public class StoryEventListEditor : EditorWindow
             }
         }
     }
-
+    //
     StoryEvent OpenStoryEvent()
     {
         string absPath = EditorUtility.OpenFilePanel("Select StoryEvent", "", "");

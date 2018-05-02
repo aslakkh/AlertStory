@@ -128,6 +128,13 @@ public class StoryEventEditor : EditorWindow
                     }
 
                     GUILayout.Space(10);
+                    // edit boolean value to trigger endgamescene
+                    bool endgame = EditorGUILayout.Toggle("Use if endgame trigger", choice.endGameTrigger);
+                    if(endgame != choice.endGameTrigger)
+                    {
+                        choice.endGameTrigger = endgame;
+                        EditorUtility.SetDirty(storyEvent);
+                    }
 
                     //edit scores
                     if (choice.scores == null || choice.scores.Count == 0)

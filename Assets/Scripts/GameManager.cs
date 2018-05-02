@@ -102,19 +102,10 @@ public class GameManager : MonoBehaviour {
             {
                 requirementDict = backupRequirementDict.requirementDictionary;
             }
-            else
-            {
-                Debug.Log("backupRequirementdict in GameManager == Null");
-            }
-            requirementDict = backupRequirementDict.requirementDictionary;
         }
     }
 
     public void FireEvent() {
-        foreach (var k in requirementDict)
-        {
-            Debug.Log(k.Key + " " + k.Value);
-        }
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
@@ -138,6 +129,10 @@ public class GameManager : MonoBehaviour {
         //TODO: Add score handling
         _eventsFired[storyEvent] = choice;
 
+        if (choice.endGameTrigger)
+        {
+            SceneManager.LoadScene("TEMP_EndgameScene");
+        }
         //add scores
         if(choice.scores != null)
         {

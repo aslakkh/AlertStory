@@ -34,7 +34,10 @@ public class EventManager : MonoBehaviour {
 
     private void Start()
     {
-        storyEventsInternal = new List<StoryEvent>(storyEvents.list);
+        if (storyEvents != null)
+        {
+            storyEventsInternal = new List<StoryEvent>(storyEvents.list);
+        }
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
