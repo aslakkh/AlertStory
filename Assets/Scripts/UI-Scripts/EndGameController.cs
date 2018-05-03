@@ -60,7 +60,7 @@ public class EndGameController : MonoBehaviour {
                 temp.transform.SetParent(panel.transform, false);
                 Transform transformEvent = temp.transform.GetChild(0);
                 Transform transformChoice = temp.transform.GetChild(1);
-                transformEvent.GetComponent<Text>().text = entry.Key.text;
+                transformEvent.GetComponent<Text>().text = entry.Key.title;
                 transformChoice.GetComponent<Text>().text = entry.Value.choiceDescription;
             }
         }
