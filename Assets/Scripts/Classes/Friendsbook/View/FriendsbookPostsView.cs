@@ -2,25 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendsbookPostsController : MonoBehaviour {
+//view for posts (subview of character profile page)
+public class FriendsbookPostsView : MonoBehaviour {
 
     public GameObject postPrefab;
     private List<FriendsbookPost> posts;
 
-    private void Start()
-    {
-        if(posts != null)
-        {
-            DisplayPosts();
-        }
-    }
-
-    public void SetPosts(List<FriendsbookPost> posts)
-    {
-        this.posts = posts;
-    }
-
-    public void DisplayPosts()
+    //update view with posts in posts
+    public void DisplayPosts(List<FriendsbookPost> posts)
     {
         foreach(FriendsbookPost p in posts)
         {

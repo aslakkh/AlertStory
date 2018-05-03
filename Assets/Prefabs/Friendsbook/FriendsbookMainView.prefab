@@ -502,7 +502,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114046093260346996}
+        m_MethodName: OnInputFieldValueChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
@@ -551,6 +562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollRectPrefab: {fileID: 114655968958046950, guid: 61b5901e0d4238f42a9e785906cfdca6,
+    type: 2}
+  noResultPrefab: {fileID: 1660913616369612, guid: 8a02f9c3c57aac346bc5bed9c684dd75,
     type: 2}
   searchResultElement: {fileID: 1307459952248948, guid: 2f8e2984484bef842a6c3cae3d54b92e,
     type: 2}

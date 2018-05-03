@@ -16,7 +16,7 @@ public class StoryEventListEditor : EditorWindow
     private string storyEventTitle;
     Vector2 mainScrollPosition;
 
-    [MenuItem("Window/Event/StoryEventList")]
+    [MenuItem("Window/Alert/Events/StoryEventList")]
     static void Init()
     {
         EditorWindow.GetWindow(typeof(StoryEventListEditor));

@@ -52,6 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - One
-    m_values: 02000000
+    m_keys: []
+    m_values: 
