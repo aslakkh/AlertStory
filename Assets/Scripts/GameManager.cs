@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
+    private Dictionary<int, List<string>> informationPackageDict;
+    private List<string> informationPackageList = new List<string>();
 
     //gameState property. Publishes event on change
     private GameState gameState
@@ -77,6 +79,12 @@ public class GameManager : MonoBehaviour {
     {
         get { return _objectives; }
         set { _objectives = value; }
+    }
+
+    public List<string> informationPackage
+    {
+        get { return informationPackageList; }
+        set { informationPackageList = value; }
     }
 
     //Singleton instanciating
