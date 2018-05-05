@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tags : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+namespace Tags {
+	[System.Serializable]
+	public enum Tags {
+		Teg1,
+		Tag2,
+		Tag3,
+		Tag4,
+		Tag5
 	}
 }

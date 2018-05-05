@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class InformationPackageController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public void AddPersonToInformationPackage (string message) {
+		Debug.Log("Added Person info to information package" + message);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void AddPostToInformationMackage () {
+		Debug.Log("Added post to information package");
 	}
 }

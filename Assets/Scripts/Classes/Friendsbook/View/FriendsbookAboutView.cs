@@ -11,6 +11,20 @@ public class FriendsbookAboutView : MonoBehaviour {
     public Text emailText;
     public Text phoneNumberText;
 
+    public GameObject informationPackage;
+    public InformationPackageController informationPackageController;
+    public Button nameButton;
+
+
+    void Awake () {
+        informationPackage = GameObject.Find("InformationPackage");
+        Debug.Log(informationPackage);
+        informationPackageController.GetComponent<InformationPackageController>();
+    }
+    void Start () {
+        nameButton.onClick.AddListener(delegate () { informationPackageController.AddPersonToInformationPackage(nameText.text); });
+    }
+
 	public void SetInformation(Character c)
     {
         nameText.text = string.IsNullOrEmpty(c.fullName) ? "NA" : c.fullName;
