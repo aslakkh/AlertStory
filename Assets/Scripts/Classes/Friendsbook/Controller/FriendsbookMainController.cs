@@ -22,31 +22,37 @@ public class FriendsbookMainController : MonoBehaviour {
         EnterPlayerCharacterProfile();
 	}
 
-    //Sets currentView to friendsbook's homepage
-    public void EnterPlayerCharacterProfile()
+    public void DestroyCurrentView()
     {
         if (currentView != null) //only allow one view at a time
         {
             GameObject.Destroy(currentView);
         }
-        GameObject p = Instantiate(playerViewPrefab);
+    }
+
+
+    //instantiates prefab, and sets this instance as currentview
+    public GameObject InstantiateCurrentViewFromPrefab(GameObject prefab)
+    {
+        DestroyCurrentView();
+        GameObject p = Instantiate(prefab);
         currentView = p;
         p.transform.SetParent(transform, false);
         p.transform.SetAsFirstSibling(); //assures that this is rendered before overlay elements
+        return p;
+    }
+
+    //Sets currentView to friendsbook's homepage
+    public void EnterPlayerCharacterProfile()
+    {
+        GameObject p = InstantiateCurrentViewFromPrefab(playerViewPrefab);
         p.GetComponent<FriendsbookPlayerController>().SetCharacter(gameManager.playerCharacter);
     }
 	
     //Sets current view to profile page of character c
 	public void EnterFriendsbookProfile(Character c)
     {
-        if(currentView != null) //only allow one view at a time
-        {
-            GameObject.Destroy(currentView);
-        }
-        GameObject p = Instantiate(personViewPrefab);
-        currentView = p;
-        p.transform.SetParent(transform, false);
-        p.transform.SetAsFirstSibling(); //assures that this is rendered before overlay elements
+        GameObject p = InstantiateCurrentViewFromPrefab(personViewPrefab);
         p.GetComponent<FriendsbookPersonController>().SetCharacter(c);
         p.GetComponent<FriendsbookPersonController>().SetFriendsbookMainController(this);
     }
