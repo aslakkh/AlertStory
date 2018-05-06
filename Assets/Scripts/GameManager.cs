@@ -171,6 +171,10 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.investigator;
     }
 
+    public void NextDay() {
+        Debug.Log("NextDay fam");
+    }
+
     public void AddToScore(int value)
     {
         score += value;
