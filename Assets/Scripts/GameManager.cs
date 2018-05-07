@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,10 +28,6 @@ public class GameManager : MonoBehaviour {
         }
         set {
             dayCount += value;
-            if (dayCount >= endDay)
-            {
-                SceneManager.LoadScene("TEMP_EndGameScene");
-            }
         }
     }
     public int turnCount;
@@ -107,7 +104,6 @@ public class GameManager : MonoBehaviour {
             {
                 Debug.Log("backupRequirementdict in GameManager == Null");
             }
-            requirementDict = backupRequirementDict.requirementDictionary;
         }
     }
 
@@ -118,18 +114,16 @@ public class GameManager : MonoBehaviour {
         _eventsFired = new StoryEventChoiceDictionary();
     }
 
-    public void FireEvent() {
-        foreach (var k in requirementDict)
-        {
-            Debug.Log(k.Key + " " + k.Value);
-        }
+    public bool FireEvent() {
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
             gameState = GameState.eventhandler;
             _eventsFired.Add(eventFired, null);
         }
-        
+
+        return eventFired;
+
     }
 
     //handles publishing of stateChanged event
@@ -172,7 +166,21 @@ public class GameManager : MonoBehaviour {
     }
 
     public void NextDay() {
-        Debug.Log("NextDay fam");
+        
+        //Will be called untill there is no more Events in List
+        bool eventFired;
+        do {
+            eventFired = FireEvent();
+        } while (eventFired);
+        
+        if (++dayCount >= endDay)
+        {
+            SceneManager.LoadScene("TEMP_EndGameScene");
+        }
+        else 
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+        }       
     }
 
     public void AddToScore(int value)

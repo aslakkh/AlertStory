@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,13 +9,13 @@ public class BatteryTimerController : MonoBehaviour {
     public float timeStart;
     public float batteryPrecentage = 100f;
     public List<Sprite> imageList;
+    public List<float> eventBreakpoints;
     public Text text;
     public Image imageHolder;
-    private bool runTimer = false;
+    public bool runTimer = false;
     private GameManager gameManager;
 
     private void Awake() {
-        DontDestroyOnLoad(gameObject);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameManager.stateChanged += OnStateChanged; //subcribe to stateChanged event
     }
@@ -23,9 +24,8 @@ public class BatteryTimerController : MonoBehaviour {
         if (args.newState == GameState.investigator) {
             StartTimer();
         }
-        else //buttons should only be interactable in investigator state
-        {
-            PauseTimer();
+        else {
+            Time.timeScale = 0;
         }
     }
 
@@ -40,6 +40,11 @@ public class BatteryTimerController : MonoBehaviour {
         if (runTimer) {
             if (batteryPrecentage > 0) {
                 UpdateTimer();
+                
+                if (eventBreakpoints.Contains(batteryPrecentage)) {
+                    eventBreakpoints.Remove(batteryPrecentage);
+                    gameManager.FireEvent();
+                }
             }
             else {
                 runTimer = false;
@@ -60,14 +65,6 @@ public class BatteryTimerController : MonoBehaviour {
             //Set new timeStart
             timeStart = Time.time;
             runTimer = true;
-        }
-    }
-
-    private void PauseTimer() 
-    {
-        if (runTimer) 
-            {
-            Time.timeScale = 0;
         }
     }
 
