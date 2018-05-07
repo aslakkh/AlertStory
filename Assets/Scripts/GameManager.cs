@@ -22,14 +22,7 @@ public class GameManager : MonoBehaviour {
 
     public int score;
     public int privateScore;
-    public int dayCount {
-        get {
-            return this.dayCount;
-        }
-        set {
-            dayCount += value;
-        }
-    }
+    private int dayCount;
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
@@ -38,6 +31,7 @@ public class GameManager : MonoBehaviour {
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
+    private SceneLoader sceneLoader; //reference to sceneloader
     private GameState _gameState;
 
     //gameState property. Publishes event on change
@@ -112,6 +106,8 @@ public class GameManager : MonoBehaviour {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
+        sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+        dayCount = 0;
     }
 
     public bool FireEvent() {
@@ -168,7 +164,7 @@ public class GameManager : MonoBehaviour {
         {
             if (choice.endGameTrigger)
             {
-                SceneManager.LoadScene("TEMP_EndgameScene");
+                sceneLoader.LoadEndScene();
             }
             gameState = GameState.investigator;
         }
@@ -185,11 +181,12 @@ public class GameManager : MonoBehaviour {
         
         if (++dayCount >= endDay)
         {
-            SceneManager.LoadScene("TEMP_EndGameScene");
+            sceneLoader.LoadEndScene();
         }
         else 
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+            sceneLoader.LoadNextDay();
         }       
     }
 
@@ -198,5 +195,9 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    
+    //getters
+    public int GetDayCount()
+    {
+        return dayCount;
+    }
 }

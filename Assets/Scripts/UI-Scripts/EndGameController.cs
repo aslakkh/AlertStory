@@ -110,7 +110,7 @@ public class EndGameController : MonoBehaviour {
 
 
         //Changing scene to the settingScene after clearing all values.
-        SceneManager.LoadScene("AppSettingsScene");
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadAppSettingsScene();
     }
 
     public void ExitGame()

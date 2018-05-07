@@ -14,6 +14,7 @@ MonoBehaviour:
   title: First event
   text: 
   isMessage: 0
+  fireNextEventImmediately: 0
   requirements: {fileID: 114257674276251798}
   dependencies: {fileID: 114261970985087972}
   choices:
