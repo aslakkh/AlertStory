@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Tags;
 
 //friendsbook "about"-view (subview of person profile-view)
 public class FriendsbookAboutView : MonoBehaviour {
@@ -10,7 +11,7 @@ public class FriendsbookAboutView : MonoBehaviour {
     public Text addressText;
     public Text emailText;
     public Text phoneNumberText;
-    // private int day = GameManager.Instance.dayCount;
+    //private int day = GameManager.Instance.dayCount;
     private List<string> currentDay;
 
     public GameObject informationPackage;
@@ -25,9 +26,7 @@ public class FriendsbookAboutView : MonoBehaviour {
     }
 
     void Start () {
-        // nameButton.onClick.AddListener(delegate () { 
-        //     informationPackageController.AddPersonToInformationPackage(nameText.text); 
-        // });
+        //nameButton.onClick.AddListener(delegate () { informationPackageController.AddPersonToInformationPackage(nameText.text); });
         currentDay = GameManager.Instance.informationPackage;
     }
 
@@ -41,8 +40,6 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnNameClicked()
     {
-        Debug.Log(currentDay);
-        Debug.Log(nameText.text);
         if (!nameText.text.Equals("NA"))
         {
             currentDay.Add(nameText.text);
@@ -56,7 +53,6 @@ public class FriendsbookAboutView : MonoBehaviour {
         {
             currentDay.Add(addressText.text);
         }
-        printList();
     }
 
     public void OnEmailClicked()

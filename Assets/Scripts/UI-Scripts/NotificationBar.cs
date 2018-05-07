@@ -12,9 +12,11 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public Text stats;
     public Text objectives;
     public Text settings;
+    public Text informationPackageText;
     private List<Objective> objectivesList;
     private StringSettingDictionary settingsList;
     private Requirement requirement;
+    private List<string> informationPackage;
 
     public GameObject scrollView;
     public GameObject dropDown;
@@ -25,7 +27,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         settingsList = GameManager.Instance.requirements;
         GameManager.Instance.objectives = new List<Objective>();
         objectivesList = GameManager.Instance.objectives;
-
+        informationPackage = GameManager.Instance.informationPackage;
     }
 
     void Awake()
@@ -34,7 +36,8 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         stats = GameObject.Find("NotificationBar").transform.GetChild(0).GetComponent<Text>();
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
-
+        informationPackageText = dropDown.transform.Find("Digital Investigator List").GetChild(0).GetComponent<Text>();
+        informationPackageText.text = "Information package" + "\n" + "This information will be submitted. Click on an item to remove it." + "\n\n";
     }
 
     //Opens dropdown
@@ -72,6 +75,15 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
             scrollView.transform.SetAsLastSibling();
         }
 
+
+        informationPackage = GameManager.Instance.informationPackage;
+        StringBuilder informationPackageString = new StringBuilder();
+        foreach(string element in informationPackage)
+        {
+            informationPackageString.Append(element + "\n");
+        }
+        informationPackageText.text = "Information package" + "\n" + 
+            "This information will be submitted. Click on an item to remove it." + "\n\n" + informationPackageString.ToString();
 
     }
 
