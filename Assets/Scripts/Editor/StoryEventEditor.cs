@@ -41,7 +41,6 @@ public class StoryEventEditor : EditorWindow
         StoryEventEditor w = EditorWindow.GetWindow<StoryEventEditor>(typeof(StoryEventListEditor));
         w.storyEvent = s;
         w.SetEventInfoValues();
-
     }
 
 
@@ -79,6 +78,14 @@ public class StoryEventEditor : EditorWindow
             if(isMessage != storyEvent.isMessage)
             {
                 storyEvent.isMessage = isMessage;
+                EditorUtility.SetDirty(storyEvent);
+            }
+            GUILayout.Space(10);
+
+            var fireNextEventImmediately = EditorGUILayout.Toggle("Fire next event immediately:", storyEvent.fireNextEventImmediately);
+            if (fireNextEventImmediately != storyEvent.fireNextEventImmediately)
+            {
+                storyEvent.fireNextEventImmediately = fireNextEventImmediately;
                 EditorUtility.SetDirty(storyEvent);
             }
             GUILayout.Space(10);

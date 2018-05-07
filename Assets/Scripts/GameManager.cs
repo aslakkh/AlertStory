@@ -121,7 +121,6 @@ public class GameManager : MonoBehaviour {
             gameState = GameState.eventhandler;
             _eventsFired.Add(eventFired, null);
         }
-
         return eventFired;
 
     }
@@ -161,12 +160,19 @@ public class GameManager : MonoBehaviour {
 
             }
         }
-        if (choice.endGameTrigger)
+        if (storyEvent.fireNextEventImmediately)
         {
-            SceneManager.LoadScene("TEMP_EndgameScene");
+            FireEvent();
+        }
+        else
+        {
+            if (choice.endGameTrigger)
+            {
+                SceneManager.LoadScene("TEMP_EndgameScene");
+            }
+            gameState = GameState.investigator;
         }
 
-        gameState = GameState.investigator;
     }
 
     public void NextDay() {
