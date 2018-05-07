@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
@@ -72,13 +73,10 @@ public class BatteryTimerController : MonoBehaviour {
     {
         float t = Time.time - timeStart;
         batteryPrecentage = 100f - Mathf.Floor(t / timeLenght * 100);
-        imageHolder.sprite = imageList.SingleOrDefault(item => (item.name.Equals(RoundUp(Mathf.FloorToInt(batteryPrecentage)).ToString() + "_battery")));
-    }
-
-    //Helper function to have the sprite display upper sprite value
-    private int RoundUp(int toRound) {
-        if (toRound % 10 == 0) return toRound;
-        return (10 - toRound % 10) + toRound;
+        if (Mathf.FloorToInt(batteryPrecentage) % 10 == 0) {
+            imageHolder.sprite = imageList.SingleOrDefault(item =>
+                (item.name.Equals(Mathf.FloorToInt(batteryPrecentage).ToString() + "_battery")));
+        }
     }
 }
 
