@@ -9,7 +9,6 @@ public class FriendsbookMainControllerTest {
     [Test]
     [Description("InstantiateCurrentViewPrefab returns new instance")]
     [Category("Unit test")]
-    [Author("Aslak Karlsen Hauglid")]
     public void InstantiatedViewIsGameObject()
     {
         var gameObject = new GameObject();
@@ -22,7 +21,6 @@ public class FriendsbookMainControllerTest {
     [Test]
     [Description("InstantiateCurrentViewPrefab instantiates currentview as child of its controller")]
     [Category("Unit test")]
-    [Author("Aslak Karlsen Hauglid")]
     public void InstantiatedViewIsChildOfController()
     {
         var gameObject = new GameObject();
@@ -34,7 +32,6 @@ public class FriendsbookMainControllerTest {
     [Test]
     [Description("InstantiateCurrentViewPrefab should instantiate currentview and set it as first sibling")]
     [Category("Unit test")]
-    [Author("Aslak Karlsen Hauglid")]
     public void InstantiatedViewIsFirstSibling()
     {
         //assert that instance is first sibling of empty parent
@@ -52,4 +49,5 @@ public class FriendsbookMainControllerTest {
         Assert.That(secondInstance.transform.parent.GetChild(0).Equals(secondInstance.transform), "Instantiated current view is not first sibling of populated parent");
 
     }
+
 }
