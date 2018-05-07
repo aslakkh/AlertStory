@@ -38,11 +38,12 @@ public class Score
 public class Choice{
     public string choiceDescription;
     public List<Score> scores;
-    
+    public bool endGameTrigger;
     
     public Choice() {
         choiceDescription = "Blank";
         scores = new List<Score>();
+        endGameTrigger = false;
     }
 
     public void AddNewScore()

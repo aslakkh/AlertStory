@@ -13,14 +13,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: First event
   text: 
+  isMessage: 0
   requirements: {fileID: 114257674276251798}
   dependencies: {fileID: 114261970985087972}
   choices:
-  - choiceDescription: Blank
+  - choiceDescription: trigger endgame
     scores:
     - requirementName: 
       setting: 2
       value: 100
+    endGameTrigger: 1
+  - choiceDescription: Blank
+    scores:
+    - requirementName: Facebook
+      setting: 2
+      value: -50
+    - requirementName: 
+      setting: 2
+      value: -25
+    - requirementName: Facebook
+      setting: 1
+      value: 200
+    endGameTrigger: 0
 --- !u!114 &114257674276251798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,9 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Facebook
-    m_values: 00000000
+    m_keys: []
+    m_values: 
 --- !u!114 &114261970985087972
 MonoBehaviour:
   m_ObjectHideFlags: 0

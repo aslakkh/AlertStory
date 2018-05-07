@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour {
 
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
+    public GameObject messagePrefab;
 
     //public List<StoryEvent> storyEvents;
     public StoryEventList storyEvents;
@@ -57,7 +58,15 @@ public class EventManager : MonoBehaviour {
             }
             else
             {
-                eventObject = Instantiate(informativeEventPrefab, phoneMainScreen);
+                if (storyEvent.isMessage)
+                {
+                    eventObject = Instantiate(messagePrefab, phoneMainScreen);
+                }
+                else
+                {
+                    eventObject = Instantiate(informativeEventPrefab, phoneMainScreen);
+                }
+               
             }
 
             EventController eventController = eventObject.GetComponent<EventController>();

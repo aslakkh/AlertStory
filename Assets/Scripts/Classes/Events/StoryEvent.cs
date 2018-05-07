@@ -7,6 +7,7 @@ public class StoryEvent : ScriptableObject {
 
     public string title;
     public string text;
+    public bool isMessage;
     public RequirementDict requirements;
     public Dependencies dependencies;
     public List<Choice> choices;

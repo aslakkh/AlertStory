@@ -161,7 +161,11 @@ public class GameManager : MonoBehaviour {
 
             }
         }
-        
+        if (choice.endGameTrigger)
+        {
+            SceneManager.LoadScene("TEMP_EndgameScene");
+        }
+
         gameState = GameState.investigator;
     }
 
