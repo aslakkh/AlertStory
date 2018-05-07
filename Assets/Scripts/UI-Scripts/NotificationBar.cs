@@ -36,6 +36,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
 
     }
+    
 
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)

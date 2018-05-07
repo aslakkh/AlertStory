@@ -34,7 +34,7 @@ MonoBehaviour:
     - requirementName: Facebook
       setting: 1
       value: 200
-    endGameTrigger: 1
+    endGameTrigger: 0
 --- !u!114 &114257674276251798
 MonoBehaviour:
   m_ObjectHideFlags: 0
