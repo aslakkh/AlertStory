@@ -857,12 +857,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114175138789726656, guid: be501b130dffa444194bba1c83ae26bf,
-        type: 2}
-      propertyPath: storyEvents
-      value: 
-      objectReference: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
   m_IsPrefabParent: 0

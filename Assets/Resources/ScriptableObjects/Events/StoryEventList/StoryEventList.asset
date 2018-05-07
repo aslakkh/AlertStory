@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9d65ba813e4f39b89adec05b2cd3ab, type: 3}
+  m_Name: StoryEventList
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 11400000, guid: a52abd310c21fab4598bba299112c146, type: 2}
+  - {fileID: 11400000, guid: 57575f8e997e78a45b571c5dec4d1150, type: 2}
+  - {fileID: 11400000, guid: e0ebe272212ebe746a68ea12f1223231, type: 2}
+  - {fileID: 11400000, guid: 3a1ba9f2094f6e5469596ebf4f2fc1bb, type: 2}
+  - {fileID: 11400000, guid: 9b4ee11ea42eccb4eb4da6ce29ec3da8, type: 2}
+  - {fileID: 11400000, guid: 650b1a297fb4e1e469856bc0da971c3a, type: 2}
+  - {fileID: 11400000, guid: 5660a136f7dea7d418e846776265a84d, type: 2}
+  - {fileID: 11400000, guid: a068b0a2ef3278b4088477a0820dd3f5, type: 2}
+  - {fileID: 11400000, guid: 320321c1b311dc247accfe76aada3432, type: 2}
+  - {fileID: 11400000, guid: 9a0dbf42d72f4c64a936c9726e4fd9ea, type: 2}
+  - {fileID: 11400000, guid: 0ff3df79bb79ede49b4d113c8350d808, type: 2}
+  - {fileID: 11400000, guid: 3adf703b2673d824babe7bbbcbb3186f, type: 2}
+  - {fileID: 11400000, guid: f449f14638b112e4190dd5801041a97d, type: 2}
