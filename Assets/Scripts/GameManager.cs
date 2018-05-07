@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
+
     }
 
     public void FireEvent() {
@@ -163,8 +164,6 @@ public class GameManager : MonoBehaviour {
                 {
                     AddToScore(score.value);
                 }
-                
-
             }
         }
         
