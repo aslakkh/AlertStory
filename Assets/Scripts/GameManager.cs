@@ -137,10 +137,6 @@ public class GameManager : MonoBehaviour {
         //TODO: Add score handling
         _eventsFired[storyEvent] = choice;
 
-        if (choice.endGameTrigger)
-        {
-            SceneManager.LoadScene("TEMP_EndgameScene");
-        }
         //add scores
         if(choice.scores != null)
         {
@@ -162,7 +158,11 @@ public class GameManager : MonoBehaviour {
 
             }
         }
-        
+        if (choice.endGameTrigger)
+        {
+            SceneManager.LoadScene("TEMP_EndgameScene");
+        }
+
         gameState = GameState.investigator;
     }
 

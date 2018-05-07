@@ -27,7 +27,7 @@ public class EndGameController : MonoBehaviour {
 	}
 
 
-
+    // retrieves the highest score, compare it, and store it if its a new highscore.
     public void ControllScore()
     {
         GameObject gameObj = GameObject.Find("GameManager");
@@ -49,19 +49,39 @@ public class EndGameController : MonoBehaviour {
         score.text = score.text + currentScore;
     }
 
+    // retrieves the event history from gm.eventsfired. Only takes the multiple choice events.
     public void RetrieveEventHistory()
     {
         GameObject panel = GameObject.Find("EndgameScrollviewContentPanel");
-
         foreach (KeyValuePair<StoryEvent,Choice> entry in gm.eventsFired){
             GameObject temp = Instantiate(prefabPointer) as GameObject;
             if (panel != null)
             {
-                temp.transform.SetParent(panel.transform, false);
-                Transform transformEvent = temp.transform.GetChild(0);
-                Transform transformChoice = temp.transform.GetChild(1);
-                transformEvent.GetComponent<Text>().text = entry.Key.title;
-                transformChoice.GetComponent<Text>().text = entry.Value.choiceDescription;
+                // only retrieve events which are multiple choice
+                if (entry.Key.IsMultipleChoice()) 
+                    temp.transform.SetParent(panel.transform, false);
+                    Transform transformEvent = temp.transform.GetChild(0);
+                    Transform transformChoice = temp.transform.GetChild(1);
+                    transformEvent.GetComponent<Text>().text = entry.Key.title;
+                    transformChoice.GetComponent<Text>().text = entry.Value.choiceDescription;
+                    int tempValue = entry.Value.scores[0].value;
+                    if (tempValue > 0)
+                    {
+                        transformChoice.GetComponent<Text>().color = Color.green;
+                    }
+                    if (tempValue == 0)
+                    {
+                        transformChoice.GetComponent<Text>().color = Color.black;
+                    }
+                    if (tempValue < 0)
+                    {
+                        transformChoice.GetComponent<Text>().color = Color.red;
+                    }
+                else
+                {
+                    continue;
+                }
+
             }
         }
     }
