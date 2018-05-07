@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class DropDownItemController : MonoBehaviour {
 
+    private GameManager gm;
+
     public Dropdown settingsFacebookDropdown;// The dropdown object in the scene.
 
     public Text settingsFacebookInformationText; //UI-element object in the scene. Text related to the setting chosen.
@@ -32,6 +34,7 @@ public class DropDownItemController : MonoBehaviour {
         populatelist(settingsFacebookDropdown, tempSettings);
         settingsFacebookInformationText.text = "Please choose a option for the app.";
         settingsFacebookInformationText.color = Color.red;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -102,18 +105,18 @@ public class DropDownItemController : MonoBehaviour {
         {
             saveRequirements();
             // change scene after saving the requirements.
-            SceneManager.LoadScene("TEMP_EventsScene");
+            //StartCoroutine(SceneTransition());
         }
         // if no dropdowns are present, change scene anyway. 
-        SceneManager.LoadScene("TEMP_EventsScene");
+        //SceneManager.LoadScene("TEMP_EventsScene");
     }
 
 
     // Saves the requirements in the gamemanager script in the gamemanager object.
     public void saveRequirements()
     {
-        GameObject gm = GameObject.Find("GameManager");
-        GameManager gamemanager = gm.GetComponent<GameManager>();
+        //GameObject gm = GameObject.Find("GameManager");
+        //GameManager gamemanager = gm.GetComponent<GameManager>();
 
         // loop trough all dropdowns and store their values.
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()) {
@@ -122,18 +125,25 @@ public class DropDownItemController : MonoBehaviour {
                 Requirement temp = new Requirement(text.GetComponent<Text>().text);
                 if (d.value == 1)
                 {
-                    gamemanager.requirements.Add(temp.requirementName, Setting.Public);
+                    gm.requirements.Add(temp.requirementName, Setting.Public);
                 }
                 if (d.value == 2)
                 {
-                    gamemanager.requirements.Add(temp.requirementName, Setting.Friends);
+                    gm.requirements.Add(temp.requirementName, Setting.Friends);
                 }
                 if (d.value == 3)
                 {
-                    gamemanager.requirements.Add(temp.requirementName, Setting.Private);
+                    gm.requirements.Add(temp.requirementName, Setting.Private);
                 }
 
             }
         }
+        SceneManager.LoadScene("TEMP_EventsScene");
+    }
+    
+    public IEnumerator SceneTransition()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene("TEMP_EventsScene");
     }
 }
