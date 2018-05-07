@@ -126,32 +126,39 @@ public class DropDownItemController : MonoBehaviour {
     // Validates that the dropboxes have a valid option selected.Useful to check before changing scenes. 
     public void validateDropDownChoices()
     {
-        //foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
-        //{
-        //    if (d.value < 1 || d.value > 3)
-        //    {
-        //        validated = false;
-        //        break;
-        //    }
-        //    else
-        //    {
-        //        validated = true;
-        //        continue;
-        //    }
-        //}
-        //if (validated == true) {
-        //    saveRequirements();
-        //    // TODO: change scene!
-        //    SceneManager.LoadScene("TEMP_EventsScene");
-        //}
+        // checks that each dropdown have a valid value before changing scene.
+        foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>())
+        {
+            if (d.value < 1 || d.value > 3)
+            {
+                validated = false;
+                break;
+            }
+            else
+            {
+                validated = true;
+                continue;
+            }
+        }
+        if (validated == true)
+        {
+            saveRequirements();
+            // change scene after saving the requirements.
+            SceneManager.LoadScene("TEMP_EventsScene");
+        }
+        // if no dropdowns are present, change scene anyway. 
         SceneManager.LoadScene("TEMP_EventsScene");
     }
 
+
+    // Saves the requirements in the gamemanager script in the gamemanager object.
     public void saveRequirements()
     {
         GameObject gm = GameObject.Find("GameManager");
         GameManager gamemanager = gm.GetComponent<GameManager>();
         GameObject tempObj = GameObject.Find("AppSettingsContent");
+
+        // loop trough all dropdowns and store their values.
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()) {
             Transform text = d.transform.parent.GetChild(1);
             if (text.name.Contains("NameText")) {
@@ -159,17 +166,14 @@ public class DropDownItemController : MonoBehaviour {
                 if (d.value == 1)
                 {
                     gamemanager.requirements.Add(temp.requirementName, Setting.Public);
-                    // rl.requirementDictionary.Add(temp.requirementName, Setting.Public);
                 }
                 if (d.value == 2)
                 {
                     gamemanager.requirements.Add(temp.requirementName, Setting.Friends);
-                    // rl.requirementDictionary.Add(temp.requirementName, Setting.Friends);
                 }
                 if (d.value == 3)
                 {
                     gamemanager.requirements.Add(temp.requirementName, Setting.Private);
-                    //rl.requirementDictionary.Add(temp.requirementName, Setting.Private);
                 }
 
             }
