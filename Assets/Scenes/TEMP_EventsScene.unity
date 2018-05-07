@@ -144,6 +144,7 @@ MonoBehaviour:
     type: 2}
   informativeEventPrefab: {fileID: 1240329766399940, guid: 30cb855960e556740b736bf7a347f85f,
     type: 2}
+  messagePrefab: {fileID: 0}
   storyEvents: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1, type: 2}
 --- !u!4 &199792152
 Transform:
@@ -499,12 +500,12 @@ Prefab:
     - target: {fileID: 224459156230645622, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00005382915
+      value: -0.0000072060066
       objectReference: {fileID: 0}
     - target: {fileID: 224220193495764704, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -161.10162
+      value: -161.5704
       objectReference: {fileID: 0}
     - target: {fileID: 224238768889109692, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}
