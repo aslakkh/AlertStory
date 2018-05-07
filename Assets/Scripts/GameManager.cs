@@ -36,12 +36,16 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
-    private List<string> _objectives;
+    // Dict with day-number as key and a list of information from information package as values
+    private Dictionary<int, List<string>> _informationDict;
+    public List<Objective> objectives;
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private GameState _gameState;
+    private Dictionary<int, List<string>> informationPackageDict;
+    private List<string> informationPackageList = new List<string>();
 
     //gameState property. Publishes event on change
     private GameState gameState
@@ -73,10 +77,16 @@ public class GameManager : MonoBehaviour {
     }
 
     //Contains objectives displayed in dropdown
-    public List<string> objectives
+    public Dictionary<int, List<string>> informationDict
     {
-        get { return _objectives; }
-        set { _objectives = value; }
+        get { return _informationDict; }
+        set { _informationDict = value; }
+    }
+
+    public List<string> informationPackage
+    {
+        get { return informationPackageList; }
+        set { informationPackageList = value; }
     }
 
     //Singleton instanciating

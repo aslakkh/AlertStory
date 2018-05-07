@@ -12,7 +12,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public Text stats;
     public Text objectives;
     public Text settings;
-    private List<string> objectivesList;
+    private List<Objective> objectivesList;
     private StringSettingDictionary settingsList;
     private Requirement requirement;
 
@@ -23,7 +23,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         settingsList = GameManager.Instance.requirements;
-        GameManager.Instance.objectives = new List<string> { "Objective 1, Objective 2" };
+        GameManager.Instance.objectives = new List<Objective>();
         objectivesList = GameManager.Instance.objectives;
 
     }
@@ -45,7 +45,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
 
         //Sets objectives string
         StringBuilder objectivesString = new StringBuilder();
-        foreach (string objective in objectivesList)
+        foreach (Objective objective in objectivesList)
         {
 
             objectivesString.Append(objective + ", " + "\n");
