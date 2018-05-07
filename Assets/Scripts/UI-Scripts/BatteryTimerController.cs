@@ -14,7 +14,12 @@ public class BatteryTimerController : MonoBehaviour {
     public Text text;
     public Image imageHolder;
     public bool runTimer = false;
+    public float warningThreshold = 10f;
+    public GameObject warningPanel;
+    public Text timerText;
+    private bool warned = false;
     private GameManager gameManager;
+    
 
     private void Awake() {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -33,7 +38,8 @@ public class BatteryTimerController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         //Set battery image to correnspond with starting battery
-        imageHolder.sprite = imageList.SingleOrDefault(item => (item.name.Equals(RoundUp(Mathf.FloorToInt(batteryPrecentage)).ToString() + "_battery")));
+        imageHolder.sprite = imageList.SingleOrDefault(item => (item.name.Equals("100_battery")));
+        warningPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,11 +47,16 @@ public class BatteryTimerController : MonoBehaviour {
         if (runTimer) {
             if (batteryPrecentage > 0) {
                 UpdateTimer();
-                
                 if (eventBreakpoints.Contains(batteryPrecentage)) {
                     eventBreakpoints.Remove(batteryPrecentage);
                     gameManager.FireEvent();
                 }
+
+                if (warned || !(Math.Abs(batteryPrecentage - warningThreshold) < 1f)) return;
+                warned = true;
+                var timeRemaining = timeLenght * (batteryPrecentage / 100);
+                timerText.text = Mathf.Floor(timeRemaining).ToString();
+                warningPanel.SetActive(true);
             }
             else {
                 runTimer = false;

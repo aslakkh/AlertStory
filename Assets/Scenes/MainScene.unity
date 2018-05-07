@@ -386,22 +386,22 @@ Prefab:
     - target: {fileID: 224579802597875268, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224579802597875268, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224579802597875268, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -161.1489
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224579802597875268, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 24.793388
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 224852961129847584, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
