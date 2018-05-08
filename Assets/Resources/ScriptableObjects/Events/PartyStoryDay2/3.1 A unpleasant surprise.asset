@@ -9,20 +9,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: d
+  m_Name: 3.1 A unpleasant surprise
   m_EditorClassIdentifier: 
-  title: '4: Find out who to invite'
-  text: You should innvite someone to the party. Find out if Tom or Trine shares alot
-    of information on Facebook.
-  isMessage: 1
-  fireNextEventImmediately: 0
-  requirements: {fileID: 114479526253892282}
-  dependencies: {fileID: 114339167176689150}
+  title: 3.1 A unpleasant surprise
+  text: 'Despite your effort to investigate your mother, a friend of you just told
+    you today at school that your mother had sent him a friend request and he had
+    accepted.
+
+    So it turns you have common friends with her after all... You need to remove him.'
+  isMessage: 0
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114804198897226532}
+  dependencies: {fileID: 114393485640617142}
   choices:
-  - choiceDescription: Ok, I will check it!
+  - choiceDescription: Remove him then..
     scores: []
     endGameTrigger: 0
---- !u!114 &114339167176689150
+--- !u!114 &114393485640617142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -35,12 +38,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dependenciesDict:
     m_keys:
-    - {fileID: 11400000, guid: a52abd310c21fab4598bba299112c146, type: 2}
+    - {fileID: 11400000, guid: 3e61d5c37dab55b479597cf87592ebcb, type: 2}
     m_values:
     - fired: 1
       choiceA: 0
-      choiceB: 0
---- !u!114 &114479526253892282
+      choiceB: 1
+--- !u!114 &114804198897226532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -52,6 +55,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Facebook
-    m_values: 02000000
+    m_keys: []
+    m_values: 

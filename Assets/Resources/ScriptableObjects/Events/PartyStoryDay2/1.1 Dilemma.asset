@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 1.1 Dilemma
+  m_EditorClassIdentifier: 
+  title: 1.1 Turn around
+  text: 'A friend of you told you a horrostory about how his family gained full controll
+    over his activities on friendsbook after he became friends with them there. He
+    strongly
+
+    advices you to not accept your mothers friend request.'
+  isMessage: 0
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114582019626736254}
+  dependencies: {fileID: 114259593278285548}
+  choices:
+  - choiceDescription: Ok, I will not accept it.
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 50
+    endGameTrigger: 0
+--- !u!114 &114259593278285548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: b803b7524e4f7f846acf26174ab88bb9, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 1
+      choiceB: 0
+--- !u!114 &114582019626736254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys: []
+    m_values: 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
+  m_Name: TrineFriendsbookPosts
+  m_EditorClassIdentifier: 
+  list:
+  - content: 'Thanks for all birthday wishes. The day was spent doing school work
+      and with a secret date ;-) '
+    date:
+      year: 2017
+      month: 5
+      day: 15
+      hour: 22
+      minute: 29
+    to: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+    from: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+  - content: New years eve was amazing. Love my familisy so much!
+    date:
+      year: 2017
+      month: 1
+      day: 2
+      hour: 14
+      minute: 24
+    to: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+    from: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}

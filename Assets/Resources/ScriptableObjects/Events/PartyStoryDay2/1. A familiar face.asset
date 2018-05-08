@@ -9,22 +9,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: c
+  m_Name: 1. A familiar face
   m_EditorClassIdentifier: 
-  title: '3: The middle way'
-  text: 'You''ve got a new friend in Tom on Facebook. He wants to invite Trine, who
-    is your friend, but also Karsten which you dont know, to the party.
+  title: 1. A familiar face
+  text: 'There''s been a huge change in plans. Your mother have got herself Friendsbook.
+    She cant find out about the party, but she''ve sent you a friend request.
 
-    You should investigate how much they share on facebook.'
+    Are you gonna accept it?'
   isMessage: 0
-  fireNextEventImmediately: 0
-  requirements: {fileID: 114946385950728158}
-  dependencies: {fileID: 114282149084888246}
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114796195141416354}
+  dependencies: {fileID: 114400848170416796}
   choices:
-  - choiceDescription: Ok, I will check it!
-    scores: []
+  - choiceDescription: 'Yes. '
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 50
     endGameTrigger: 0
---- !u!114 &114282149084888246
+  - choiceDescription: No.
+    scores:
+    - requirementName: 
+      setting: 2
+      value: -50
+    endGameTrigger: 0
+--- !u!114 &114400848170416796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -36,13 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    m_keys:
-    - {fileID: 11400000, guid: a52abd310c21fab4598bba299112c146, type: 2}
-    m_values:
-    - fired: 1
-      choiceA: 0
-      choiceB: 0
---- !u!114 &114946385950728158
+    m_keys: []
+    m_values: []
+--- !u!114 &114796195141416354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -54,6 +59,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Facebook
-    m_values: 01000000
+    m_keys: []
+    m_values: 
