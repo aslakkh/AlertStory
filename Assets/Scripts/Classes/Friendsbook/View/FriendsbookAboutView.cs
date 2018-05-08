@@ -35,7 +35,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnNameClicked()
     {
-        if (!nameText.text.Equals("NA"))
+        if (!nameText.text.Equals("NA") && !currentDay.Contains(nameText.text) && currentDay.Count < 5)
         {
             currentDay.Add(nameText.text);
         }
@@ -43,8 +43,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnAddressClicked()
     {
-        Debug.Log(addressText.text);
-        if (!addressText.text.Equals("NA"))
+        if (!addressText.text.Equals("NA") && !currentDay.Contains(addressText.text) && currentDay.Count < 5)
         {
             currentDay.Add(addressText.text);
         }
@@ -52,8 +51,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnEmailClicked()
     {
-        Debug.Log(emailText.text);
-        if (!emailText.text.Equals("NA"))
+        if (!emailText.text.Equals("NA") && !currentDay.Contains(emailText.text) && currentDay.Count < 5)
         {
             currentDay.Add(emailText.text);
         }
@@ -61,7 +59,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnPhoneNumberClicked()
     {
-        if (!phoneNumberText.text.Equals("NA"))
+        if (!phoneNumberText.text.Equals("NA") && !currentDay.Contains(phoneNumberText.text) && currentDay.Count < 5)
         {
             currentDay.Add(phoneNumberText.text);
         }
