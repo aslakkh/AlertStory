@@ -130,6 +130,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    protected virtual void onScoreChanged()
+    {
+
+    }
+
     public void HandleChoice(StoryEvent storyEvent, Choice choice)
     {
         //TODO: Add score handling

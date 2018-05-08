@@ -36,14 +36,18 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
 
     }
+
+    void Update()
+    {
+        stats.text = "Score: " + gameManager.score.ToString();
+    }
     
 
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)
     {
         //Sets score string
-        stats.text = "Score: " + GameManager.Instance.score.ToString();
-
+        stats.text = "Score: " + gameManager.score;
         //Sets objectives string
         StringBuilder objectivesString = new StringBuilder();
         foreach (string objective in objectivesList)
