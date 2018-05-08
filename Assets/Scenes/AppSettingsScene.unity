@@ -818,6 +818,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075090978}
+--- !u!1001 &1339326402
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 362.0694
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 168.1698
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399444660912174, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 41524e44dec714b49bf4e7e843e01dd1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1352044104
 Prefab:
   m_ObjectHideFlags: 0
@@ -1138,7 +1180,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 57599133}
   m_Direction: 3
   m_Value: 0.9999879
-  m_Size: 0.98106253
+  m_Size: 0.9810625
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

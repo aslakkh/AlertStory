@@ -138,12 +138,8 @@ public class DropDownItemController : MonoBehaviour {
 
             }
         }
-        SceneManager.LoadScene("TEMP_EventsScene");
+        //load first day
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadFirstDayScene();
     }
     
-    public IEnumerator SceneTransition()
-    {
-        yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene("TEMP_EventsScene");
-    }
 }

@@ -8,9 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AppSettingsScene.unity
     guid: a6150a8d9acdaca4186513a922067ff4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TEMP_EventsScene.unity
     guid: 917ead355d42e7741b1fef31bf1dd77f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TEMP_EndgameScene.unity
     guid: 072b539aebbfbeb4d9c4ef1d4b953e3d
+  - enabled: 1
+    path: Assets/Scenes/Days/Day1.unity
+    guid: 8aa62f83050e4ab41826fa5c10b61b69
+  - enabled: 1
+    path: Assets/Scenes/Days/Day2.unity
+    guid: 095ddad5b3148a64e887403acb346a2f
+  - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: a13da875c79dba740a11d4af9d395100
