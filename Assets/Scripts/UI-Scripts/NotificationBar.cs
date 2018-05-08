@@ -12,9 +12,11 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public Text stats;
     public Text objectives;
     public Text settings;
-    private List<string> objectivesList;
+    public Text informationPackageText;
+    private Dictionary<int, List<Objective>> objectivesList;
     private StringSettingDictionary settingsList;
     private Requirement requirement;
+    private List<string> informationPackage;
 
     public GameObject scrollView;
     public GameObject dropDown;
@@ -23,9 +25,8 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         settingsList = GameManager.Instance.requirements;
-        GameManager.Instance.objectives = new List<string> { "Objective 1, Objective 2" };
+        informationPackage = GameManager.Instance.informationPackage;
         objectivesList = GameManager.Instance.objectives;
-
     }
 
     void Awake()
@@ -34,7 +35,8 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         stats = GameObject.Find("NotificationBar").transform.GetChild(0).GetComponent<Text>();
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
-
+        informationPackageText = dropDown.transform.Find("Digital Investigator List").GetChild(0).GetComponent<Text>();
+        informationPackageText.text = "Information package" + "\n" + "This information will be submitted. Click on an item to remove it." + "\n\n";
     }
     
 
@@ -46,10 +48,12 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
 
         //Sets objectives string
         StringBuilder objectivesString = new StringBuilder();
-        foreach (string objective in objectivesList)
+        foreach (KeyValuePair<int, List<Objective>> objective in objectivesList)
         {
-
-            objectivesString.Append(objective + ", " + "\n");
+            foreach (Objective o in objective.Value)
+            {
+            objectivesString.Append(o.description + ", " + "\n");
+            }
         }
         objectives.text = "Objectives: " + "\n" + objectivesString.ToString();
 
@@ -73,6 +77,15 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
             scrollView.transform.SetAsLastSibling();
         }
 
+
+        informationPackage = GameManager.Instance.informationPackage;
+        StringBuilder informationPackageString = new StringBuilder();
+        foreach(string element in informationPackage)
+        {
+            informationPackageString.Append(element + "\n");
+        }
+        informationPackageText.text = "Information package" + "\n" + 
+            "This information will be submitted. Click on an item to remove it." + "\n\n" + informationPackageString.ToString();
 
     }
 
