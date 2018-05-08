@@ -10,5 +10,5 @@ public class Objective : MonoBehaviour {
     private List<string> tags;
     
     //Contains personal info for target person
-    private string personal_info;
+    public List<string> tasks;
 }

@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
     // Dict with day-number as key and a list of information from information package as values
     private Dictionary<int, List<string>> _informationDict;
-    public Dictionary<int, Objective> objectives;
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
@@ -37,6 +36,9 @@ public class GameManager : MonoBehaviour {
     private GameState _gameState;
     private Dictionary<int, List<string>> informationPackageDict;
     private List<string> informationPackageList = new List<string>();
+    public List<Objective> objectivesList;
+    public Dictionary<int, Objective> objectivesDict;
+    public InformationPackageManager informationPackageManager;
 
     //gameState property. Publishes event on change
     private GameState gameState
@@ -60,6 +62,11 @@ public class GameManager : MonoBehaviour {
         get { return requirementDict; }
         set { requirementDict = value; }
     }
+
+    public Dictionary<int, Objective> objectives {
+        get { return objectivesDict; }
+        set { objectivesDict = value; }
+    }
     
     //Add all events that has fired here.
     public StoryEventChoiceDictionary eventsFired {
@@ -67,7 +74,7 @@ public class GameManager : MonoBehaviour {
         set { _eventsFired = value; }
     }
 
-    //Contains objectives displayed in dropdown
+    //Contains objectivesDict displayed in dropdown
     public Dictionary<int, List<string>> informationDict
     {
         get { return _informationDict; }
@@ -96,6 +103,8 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
+
 
         // for playtesting eventscene
         if (requirementDict == null || requirementDict.Count == 0)
@@ -108,6 +117,19 @@ public class GameManager : MonoBehaviour {
             {
                 Debug.Log("backupRequirementdict in GameManager == Null");
             }
+        }
+
+        // Instantiating objectivesDict
+        int i = 0;
+        foreach (Objective obj in objectivesList) {
+            if (i <= 2) {
+                objectivesDict.Add(1, obj);
+            } else if (i <= 4) {
+                objectivesDict.Add(2, obj);
+            } else {
+                objectivesDict.Add(3, obj);
+            }
+            i++;
         }
     }
 
@@ -195,6 +217,8 @@ public class GameManager : MonoBehaviour {
         }
         else 
         {
+            informationPackageManager.ValidateInformationGathered();
+            informationPackage.Clear();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
             sceneLoader.LoadNextDay();
         }       
