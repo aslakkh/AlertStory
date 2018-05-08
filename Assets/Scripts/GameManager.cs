@@ -121,9 +121,14 @@ public class GameManager : MonoBehaviour {
 
         // Instantiating objectivesDict
         int i = 0;
+        List<string> taskList = new List<string>();
+        taskList.Add("test task");
         List<Objective> objectiveList1 = new List<Objective>();
+        objectiveList1.Add(new Objective("desc", taskList));
         List<Objective> objectiveList2 = new List<Objective>();
+        objectiveList2.Add(new Objective("desc", taskList));
         List<Objective> objectiveList3 = new List<Objective>();
+        objectiveList3.Add(new Objective("desc", taskList));
         foreach (Objective obj in objectivesList) {
             if (i <= 2) {
                 objectiveList1.Add(obj);
@@ -236,7 +241,7 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    //getters
+    // Getters
     public int GetDayCount()
     {
         return dayCount;
