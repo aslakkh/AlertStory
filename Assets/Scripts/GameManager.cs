@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
     // Dict with day-number as key and a list of information from information package as values
     private Dictionary<int, List<string>> _informationDict;
-    public List<Objective> objectives;
+    public Dictionary<int, Objective> objectives;
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;

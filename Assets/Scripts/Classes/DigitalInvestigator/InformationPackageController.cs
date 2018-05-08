@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class InformationPackageController : MonoBehaviour {
 
-	public void AddPersonToInformationPackage (string message) {
-		Debug.Log("Added Person info to information package" + message);
+	private GameManager gameManager;
+	private Dictionary<int, Objective> objectives;
+
+	void Awake() {
+		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+		objectives = gameManager.objectives;
+		Debug.Log("Objectives: " + objectives.ToString());
 	}
 
-	public void AddPostToInformationMackage () {
-		Debug.Log("Added post to information package");
+	// Validates the information gathered by the user after the user has delivered the information
+	// or time is up
+	public void ValidateInformationGathered() {
+		//Do something
 	}
+
 }
