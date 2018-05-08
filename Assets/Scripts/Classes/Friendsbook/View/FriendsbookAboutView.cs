@@ -11,7 +11,6 @@ public class FriendsbookAboutView : MonoBehaviour {
     public Text addressText;
     public Text emailText;
     public Text phoneNumberText;
-    //private int day = GameManager.Instance.dayCount;
     private List<string> currentDay;
 
     public GameObject informationPackage;
@@ -20,13 +19,9 @@ public class FriendsbookAboutView : MonoBehaviour {
 
 
     void Awake () {
-        // informationPackage = GameObject.Find("InformationPackage");
-        // Debug.Log(informationPackage);
-        // informationPackageController.GetComponent<InformationPackageController>();
     }
 
     void Start () {
-        //nameButton.onClick.AddListener(delegate () { informationPackageController.AddPersonToInformationPackage(nameText.text); });
         currentDay = GameManager.Instance.informationPackage;
     }
 

@@ -1,13 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-using UnityEngine.UI;
-
-public class Objective : MonoBehaviour {
-    public Text description;
-	
-=======
 using Tags;
 
 public class Objective : MonoBehaviour {
@@ -16,5 +9,4 @@ public class Objective : MonoBehaviour {
     private List<string> tags;
     //Contains personal info for target person
     private List<string> personal_info;
->>>>>>> 77a46101583c1fcf04faee1f66d92a6f88c45fa3
 }
