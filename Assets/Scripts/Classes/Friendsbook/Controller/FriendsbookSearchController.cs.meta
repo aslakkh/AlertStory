@@ -5,7 +5,11 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
+  - searchBar: {instanceID: 0}
+  - view: {instanceID: 0}
+  - text: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

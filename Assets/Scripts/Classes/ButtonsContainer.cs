@@ -25,6 +25,7 @@ public class ButtonsContainer : MonoBehaviour {
         else //buttons should only be interactable in investigator state
         {
             SetInteractable(false);
+            Debug.Log(buttons[0].interactable);
         }
     }
 

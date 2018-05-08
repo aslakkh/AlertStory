@@ -13,9 +13,24 @@ public class EndGameController : MonoBehaviour {
     private int previousHighScore;
     private int currentScore;
     private Text SaveStatus;
+    public GameObject prefabPointer;
+
     // Use this for initialization
     void Start () {
-		GameObject gameObj = GameObject.Find("GameManager");
+        ControllScore();
+        RetrieveEventHistory();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+
+    // retrieves the highest score, compare it, and store it if its a new highscore.
+    public void ControllScore()
+    {
+        GameObject gameObj = GameObject.Find("GameManager");
         gm = gameObj.GetComponent<GameManager>();
         previousHighScore = PlayerPrefs.GetInt("highscore");
         currentScore = gm.score + gm.privateScore;
@@ -33,34 +48,69 @@ public class EndGameController : MonoBehaviour {
         Text score = GameObject.Find("YourScoreText").GetComponent<Text>();
         score.text = score.text + currentScore;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // retrieves the event history from gm.eventsfired. Only takes the multiple choice events.
+    public void RetrieveEventHistory()
+    {
+        GameObject panel = GameObject.Find("EndgameScrollviewContentPanel");
+        foreach (KeyValuePair<StoryEvent,Choice> entry in gm.eventsFired){
+            GameObject temp = Instantiate(prefabPointer) as GameObject;
+            if (panel != null)
+            {
+                // only retrieve events which are multiple choice
+                if (entry.Key.IsMultipleChoice())
+                {
+                    temp.transform.SetParent(panel.transform, false);
+                    Transform transformEvent = temp.transform.GetChild(0);
+                    Transform transformChoice = temp.transform.GetChild(1);
+                    if (String.IsNullOrEmpty(entry.Key.text))
+                    {
+                        transformEvent.GetComponent<Text>().text = "Missing event text. Add it!";
+                    }
+                    else
+                    {
+                        transformEvent.GetComponent<Text>().text = entry.Key.text;
+                    }
+                    transformChoice.GetComponent<Text>().text = entry.Value.choiceDescription;
+
+                    int tempval = 0;
+                    foreach (Score score in entry.Value.scores)
+                    {
+                        if (gm.requirementDict.ContainsKey(score.requirementName) && gm.requirementDict[score.requirementName] == score.setting)
+                        {
+                            tempval += score.value;
+                        }
+                        if (string.IsNullOrEmpty(score.requirementName))
+                        {
+                            if (score.value != 0)
+                            {
+                                tempval += score.value;
+                            }
+                        }
+                    }
+                    if (tempval > 0)
+                    {
+                        temp.GetComponent<Image>().color = Color.green;
+                    }
+                    if (tempval < 0)
+                    {
+                        temp.GetComponent<Image>().color = Color.red;
+                    }
+                }
+
+            }
+        }
+    }
 
     public void StartNewGame()
     {
-        //gm.dayCount = 0;
-        gm.privateScore = 0;
-        gm.score = 0;
-        gm.playerCharacter.friendsbookProfile.friends.Clear();
-        gm.turnCount = 0;
-        // gm.eventsFired can return null if no events have passed (or the player is really lazy!)
-        try
-        {
-            gm.eventsFired.Clear();
-        }
-        catch (NullReferenceException ex)
-        {
-            Debug.Log("Eventsfired equal to null, moving on.");
-        }
+        gm.playerCharacter.friendsbookProfile.friends.Clear(); // its a file so better clear it, since its static. 
+        GameObject.Destroy(gm.gameObject); // Destroys the gamemanager object.
+        GameObject.Destroy(GameObject.Find("EventManager")); // Destroys the eventmanager object.
 
-        // TODO: Access gamestate in gm and set it to investigator (default)
 
         //Changing scene to the settingScene after clearing all values.
-        SceneManager.LoadScene("AppSettingsScene");
-        //
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadAppSettingsScene();
     }
 
     public void ExitGame()

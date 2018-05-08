@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollRectPrefab: {fileID: 114655968958046950, guid: 61b5901e0d4238f42a9e785906cfdca6,
     type: 2}
+  noResultPrefab: {fileID: 0}
   searchResultElement: {fileID: 1307459952248948, guid: 2f8e2984484bef842a6c3cae3d54b92e,
     type: 2}
   color1: {r: 1, g: 1, b: 1, a: 1}
@@ -261,9 +262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f782a6981b80f4fa36419b3ba65aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterList: {fileID: 11400000, guid: d731e8a330191a3468d6c15883b6be63, type: 2}
+  characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
   searchBar: {fileID: 114930067309925768}
   view: {fileID: 114450824953519290}
+  text: {fileID: 0}
 --- !u!222 &222607556109545244
 CanvasRenderer:
   m_ObjectHideFlags: 1

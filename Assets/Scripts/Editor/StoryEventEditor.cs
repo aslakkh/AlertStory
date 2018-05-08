@@ -41,7 +41,6 @@ public class StoryEventEditor : EditorWindow
         StoryEventEditor w = EditorWindow.GetWindow<StoryEventEditor>(typeof(StoryEventListEditor));
         w.storyEvent = s;
         w.SetEventInfoValues();
-
     }
 
 
@@ -73,6 +72,22 @@ public class StoryEventEditor : EditorWindow
             GUILayout.Label("Story Text");
             storyText = EditorGUILayout.TextArea(storyText, GUILayout.Height(50));
 
+            GUILayout.Space(10);
+
+            var isMessage = EditorGUILayout.Toggle("Is message event:", storyEvent.isMessage);
+            if(isMessage != storyEvent.isMessage)
+            {
+                storyEvent.isMessage = isMessage;
+                EditorUtility.SetDirty(storyEvent);
+            }
+            GUILayout.Space(10);
+
+            var fireNextEventImmediately = EditorGUILayout.Toggle("Fire next event immediately:", storyEvent.fireNextEventImmediately);
+            if (fireNextEventImmediately != storyEvent.fireNextEventImmediately)
+            {
+                storyEvent.fireNextEventImmediately = fireNextEventImmediately;
+                EditorUtility.SetDirty(storyEvent);
+            }
             GUILayout.Space(10);
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Save Info", GUILayout.ExpandWidth(false)))
@@ -128,6 +143,13 @@ public class StoryEventEditor : EditorWindow
                     }
 
                     GUILayout.Space(10);
+                    // edit boolean value to trigger endgamescene
+                    bool endgame = EditorGUILayout.Toggle("Use if endgame trigger", choice.endGameTrigger);
+                    if(endgame != choice.endGameTrigger)
+                    {
+                        choice.endGameTrigger = endgame;
+                        EditorUtility.SetDirty(storyEvent);
+                    }
 
                     //edit scores
                     if (choice.scores == null || choice.scores.Count == 0)

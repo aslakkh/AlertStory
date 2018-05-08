@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,18 +22,7 @@ public class GameManager : MonoBehaviour {
 
     public int score;
     public int privateScore;
-    public int dayCount {
-        get {
-            return this.dayCount;
-        }
-        set {
-            dayCount += value;
-            if (dayCount >= endDay)
-            {
-                SceneManager.LoadScene("TEMP_EndGameScene");
-            }
-        }
-    }
+    private int dayCount;
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
@@ -41,6 +31,7 @@ public class GameManager : MonoBehaviour {
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
+    private SceneLoader sceneLoader; //reference to sceneloader
     private GameState _gameState;
 
     //gameState property. Publishes event on change
@@ -107,7 +98,6 @@ public class GameManager : MonoBehaviour {
             {
                 Debug.Log("backupRequirementdict in GameManager == Null");
             }
-            requirementDict = backupRequirementDict.requirementDictionary;
         }
     }
 
@@ -116,21 +106,19 @@ public class GameManager : MonoBehaviour {
         //TODO: implement proper state flow
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
-
+        sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
+        dayCount = 0;
     }
 
-    public void FireEvent() {
-        foreach (var k in requirementDict)
-        {
-            Debug.Log(k.Key + " " + k.Value);
-        }
+    public bool FireEvent() {
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
             gameState = GameState.eventhandler;
             _eventsFired.Add(eventFired, null);
         }
-        
+        return eventFired;
+
     }
 
     //handles publishing of stateChanged event
@@ -166,8 +154,38 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
+        if (storyEvent.fireNextEventImmediately)
+        {
+            FireEvent();
+        }
+        else
+        {
+            if (choice.endGameTrigger)
+            {
+                sceneLoader.LoadEndScene();
+            }
+            gameState = GameState.investigator;
+        }
+
+    }
+
+    public void NextDay() {
         
-        gameState = GameState.investigator;
+        //Will be called untill there is no more Events in List
+        bool eventFired;
+        do {
+            eventFired = FireEvent();
+        } while (eventFired);
+        
+        if (++dayCount >= endDay)
+        {
+            sceneLoader.LoadEndScene();
+        }
+        else 
+        {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+            sceneLoader.LoadNextDay();
+        }       
     }
 
     public void AddToScore(int value)
@@ -175,5 +193,9 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    
+    //getters
+    public int GetDayCount()
+    {
+        return dayCount;
+    }
 }
