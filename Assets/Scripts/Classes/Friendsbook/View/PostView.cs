@@ -32,6 +32,9 @@ public class PostView : MonoBehaviour {
 
     public void OnPostClicked()
     {
-        currentDay.Add(content.text);
+        if(!currentDay.Contains(content.text) && !content.text.Equals("") && currentDay.Count < 5)
+        {
+            currentDay.Add(content.text);
+        }
     }
 }
