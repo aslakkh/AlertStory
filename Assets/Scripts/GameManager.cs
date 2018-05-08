@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour {
 
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
         informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
-
+        objectivesDict = new Dictionary<int, List<Objective>>();
 
         // for playtesting eventscene
         if (requirementDict == null || requirementDict.Count == 0)
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour {
         // Instantiating objectivesDict
         int i = 0;
         List<string> taskList = new List<string>();
-        taskList.Add("test task");
+        taskList.Add("Ola Nordmann");
         List<Objective> objectiveList1 = new List<Objective>();
         objectiveList1.Add(new Objective("desc", taskList));
         List<Objective> objectiveList2 = new List<Objective>();

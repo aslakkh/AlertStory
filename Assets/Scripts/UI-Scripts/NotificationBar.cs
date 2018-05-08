@@ -25,8 +25,8 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         settingsList = GameManager.Instance.requirements;
-        objectivesList = GameManager.Instance.objectives;
         informationPackage = GameManager.Instance.informationPackage;
+        objectivesList = GameManager.Instance.objectives;
     }
 
     void Awake()
