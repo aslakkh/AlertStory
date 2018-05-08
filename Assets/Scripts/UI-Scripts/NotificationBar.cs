@@ -38,6 +38,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         informationPackageText = dropDown.transform.Find("Digital Investigator List").GetChild(0).GetComponent<Text>();
         informationPackageText.text = "Information package" + "\n" + "This information will be submitted. Click on an item to remove it." + "\n\n";
     }
+    
 
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)

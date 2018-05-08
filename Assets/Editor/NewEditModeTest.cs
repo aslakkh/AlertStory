@@ -34,7 +34,7 @@ public class GameManagerEditModeTest {
     [Author("Ole Jakob Schjøth")]
     public void CheckDayCountIsZero()
     {
-        Assert.That(gm.dayCount.Equals(0), "Score is not null in GameManager");
+        Assert.That(gm.GetDayCount().Equals(0), "Score is not null in GameManager");
     }
 
     // A UnityTest behaves like a coroutine in PlayMode

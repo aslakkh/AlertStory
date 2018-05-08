@@ -58,28 +58,44 @@ public class EndGameController : MonoBehaviour {
             if (panel != null)
             {
                 // only retrieve events which are multiple choice
-                if (entry.Key.IsMultipleChoice()) 
+                if (entry.Key.IsMultipleChoice())
+                {
                     temp.transform.SetParent(panel.transform, false);
                     Transform transformEvent = temp.transform.GetChild(0);
                     Transform transformChoice = temp.transform.GetChild(1);
-                    transformEvent.GetComponent<Text>().text = entry.Key.title;
+                    if (String.IsNullOrEmpty(entry.Key.text))
+                    {
+                        transformEvent.GetComponent<Text>().text = "Missing event text. Add it!";
+                    }
+                    else
+                    {
+                        transformEvent.GetComponent<Text>().text = entry.Key.text;
+                    }
                     transformChoice.GetComponent<Text>().text = entry.Value.choiceDescription;
-                    int tempValue = entry.Value.scores[0].value;
-                    if (tempValue > 0)
+
+                    int tempval = 0;
+                    foreach (Score score in entry.Value.scores)
                     {
-                        transformChoice.GetComponent<Text>().color = Color.green;
+                        if (gm.requirementDict.ContainsKey(score.requirementName) && gm.requirementDict[score.requirementName] == score.setting)
+                        {
+                            tempval += score.value;
+                        }
+                        if (string.IsNullOrEmpty(score.requirementName))
+                        {
+                            if (score.value != 0)
+                            {
+                                tempval += score.value;
+                            }
+                        }
                     }
-                    if (tempValue == 0)
+                    if (tempval > 0)
                     {
-                        transformChoice.GetComponent<Text>().color = Color.black;
+                        temp.GetComponent<Image>().color = Color.green;
                     }
-                    if (tempValue < 0)
+                    if (tempval < 0)
                     {
-                        transformChoice.GetComponent<Text>().color = Color.red;
+                        temp.GetComponent<Image>().color = Color.red;
                     }
-                else
-                {
-                    continue;
                 }
 
             }
@@ -94,7 +110,7 @@ public class EndGameController : MonoBehaviour {
 
 
         //Changing scene to the settingScene after clearing all values.
-        SceneManager.LoadScene("AppSettingsScene");
+        GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadAppSettingsScene();
     }
 
     public void ExitGame()
