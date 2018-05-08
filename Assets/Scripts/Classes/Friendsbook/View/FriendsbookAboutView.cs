@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Tags;
 
 //friendsbook "about"-view (subview of person profile-view)
 public class FriendsbookAboutView : MonoBehaviour {
