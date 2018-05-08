@@ -27,13 +27,19 @@ public class GameManager : MonoBehaviour {
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
     public Character playerCharacter; //reference to scriptable object holding information about playercharacter
-    private List<string> _objectives;
+    // Dict with day-number as key and a list of information from information package as values
+    private Dictionary<int, List<string>> _informationDict;
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private SceneLoader sceneLoader; //reference to sceneloader
     private GameState _gameState;
+    private Dictionary<int, List<string>> informationPackageDict;
+    private List<string> informationPackageList = new List<string>();
+    public List<Objective> objectivesList;
+    public Dictionary<int, List<Objective>> objectivesDict;
+    public InformationPackageManager informationPackageManager;
 
     //gameState property. Publishes event on change
     private GameState gameState
@@ -57,6 +63,11 @@ public class GameManager : MonoBehaviour {
         get { return requirementDict; }
         set { requirementDict = value; }
     }
+
+    public Dictionary<int, List<Objective>> objectives {
+        get { return objectivesDict; }
+        set { objectivesDict = value; }
+    }
     
     //Add all events that has fired here.
     public StoryEventChoiceDictionary eventsFired {
@@ -64,11 +75,17 @@ public class GameManager : MonoBehaviour {
         set { _eventsFired = value; }
     }
 
-    //Contains objectives displayed in dropdown
-    public List<string> objectives
+    //Contains objectivesDict displayed in dropdown
+    public Dictionary<int, List<string>> informationDict
     {
-        get { return _objectives; }
-        set { _objectives = value; }
+        get { return _informationDict; }
+        set { _informationDict = value; }
+    }
+
+    public List<string> informationPackage
+    {
+        get { return informationPackageList; }
+        set { informationPackageList = value; }
     }
 
     //Singleton instanciating
@@ -95,6 +112,8 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         //eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
+        objectivesDict = new Dictionary<int, List<Objective>>();
 
         // for playtesting eventscene
         if (requirementDict == null || requirementDict.Count == 0)
@@ -108,6 +127,31 @@ public class GameManager : MonoBehaviour {
                 Debug.Log("backupRequirementdict in GameManager == Null");
             }
         }
+
+        // Instantiating objectivesDict
+        int i = 0;
+        List<string> taskList = new List<string>();
+        taskList.Add("Ola Nordmann");
+        List<Objective> objectiveList1 = new List<Objective>();
+        objectiveList1.Add(new Objective("desc", taskList));
+        List<Objective> objectiveList2 = new List<Objective>();
+        objectiveList2.Add(new Objective("desc", taskList));
+        List<Objective> objectiveList3 = new List<Objective>();
+        objectiveList3.Add(new Objective("desc", taskList));
+        foreach (Objective obj in objectivesList) {
+            if (i <= 2) {
+                objectiveList1.Add(obj);
+            } else if (i <= 4) {
+                objectiveList2.Add(obj);
+            } else {
+                objectiveList3.Add(obj);
+            }
+            i++;
+        }
+        objectivesDict.Add(1, objectiveList1);
+        objectivesDict.Add(2, objectiveList2);
+        objectivesDict.Add(3, objectiveList3);
+
     }
 
     private void OnEnable()
@@ -222,6 +266,8 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            informationPackageManager.ValidateInformationGathered();
+            informationPackage.Clear();
             if (++dayCount >= endDay)
             {
                 sceneLoader.LoadEndScene();
@@ -240,7 +286,7 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    //getters
+    // Getters
     public int GetDayCount()
     {
         return dayCount;
