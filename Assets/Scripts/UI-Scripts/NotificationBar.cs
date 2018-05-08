@@ -13,7 +13,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public Text objectives;
     public Text settings;
     public Text informationPackageText;
-    private Dictionary<int, Objective> objectivesList;
+    private Dictionary<int, List<Objective>> objectivesList;
     private StringSettingDictionary settingsList;
     private Requirement requirement;
     private List<string> informationPackage;
@@ -48,10 +48,12 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
 
         //Sets objectives string
         StringBuilder objectivesString = new StringBuilder();
-        foreach (KeyValuePair<int, Objective> objective in objectivesList)
+        foreach (KeyValuePair<int, List<Objective>> objective in objectivesList)
         {
-
-            objectivesString.Append(objective + ", " + "\n");
+            foreach (Objective o in objective.Value)
+            {
+            objectivesString.Append(o.description + ", " + "\n");
+            }
         }
         objectives.text = "Objectives: " + "\n" + objectivesString.ToString();
 

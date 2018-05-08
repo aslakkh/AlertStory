@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
     private Dictionary<int, List<string>> informationPackageDict;
     private List<string> informationPackageList = new List<string>();
     public List<Objective> objectivesList;
-    public Dictionary<int, Objective> objectivesDict;
+    public Dictionary<int, List<Objective>> objectivesDict;
     public InformationPackageManager informationPackageManager;
 
     //gameState property. Publishes event on change
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
         set { requirementDict = value; }
     }
 
-    public Dictionary<int, Objective> objectives {
+    public Dictionary<int, List<Objective>> objectives {
         get { return objectivesDict; }
         set { objectivesDict = value; }
     }
@@ -121,16 +121,23 @@ public class GameManager : MonoBehaviour {
 
         // Instantiating objectivesDict
         int i = 0;
+        List<Objective> objectiveList1 = new List<Objective>();
+        List<Objective> objectiveList2 = new List<Objective>();
+        List<Objective> objectiveList3 = new List<Objective>();
         foreach (Objective obj in objectivesList) {
             if (i <= 2) {
-                objectivesDict.Add(1, obj);
+                objectiveList1.Add(obj);
             } else if (i <= 4) {
-                objectivesDict.Add(2, obj);
+                objectiveList2.Add(obj);
             } else {
-                objectivesDict.Add(3, obj);
+                objectiveList3.Add(obj);
             }
             i++;
         }
+        objectivesDict.Add(1, objectiveList1);
+        objectivesDict.Add(2, objectiveList2);
+        objectivesDict.Add(3, objectiveList3);
+
     }
 
     private void Start()
