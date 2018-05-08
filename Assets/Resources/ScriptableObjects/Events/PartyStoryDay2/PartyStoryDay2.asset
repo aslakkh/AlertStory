@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9d65ba813e4f39b89adec05b2cd3ab, type: 3}
+  m_Name: PartyStoryDay2
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 11400000, guid: b803b7524e4f7f846acf26174ab88bb9, type: 2}
+  - {fileID: 11400000, guid: 4bb55177c236b3d4b93363691ab6a8e6, type: 2}
+  - {fileID: 11400000, guid: 3869ea35a2f094c41beae28b1c799388, type: 2}
+  - {fileID: 11400000, guid: 3e61d5c37dab55b479597cf87592ebcb, type: 2}
+  - {fileID: 11400000, guid: aff4b2b4cd0df39439e570f2cf1958d0, type: 2}
+  - {fileID: 11400000, guid: dbeb242738260f440a7aa18b2ab1927d, type: 2}

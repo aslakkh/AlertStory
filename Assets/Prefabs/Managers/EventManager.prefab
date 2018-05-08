@@ -57,4 +57,4 @@ MonoBehaviour:
     type: 2}
   messagePrefab: {fileID: 1933890751648508, guid: 60b9a8fa68aac13498161c079dcf97d8,
     type: 2}
-  storyEvents: {fileID: 11400000, guid: c30a7bf9842d388489d74ff6b9ce95f1, type: 2}
+  storyEvents: {fileID: 11400000, guid: ff1391589ee0a6a43aed48c316c03b82, type: 2}

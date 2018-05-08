@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f782a6981b80f4fa36419b3ba65aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterList: {fileID: 11400000, guid: d731e8a330191a3468d6c15883b6be63, type: 2}
+  characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
   searchBar: {fileID: 114788764632735936}
   view: {fileID: 114853364600798138}
   text: {fileID: 114637642094129190}
