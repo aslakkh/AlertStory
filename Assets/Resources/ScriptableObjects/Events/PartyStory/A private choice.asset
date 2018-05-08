@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: A private choice
+  m_EditorClassIdentifier: 
+  title: '2.1: A private choice'
+  text: You have gotten time to investigate. Do you choose to innvite Trine or Tom
+    ?
+  isMessage: 0
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114686772017118404}
+  dependencies: {fileID: 114555131802528386}
+  choices:
+  - choiceDescription: Choose Tom
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 50
+    endGameTrigger: 0
+  - choiceDescription: Choose Trine
+    scores:
+    - requirementName: 
+      setting: 2
+      value: -100
+    endGameTrigger: 0
+--- !u!114 &114555131802528386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: 57575f8e997e78a45b571c5dec4d1150, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 0
+--- !u!114 &114686772017118404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys:
+    - Facebook
+    m_values: 00000000

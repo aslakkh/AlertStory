@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 3. The middle way
+  m_EditorClassIdentifier: 
+  title: '3: The middle way'
+  text: 'You''ve got a new friend in Tom on Facebook. He wants to invite Trine, who
+    is your friend, but also Karsten which you dont know, to the party.
+
+    You should investigate how much they share on facebook.'
+  isMessage: 0
+  fireNextEventImmediately: 0
+  requirements: {fileID: 114946385950728158}
+  dependencies: {fileID: 114282149084888246}
+  choices:
+  - choiceDescription: Ok, I will check it!
+    scores: []
+    endGameTrigger: 0
+--- !u!114 &114282149084888246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: a52abd310c21fab4598bba299112c146, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 0
+--- !u!114 &114946385950728158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys:
+    - Facebook
+    m_values: 01000000
