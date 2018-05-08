@@ -40,6 +40,7 @@ public class BatteryTimerController : MonoBehaviour {
         //Set battery image to correnspond with starting battery
         imageHolder.sprite = imageList.SingleOrDefault(item => (item.name.Equals("100_battery")));
         warningPanel.SetActive(false);
+        StartTimer();
     }
 
     // Update is called once per frame

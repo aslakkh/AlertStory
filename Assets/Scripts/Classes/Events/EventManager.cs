@@ -15,24 +15,6 @@ public class EventManager : MonoBehaviour {
 
     private List<StoryEvent> storyEventsInternal;
 
-    //Singleton instanciating
-    public static EventManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        //Check if there are any other instances conflicting
-        if (Instance != null && Instance != this)
-        {
-            // If that is the case, we destroy other instances
-            Destroy(gameObject);
-        }
-        // Here we save our singleton instance
-        Instance = this;
-
-        // Makes sure that we don't destroy between scenes
-        DontDestroyOnLoad(gameObject);
-    }
-
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

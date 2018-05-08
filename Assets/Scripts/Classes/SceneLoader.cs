@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
     public int appSettingsSceneIndex; //index of app settings scene
     public int endSceneIndex; //index of end scene in build settings
 
-    private int currentDayIndex; //index of current day in build settings
+    public int currentDayIndex; //index of current day in build settings
 
     public static SceneLoader Instance { get; private set; } //static singleton
 
@@ -24,7 +24,15 @@ public class SceneLoader : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Instance = this; //save singleton instance
+        if(Instance == null)
+        {
+            Instance = GameObject.FindObjectOfType<SceneLoader>();
+            if(Instance == null)
+            {
+                Instance = this; //save singleton instance
+            }
+        }
+        
 
         DontDestroyOnLoad(gameObject); //persistent in all scenes
     }

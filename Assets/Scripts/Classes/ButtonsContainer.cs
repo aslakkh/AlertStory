@@ -25,7 +25,6 @@ public class ButtonsContainer : MonoBehaviour {
         else //buttons should only be interactable in investigator state
         {
             SetInteractable(false);
-            Debug.Log(buttons[0].interactable);
         }
     }
 
@@ -40,6 +39,11 @@ public class ButtonsContainer : MonoBehaviour {
     private void Start()
     {
         buttons[0].onClick.AddListener(delegate () { gameManager.FireEvent(); });
+    }
+
+    private void OnDestroy()
+    {
+        gameManager.stateChanged -= OnStateChanged;
     }
 
 }
