@@ -50,9 +50,12 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         StringBuilder objectivesString = new StringBuilder();
         foreach (KeyValuePair<int, List<Objective>> objective in objectivesList)
         {
-            foreach (Objective o in objective.Value)
+            if (objective.Key == gameManager.GetDayCount() + 1)
             {
-            objectivesString.Append(o.description + ", " + "\n");
+                foreach (Objective o in objective.Value)
+                {
+                    objectivesString.Append(" - " + o.description + "\n");
+                }
             }
         }
         objectives.text = "Objectives: " + "\n" + objectivesString.ToString();

@@ -13,7 +13,6 @@ public class InformationPackageManager : MonoBehaviour {
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		objectives = gameManager.objectives;
 		informationPackage = gameManager.informationDict;
-		Debug.Log("Objectives: " + objectives.ToString());
 		dayCount = gameManager.GetDayCount();
 	}
 

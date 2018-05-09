@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour {
     private GameState _gameState;
     private Dictionary<int, List<string>> informationPackageDict;
     private List<string> informationPackageList = new List<string>();
-    public List<Objective> objectivesList;
     public Dictionary<int, List<Objective>> objectivesDict;
     public InformationPackageManager informationPackageManager;
 
@@ -119,26 +118,50 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        // Instantiating objectivesDict
-        int i = 0;
-        List<string> taskList = new List<string>();
-        taskList.Add("Ola Nordmann");
+        // Instantiate Lists needed to create the objectives
+        objectivesDict = new Dictionary<int, List<Objective>>();
         List<Objective> objectiveList1 = new List<Objective>();
-        objectiveList1.Add(new Objective("desc", taskList));
         List<Objective> objectiveList2 = new List<Objective>();
-        objectiveList2.Add(new Objective("desc", taskList));
         List<Objective> objectiveList3 = new List<Objective>();
-        objectiveList3.Add(new Objective("desc", taskList));
-        foreach (Objective obj in objectivesList) {
-            if (i <= 2) {
-                objectiveList1.Add(obj);
-            } else if (i <= 4) {
-                objectiveList2.Add(obj);
-            } else {
-                objectiveList3.Add(obj);
-            }
-            i++;
-        }
+
+        // Make a list of tasks for day 1
+        List<string> taskList = new List<string>();
+        taskList.Add("Trine");
+        taskList.Add("Sci-fi Street 12, 540 Atlantis Space Farm, North Mars Colony");
+        taskList.Add("Trine_not_the_thrine_game_u_silly@realTrine.com");
+        taskList.Add("Theres no phones on mars... yet");
+
+        // Add tasklist to day 1 objective 1
+        objectiveList1.Add(new Objective(
+            "Add all the personal information you can find about your friends to the Information Package.", 
+            taskList
+        ));
+
+        // Add tasklist to day 1 objective 2
+        taskList.Clear();
+        taskList.Add("blog where");
+        objectiveList1.Add(new Objective(
+            "Find out what Tom did last week end.", 
+            taskList
+        ));
+
+        // Reset tasks, and make tasks for day 2
+        taskList.Clear();
+        taskList.Add("");
+        taskList.Add("");
+
+        // Add tasklist to day 2
+        objectiveList2.Add(new Objective("Dag 2", taskList));
+
+        // Reset tasks, and make tasks for day 3
+        taskList.Clear();
+        taskList.Add("");
+        taskList.Add("");
+
+        // Add tasklist to day 3
+        objectiveList3.Add(new Objective("Dag 3", taskList));
+
+        // Add correct list to correct day
         objectivesDict.Add(1, objectiveList1);
         objectivesDict.Add(2, objectiveList2);
         objectivesDict.Add(3, objectiveList3);
