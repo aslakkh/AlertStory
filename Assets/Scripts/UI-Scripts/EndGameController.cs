@@ -52,14 +52,14 @@ public class EndGameController : MonoBehaviour {
     // retrieves the event history from gm.eventsfired. Only takes the multiple choice events.
     public void RetrieveEventHistory()
     {
-        GameObject panel = GameObject.Find("EndgameScrollviewContentPanel");
+        GameObject panel = GameObject.Find("EndgameScrollViewContent");
         foreach (KeyValuePair<StoryEvent,Choice> entry in gm.eventsFired){
-            GameObject temp = Instantiate(prefabPointer) as GameObject;
             if (panel != null)
             {
                 // only retrieve events which are multiple choice
                 if (entry.Key.IsMultipleChoice())
                 {
+                    GameObject temp = Instantiate(prefabPointer) as GameObject;
                     temp.transform.SetParent(panel.transform, false);
                     Transform transformEvent = temp.transform.GetChild(0);
                     Transform transformChoice = temp.transform.GetChild(1);
@@ -105,6 +105,7 @@ public class EndGameController : MonoBehaviour {
     public void StartNewGame()
     {
         gm.playerCharacter.friendsbookProfile.friends.Clear(); // its a file so better clear it, since its static. 
+        gm.ResetDayCount();
         GameObject.Destroy(gm.gameObject); // Destroys the gamemanager object.
         GameObject.Destroy(GameObject.Find("EventManager")); // Destroys the eventmanager object.
 

@@ -13,7 +13,6 @@ public class FriendsbookAboutView : MonoBehaviour {
     private List<string> currentDay;
 
     public GameObject informationPackage;
-    public InformationPackageController informationPackageController;
     public Button nameButton;
 
 

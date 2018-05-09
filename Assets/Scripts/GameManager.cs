@@ -124,7 +124,6 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                Debug.Log("backupRequirementdict in GameManager == Null");
             }
         }
 
@@ -164,6 +163,7 @@ public class GameManager : MonoBehaviour {
         try
         {
             eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+            informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
         }
         catch(NullReferenceException e)
         {
@@ -181,6 +181,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool FireEvent() {
+        Debug.Log(eventManager);
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
@@ -205,6 +206,11 @@ public class GameManager : MonoBehaviour {
         {
             stateChanged(this, new GameStateEventArgs() { newState = gameState}); //publishes event with new gameState added to eventargs
         }
+    }
+
+    protected virtual void onScoreChanged()
+    {
+
     }
 
     public void HandleChoice(StoryEvent storyEvent, Choice choice)
@@ -279,7 +285,8 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("daycount:" + dayCount);
                 sceneLoader.LoadNextDay();
             }
         }
@@ -295,5 +302,11 @@ public class GameManager : MonoBehaviour {
     public int GetDayCount()
     {
         return dayCount;
+    }
+
+    // Setters
+    public void ResetDayCount()
+    {
+        this.dayCount = 0;
     }
 }

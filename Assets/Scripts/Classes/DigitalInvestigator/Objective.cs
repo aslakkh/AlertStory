@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Objective : MonoBehaviour {
+[Serializable]
+public class Objective {
 
     // The task displayed to the player
     public string description;

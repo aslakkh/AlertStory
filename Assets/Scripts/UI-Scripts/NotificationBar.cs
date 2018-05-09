@@ -38,14 +38,18 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         informationPackageText = dropDown.transform.Find("Digital Investigator List").GetChild(0).GetComponent<Text>();
         informationPackageText.text = "Information package" + "\n" + "This information will be submitted. Click on an item to remove it." + "\n\n";
     }
+
+    void Update()
+    {
+        stats.text = "Score: " + gameManager.score.ToString();
+    }
     
 
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)
     {
         //Sets score string
-        stats.text = "Score: " + GameManager.Instance.score.ToString();
-
+        stats.text = "Score: " + gameManager.score;
         //Sets objectives string
         StringBuilder objectivesString = new StringBuilder();
         foreach (KeyValuePair<int, List<Objective>> objective in objectivesList)
