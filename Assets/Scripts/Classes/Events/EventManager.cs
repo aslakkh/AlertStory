@@ -58,7 +58,6 @@ public class EventManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("No relevant storyevents can be fired. ", this);
             return null;
         }
         
