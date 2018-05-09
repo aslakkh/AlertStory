@@ -28,6 +28,7 @@ public class ButtonsContainer : MonoBehaviour {
         }
     }
 
+    //set interactable status of all buttons contained within this
     public void SetInteractable(bool interactable)
     {
         foreach (Button b in buttons)
@@ -36,11 +37,7 @@ public class ButtonsContainer : MonoBehaviour {
         }
     }
 
-    private void Start()
-    {
-        buttons[0].onClick.AddListener(delegate () { gameManager.FireEvent(); });
-    }
-
+    //remove subscriber from gamemanager
     private void OnDestroy()
     {
         gameManager.stateChanged -= OnStateChanged;
