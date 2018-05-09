@@ -38,11 +38,13 @@ public class Score
 public class Choice{
     public string choiceDescription;
     public List<Score> scores;
+    public List<FunctionCall> functionCalls;
     public bool endGameTrigger;
     
     public Choice() {
         choiceDescription = "Blank";
         scores = new List<Score>();
+        functionCalls = new List<FunctionCall>();
         endGameTrigger = false;
     }
 
