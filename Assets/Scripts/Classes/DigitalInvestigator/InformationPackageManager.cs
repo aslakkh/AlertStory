@@ -9,7 +9,7 @@ public class InformationPackageManager : MonoBehaviour {
 	private Dictionary<int, List<string>> informationPackage;
 	public int dayCount = 0;
 
-	void Awake() {
+	void Start() {
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 		objectives = gameManager.objectives;
 		informationPackage = gameManager.informationDict;
@@ -22,25 +22,43 @@ public class InformationPackageManager : MonoBehaviour {
 	// Sorry in advance ...
 	public void ValidateInformationGathered() {
 		dayCount = gameManager.GetDayCount();
-		foreach (KeyValuePair<int, List<string>> info in informationPackage) {
-			if (info.Key == dayCount) {
-				foreach (string s in info.Value) {
-					foreach (KeyValuePair<int, List<Objective>> obj in objectives) {
-						if (obj.Key == dayCount) {
-							foreach (Objective o in obj.Value) {
-								foreach (string task in o.tasks) {
-									if (task.Equals(s) || s.Contains(task)) {
-										gameManager.AddToScore(20);
-									} else {
-										gameManager.AddToScore(-5);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+        if (informationPackage != null)
+        {
+            foreach (KeyValuePair<int, List<string>> info in informationPackage)
+            {
+                if (info.Key == dayCount)
+                {
+                    foreach (string s in info.Value)
+                    {
+                        foreach (KeyValuePair<int, List<Objective>> obj in objectives)
+                        {
+                            if (obj.Key == dayCount)
+                            {
+                                foreach (Objective o in obj.Value)
+                                {
+                                    foreach (string task in o.tasks)
+                                    {
+                                        if (task.Equals(s) || s.Contains(task))
+                                        {
+                                            gameManager.AddToScore(20);
+                                        }
+                                        else
+                                        {
+                                            gameManager.AddToScore(-5);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            gameManager.AddToScore(-25);
+        }
+		
 	}
 
 }

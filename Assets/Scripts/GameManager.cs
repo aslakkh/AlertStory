@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameState
 {
@@ -95,13 +96,21 @@ public class GameManager : MonoBehaviour {
             // If that is the case, we destroy other instances
             Destroy(gameObject);
         }
-        // Here we save our singleton instance
-        Instance = this;
+
+        if (Instance == null)
+        {
+            Instance = GameObject.FindObjectOfType<GameManager>();
+            if (Instance == null)
+            {
+                Instance = this; //save singleton instance
+            }
+        }
+
         
         // Makes sure that we don't destroy between scenes
         DontDestroyOnLoad(gameObject);
 
-        eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        //eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
         informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
         objectivesDict = new Dictionary<int, List<Objective>>();
 
@@ -114,7 +123,6 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                Debug.Log("backupRequirementdict in GameManager == Null");
             }
         }
 
@@ -168,6 +176,24 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        try
+        {
+            eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+            informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
+        }
+        catch(NullReferenceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
     private void Start()
     {
         //TODO: implement proper state flow
@@ -178,11 +204,19 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool FireEvent() {
+        Debug.Log(eventManager);
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
             gameState = GameState.eventhandler;
             _eventsFired.Add(eventFired, null);
+        }
+        else
+        {
+            if(gameState != GameState.investigator)
+            {
+                gameState = GameState.investigator;
+            }
         }
         return eventFired;
 
@@ -195,6 +229,11 @@ public class GameManager : MonoBehaviour {
         {
             stateChanged(this, new GameStateEventArgs() { newState = gameState}); //publishes event with new gameState added to eventargs
         }
+    }
+
+    protected virtual void onScoreChanged()
+    {
+
     }
 
     public void HandleChoice(StoryEvent storyEvent, Choice choice)
@@ -229,34 +268,47 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            gameState = GameState.investigator;
             if (choice.endGameTrigger)
             {
                 sceneLoader.LoadEndScene();
             }
-            gameState = GameState.investigator;
+            
         }
 
     }
 
     public void NextDay() {
-        
-        //Will be called untill there is no more Events in List
-        bool eventFired;
-        do {
-            eventFired = FireEvent();
-        } while (eventFired);
-        
-        if (++dayCount >= endDay)
+
+        StartCoroutine(FireRemainingEvents());
+          
+    }
+
+    public IEnumerator FireRemainingEvents()
+    {
+        bool eventFired = FireEvent();
+        Debug.Log("EventFired: " + eventFired);
+        if (eventFired)
         {
-            sceneLoader.LoadEndScene();
+            yield return new WaitUntil(() => gameState == GameState.investigator);
+            StartCoroutine(FireRemainingEvents());
         }
-        else 
+        else
         {
             informationPackageManager.ValidateInformationGathered();
             informationPackage.Clear();
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
-            sceneLoader.LoadNextDay();
-        }       
+            if (++dayCount >= endDay)
+            {
+                sceneLoader.LoadEndScene();
+            }
+            else
+            {
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("daycount:" + dayCount);
+                sceneLoader.LoadNextDay();
+            }
+        }
+        
     }
 
     public void AddToScore(int value)
@@ -268,5 +320,11 @@ public class GameManager : MonoBehaviour {
     public int GetDayCount()
     {
         return dayCount;
+    }
+
+    // Setters
+    public void ResetDayCount()
+    {
+        this.dayCount = 0;
     }
 }
