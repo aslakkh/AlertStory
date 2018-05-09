@@ -740,7 +740,7 @@ Prefab:
     - target: {fileID: 114475756951105936, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}
       propertyPath: timeLenght
-      value: 2000
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114475756951105936, guid: 1dfcdf138156d594baac95127544d21e,
         type: 2}

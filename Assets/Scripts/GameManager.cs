@@ -96,7 +96,6 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                Debug.Log("backupRequirementdict in GameManager == Null");
             }
         }
     }
