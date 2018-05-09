@@ -7,6 +7,6 @@ public class DismissWarninig : MonoBehaviour {
 	public GameObject WarningPannel;
 
 	public void HideWarningPanel() {
-		WarningPannel.SetActive(false);
+        GameObject.Destroy(WarningPannel);
 	}
 }

@@ -27,6 +27,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         settingsList = GameManager.Instance.requirements;
         informationPackage = GameManager.Instance.informationPackage;
         objectivesList = GameManager.Instance.objectives;
+        stats.text = "Score: " + gameManager.score.ToString();
     }
 
     void Awake()
