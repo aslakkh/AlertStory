@@ -190,7 +190,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool FireEvent() {
-        Debug.Log(eventManager);
         StoryEvent eventFired = eventManager.InitializeEvent(); //fires first suitable event
         if (eventFired)
         {
@@ -278,7 +277,6 @@ public class GameManager : MonoBehaviour {
     public IEnumerator FireRemainingEvents()
     {
         bool eventFired = FireEvent();
-        Debug.Log("EventFired: " + eventFired);
         if (eventFired)
         {
             yield return new WaitUntil(() => gameState == GameState.investigator);

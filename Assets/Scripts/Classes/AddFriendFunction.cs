@@ -11,13 +11,17 @@ public class AddFriendFunction : FunctionCall {
         //selfCharacter.friendsbookProfile.friends.Add(newFriend);
         GameManager gm = GameObject.FindObjectOfType<GameManager>();
 
-        //match character in temporary runtime list with newFriend. If it exists, add it as friend in gm.playercharacter
+        //add reference to selfcharacter in runtime copy of newfriend
         foreach (Character c in gm.characterList)
         {
-            if (c.fullName == newFriend.fullName) //match on name
+            if (c.fullName == newFriend.fullName)
             {
-                gm.playerCharacter.friendsbookProfile.AddFriendInBoth(c);
+                c.friendsbookProfile.AddFriend(selfCharacter);
             }
         }
+
+        //add reference to newfriend in runtime copy of playercharacter
+        gm.playerCharacter.friendsbookProfile.AddFriend(newFriend);
+
     }
 }

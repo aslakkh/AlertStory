@@ -10,13 +10,17 @@ public class RemoveFriendFunction : FunctionCall {
         //selfCharacter.friendsbookProfile.friends.Remove(newFriend);
         GameManager gm = GameObject.FindObjectOfType<GameManager>();
 
-        //match character in temporary runtime list with newFriend. If it exists, remove it as friend in gm.playercharacter
+        //remove reference to selfcharacter in runtime copy of newfriend
         foreach(Character c in gm.characterList)
         {
-            if(c.fullName == newFriend.fullName) //match on name
+            if(c.fullName == newFriend.fullName)
             {
-                gm.playerCharacter.friendsbookProfile.RemoveFriendInBoth(c);
+                c.friendsbookProfile.RemoveFriend(selfCharacter);
             }
         }
+
+        //remove reference to newfriend in runtime copy of playerCharacter
+        gm.playerCharacter.friendsbookProfile.RemoveFriend(newFriend);
+
     }
 }
