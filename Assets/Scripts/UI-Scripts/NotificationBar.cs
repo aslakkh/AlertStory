@@ -27,23 +27,39 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         settingsList = GameManager.Instance.requirements;
         informationPackage = GameManager.Instance.informationPackage;
         objectivesList = GameManager.Instance.objectives;
+        stats.text = "Score: " + gameManager.score.ToString();
     }
 
     void Awake()
     {
         scrollView.SetActive(false);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.stateChanged += OnStateChanged; //subscribe to stateChanged event
         stats = GameObject.Find("NotificationBar").transform.GetChild(0).GetComponent<Text>();
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
         informationPackageText = dropDown.transform.Find("Digital Investigator List").GetChild(0).GetComponent<Text>();
         informationPackageText.text = "Information package" + "\n" + "This information will be submitted. Click on an item to remove it." + "\n\n";
     }
 
-    void Update()
+
+    //subscriber to state change event in gamemanager
+    private void OnStateChanged(object source, GameStateEventArgs args)
     {
-        stats.text = "Score: " + gameManager.score.ToString();
+        //update score if state is set to investigator
+        if(args.newState == GameState.investigator)
+        {
+            stats.text = "Score: " + gameManager.score.ToString();
+        }
     }
-    
+
+    //remove subscriber from gamemanager
+    private void OnDestroy()
+    {
+        gameManager.stateChanged -= OnStateChanged; //subcribe to stateChanged event
+    }
+
+
+
 
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)
