@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: 3. The middle way
   m_EditorClassIdentifier: 
   title: '3: The middle way'
-  text: 'You''ve got a new friend in Tom on Facebook. He wants to invite Trine, who
-    is your friend, but also Karsten which you dont know, to the party.
+  text: 'You''ve got a friend in Tom Hansen on Facebook. He wants to invite Trine
+    Johnson, who is your friend too, but also Karsten Hendricks which you dont know,
+    to the party.
 
     You should investigate how much they share on facebook.'
   isMessage: 0
@@ -23,6 +24,7 @@ MonoBehaviour:
   choices:
   - choiceDescription: Ok, I will check it!
     scores: []
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114282149084888246
 MonoBehaviour:

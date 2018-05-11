@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: KarstenHendricksFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: ffd0623f23800254885f4d5fce12603e, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 3029f16ab0ea995409c1492ac779827a, type: 2}
   posts: {fileID: 11400000, guid: 8c13b13b95c54584cac807fd3cef6bd4, type: 2}
   profilePicture: {fileID: 21300000, guid: 50f58051e62f6ed459194b7c65a06b2d, type: 3}
   acceptsFriendRequest: 0

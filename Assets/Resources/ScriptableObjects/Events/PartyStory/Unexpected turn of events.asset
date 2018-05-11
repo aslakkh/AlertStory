@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: Unexpected turn of events
   m_EditorClassIdentifier: 
   title: '2.1.2: Unexpected turn of events'
-  text: Trine likes to share a lot of information. Two more people have joined the
-    party. She wants to make the party on facebook public. Would you let her?
+  text: 'Trine likes to share a lot of information. Two more people have joined the
+    party without your concent. She wants to make the party on facebook public.
+
+    Would you let her?'
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114740647208205018}
@@ -24,12 +26,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No, keep it private.
     scores:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114697776733414628
 MonoBehaviour:

@@ -24,12 +24,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 100
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No.
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114598908233483654
 MonoBehaviour:

@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
-  m_Name: KimSunYuFriendsbook
+  m_Name: HugoSeingrassFriendsbook
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: 3029f16ab0ea995409c1492ac779827a, type: 2}
+  character: {fileID: 11400000, guid: f2a0cc570e9f7db4f9dbdd13672516ed, type: 2}
   friends:
-  - {fileID: 11400000, guid: ffd0623f23800254885f4d5fce12603e, type: 2}
-  posts: {fileID: 11400000, guid: 00e49700095c2e7479bb0cb66ca3229b, type: 2}
-  profilePicture: {fileID: 21300000, guid: 92e15865960a0094786566e4695ec901, type: 3}
+  - {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
+  posts: {fileID: 11400000, guid: 8dc7d8eead51c8b479136334a22ea4d1, type: 2}
+  profilePicture: {fileID: 21300000, guid: 4942e23246b67dd4aba31411dea152d7, type: 3}
   acceptsFriendRequest: 0
   informationSetting: 1
-  friendsSetting: 1
+  friendsSetting: 0
   postsSetting: 1

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: 4.1.2 Unexpected company
   m_EditorClassIdentifier: 
   title: 4.1.2 Unexpected company
-  text: Trine shares a lot of information through friendsbook. She would like to add
-    two friends which you both have in common to the party event. Would you let her?
+  text: 'Trine Johnson shares a lot of information through friendsbook. She would
+    like to add two friends which you both have in common to the party event.
+
+    Would you let her?'
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114421472267458606}
@@ -24,12 +26,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 1
   - choiceDescription: No
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114421472267458606
 MonoBehaviour:

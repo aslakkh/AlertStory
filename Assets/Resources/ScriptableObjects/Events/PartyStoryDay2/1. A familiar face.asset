@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: 1. A familiar face
   m_EditorClassIdentifier: 
   title: 1. A familiar face
-  text: 'There''s been a huge change in plans. Your mother have got herself Friendsbook.
-    She cant find out about the party, but she''ve sent you a friend request.
+  text: 'There''s been a huge change in plans. Your mother, Karen Reiter have got
+    herself Friendsbook. She cant find out about the party, but she''ve sent you a
+    friend request.
 
     Are you gonna accept it?'
   isMessage: 0
@@ -26,12 +27,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No.
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114400848170416796
 MonoBehaviour:

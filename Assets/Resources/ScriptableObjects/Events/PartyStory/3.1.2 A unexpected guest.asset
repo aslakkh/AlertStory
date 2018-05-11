@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 3.1.2 A unexpected guest
   m_EditorClassIdentifier: 
   title: 3.1.2 A unexpected guest
-  text: Karsten would like to add another friend to the party. But you dont know him,
-    would you let him add the other friend?
+  text: Karsten Hendricks would like to add another friend to the party. But you dont
+    know the other friend, would you let him add the other friend?
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114631144208209278}
@@ -24,12 +24,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No.
     scores:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114631144208209278
 MonoBehaviour:
