@@ -23,8 +23,7 @@ MonoBehaviour:
   choices:
   - choiceDescription: Remove him then..
     scores: []
-    functionCalls:
-    - {fileID: 11400000, guid: a82d40b9f48b51e4e8d4f896331ba574, type: 2}
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114393485640617142
 MonoBehaviour:
