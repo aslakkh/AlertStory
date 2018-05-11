@@ -595,6 +595,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1789688329}
     m_Modifications:
+    - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 224590340510386470, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -693,7 +698,7 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 54.590572
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114200068634026416, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -723,7 +728,32 @@ Prefab:
     - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: timeLenght
-      value: 5
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[0]
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[1]
+      value: 98
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[2]
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[3]
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 114641987842381324, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[4]
+      value: 95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df9167830bae3c479311063872cc94b, type: 2}
@@ -761,7 +791,10 @@ MonoBehaviour:
   privateScore: 0
   turnCount: 0
   endDay: 3
+  playerCharacterScriptableObject: {fileID: 0}
   playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
+  characterListScriptableObject: {fileID: 0}
+  characterList: []
   backupRequirementDict: {fileID: 11400000, guid: 852e4bb7e3018f043985048db18f4f38,
     type: 2}
   requirementDict:

@@ -41,8 +41,18 @@ public class FriendsbookProfile : ScriptableObject {
                 Debug.Log("Tried adding duplicate friendsbook friend " + c.fullName, this);
             }
         }
-        
-        
+    }
+
+    public void AddFriendInBoth(Character c)
+    {
+        this.AddFriend(c);
+        c.friendsbookProfile.AddFriend(this.character);
+    }
+
+    public void RemoveFriendInBoth(Character c)
+    {
+        this.RemoveFriend(c);
+        c.friendsbookProfile.RemoveFriend(this.character);
     }
 
     public void RemoveFriend(Character c)

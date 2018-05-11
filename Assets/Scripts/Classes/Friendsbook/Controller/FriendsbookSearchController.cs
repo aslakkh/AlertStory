@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class FriendsbookSearchController : MonoBehaviour {
 
-    /// TODO
-    /// - optimization
-    /// 
-
-    public CharacterList characterList; //reference to ScriptableObject containing all in-game characters
+    public List<Character> characterList; //reference to ScriptableObject containing all in-game characters
     public InputField searchBar;
     public FriendsbookSearchView view;
     public Text text;
@@ -19,9 +15,10 @@ public class FriendsbookSearchController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        characterList = GameObject.FindObjectOfType<GameManager>().characterList;
         if(characterList != null)
         {
-            friendsbookProfiles = characterList.list.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
+            friendsbookProfiles = characterList.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
         }
         
         searchResult = new List<Character>();
@@ -30,6 +27,16 @@ public class FriendsbookSearchController : MonoBehaviour {
     public void SetFriendsbookProfiles(List<Character> list) //can be used to search from lists other than characterList
     {
         friendsbookProfiles = list;
+    }
+
+    public void SetCharacterList(List<Character> l)
+    {
+        characterList = l;
+    }
+
+    public List<Character> GetCharacterList()
+    {
+        return characterList;
     }
 
     public void Search(string term)

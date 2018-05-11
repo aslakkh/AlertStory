@@ -26,7 +26,15 @@ public class GameManager : MonoBehaviour {
     private int dayCount;
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
-    public Character playerCharacter; //reference to scriptable object holding information about playercharacter
+
+    public Character playerCharacterScriptableObject; //reference to player character to be loaded on play
+    [HideInInspector]
+    public Character playerCharacter; //playerCharacter used during play
+    public CharacterList characterListScriptableObject; //reference to character list to be loaded on play
+    [HideInInspector]
+    public List<Character> characterList; //characterList used during play
+
+
     // Dict with day-number as key and a list of information from information package as values
     private Dictionary<int, List<string>> _informationDict;
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
@@ -173,7 +181,8 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        //TODO: implement proper state flow
+        LoadScriptableObjectCopies();
+
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
         sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
@@ -308,5 +317,23 @@ public class GameManager : MonoBehaviour {
     public void ResetDayCount()
     {
         this.dayCount = 0;
+    }
+
+    //load copies of scriptableobjects to be used during runtime
+    public void LoadScriptableObjectCopies()
+    {
+        //copy playercharacter
+        playerCharacter = Instantiate(playerCharacterScriptableObject) as Character;
+        playerCharacter.friendsbookProfile = Instantiate(playerCharacterScriptableObject.friendsbookProfile) as FriendsbookProfile;
+
+
+        characterList = new List<Character>();
+        foreach(Character c in characterListScriptableObject.list)
+        {
+            Character characterClone = Instantiate(c) as Character;
+            characterClone.friendsbookProfile = Instantiate(c.friendsbookProfile) as FriendsbookProfile;
+            characterList.Add(characterClone);
+        }
+
     }
 }
