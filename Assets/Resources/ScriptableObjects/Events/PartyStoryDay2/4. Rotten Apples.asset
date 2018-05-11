@@ -33,6 +33,8 @@ MonoBehaviour:
     functionCalls:
     - {fileID: 11400000, guid: a82d40b9f48b51e4e8d4f896331ba574, type: 2}
     - {fileID: 11400000, guid: d3fccd6d80e7ca540a3ac9b8ad8f6d88, type: 2}
+    - {fileID: 11400000, guid: b2d1a4e73f58ab248aed834c8b92c73c, type: 2}
+    - {fileID: 11400000, guid: 1a3d1bd7f7b9c534c8506798de9488c0, type: 2}
     endGameTrigger: 0
   - choiceDescription: No
     scores:

@@ -76,7 +76,6 @@ public class BatteryTimerController : MonoBehaviour {
         {
             //Set new timeStart
             timeStart = Time.time;
-            timeLenght = timeStart + timeLenght;
             batteryPrecentage = 100;
             runTimer = true;
         }
