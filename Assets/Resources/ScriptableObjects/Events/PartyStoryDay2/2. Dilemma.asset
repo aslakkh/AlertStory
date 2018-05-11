@@ -21,6 +21,7 @@ MonoBehaviour:
   choices:
   - choiceDescription: Ok. I will find out!
     scores: []
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114302666339645128
 MonoBehaviour:

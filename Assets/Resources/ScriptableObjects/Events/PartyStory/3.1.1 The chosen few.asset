@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 3.1.1 The chosen few
   m_EditorClassIdentifier: 
   title: '3.1.1: The chosen few'
-  text: Trine shares a lot of information. She would like to add two common friends
-    between you and her, to the party event. Are you okay with it?
+  text: Trine Johnson shares a lot of information. She would like to add two common
+    friends between you and her, to the party event. Are you okay with it?
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114690393532954248}
@@ -24,12 +24,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No, I dont want them added.
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114690393532954248
 MonoBehaviour:

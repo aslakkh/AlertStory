@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 4. Public ground
   m_EditorClassIdentifier: 
   title: '4: Find out who to invite'
-  text: You should innvite someone to the party. Find out if Tom or Trine shares alot
-    of information on Facebook.
+  text: You should innvite someone to the party. Find out if Tom hansen or Trine Johnson
+    shares alot of information on Facebook.
   isMessage: 1
   fireNextEventImmediately: 0
   requirements: {fileID: 114479526253892282}
@@ -21,6 +21,7 @@ MonoBehaviour:
   choices:
   - choiceDescription: Ok, I will check it!
     scores: []
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114339167176689150
 MonoBehaviour:

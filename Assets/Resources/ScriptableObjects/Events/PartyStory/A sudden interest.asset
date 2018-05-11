@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: A sudden interest
   m_EditorClassIdentifier: 
   title: '2.1.1: A Sudden Interest'
-  text: Trine would like to join the party. Would you let her?
+  text: Trine Johnson would like to join the party. Would you let her?
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114213350157884600}
@@ -23,12 +23,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No
     scores:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114213350157884600
 MonoBehaviour:

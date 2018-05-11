@@ -24,12 +24,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Choose Trine
     scores:
     - requirementName: 
       setting: 2
       value: -100
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114555131802528386
 MonoBehaviour:
