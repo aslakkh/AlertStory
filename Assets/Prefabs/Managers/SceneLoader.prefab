@@ -52,5 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstDaySceneIndex: 1
-  appSettingsSceneIndex: 0
+  appSettingsSceneIndex: 4
   endSceneIndex: 3
+  instructionsSceneIndex: 5
+  currentDayIndex: 0

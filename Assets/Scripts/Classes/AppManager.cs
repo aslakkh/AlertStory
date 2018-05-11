@@ -14,7 +14,7 @@ public class AppManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameManager = GameObject.FindObjectOfType<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 
     public void OpenFriendsbook()
@@ -41,6 +41,10 @@ public class AppManager : MonoBehaviour {
     {
         if (currentApp != null)
         {
+            if (currentApp.name == "GuideApp") //unpause
+            {
+                gameManager.SetPaused();
+            }
             GameObject.Destroy(currentApp);
         }
     }
