@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d176141e01b7d44816164c78aa2b94, type: 3}
-  m_Name: TrineCharacter
+  m_Name: SamReiterCharacter
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
-  fullName: Trine Johnson
-  address: Sci-fi Street 12, 540 Atlantis Space Farm, North Mars Colony
-  email: Trine_not_the_thrine_game_u_silly@realTrine.com
-  phoneNumber: Theres no phones on mars... yet
-  friendsbookProfile: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+  fullName: Sam Reiter
+  address: Minas Tirith 34b, Midgard County
+  email: sam_ringbearer@fictionmail.com
+  phoneNumber: 38576034
+  friendsbookProfile: {fileID: 11400000, guid: 77c12896d464ca944882250245873ffc, type: 2}

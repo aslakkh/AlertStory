@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Name: PartyStoryCharacterListCharacterList
   m_EditorClassIdentifier: 
   list:
-  - {fileID: 11400000, guid: a979cb36f87dd8848ab9772965651418, type: 2}
+  - {fileID: 11400000, guid: 0c46f83e2da673441b17cfd458bda091, type: 2}
+  - {fileID: 11400000, guid: ba7702f9df5145a46a718870542a1c9d, type: 2}
+  - {fileID: 11400000, guid: adc41e014fad0ee49b8acfd33e00063b, type: 2}
+  - {fileID: 11400000, guid: 56204cd59607ee641908f6327763a05c, type: 2}
+  - {fileID: 11400000, guid: ffd0623f23800254885f4d5fce12603e, type: 2}
+  - {fileID: 11400000, guid: 752dd75c2465ea7489b096397cf9c27b, type: 2}
+  - {fileID: 11400000, guid: ffa6fd5be0e8a2742bbf0561c5468c3a, type: 2}
+  - {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
+  - {fileID: 11400000, guid: 3f9dbfb4b8d74994eb966d60e7ca3b5c, type: 2}
+  - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
   - {fileID: 11400000, guid: 8347e532acdc67a43ad8fffb7ff9bf9d, type: 2}

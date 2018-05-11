@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
+  m_Name: SamReiterFriendsbook
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
+  friends:
+  - {fileID: 11400000, guid: 3f9dbfb4b8d74994eb966d60e7ca3b5c, type: 2}
+  - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
+  - {fileID: 11400000, guid: 8347e532acdc67a43ad8fffb7ff9bf9d, type: 2}
+  posts: {fileID: 11400000, guid: 74b5d80eead9a8447807baef17fbb216, type: 2}
+  profilePicture: {fileID: 21300000, guid: a62fedf19c55e344eaa0bba4be5caba2, type: 3}
+  acceptsFriendRequest: 0
+  informationSetting: 2
+  friendsSetting: 2
+  postsSetting: 2

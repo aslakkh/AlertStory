@@ -57,7 +57,16 @@ public class FriendsbookFriendsController : MonoBehaviour
 
     public void OnListElementClick(Character c)
     {
-        friendsbookMain.EnterFriendsbookProfile(c);
+        // if character is player profile, use the player chracter view
+        if (c == friendsbookMain.GetGameManager().playerCharacter)
+        {
+            friendsbookMain.EnterPlayerCharacterProfile();
+        }
+        else
+        {
+            // if not the the view will support posts and information aswell.
+            friendsbookMain.EnterFriendsbookProfile(c);
+        }
     }
 
     public void IncrementFriendsListIndex()

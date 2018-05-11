@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
-  m_Name: TomFriendsbook
+  m_Name: KarstenHendricksFriendsbook
   m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: a979cb36f87dd8848ab9772965651418, type: 2}
+  character: {fileID: 11400000, guid: ffd0623f23800254885f4d5fce12603e, type: 2}
   friends: []
-  posts: {fileID: 11400000, guid: 4c7dc9764cf0b134f8fbc59b1ebfeba3, type: 2}
-  profilePicture: {fileID: 21300000, guid: a62fedf19c55e344eaa0bba4be5caba2, type: 3}
-  acceptsFriendRequest: 1
-  informationSetting: 0
-  friendsSetting: 1
+  posts: {fileID: 11400000, guid: 8c13b13b95c54584cac807fd3cef6bd4, type: 2}
+  profilePicture: {fileID: 21300000, guid: 50f58051e62f6ed459194b7c65a06b2d, type: 3}
+  acceptsFriendRequest: 0
+  informationSetting: 2
+  friendsSetting: 2
   postsSetting: 2

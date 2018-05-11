@@ -63,4 +63,9 @@ public class FriendsbookMainController : MonoBehaviour {
     {
         return (gameManager.playerCharacter.friendsbookProfile.IsFriendWith(c));
     }
+
+    public GameManager GetGameManager()
+    {
+        return this.gameManager;
+    }
 }

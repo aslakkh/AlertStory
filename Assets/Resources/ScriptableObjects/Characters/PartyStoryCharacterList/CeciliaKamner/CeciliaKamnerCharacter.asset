@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4d176141e01b7d44816164c78aa2b94, type: 3}
-  m_Name: TrineCharacter
+  m_Name: CeciliaKamnerCharacter
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
-  fullName: Trine Johnson
-  address: Sci-fi Street 12, 540 Atlantis Space Farm, North Mars Colony
-  email: Trine_not_the_thrine_game_u_silly@realTrine.com
-  phoneNumber: Theres no phones on mars... yet
-  friendsbookProfile: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+  fullName: Cecilia Kamner
+  address: Goffler Street 2
+  email: c.kamner@fictionmail.com
+  phoneNumber: 67894321
+  friendsbookProfile: {fileID: 11400000, guid: d56f6802e5b9b914491e057d8edb1486, type: 2}
