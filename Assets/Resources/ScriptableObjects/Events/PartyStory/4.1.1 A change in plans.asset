@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 4.1.1 A change in plans
   m_EditorClassIdentifier: 
   title: 4.1.1 A change in plans
-  text: Tom would like to make the party event on the friendsbook app private. Would
-    you let him?
+  text: Tom Hansen would like to make the party event on the friendsbook app private.
+    Would you let him?
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114071448729402700}
@@ -21,9 +21,11 @@ MonoBehaviour:
   choices:
   - choiceDescription: No.
     scores: []
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Yes.
     scores: []
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114071448729402700
 MonoBehaviour:

@@ -30,6 +30,7 @@ MonoBehaviour:
     - requirementName: Facebook
       setting: 2
       value: 100
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Private event
     scores:
@@ -42,6 +43,7 @@ MonoBehaviour:
     - requirementName: Facebook
       setting: 0
       value: 100
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114262023523116466
 MonoBehaviour:

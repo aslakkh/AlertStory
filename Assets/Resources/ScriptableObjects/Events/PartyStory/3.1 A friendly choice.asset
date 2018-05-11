@@ -18,17 +18,19 @@ MonoBehaviour:
   requirements: {fileID: 114568682735933794}
   dependencies: {fileID: 114533417264354404}
   choices:
-  - choiceDescription: Trine
+  - choiceDescription: Trine Johnson
     scores:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
-  - choiceDescription: Karsten
+  - choiceDescription: Karsten Hendricks
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114533417264354404
 MonoBehaviour:

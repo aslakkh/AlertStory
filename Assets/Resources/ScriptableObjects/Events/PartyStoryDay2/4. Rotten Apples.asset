@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 4. Rotten Apples
   text: 'Considering the desperate situation. You have to make a hard choice. Will
-    you remove all friends with connection to your mother? '
+    you remove all the friends with connection to your mother? '
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114631183003730918}
@@ -30,6 +30,9 @@ MonoBehaviour:
     - requirementName: Facebook
       setting: 2
       value: -100
+    functionCalls:
+    - {fileID: 11400000, guid: a82d40b9f48b51e4e8d4f896331ba574, type: 2}
+    - {fileID: 11400000, guid: d3fccd6d80e7ca540a3ac9b8ad8f6d88, type: 2}
     endGameTrigger: 0
   - choiceDescription: No
     scores:
@@ -42,6 +45,7 @@ MonoBehaviour:
     - requirementName: Facebook
       setting: 0
       value: -100
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114219995835137890
 MonoBehaviour:

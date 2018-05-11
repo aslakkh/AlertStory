@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: 4.1 A public choice
   m_EditorClassIdentifier: 
   title: '4.1: A public choice'
-  text: You've had time to investigate both Tom and Trine. Who do you choose to invite?
+  text: You've had time to investigate both Tom Hansen and Trine Johnson. Who do you
+    choose to invite?
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114661214408612192}
@@ -23,12 +24,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 100
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Choose Tom
     scores:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114661214408612192
 MonoBehaviour:
