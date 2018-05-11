@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: RemoveSamFromSara
   m_EditorClassIdentifier: 
   aName: FunctionCallScript
-  selfCharacter: {fileID: 0}
-  newFriend: {fileID: 0}
+  selfCharacter: {fileID: 11400000, guid: 3f9dbfb4b8d74994eb966d60e7ca3b5c, type: 2}
+  newFriend: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
