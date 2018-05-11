@@ -334,4 +334,19 @@ public class GameManager : MonoBehaviour {
         }
 
     }
+
+
+    //pause or unpaused
+    public void SetPaused()
+    {
+        if(gameState == GameState.paused)
+        {
+            gameState = GameState.investigator;
+        }
+        else
+        {
+            gameState = GameState.paused;
+        }
+        
+    }
 }

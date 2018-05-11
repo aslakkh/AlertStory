@@ -6,13 +6,15 @@ using UnityEngine;
 public class AppManager : MonoBehaviour {
 
     public GameObject friendsbookPrefab; //prefab for friendsbook app
+    public GameObject guideAppPrefab;
     public Transform appSpawnPoint; //where should apps be instantiated?
 
     private GameObject currentApp;
+    private GameManager gameManager; //reference to gamemanager
 
     // Use this for initialization
     void Start () {
-		
+        gameManager = GameObject.FindObjectOfType<GameManager>();
 	}
 
     public void OpenFriendsbook()
@@ -21,6 +23,18 @@ public class AppManager : MonoBehaviour {
         currentApp = Instantiate(friendsbookPrefab);
         currentApp.transform.SetParent(appSpawnPoint, false);
         currentApp.name = "FriendsbookMainView";
+    }
+
+    //open guide app
+    public void OpenGuide()
+    {
+        CloseCurrentApp();
+        currentApp = Instantiate(guideAppPrefab);
+        currentApp.transform.SetParent(appSpawnPoint, false);
+        currentApp.name = "GuideApp";
+
+        //guide app should pause the game
+        gameManager.SetPaused();
     }
 
     public void CloseCurrentApp()
