@@ -12,11 +12,13 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public Text stats;
     public Text objectives;
     public Text settings;
-    public Text informationPackageText;
+    public GameObject informationPackageItem;
+    public Transform informationSpawn;
     private Dictionary<int, List<Objective>> objectivesList;
     private StringSettingDictionary settingsList;
     private Requirement requirement;
     private List<string> informationPackage;
+
 
     public GameObject scrollView;
     public GameObject dropDown;
@@ -37,8 +39,6 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         gameManager.stateChanged += OnStateChanged; //subscribe to stateChanged event
         stats = GameObject.Find("NotificationBar").transform.GetChild(0).GetComponent<Text>();
         objectives = dropDown.transform.Find("Objectives").GetComponent<Text>();
-        informationPackageText = dropDown.transform.Find("Digital Investigator List").GetChild(0).GetComponent<Text>();
-        informationPackageText.text = "Information package" + "\n" + "This information will be submitted. Click on an item to remove it." + "\n\n";
     }
 
 
@@ -58,7 +58,18 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         gameManager.stateChanged -= OnStateChanged; //subcribe to stateChanged event
     }
 
-
+    public void OnListElementClick(GameObject obj)
+    {
+        string temp = obj.transform.GetChild(0).GetComponent<Text>().text;
+        for (int i = 0; i < informationPackage.Count; i += 2)
+        {
+            if (informationPackage[i] == temp)
+            {
+                informationPackage.RemoveRange(i, 2);
+            }
+        }
+        GameObject.Destroy(obj);
+    }
 
 
     //Opens dropdown
@@ -66,28 +77,14 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     {
         //Sets score string
         stats.text = "Score: " + gameManager.score;
-        //Sets objectives string
-        StringBuilder objectivesString = new StringBuilder();
-        foreach (KeyValuePair<int, List<Objective>> objective in objectivesList)
-        {
-            foreach (Objective o in objective.Value)
-            {
-            objectivesString.Append(o.description + ", " + "\n");
-            }
-        }
-        objectives.text = "Objectives: " + "\n" + objectivesString.ToString();
 
-        //Sets settings string 
-        settings.text = "Settings: " + "\n";
-        StringBuilder settingsString = new StringBuilder();
-        foreach (KeyValuePair<string, Setting> item in settingsList)
-        {
-            settingsString.Append(item.Key + ": " + item.Value + ", " + "\n");
-        }
-        settings.text = "Settings: " + "\n" + settingsString.ToString();
-        
         if (scrollView.activeSelf)
         {
+            // Destroys any information package items when hiding the scrollview
+            foreach(Transform child in informationSpawn)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
             scrollView.SetActive(false);
             scrollView.transform.SetAsFirstSibling();
         }
@@ -95,18 +92,33 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         {
             scrollView.SetActive(true);
             scrollView.transform.SetAsLastSibling();
+
+            //Sets objectives string
+            StringBuilder objectivesString = new StringBuilder();
+            foreach (Objective o in objectivesList[gameManager.GetDayCount()])
+            {
+
+                objectivesString.Append(o.description + "\n");
+            }
+            objectives.text = "Objectives: " + "\n" + objectivesString.ToString();
+            //Sets settings string 
+            settings.text = "Settings: " + "" + settingsList["Facebook"];
+
+            informationPackage = GameManager.Instance.informationPackage;
+            for (int i = 0; i < informationPackage.Count; i += 2)
+            {
+                int a = i;
+                GameObject temp = GameObject.Instantiate(informationPackageItem);
+                temp.transform.SetParent(informationSpawn, false);
+                temp.transform.GetChild(0).GetComponent<Text>().text = informationPackage[i];
+                temp.transform.GetChild(1).GetComponent<Text>().text = informationPackage[i + 1];
+                temp.GetComponent<Button>().onClick.AddListener(delegate ()
+                {
+                    OnListElementClick(temp);
+                });
+
+            }
         }
-
-
-        informationPackage = GameManager.Instance.informationPackage;
-        StringBuilder informationPackageString = new StringBuilder();
-        foreach(string element in informationPackage)
-        {
-            informationPackageString.Append(element + "\n");
-        }
-        informationPackageText.text = "Information package" + "\n" + 
-            "This information will be submitted. Click on an item to remove it." + "\n\n" + informationPackageString.ToString();
-
     }
 
 }

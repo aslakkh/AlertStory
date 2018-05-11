@@ -11,9 +11,9 @@ public class InformationPackageManager : MonoBehaviour {
 
 	void Start() {
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-		objectives = gameManager.objectives;
-		informationPackage = gameManager.informationDict;
-		dayCount = gameManager.GetDayCount();
+		objectives = gameManager.objectives; // = gm.objectivesDict <int, List<Objective>>
+        informationPackage = gameManager.informationDict; // gm._informationDict <int, List<string>>
+        dayCount = gameManager.GetDayCount();
 	}
 
 	// Validates the information gathered by the user after the user has delivered the information
@@ -28,8 +28,9 @@ public class InformationPackageManager : MonoBehaviour {
             {
                 if (info.Key == dayCount)
                 {
-                    foreach (string s in info.Value)
+                    for (int i =0 ; i < info.Value.Count; i += 2)
                     {
+                        string temp = info.Value[i];
                         foreach (KeyValuePair<int, List<Objective>> obj in objectives)
                         {
                             if (obj.Key == dayCount)
@@ -38,7 +39,7 @@ public class InformationPackageManager : MonoBehaviour {
                                 {
                                     foreach (string task in o.tasks)
                                     {
-                                        if (task.Equals(s) || s.Contains(task))
+                                        if (task.Equals(temp) || temp.Contains(task))
                                         {
                                             gameManager.AddToScore(20);
                                         }

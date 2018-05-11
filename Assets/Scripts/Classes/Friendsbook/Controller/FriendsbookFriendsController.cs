@@ -58,7 +58,7 @@ public class FriendsbookFriendsController : MonoBehaviour
     public void OnListElementClick(Character c)
     {
         // if character is player profile, use the player chracter view
-        if (c == friendsbookMain.GetGameManager().playerCharacter)
+        if (c.fullName == friendsbookMain.GetGameManager().playerCharacter.fullName)
         {
             friendsbookMain.EnterPlayerCharacterProfile();
         }
