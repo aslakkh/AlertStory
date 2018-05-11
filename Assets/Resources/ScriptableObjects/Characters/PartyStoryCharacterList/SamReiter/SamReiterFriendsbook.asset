@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
   friends:
+  - {fileID: 11400000, guid: e382dbe371c8eff41a90de0c5a16f022, type: 2}
+  - {fileID: 11400000, guid: 516cd8c417dfb054a9a6e311e2fb501f, type: 2}
   - {fileID: 11400000, guid: 3f9dbfb4b8d74994eb966d60e7ca3b5c, type: 2}
   - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
   - {fileID: 11400000, guid: 8347e532acdc67a43ad8fffb7ff9bf9d, type: 2}
