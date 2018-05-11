@@ -239,6 +239,11 @@ public class GameManager : MonoBehaviour {
 
             }
         }
+        //Loops for each FunctionCall added.
+        foreach (FunctionCall functionCall in choice.functionCalls) {
+            functionCall.triggerFunction();
+        }
+        
         if (storyEvent.fireNextEventImmediately)
         {
             FireEvent();
