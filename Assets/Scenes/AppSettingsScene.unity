@@ -286,7 +286,7 @@ Prefab:
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
       propertyPath: m_LocalPosition.x

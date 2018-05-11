@@ -54,10 +54,17 @@ MonoBehaviour:
   score: 0
   privateScore: 0
   turnCount: 0
-  endDay: 0
-  playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
+  endDay: 2
+  playerCharacterScriptableObject: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685,
+    type: 2}
+  playerCharacter: {fileID: 0}
+  characterListScriptableObject: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4,
+    type: 2}
+  characterList: []
   backupRequirementDict: {fileID: 11400000, guid: 852e4bb7e3018f043985048db18f4f38,
     type: 2}
   requirementDict:
     m_keys: []
     m_values: 
+  objectivesList: []
+  informationPackageManager: {fileID: 0}
