@@ -13,6 +13,9 @@ public class FriendsbookPersonView : MonoBehaviour {
     public Text friendRequestFeedback;
     public ScrollRect scrollRect;
 
+    private Color positiveFeedbackColor = new Color(170, 193, 191, 255);
+    private Color negativeFeedbackColor = new Color(190, 0, 0, 255);
+
     // Use this for initialization
     void Start () {
         if (friendRequestFeedback.gameObject.activeSelf) { friendRequestFeedback.gameObject.SetActive(false); } //hide feedback element
@@ -40,12 +43,12 @@ public class FriendsbookPersonView : MonoBehaviour {
         if (positive)
         {
             friendRequestFeedback.text = "Friend request accepted!";
-            friendRequestFeedback.color = Color.green;
+            friendRequestFeedback.color = positiveFeedbackColor;
         }
         else
         {
             friendRequestFeedback.text = "Friend request denied";
-            friendRequestFeedback.color = Color.red;
+            friendRequestFeedback.color = negativeFeedbackColor;
         }
 
         //display feedback for 7 seconds
