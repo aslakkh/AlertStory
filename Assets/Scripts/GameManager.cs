@@ -202,11 +202,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    protected virtual void onScoreChanged()
-    {
-
-    }
-
     public void HandleChoice(StoryEvent storyEvent, Choice choice)
     {
         //TODO: Add score handling
@@ -316,6 +311,21 @@ public class GameManager : MonoBehaviour {
             Character characterClone = Instantiate(c) as Character;
             characterClone.friendsbookProfile = Instantiate(c.friendsbookProfile) as FriendsbookProfile;
             characterList.Add(characterClone);
+        }
+
+    }
+
+
+    //pause or unpaused
+    public void SetPaused()
+    {
+        if(gameState == GameState.paused)
+        {
+            gameState = GameState.investigator;
+        }
+        else
+        {
+            gameState = GameState.paused;
         }
 
     }

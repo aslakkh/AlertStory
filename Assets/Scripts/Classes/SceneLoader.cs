@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
     public int firstDaySceneIndex; //index of first day scene in build settings
     public int appSettingsSceneIndex; //index of app settings scene
     public int endSceneIndex; //index of end scene in build settings
+    public int instructionsSceneIndex;
 
     public int currentDayIndex; //index of current day in build settings
 
@@ -69,5 +70,22 @@ public class SceneLoader : MonoBehaviour
     public void LoadAppSettingsScene()
     {
         SceneManager.LoadScene(appSettingsSceneIndex);
+    }
+
+    //loads instructions scene. INdex of this scene in build settings must be specified by public field instructionsScene
+    public void LoadInstructionsScene()
+    {
+        SceneManager.LoadScene(instructionsSceneIndex);
+    }
+
+    //main menu should always be 0
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
