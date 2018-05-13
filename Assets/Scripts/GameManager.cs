@@ -202,9 +202,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    //handles a choice taken in a story event. Applies any scores, and either fires a new event or returns to investigator state
     public void HandleChoice(StoryEvent storyEvent, Choice choice)
     {
-        //TODO: Add score handling
         _eventsFired[storyEvent] = choice;
 
         //add scores
@@ -249,14 +249,32 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    //choice handler for choices made in events with no storyevents attached
+    public void HandleChoice()
+    {
+        gameState = GameState.investigator;
+    }
+
     public void NextDay() {
 
-        StartCoroutine(FireRemainingEvents());
+        StartCoroutine(EndDay());
           
+    }
+
+    public IEnumerator EndDay()
+    {
+        //fire an event to signal battery depletion
+        gameState = GameState.eventhandler;
+        eventManager.InstantiateBatteryDepletionEvent();
+        yield return new WaitUntil(() => gameState == GameState.investigator);
+
+        //fire all remaining events in eventlist
+        StartCoroutine(FireRemainingEvents());
     }
 
     public IEnumerator FireRemainingEvents()
     {
+        //fire all remaining events in eventlist
         bool eventFired = FireEvent();
         if (eventFired)
         {

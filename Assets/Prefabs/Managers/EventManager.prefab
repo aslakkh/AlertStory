@@ -55,6 +55,10 @@ MonoBehaviour:
     type: 2}
   informativeEventPrefab: {fileID: 1240329766399940, guid: 30cb855960e556740b736bf7a347f85f,
     type: 2}
+  batteryDepletionEventPrefab: {fileID: 1782132406213618, guid: 797f57e0eaf4d7e4a8ebf1b48c79f2ff,
+    type: 2}
+  informationPackageSentEventPrefab: {fileID: 1429685908034568, guid: 8c4170c6340c8cd4b917bba3f5c69bcd,
+    type: 2}
   messagePrefab: {fileID: 1933890751648508, guid: 60b9a8fa68aac13498161c079dcf97d8,
     type: 2}
   storyEvents: {fileID: 11400000, guid: ff1391589ee0a6a43aed48c316c03b82, type: 2}
