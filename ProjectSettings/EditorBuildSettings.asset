@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/AppSettingsScene.unity
-    guid: a6150a8d9acdaca4186513a922067ff4
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6ef44922182a8274ca0f40c93cf79b9c
   - enabled: 0
     path: Assets/Scenes/TEMP_EventsScene.unity
     guid: 917ead355d42e7741b1fef31bf1dd77f
@@ -23,3 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGameScene.unity
     guid: a13da875c79dba740a11d4af9d395100
+  - enabled: 1
+    path: Assets/Scenes/AppSettingsScene.unity
+    guid: a6150a8d9acdaca4186513a922067ff4
+  - enabled: 1
+    path: Assets/Scenes/InstructionsScene.unity
+    guid: 808819440e6ee53458a9097ee7110469
