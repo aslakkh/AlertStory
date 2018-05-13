@@ -88,6 +88,7 @@ public class BatteryTimerController : MonoBehaviour {
         if (Mathf.FloorToInt(batteryPrecentage) % 10 == 0) {
             imageHolder.sprite = imageList.SingleOrDefault(item =>
                 (item.name.Equals(Mathf.FloorToInt(batteryPrecentage).ToString() + "_battery")));
+
         }
     }
 

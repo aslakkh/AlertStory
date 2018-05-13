@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a984e3c3b14a844aae81132cdf3da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLenght: 120
+  timeLenght: 5
   timeStart: 0
   batteryPrecentage: 100
   imageList:
@@ -89,18 +89,15 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 68d8aedbf9b415440a687e4a901e6d88, type: 3}
   - {fileID: 21300000, guid: bf23d0c04bd43b24da2caf103bf6f146, type: 3}
   - {fileID: 21300000, guid: 5af76df0fdce15a43a16ab25a225502e, type: 3}
-  eventBreakpoints:
-  - 100
-  - 73
-  - 51
-  - 32
-  - 5
+  - {fileID: 21300000, guid: e4df8b6aac05943448b5345a0ecaf432, type: 3}
+  eventBreakpoints: []
   text: {fileID: 114776938203232568}
   imageHolder: {fileID: 114900442011358466}
-  runTimer: 1
+  runTimer: 0
   warningThreshold: 88
-  warningPanel: {fileID: 0}
-  timerText: {fileID: 0}
+  warningPanel: {fileID: 1142003117691230, guid: 7502d2d19fbf01b4c81dd26fa0e83353,
+    type: 2}
+  warningPanelSpawnPoint: {fileID: 0}
 --- !u!114 &114776938203232568
 MonoBehaviour:
   m_ObjectHideFlags: 1
