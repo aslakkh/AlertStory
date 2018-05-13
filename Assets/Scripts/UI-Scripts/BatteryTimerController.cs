@@ -60,7 +60,7 @@ public class BatteryTimerController : MonoBehaviour {
             }
             else {
                 runTimer = false;
-                gameManager.NextDay();
+                gameManager.NextDay(batteryDepleted: true);
             }
         }
     }

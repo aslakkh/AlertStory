@@ -255,22 +255,32 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.investigator;
     }
 
-    public void NextDay() {
-
-        StartCoroutine(FireRemainingEvents());
-          
+    public void NextDay(bool batteryDepleted)
+    {
+            StartCoroutine(FireRemainingEvents(batteryDepleted));
     }
 
-    public IEnumerator EndDay()
+    public IEnumerator EndDay(bool batteryDepleted)
     {
-        //fire an event to signal battery depletion
-        gameState = GameState.eventhandler;
-        eventManager.InstantiateBatteryDepletionEvent();
-        yield return new WaitUntil(() => gameState == GameState.investigator);
-
-        //validate information package and end day
+        //validate information package
         informationPackageManager.ValidateInformationGathered();
         informationPackage.Clear();
+
+        if (batteryDepleted)
+        {
+            //fire an event to signal battery depletion
+            gameState = GameState.eventhandler;
+            eventManager.InstantiateBatteryDepletionEvent();
+        }
+        else //information package was submitted
+        {
+            gameState = GameState.eventhandler;
+            eventManager.InstantiateInformationPackageSentEvent();
+        }
+        yield return new WaitUntil(() => gameState == GameState.investigator);
+
+
+        //end day
         if (++dayCount >= endDay)
         {
             sceneLoader.LoadEndScene();
@@ -282,18 +292,18 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public IEnumerator FireRemainingEvents()
+    public IEnumerator FireRemainingEvents(bool batteryDepleted)
     {
         //fire all remaining events in eventlist
         bool eventFired = FireEvent();
         if (eventFired)
         {
             yield return new WaitUntil(() => gameState == GameState.investigator);
-            StartCoroutine(FireRemainingEvents());
+            StartCoroutine(FireRemainingEvents(batteryDepleted));
         }
         else
         {
-            StartCoroutine(EndDay());
+            StartCoroutine(EndDay(batteryDepleted));
         }
         
     }

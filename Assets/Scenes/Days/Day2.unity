@@ -469,6 +469,7 @@ MonoBehaviour:
   guideAppPrefab: {fileID: 1080858077290732, guid: ec06de2be686e874e9e04d0e6755a6d2,
     type: 2}
   appSpawnPoint: {fileID: 2034221723}
+  dropDownScrollView: {fileID: 2144831460}
 --- !u!4 &1766530029
 Transform:
   m_ObjectHideFlags: 0
@@ -658,6 +659,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1789688329}
     m_Modifications:
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224590340510386470, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -793,6 +799,31 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114200068634026416, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: m_Text
+      value: Day 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[0]
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[1]
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[2]
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df9167830bae3c479311063872cc94b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2144831460 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1871326599377108, guid: 0df9167830bae3c479311063872cc94b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2144831459}

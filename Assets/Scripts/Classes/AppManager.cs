@@ -8,9 +8,11 @@ public class AppManager : MonoBehaviour {
     public GameObject friendsbookPrefab; //prefab for friendsbook app
     public GameObject guideAppPrefab;
     public Transform appSpawnPoint; //where should apps be instantiated?
+    public GameObject dropDownScrollView; //reference to scrollview 
 
     private GameObject currentApp;
     private GameManager gameManager; //reference to gamemanager
+
 
     // Use this for initialization
     void Start () {
@@ -39,13 +41,23 @@ public class AppManager : MonoBehaviour {
 
     public void CloseCurrentApp()
     {
-        if (currentApp != null)
+        //close dropdown scroll view if it is active
+        if (dropDownScrollView.activeSelf)
         {
-            if (currentApp.name == "GuideApp") //unpause
-            {
-                gameManager.SetPaused();
-            }
-            GameObject.Destroy(currentApp);
+            dropDownScrollView.SetActive(false);
         }
+        else
+        {
+            //close any displaying app
+            if (currentApp != null)
+            {
+                if (currentApp.name == "GuideApp") //unpause
+                {
+                    gameManager.SetPaused();
+                }
+                GameObject.Destroy(currentApp);
+            }
+        }
+        
     }
 }

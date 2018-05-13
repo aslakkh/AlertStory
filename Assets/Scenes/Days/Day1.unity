@@ -264,13 +264,18 @@ Prefab:
         type: 2}
       propertyPath: appSpawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1975755456}
     - target: {fileID: 114244339931932756, guid: 8be16c36f8f1e264baa58da7dfae34c9,
         type: 2}
       propertyPath: guideAppPrefab
       value: 
       objectReference: {fileID: 1080858077290732, guid: ec06de2be686e874e9e04d0e6755a6d2,
         type: 2}
+    - target: {fileID: 114244339931932756, guid: 8be16c36f8f1e264baa58da7dfae34c9,
+        type: 2}
+      propertyPath: dropDownScrollView
+      value: 
+      objectReference: {fileID: 2135393038}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8be16c36f8f1e264baa58da7dfae34c9, type: 2}
   m_IsPrefabParent: 0
@@ -459,6 +464,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 631062152}
     m_Modifications:
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224590340510386470, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -549,6 +559,21 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114067575641137848, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804579326}
+    - target: {fileID: 114624892826635660, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804579326}
+    - target: {fileID: 114275335478353282, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1804579326}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
@@ -569,51 +594,6 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224457088759966380, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224457088759966380, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114325057658529276, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804579326}
-    - target: {fileID: 114325057658529276, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenFriendsbook
-      objectReference: {fileID: 0}
-    - target: {fileID: 114275335478353282, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804579326}
-    - target: {fileID: 114275335478353282, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenFriendsbook
-      objectReference: {fileID: 0}
-    - target: {fileID: 114624892826635660, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804579326}
-    - target: {fileID: 114624892826635660, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseCurrentApp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114200068634026416, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: m_Text
-      value: Day 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224092281980655644, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
@@ -624,15 +604,20 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114067575641137848, guid: 0df9167830bae3c479311063872cc94b,
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1804579326}
-    - target: {fileID: 114067575641137848, guid: 0df9167830bae3c479311063872cc94b,
+      propertyPath: eventBreakpoints.Array.data[0]
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenGuide
+      propertyPath: eventBreakpoints.Array.data[1]
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[2]
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df9167830bae3c479311063872cc94b, type: 2}
@@ -856,6 +841,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 77616380}
   m_Script: {fileID: 11500000, guid: 2dc3892055d4e481095e96036db246a6, type: 3}
+--- !u!224 &1975755456 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224740445323244564, guid: 0df9167830bae3c479311063872cc94b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1468525895}
 --- !u!1001 &2032648757
 Prefab:
   m_ObjectHideFlags: 0
@@ -898,3 +888,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be501b130dffa444194bba1c83ae26bf, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2135393038 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1871326599377108, guid: 0df9167830bae3c479311063872cc94b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1468525895}
