@@ -9,16 +9,28 @@ public class InformativeEventController : EventController {
     void Start()
     {
         //Set UI elements
-        eventView.SetEventTitle(storyEvent.title);
-        eventView.SetEventDescription(storyEvent.text);
-        eventView.SetButtonText(storyEvent.choices[0].choiceDescription);
+        if(storyEvent != null)
+        {
+            eventView.SetEventTitle(storyEvent.title);
+            eventView.SetEventDescription(storyEvent.text);
+            eventView.SetButtonText(storyEvent.choices[0].choiceDescription);
+        }
+        
     }
 
     public void HandleChoice()
     {
         //add the score values of this.choices[0] to gamemanager
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.HandleChoice(storyEvent, storyEvent.choices[0]);
+        if (storyEvent != null)
+        {
+            gameManager.HandleChoice(storyEvent, storyEvent.choices[0]);
+        }
+        else //event is dummy event, no choice and storyevent information needs to be recorded
+        {
+            gameManager.HandleChoice();
+        }
+        
         DestroyFromScene();
     }
 }

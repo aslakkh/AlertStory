@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour {
 
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
+    public GameObject batteryDepletionEventPrefab;
+    public GameObject informationPackageSentEventPrefab;
     public GameObject messagePrefab;
 
     //public List<StoryEvent> storyEvents;
@@ -82,6 +84,22 @@ public class EventManager : MonoBehaviour {
     {
         return (e.requirements.FitsRequirements(gameManager.requirements) && e.dependencies.FitsRequirements(gameManager.eventsFired));
         //turn true;
+    }
+
+    //instantiates battery depletion event (from prefab) 
+    public void InstantiateBatteryDepletionEvent()
+    {
+        Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
+        GameObject eventObject = Instantiate(batteryDepletionEventPrefab);
+        eventObject.transform.SetParent(phoneMainScreen, false);
+    }
+
+    //instantiates battery depletion event (from prefab) 
+    public void InstantiateInformationPackageSentEvent()
+    {
+        Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
+        GameObject eventObject = Instantiate(informationPackageSentEventPrefab);
+        eventObject.transform.SetParent(phoneMainScreen, false);
     }
 
 }
