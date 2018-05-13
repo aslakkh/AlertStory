@@ -257,7 +257,7 @@ public class GameManager : MonoBehaviour {
 
     public void NextDay() {
 
-        StartCoroutine(EndDay());
+        StartCoroutine(FireRemainingEvents());
           
     }
 
@@ -268,8 +268,18 @@ public class GameManager : MonoBehaviour {
         eventManager.InstantiateBatteryDepletionEvent();
         yield return new WaitUntil(() => gameState == GameState.investigator);
 
-        //fire all remaining events in eventlist
-        StartCoroutine(FireRemainingEvents());
+        //validate information package and end day
+        informationPackageManager.ValidateInformationGathered();
+        informationPackage.Clear();
+        if (++dayCount >= endDay)
+        {
+            sceneLoader.LoadEndScene();
+        }
+        else
+        {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            sceneLoader.LoadNextDay();
+        }
     }
 
     public IEnumerator FireRemainingEvents()
@@ -283,17 +293,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            informationPackageManager.ValidateInformationGathered();
-            informationPackage.Clear();
-            if (++dayCount >= endDay)
-            {
-                sceneLoader.LoadEndScene();
-            }
-            else
-            {
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                sceneLoader.LoadNextDay();
-            }
+            StartCoroutine(EndDay());
         }
         
     }
