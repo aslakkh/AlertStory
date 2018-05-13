@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 
     public int score;
     public int privateScore;
-    private int dayCount;
+    public int dayCount;
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
 
@@ -37,17 +37,18 @@ public class GameManager : MonoBehaviour {
 
     // Dict with day-number as key and a list of information from information package as values
     private Dictionary<int, List<string>> _informationDict;
+    private Dictionary<int, List<string>> informationPackageDict;
+    private List<string> informationPackageList = new List<string>();
+    public List<Objective> objectivesList;
+    public Dictionary<int, List<Objective>> objectivesDict;
+    public InformationPackageManager informationPackageManager;
+
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
     private EventManager eventManager;
     private SceneLoader sceneLoader; //reference to sceneloader
     private GameState _gameState;
-    private Dictionary<int, List<string>> informationPackageDict;
-    private List<string> informationPackageList = new List<string>();
-    public List<Objective> objectivesList;
-    public Dictionary<int, List<Objective>> objectivesDict;
-    public InformationPackageManager informationPackageManager;
 
     //gameState property. Publishes event on change
     private GameState gameState
@@ -136,28 +137,13 @@ public class GameManager : MonoBehaviour {
         }
 
         // Instantiating objectivesDict
-        int i = 0;
-        List<string> taskList = new List<string>();
-        taskList.Add("Ola Nordmann");
-        List<Objective> objectiveList1 = new List<Objective>();
-        objectiveList1.Add(new Objective("desc", taskList));
-        List<Objective> objectiveList2 = new List<Objective>();
-        objectiveList2.Add(new Objective("desc", taskList));
-        List<Objective> objectiveList3 = new List<Objective>();
-        objectiveList3.Add(new Objective("desc", taskList));
+        int i = 1;
         foreach (Objective obj in objectivesList) {
-            if (i <= 2) {
-                objectiveList1.Add(obj);
-            } else if (i <= 4) {
-                objectiveList2.Add(obj);
-            } else {
-                objectiveList3.Add(obj);
-            }
+            List<Objective> objectiveList1 = new List<Objective>();
+            objectiveList1.Add(obj);
+            objectivesDict.Add(i, objectiveList1);
             i++;
         }
-        objectivesDict.Add(1, objectiveList1);
-        objectivesDict.Add(2, objectiveList2);
-        objectivesDict.Add(3, objectiveList3);
 
     }
 
@@ -186,7 +172,7 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
         sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
-        dayCount = 0;
+        //dayCount = 0;
     }
 
     public bool FireEvent() {
@@ -288,7 +274,6 @@ public class GameManager : MonoBehaviour {
             else
             {
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                Debug.Log("daycount:" + dayCount);
                 sceneLoader.LoadNextDay();
             }
         }

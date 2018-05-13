@@ -33,41 +33,37 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnNameClicked()
     {
-        if (!nameText.text.Equals("NA") && !currentDay.Contains(nameText.text) && currentDay.Count < 5)
+        if (!nameText.text.Equals("NA") && !currentDay.Contains(nameText.text))
         {
+            currentDay.Add("Information");
             currentDay.Add(nameText.text);
         }
     }
 
     public void OnAddressClicked()
     {
-        if (!addressText.text.Equals("NA") && !currentDay.Contains(addressText.text) && currentDay.Count < 5)
+        if (!addressText.text.Equals("NA") && !currentDay.Contains(addressText.text))
         {
+            currentDay.Add("Information");
             currentDay.Add(addressText.text);
         }
     }
 
     public void OnEmailClicked()
     {
-        if (!emailText.text.Equals("NA") && !currentDay.Contains(emailText.text) && currentDay.Count < 5)
+        if (!emailText.text.Equals("NA") && !currentDay.Contains(emailText.text))
         {
+            currentDay.Add("Information");
             currentDay.Add(emailText.text);
         }
     }
 
     public void OnPhoneNumberClicked()
     {
-        if (!phoneNumberText.text.Equals("NA") && !currentDay.Contains(phoneNumberText.text) && currentDay.Count < 5)
+        if (!phoneNumberText.text.Equals("NA") && !currentDay.Contains(phoneNumberText.text))
         {
+            currentDay.Add("Information");
             currentDay.Add(phoneNumberText.text);
-        }
-    }
-
-    public void printList()
-    {
-        foreach (string element in currentDay)
-        {
-            Debug.Log(element);
         }
     }
 }
