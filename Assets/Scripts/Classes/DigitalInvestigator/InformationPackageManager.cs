@@ -43,6 +43,7 @@ public class InformationPackageManager : MonoBehaviour {
                             {
                                 if (taskmatch == false)
                                 {
+                                    // DEBUGGING START
                                     // DEBUGGING FOR SPECIAL ANNOYING STRING THAT WONT MATCH (mother post task on day 2)
                                     string x = "Im so glad to be 50 years old. I know i'm getting old, but you know what keeps me up and going? My children. They're the best thing that ever happened to me, and I'm so proud of them. Thanks for all birthday wishes!";
                                     if (o.tasks[j].Equals(x))
@@ -57,6 +58,7 @@ public class InformationPackageManager : MonoBehaviour {
                                     {
                                         Debug.Log("temp compares to x");
                                     }
+                                    // DEBUGGING END
                                     if (o.tasks[j].Equals(temp) || temp.Contains(o.tasks[j]))
                                     {
                                         taskmatch = true;
