@@ -51,10 +51,10 @@ public class GameManager : MonoBehaviour {
     private GameState _gameState;
 
     //gameState property. Publishes event on change
-    private GameState gameState
+    public GameState gameState
     {
         get { return _gameState; }
-        set
+        private set
         {
             if (_gameState != value)
             {

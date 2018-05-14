@@ -18,6 +18,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     private StringSettingDictionary settingsList;
     private Requirement requirement;
     private List<string> informationPackage;
+    private Button submitButton; //reference to submitbutton
 
 
     public GameObject scrollView;
@@ -34,6 +35,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         informationPackage = GameManager.Instance.informationPackage;
         objectivesList = GameManager.Instance.objectives;
         stats.text = "Score: " + gameManager.score.ToString();
+        submitButton = dropDown.transform.Find("SubmitButton").GetComponent<Button>();
 
         informationPackageListItemsColor2 = new Color(0.8f, 0.8f, 0.8f, 1);
         informationPackageListItemsColor1 = new Color(1, 1, 1, 1);
@@ -82,6 +84,10 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)
     {
+        //set interactable of submit button based on gamestate
+        if(gameManager.gameState != GameState.investigator) { submitButton.interactable = false; }
+        else { submitButton.interactable = true; }
+
         //Sets score string
         stats.text = "Score: " + gameManager.score;
 
