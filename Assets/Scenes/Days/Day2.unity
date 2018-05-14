@@ -693,7 +693,7 @@ Prefab:
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.data[1].tasks.Array.data[1]
-      value: Street of Ficton 79, 394 New State Fantasy, Wonderland
+      value: Gamers Street 101, Fictionia
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
@@ -701,6 +701,11 @@ Prefab:
       value: Im so glad to be 50 years old. I know i'm getting old, but you know what
         keeps me up and going? My children. They're the best thing that ever happened
         to me, and I'm so proud of them. Thanks for all birthday wishes!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].tasks.Array.data[0]
+      value: Tompson Street 48, Fictionia
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
@@ -835,12 +840,12 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 131.14754
       objectReference: {fileID: 0}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 54.644806
       objectReference: {fileID: 0}
     - target: {fileID: 224069702574487742, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}

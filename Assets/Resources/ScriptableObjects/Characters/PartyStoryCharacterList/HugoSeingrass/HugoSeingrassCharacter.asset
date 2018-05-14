@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
   fullName: Hugo Seingrass
-  address: 
-  email: 
-  phoneNumber: 
+  address: Function Street 903, Fictionia
+  email: hugo_the_boss@coolmail.com
+  phoneNumber: 90371174
   friendsbookProfile: {fileID: 11400000, guid: a2ded4c20bed4a540806014515855851, type: 2}

@@ -17,6 +17,6 @@ MonoBehaviour:
   posts: {fileID: 11400000, guid: 2bfec51b2065322449dc048c0ee3d88b, type: 2}
   profilePicture: {fileID: 21300000, guid: ab4484923bc062a4abea9d10ee9f9d11, type: 3}
   acceptsFriendRequest: 0
-  informationSetting: 1
+  informationSetting: 2
   friendsSetting: 1
   postsSetting: 1
