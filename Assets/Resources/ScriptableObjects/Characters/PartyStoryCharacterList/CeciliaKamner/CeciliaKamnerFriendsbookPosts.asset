@@ -11,4 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: CeciliaKamnerFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Im so glad to finally move from house and live on my own. I cant wait!
+    date:
+      year: 2018
+      month: 5
+      day: 9
+      hour: 10
+      minute: 0
+    to: {fileID: 11400000, guid: d56f6802e5b9b914491e057d8edb1486, type: 2}
+    from: {fileID: 11400000, guid: d56f6802e5b9b914491e057d8edb1486, type: 2}
+  - content: Hey. I think I forgot my phone charger at your house. Coming to pick
+      it up tomorrow. See ya!
+    date:
+      year: 2013
+      month: 6
+      day: 26
+      hour: 12
+      minute: 0
+    to: {fileID: 11400000, guid: d56f6802e5b9b914491e057d8edb1486, type: 2}
+    from: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}

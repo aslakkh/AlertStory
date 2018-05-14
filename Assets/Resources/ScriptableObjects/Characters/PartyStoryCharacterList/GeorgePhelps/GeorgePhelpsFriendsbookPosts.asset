@@ -11,4 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: GeorgePhelpsFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Hey man. Wanna go for a swim tomorrow? I've been training all week to
+      beat you!
+    date:
+      year: 2015
+      month: 5
+      day: 12
+      hour: 10
+      minute: 0
+    to: {fileID: 11400000, guid: c71537a3c36f1224e9b1019f6e1d5a73, type: 2}
+    from: {fileID: 11400000, guid: 8d883087378746b44a11bb1ded374048, type: 2}
+  - content: 'Dont buy TV''s from FlatScreenDealMakersDeal.com! I just bought one
+      at it got a big crack all over the screen! '
+    date:
+      year: 2011
+      month: 4
+      day: 27
+      hour: 8
+      minute: 17
+    to: {fileID: 11400000, guid: c71537a3c36f1224e9b1019f6e1d5a73, type: 2}
+    from: {fileID: 11400000, guid: c71537a3c36f1224e9b1019f6e1d5a73, type: 2}

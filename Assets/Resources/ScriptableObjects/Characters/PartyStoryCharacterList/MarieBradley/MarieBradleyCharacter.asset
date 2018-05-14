@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
   fullName: Marie Bradley
-  address: 
-  email: 
-  phoneNumber: 
+  address: Nohere Street 33, Fictionia
+  email: mariab@stud.ftnu.com
+  phoneNumber: 82746283
   friendsbookProfile: {fileID: 11400000, guid: 70f9d0e0d5d6a954b8eceefce3bc5d6a, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
   fullName: Tom Hansen
-  address: 'Street of Ficton 79, 394 New State Fantasy, Wonderland '
-  email: 
-  phoneNumber: 
+  address: Tompson Street 48, Fictionia
+  email: tom_h95@fictionmail.com
+  phoneNumber: 49038271
   friendsbookProfile: {fileID: 11400000, guid: 8d883087378746b44a11bb1ded374048, type: 2}
