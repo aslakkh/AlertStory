@@ -14,6 +14,12 @@ public class BinaryEventView : EventView {
     {
         affirmativeButtonText = affirmativeButton.gameObject.GetComponentInChildren<Text>();
         dissentiveButtonText = dissentiveButton.gameObject.GetComponentInChildren<Text>();
+        //Sound
+        var soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        affirmativeButton.onClick.AddListener(delegate {
+            soundManager.sfxSource.PlayOneShot(soundManager.sfxSource.clip); }); 
+        dissentiveButton.onClick.AddListener(delegate {
+            soundManager.sfxSource.PlayOneShot(soundManager.sfxSource.clip); });
     }
 
     public void SetAffirmativeButtonText(string text)

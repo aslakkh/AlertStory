@@ -12,8 +12,9 @@ public class FriendsbookSearchController : MonoBehaviour {
 
     private List<Character> friendsbookProfiles; //internal reference to all characters with friendsbookProfiles
     private List<Character> searchResult;
+    private SoundManager soundManager;
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start () {
         characterList = GameObject.FindObjectOfType<GameManager>().characterList;
         if(characterList != null)
@@ -22,6 +23,8 @@ public class FriendsbookSearchController : MonoBehaviour {
         }
         
         searchResult = new List<Character>();
+	    
+	    soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 
     public void SetFriendsbookProfiles(List<Character> list) //can be used to search from lists other than characterList
@@ -55,6 +58,7 @@ public class FriendsbookSearchController : MonoBehaviour {
 
     public void OnClick()
     {
+        soundManager.sfxSource.Play();
         Search(text.text);
     }
 	
