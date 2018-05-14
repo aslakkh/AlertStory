@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Name: WolfAveryFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 82fd36c643fa533489bf485338207c3e, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
   posts: {fileID: 11400000, guid: 8d755b6d496e2d14182325434c87ef72, type: 2}
   profilePicture: {fileID: 0}
   acceptsFriendRequest: 1
-  informationSetting: 1
+  informationSetting: 0
   friendsSetting: 2
   postsSetting: 1

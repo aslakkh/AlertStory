@@ -707,6 +707,11 @@ Prefab:
       propertyPath: objectivesList.Array.data[1].tasks.Array.data[0]
       value: Tompson Street 48, Fictionia
       objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: endDay
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
   m_IsPrefabParent: 0
@@ -845,12 +850,12 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 54.644806
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224069702574487742, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 38.929443
       objectReference: {fileID: 0}
     - target: {fileID: 224069702574487742, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -860,7 +865,7 @@ Prefab:
     - target: {fileID: 224092281980655644, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 102.18979
       objectReference: {fileID: 0}
     - target: {fileID: 224092281980655644, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}

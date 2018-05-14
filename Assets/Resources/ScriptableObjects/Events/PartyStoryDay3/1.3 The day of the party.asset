@@ -15,7 +15,7 @@ MonoBehaviour:
   text: "This is it. It is the day of the party. Hopefully it will the be the party
     of the century!\r"
   isMessage: 0
-  fireNextEventImmediately: 0
+  fireNextEventImmediately: 1
   requirements: {fileID: 114629338388849310}
   dependencies: {fileID: 114681081714042202}
   choices:

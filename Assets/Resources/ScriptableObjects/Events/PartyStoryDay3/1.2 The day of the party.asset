@@ -14,7 +14,7 @@ MonoBehaviour:
   title: 1.2 The day of the party
   text: 
   isMessage: 0
-  fireNextEventImmediately: 0
+  fireNextEventImmediately: 1
   requirements: {fileID: 114090387144201438}
   dependencies: {fileID: 114516396603470658}
   choices:

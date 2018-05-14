@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: RolfGandorFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: ffa6fd5be0e8a2742bbf0561c5468c3a, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
   posts: {fileID: 11400000, guid: ec51318e41a17a04b93da0be738a4934, type: 2}
   profilePicture: {fileID: 21300000, guid: 35d9611fcd5443349a8657455a03f08f, type: 3}
   acceptsFriendRequest: 0
