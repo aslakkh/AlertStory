@@ -105,7 +105,7 @@ public class DropDownItemController : MonoBehaviour {
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()) {
             Transform text = d.transform.parent.GetChild(1);
             if (text.name.Contains("NameText")) {
-                Requirement temp = new Requirement(text.GetComponent<Text>().text);
+                Requirement temp = new Requirement("Facebook");
                 if (d.value == 1)
                 {
                     gm.requirements.Add(temp.requirementName, Setting.Public);
