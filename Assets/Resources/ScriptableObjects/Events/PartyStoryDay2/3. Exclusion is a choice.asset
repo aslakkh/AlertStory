@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 3. Exclusion is a choice
   m_EditorClassIdentifier: 
   title: 3. Exclusion is a choice
-  text: You've gotten time to investigate your mothers friendsbook profile. Did she
-    have any common friends with you ?
+  text: You've had time to investigate your mothers Friendsbook profile. Did she have
+    any friends in common with you?
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114792126859254680}

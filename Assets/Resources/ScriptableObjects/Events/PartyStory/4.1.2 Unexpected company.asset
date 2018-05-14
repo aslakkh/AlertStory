@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Name: 4.1.2 Unexpected company
   m_EditorClassIdentifier: 
   title: 4.1.2 Unexpected company
-  text: 'Trine Johnson shares a lot of information through friendsbook. She would
-    like to add two friends which you both have in common to the party event.
-
-    Would you let her?'
+  text: Trine Johnson shares a lot on Friendsbook. She would like you to invite two
+    friends that you have in common. Are you ok with that?
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114421472267458606}

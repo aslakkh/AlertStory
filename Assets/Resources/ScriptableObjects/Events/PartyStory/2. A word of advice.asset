@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Name: 2. A word of advice
   m_EditorClassIdentifier: 
   title: '2: A word of advice...'
-  text: You should invite someone to the party. Find out if two of your friends on
-    Friendsbook, Tom Hansen and Trine Johnson shares alot of information on facebook.
+  text: You need to invite people to your party, but first you need to see what they
+    share of their information to figure out if it is safe. Try to find information
+    about Tom Hansen or Trine Johnson on Friendsbook. Have a look at the objectives
+    for more information.
   isMessage: 1
   fireNextEventImmediately: 0
   requirements: {fileID: 114344350500551362}
   dependencies: {fileID: 114346480977133312}
   choices:
-  - choiceDescription: Ok, I will check it in the investigator.
+  - choiceDescription: Got it
     scores: []
     functionCalls: []
     endGameTrigger: 0

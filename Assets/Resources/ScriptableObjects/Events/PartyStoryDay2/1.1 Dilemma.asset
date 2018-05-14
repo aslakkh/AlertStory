@@ -24,7 +24,7 @@ MonoBehaviour:
     scores:
     - requirementName: 
       setting: 2
-      value: 50
+      value: 0
     functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114259593278285548

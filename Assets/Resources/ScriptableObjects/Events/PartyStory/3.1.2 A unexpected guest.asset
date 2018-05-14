@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: 3.1.2 A unexpected guest
   m_EditorClassIdentifier: 
   title: 3.1.2 A unexpected guest
-  text: Karsten Hendricks would like to add another friend to the party. But you dont
-    know the other friend, would you let him add the other friend?
+  text: 'Karsten Hendricks would also like to bring a friend and invite that friend
+    to the party. It''s some dude you''ve never heard of.
+
+    Would you allow him to invite his friend?'
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114631144208209278}
