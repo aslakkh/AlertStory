@@ -20,11 +20,17 @@ MonoBehaviour:
   dependencies: {fileID: 114178478063803378}
   choices:
   - choiceDescription: Oscar Mitchell
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: -100
     functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Wolf Avery
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 100
     functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114178478063803378

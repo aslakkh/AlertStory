@@ -19,11 +19,17 @@ MonoBehaviour:
   dependencies: {fileID: 114161954721383024}
   choices:
   - choiceDescription: Definitely guilty
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 50
     functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Innocent
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: -50
     functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114161954721383024

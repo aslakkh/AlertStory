@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: 4. Public ground
   m_EditorClassIdentifier: 
   title: '4: Find out who to invite'
-  text: You should invite someone to the party. Find out if Tom Hansen or Trine Johnson
+  text: 'You should invite someone to the party. Find out if Tom Hansen or Trine Johnson
     shares a lot of information on Friendsbook.
+
+    Have a look at the objectives for more information.'
   isMessage: 1
   fireNextEventImmediately: 0
   requirements: {fileID: 114479526253892282}
@@ -21,7 +23,8 @@ MonoBehaviour:
   choices:
   - choiceDescription: Ok, I will check it!
     scores: []
-    functionCalls: []
+    functionCalls:
+    - {fileID: 11400000, guid: 579f7f356fa799a498030adbf79fa146, type: 2}
     endGameTrigger: 0
 --- !u!114 &114339167176689150
 MonoBehaviour:

@@ -20,11 +20,17 @@ MonoBehaviour:
   dependencies: {fileID: 114520610344958646}
   choices:
   - choiceDescription: Sophie Davids
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 100
     functionCalls: []
     endGameTrigger: 0
   - choiceDescription: Oscar Mitchell
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: -100
     functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114369454208204520

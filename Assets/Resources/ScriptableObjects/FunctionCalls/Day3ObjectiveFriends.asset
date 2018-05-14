@@ -14,7 +14,9 @@ MonoBehaviour:
   aName: FunctionCallScript
   objectivesList:
   - description: Find information about the address of Sophie Davids and Wolf Avery.
-      Add information if you think it supports either of them being the saboteur.
+      Add information if you think it supports either of them being the saboteur Add
+      information if you think it supports them being the saboteur who wants to wants
+      to call the police or share the location of the party.
     tasks:
     - That party was sick duuuude. So glad I shared it with EVERYBODY!!!!!!!!!!!
     - Just moved to Pearson's street 24. Nice.

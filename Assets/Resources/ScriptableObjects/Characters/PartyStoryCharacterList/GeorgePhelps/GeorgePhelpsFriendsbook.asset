@@ -15,6 +15,7 @@ MonoBehaviour:
   friends:
   - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
   - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
+  - {fileID: 11400000, guid: 82fd36c643fa533489bf485338207c3e, type: 2}
   posts: {fileID: 11400000, guid: 2bfec51b2065322449dc048c0ee3d88b, type: 2}
   profilePicture: {fileID: 21300000, guid: ab4484923bc062a4abea9d10ee9f9d11, type: 3}
   acceptsFriendRequest: 0

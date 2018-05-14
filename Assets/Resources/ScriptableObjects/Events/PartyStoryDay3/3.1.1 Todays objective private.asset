@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: 3.1.1 Todays objective private
   m_EditorClassIdentifier: 
   title: 3.1.1 Todays objective private
-  text: 'You have received todays objective: find the address and phone number of
-    Oscar Mitchell and Wolf Avery. You should also add any information that may point
-    to one of them planning on sabotaging the party.'
+  text: 'You have received todays objective: find the address of Oscar Mitchell and
+    Wolf Avery. You should also add any information that may point to one of them
+    planning on sabotaging the party.'
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114178949664455364}

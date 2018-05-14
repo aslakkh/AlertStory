@@ -14,7 +14,8 @@ MonoBehaviour:
   aName: FunctionCallScript
   objectivesList:
   - description: Find information about the address of Sophie Davids and Oscar Mitchell.
-      Add information if you think it supports them being the saboteur.
+      Add information if you think it supports them being the saboteur who wants to
+      wants to call the police.
     tasks:
     - Berkley Street 123
     - 'Hello all my neighbors: John Stevens, Sam Reiter, Jack & John Smith: I invite
