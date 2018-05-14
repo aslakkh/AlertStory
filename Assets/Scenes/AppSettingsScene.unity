@@ -1575,12 +1575,18 @@ Prefab:
     - target: {fileID: 114840834415713476, guid: b0a89e8eceab96246b34d525c23fb5b9,
         type: 2}
       propertyPath: m_Text
-      value: "Friendsbook is a social media platform. The settings you set refer to
-        what and with who you share of your personal information. \n\nPersonal information
-        includes name, adress, posts and more. Basically all you have on your own
-        Friendsbook page.\n\nFriendsbook is where you want to announce your party.
+      value: 'The settings you set refer to what and with who you share of your personal
+        information and the party you will host in the game.
+
+        The settings represent the goal of your game, with focus on how you can manage
+        privacy. Personal information includes name, adress, posts and more.
+
+        Basically all you have might find on a persons Friendsbook page. Friendsbook
+        is where you want to announce your party.
+
+
         However, keep in mind what settings you choose to use as these will affect
-        the choices you have to make in order to achieve the perfect party."
+        the choices you have to make in order to achieve the perfect party.'
       objectReference: {fileID: 0}
     - target: {fileID: 224212781504866034, guid: b0a89e8eceab96246b34d525c23fb5b9,
         type: 2}

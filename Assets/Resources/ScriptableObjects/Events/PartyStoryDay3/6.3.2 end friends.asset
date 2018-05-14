@@ -51,5 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    m_keys: []
-    m_values: []
+    m_keys:
+    - {fileID: 11400000, guid: 5be3f2c80750b214ba0f3b14b5ae11d2, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 0

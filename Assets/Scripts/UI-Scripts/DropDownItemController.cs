@@ -18,14 +18,12 @@ public class DropDownItemController : MonoBehaviour {
 
     public bool validated = false;
 
-    private string infoText = "Friendsbook is a social media platform. The settings you set refer to what and with who you share of your personal information. \n \nPersonal information includes name, adress, posts and more. Basically all you have on your own Friendsbook page. \n\nFriendsbook is where you want to announce your party. However, keep in mind what settings you choose to use as these will affect the choices you have to make in order to achieve the perfect party.";
-
 
     // Dict with the setting name and its description.
     private Dictionary<string, string> settingsInfo = new Dictionary<string, string>() {
-        {"Private","When choosing private settings, you will not share your personal information with anyone." },
-        {"Friends","When choosing friends settings, you will share your information with friends."},
-        {"Public", "When choosing public settings, you will share your information with everyone." }
+        {"Private","When choosing private settings, your goal will be to protect the accessibility of the party from unknown people and people who share alot." },
+        {"Friends","When choosing friends settings, your goal will be to only share the party with friends and their friends (except your mom)"},
+        {"Public", "When choosing public settings, your goal will be to share your party with as many as possible, but make sure to avoid certain pitfalls (your mom)" }
     };
 
     // Use this for initialization
@@ -34,7 +32,6 @@ public class DropDownItemController : MonoBehaviour {
         tempSettings.Add("Select an option");
         tempSettings.Reverse();
         populatelist(settingsFacebookDropdown, tempSettings);
-        settingsFacebookInformationText.text = infoText;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -71,7 +68,10 @@ public class DropDownItemController : MonoBehaviour {
         }
         else
         {
-            text.text = infoText;
+            text.text = "The settings you set refer to what and with who you share of your personal information and the party you will host in the game.\n" +
+                "The settings represent the goal of your game, with focus on how you can manage privacy. Personal information includes name, adress, posts and more.\n" +
+                "Basically all you might find on a persons Friendsbook page. Friendsbook is where you want to announce your party." +
+                "\n \n However, keep in mind what settings you choose to use as these will affect the choices you have to make in order to achieve the perfect party.";
         }
 
     }
