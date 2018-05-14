@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterList: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4, type: 2}
   fullName: Michael Ploff
-  address: 
-  email: 
-  phoneNumber: 
+  address: Tompson Street 56, Fictionia
+  email: michaeltheswimmer@functionmail.com
+  phoneNumber: 48900215
   friendsbookProfile: {fileID: 11400000, guid: 5d347af2dfa75b743b62e6df18de108a, type: 2}

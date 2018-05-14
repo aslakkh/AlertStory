@@ -11,4 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: KimSunYuFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Guys, the last post wasnt me. It was a friend of me which hijacked my
+      phone for a second. Sorry!
+    date:
+      year: 2014
+      month: 2
+      day: 9
+      hour: 19
+      minute: 30
+    to: {fileID: 11400000, guid: 9e98590a16ef3144685239b1befcd4f5, type: 2}
+    from: {fileID: 11400000, guid: 9e98590a16ef3144685239b1befcd4f5, type: 2}
+  - content: I really love waffles. Like, it's ok if I get fat from them, because
+      I really like them.
+    date:
+      year: 2014
+      month: 2
+      day: 9
+      hour: 19
+      minute: 14
+    to: {fileID: 11400000, guid: 9e98590a16ef3144685239b1befcd4f5, type: 2}
+    from: {fileID: 11400000, guid: 9e98590a16ef3144685239b1befcd4f5, type: 2}

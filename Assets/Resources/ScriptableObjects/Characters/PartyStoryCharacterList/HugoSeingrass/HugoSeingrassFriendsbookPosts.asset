@@ -11,4 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: HugoSeingrassFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Just had a jam session today. Rocking like the queens of stone age. Awesome.
+    date:
+      year: 2018
+      month: 6
+      day: 12
+      hour: 11
+      minute: 56
+    to: {fileID: 11400000, guid: a2ded4c20bed4a540806014515855851, type: 2}
+    from: {fileID: 11400000, guid: a2ded4c20bed4a540806014515855851, type: 2}
+  - content: I just a job as a musicproducer. Its the best day of my life. I really
+      loves music, looking forward to working with amazing music talents!
+    date:
+      year: 2011
+      month: 8
+      day: 8
+      hour: 21
+      minute: 21
+    to: {fileID: 11400000, guid: a2ded4c20bed4a540806014515855851, type: 2}
+    from: {fileID: 11400000, guid: a2ded4c20bed4a540806014515855851, type: 2}

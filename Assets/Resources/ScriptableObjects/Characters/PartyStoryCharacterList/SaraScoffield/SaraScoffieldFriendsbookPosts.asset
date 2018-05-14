@@ -11,4 +11,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: SaraScoffieldFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Today my dog died... hit by a truck, accidentally. Im so sad. Everyone,
+      please take care in the traffic.
+    date:
+      year: 2017
+      month: 11
+      day: 30
+      hour: 0
+      minute: 0
+    to: {fileID: 11400000, guid: da363609475e5564bb37bc1b9bee1dfa, type: 2}
+    from: {fileID: 11400000, guid: da363609475e5564bb37bc1b9bee1dfa, type: 2}
+  - content: Not to brag.. but I got my own dog!!!!! SO HAPPY !!
+    date:
+      year: 2011
+      month: 5
+      day: 22
+      hour: 14
+      minute: 0
+    to: {fileID: 11400000, guid: da363609475e5564bb37bc1b9bee1dfa, type: 2}
+    from: {fileID: 11400000, guid: da363609475e5564bb37bc1b9bee1dfa, type: 2}
+  - content: 'Remember to pay the rent within a week young lady. PS. your mother told
+      me that you love cupcakes, so if you come up
+
+      i might have baked some for you :-) '
+    date:
+      year: 2008
+      month: 10
+      day: 10
+      hour: 15
+      minute: 12
+    to: {fileID: 11400000, guid: da363609475e5564bb37bc1b9bee1dfa, type: 2}
+    from: {fileID: 11400000, guid: d20a20426f18e0a43bf8bfbd190e9303, type: 2}
