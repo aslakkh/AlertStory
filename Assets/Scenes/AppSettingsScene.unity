@@ -291,12 +291,12 @@ Prefab:
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.data[0].tasks.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.data[1].tasks.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
       propertyPath: m_LocalPosition.x
@@ -333,7 +333,7 @@ Prefab:
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: endDay
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
@@ -354,17 +354,18 @@ Prefab:
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.data[0].description
-      value: Where does tom Live?
+      value: What is the full name of everyone in your friendlist?
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.data[0].tasks.Array.data[0]
-      value: 'Street of Ficton 79, 394 New State Fantasy, Wonderland '
+      value: Tom Hansen
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
       propertyPath: objectivesList.Array.data[1].description
-      value: Where does Trine Live?
+      value: What is the adress of Tom and Trine? And what did your mother post on
+        friendsbook on her birthday?
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
@@ -375,6 +376,43 @@ Prefab:
         type: 2}
       propertyPath: dayCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[1]
+      value: Trine Johnson
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[2]
+      value: Hank Rudy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[3]
+      value: Hugo Seingrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[4]
+      value: Sara Scoffield
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[5]
+      value: Marie Bradley
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].tasks.Array.data[1]
+      value: Street of Ficton 79, 394 New State Fantasy, Wonderland
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].tasks.Array.data[2]
+      value: Im so glad to be 50 years old. I know i'm getting old, but you know what
+        keeps me up and going? My children. They're the best thing that ever happened
+        to me, and I'm so proud of them. Thanks for all birthday wishes!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}

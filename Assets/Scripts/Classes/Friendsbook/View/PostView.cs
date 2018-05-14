@@ -34,8 +34,8 @@ public class PostView : MonoBehaviour {
     {
         if(!currentDay.Contains(content.text) && !content.text.Equals(""))
         {
-            currentDay.Add("Posts");
-            currentDay.Add(content.text);
+            currentDay.Add("Post:");
+            currentDay.Add(content.text.ToString());
         }
     }
 }

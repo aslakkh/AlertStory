@@ -713,31 +713,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[0].tasks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[1].tasks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[2].tasks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[3].tasks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
       propertyPath: m_LocalPosition.x
       value: 434.2009
@@ -772,60 +747,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
         type: 2}
-      propertyPath: informationPackageManager
-      value: 
-      objectReference: {fileID: 1915597265}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[0].description
-      value: Where does Tom Live?
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[0].tasks.Array.data[0]
-      value: 'Street of Ficton 79, 394 New State Fantasy, Wonderland '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[1].description
-      value: z
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[1].tasks.Array.data[0]
-      value: 'Street of Ficton 79, 394 New State Fantasy, Wonderland '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[2].description
-      value: Does Tom Hansen Lives?
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[2].tasks.Array.data[0]
-      value: 'Street of Ficton 79, 394 New State Fantasy, Wonderland '
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: dayCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
       propertyPath: backupRequirementDict
       value: 
       objectReference: {fileID: 11400000, guid: 852e4bb7e3018f043985048db18f4f38,
         type: 2}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[3].description
-      value: Does Tom Hansen Live?
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: objectivesList.Array.data[3].tasks.Array.data[0]
-      value: 'Street of Ficton 79, 394 New State Fantasy, Wonderland '
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
   m_IsPrefabParent: 0
@@ -835,12 +760,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 417585809}
   m_Script: {fileID: 11500000, guid: de2d9e27bc5c49747bbe8e954d102700, type: 3}
---- !u!114 &1915597265 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114269145749341886, guid: 10d12701ad09b1946a4ec07283c144d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 77616380}
-  m_Script: {fileID: 11500000, guid: 2dc3892055d4e481095e96036db246a6, type: 3}
 --- !u!224 &1975755456 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224740445323244564, guid: 0df9167830bae3c479311063872cc94b,
