@@ -436,6 +436,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1201684368}
+  - component: {fileID: 1201684369}
+  - component: {fileID: 1201684370}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -457,6 +459,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1201684369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201684367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8782526eeff44ee8bb8d7d9a4334aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1201684370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1201684367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8782526eeff44ee8bb8d7d9a4334aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1468525895
 Prefab:
   m_ObjectHideFlags: 0
@@ -507,7 +531,7 @@ Prefab:
     - target: {fileID: 224590340510386470, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224590340510386470, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -577,7 +601,7 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 131.37755
       objectReference: {fileID: 0}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -587,7 +611,7 @@ Prefab:
     - target: {fileID: 224069702574487742, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 41.314552
       objectReference: {fileID: 0}
     - target: {fileID: 224069702574487742, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -597,7 +621,7 @@ Prefab:
     - target: {fileID: 224092281980655644, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 111.73708
       objectReference: {fileID: 0}
     - target: {fileID: 224092281980655644, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}

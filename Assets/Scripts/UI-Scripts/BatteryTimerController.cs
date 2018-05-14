@@ -19,6 +19,7 @@ public class BatteryTimerController : MonoBehaviour {
     public Transform warningPanelSpawnPoint; //where to instantiate prefab
     private bool warned = false;
     private GameManager gameManager;
+    private SoundManager soundManager;
     
 
     private void Awake() {
@@ -96,6 +97,7 @@ public class BatteryTimerController : MonoBehaviour {
     //instantiate warning in scene
     private void DisplayWarning(string timeRemainingText)
     {
+        
         var panel = GameObject.Instantiate(warningPanel);
         panel.transform.SetParent(warningPanelSpawnPoint, false); //recommended way of setting parent of UI element
         panel.transform.SetAsLastSibling(); //always on top

@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DropdownScrollViewSubmitButton : MonoBehaviour {
+    private SoundManager soundManager;
 
+    private void Awake() {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+    }
+    
 	public void OnClick()
     {
+        soundManager.sfxSource.Play();
         try
         {
             //call next day
