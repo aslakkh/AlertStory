@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: 4. Rotten Apples
   m_EditorClassIdentifier: 
   title: 4. Rotten Apples
-  text: 'Considering the desperate situation. You have to make a hard choice. Will
+  text: 'Considering the desperate situation, you have to make a hard choice. Will
     you remove all the friends with connection to your mother? '
   isMessage: 0
   fireNextEventImmediately: 0

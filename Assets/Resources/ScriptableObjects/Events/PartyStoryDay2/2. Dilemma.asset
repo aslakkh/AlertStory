@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 2. Dilemma
   m_EditorClassIdentifier: 
   title: 2. Dilemma
-  text: The party event on friendsbook should stay private as long as your mother
-    is on friendsbook. You should find out who she is friends with on friendsbook.
+  text: 'The party event should stay private as long as your mother is on Friendsbook.
+    You should find out who she is friends with on Friendsbook. '
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114693990989404902}

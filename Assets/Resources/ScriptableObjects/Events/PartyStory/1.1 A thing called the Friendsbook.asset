@@ -9,31 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: A private choice
+  m_Name: 1.1 A thing called the Friendsbook
   m_EditorClassIdentifier: 
-  title: '2.1: A private choice'
-  text: "Now that you\u2019ve had some time to investigate, would you like to invite
-    Tom or Trine to your party? \r"
+  title: '1.1: A thing called the Friendsbook'
+  text: Have you checked out Friendsbook yet? It is amazing, and you can use it to
+    your advantage! Some people share stuff on Friendsbook mindlessly. You can add
+    some information to your storage. This will help you make the greatest party ever!
   isMessage: 0
   fireNextEventImmediately: 1
-  requirements: {fileID: 114686772017118404}
-  dependencies: {fileID: 114555131802528386}
+  requirements: {fileID: 114708649523873514}
+  dependencies: {fileID: 114237443539208382}
   choices:
-  - choiceDescription: Choose Tom
-    scores:
-    - requirementName: 
-      setting: 2
-      value: 50
+  - choiceDescription: My storage?
+    scores: []
     functionCalls: []
     endGameTrigger: 0
-  - choiceDescription: Choose Trine
-    scores:
-    - requirementName: 
-      setting: 2
-      value: -100
-    functionCalls: []
-    endGameTrigger: 0
---- !u!114 &114555131802528386
+--- !u!114 &114237443539208382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -45,13 +36,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    m_keys:
-    - {fileID: 11400000, guid: 57575f8e997e78a45b571c5dec4d1150, type: 2}
-    m_values:
-    - fired: 1
-      choiceA: 0
-      choiceB: 0
---- !u!114 &114686772017118404
+    m_keys: []
+    m_values: []
+--- !u!114 &114708649523873514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -63,6 +50,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Facebook
-    m_values: 00000000
+    m_keys: []
+    m_values: 
