@@ -58,6 +58,11 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
         if(args.newState == GameState.investigator)
         {
             stats.text = "Score: " + gameManager.score.ToString();
+            submitButton.interactable = true; //only allow submit while in investigator
+        }
+        else
+        {
+            submitButton.interactable = false;
         }
     }
 
@@ -84,9 +89,6 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     //Opens dropdown
     public void OnPointerClick(PointerEventData eventData)
     {
-        //set interactable of submit button based on gamestate
-        if(gameManager.gameState != GameState.investigator) { submitButton.interactable = false; }
-        else { submitButton.interactable = true; }
 
         //Sets score string
         stats.text = "Score: " + gameManager.score;
