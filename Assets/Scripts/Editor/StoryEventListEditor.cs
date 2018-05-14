@@ -16,6 +16,10 @@ public class StoryEventListEditor : EditorWindow
     private string storyEventTitle;
     Vector2 mainScrollPosition;
 
+    //for differentiating list items
+    GUIStyle listItemStyle = new GUIStyle();
+    Color[] colors = new Color[] { Color.white, Color.grey };
+
     [MenuItem("Window/Alert/Events/StoryEventList")]
     static void Init()
     {
@@ -84,12 +88,15 @@ public class StoryEventListEditor : EditorWindow
             GUILayout.Label("Events:", EditorStyles.boldLabel);
             if(storyEventList.list.Count > 0)
             {
+
                 //wraps storyeventlist in scrollview
                 scrollPosition = GUILayout.BeginScrollView(scrollPosition);
                 for (int i = 0; i < storyEventList.list.Count; i++)
                 {
+                    listItemStyle.normal.background = EditorHelperFunctions.MakeTex(1, 1, colors[i % 2]); //used to alternate background colors
+                    
                     StoryEvent c = storyEventList.list[i];
-                    GUILayout.BeginHorizontal();
+                    GUILayout.BeginHorizontal(listItemStyle);
                     GUILayout.Label(c.title);
                     if (GUILayout.Button("Edit", GUILayout.ExpandWidth(false))) //opens storyeventeditor
                     {
@@ -107,7 +114,22 @@ public class StoryEventListEditor : EditorWindow
                     {
                         if (eventPositionInt != i)
                         {
-                            storyEventList.Swap(i, eventPositionInt);
+                            if(eventPositionInt > i)
+                            {
+                                for (int z = i; z < eventPositionInt; z++)
+                                {
+                                    storyEventList.Swap(z, z + 1);
+                                }
+                            }
+                            else
+                            {
+                                for (int z = i; z > eventPositionInt; z--)
+                                {
+                                    storyEventList.Swap(z, z - 1);
+                                }
+                            }
+                            
+                            //storyEventList.Swap(i, eventPositionInt);
                             EditorUtility.SetDirty(storyEventList);
                             GUI.FocusControl(null);
                         }
@@ -115,6 +137,7 @@ public class StoryEventListEditor : EditorWindow
                     GUILayout.EndHorizontal();
                 }
                 GUILayout.EndScrollView();
+
             }
             else
             {
