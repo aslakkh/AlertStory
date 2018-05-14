@@ -33,7 +33,7 @@ MonoBehaviour:
       setting: 2
       value: 50
     functionCalls: []
-    endGameTrigger: 1
+    endGameTrigger: 0
 --- !u!114 &114697776733414628
 MonoBehaviour:
   m_ObjectHideFlags: 0
