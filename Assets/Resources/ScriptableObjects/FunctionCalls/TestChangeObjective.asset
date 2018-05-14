@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Name: TestChangeObjective
   m_EditorClassIdentifier: 
   aName: FunctionCallScript
-  objectivesList: []
-  targetDay: 0
+  objectivesList:
+  - description: 'Test objective: answer is Tom''s full name.'
+    tasks:
+    - Tom Hansen
+  targetDay: 1

@@ -23,7 +23,8 @@ MonoBehaviour:
   choices:
   - choiceDescription: Got it
     scores: []
-    functionCalls: []
+    functionCalls:
+    - {fileID: 0}
     endGameTrigger: 0
 --- !u!114 &114344350500551362
 MonoBehaviour:
