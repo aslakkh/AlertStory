@@ -589,12 +589,12 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 126.52068
+      value: 99.7567
       objectReference: {fileID: 0}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 53.52798
       objectReference: {fileID: 0}
     - target: {fileID: 224069702574487742, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -640,6 +640,11 @@ Prefab:
         type: 2}
       propertyPath: warningThreshold
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114200068634026416, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: m_Text
+      value: Day 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df9167830bae3c479311063872cc94b, type: 2}
