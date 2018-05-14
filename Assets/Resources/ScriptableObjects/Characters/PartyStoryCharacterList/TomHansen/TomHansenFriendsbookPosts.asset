@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: TomHansenFriendsbookPosts
   m_EditorClassIdentifier: 
   list:
-  - content: 'Hah, I told you Ravendale FC would relegate. You owe me 300 man, I never
-      forget a bet. '
+  - content: Hah, I told you Ravendale FC would relegate. You owe me 300 man, I never
+      forget a bet.
     date:
       year: 2013
       month: 7

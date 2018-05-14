@@ -320,16 +320,6 @@ Prefab:
       propertyPath: backupRequirementDict
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: dayCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
-        type: 2}
-      propertyPath: endDay
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
   m_IsPrefabParent: 0

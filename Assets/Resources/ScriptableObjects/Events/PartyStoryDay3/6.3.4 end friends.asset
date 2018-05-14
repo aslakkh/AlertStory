@@ -22,10 +22,7 @@ MonoBehaviour:
   dependencies: {fileID: 114101378969844152}
   choices:
   - choiceDescription: End game
-    scores:
-    - requirementName: 
-      setting: 2
-      value: 100
+    scores: []
     functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114101378969844152

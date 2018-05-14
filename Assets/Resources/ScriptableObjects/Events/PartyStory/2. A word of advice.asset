@@ -24,7 +24,7 @@ MonoBehaviour:
   - choiceDescription: Got it
     scores: []
     functionCalls:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 579f7f356fa799a498030adbf79fa146, type: 2}
     endGameTrigger: 0
 --- !u!114 &114344350500551362
 MonoBehaviour:
