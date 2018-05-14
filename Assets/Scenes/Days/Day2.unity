@@ -591,6 +591,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].tasks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4394351200903840, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
       propertyPath: m_LocalPosition.x
       value: 434.2009
@@ -638,6 +648,59 @@ Prefab:
         type: 2}
       propertyPath: dayCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].description
+      value: What is the full name of everyone in your friendlist?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[1]
+      value: Tom Hansen
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[2]
+      value: Trine Johnson
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[3]
+      value: Sara Scoffield
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[4]
+      value: Hugo Seingrass
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[5]
+      value: Hank Rudy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[0].tasks.Array.data[0]
+      value: Marie Bradley
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].description
+      value: What is the adress of Tom and Trine? And what did your mother post on
+        friendsbook on her birthday?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].tasks.Array.data[1]
+      value: Street of Ficton 79, 394 New State Fantasy, Wonderland
+      objectReference: {fileID: 0}
+    - target: {fileID: 114064215573790780, guid: fe23e48f08a432a4fbadaece7414ddde,
+        type: 2}
+      propertyPath: objectivesList.Array.data[1].tasks.Array.data[2]
+      value: Im so glad to be 50 years old. I know i'm getting old, but you know what
+        keeps me up and going? My children. They're the best thing that ever happened
+        to me, and I'm so proud of them. Thanks for all birthday wishes!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe23e48f08a432a4fbadaece7414ddde, type: 2}
@@ -772,7 +835,7 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 131.14754
       objectReference: {fileID: 0}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
