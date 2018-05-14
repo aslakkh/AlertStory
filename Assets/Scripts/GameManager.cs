@@ -232,14 +232,13 @@ public class GameManager : MonoBehaviour {
         foreach (FunctionCall functionCall in choice.functionCalls) {
             functionCall.triggerFunction();
         }
-        
+        gameState = GameState.investigator;
         if (storyEvent.fireNextEventImmediately)
         {
             FireEvent();
         }
         else
         {
-            gameState = GameState.investigator;
             if (choice.endGameTrigger)
             {
                 sceneLoader.LoadEndScene();

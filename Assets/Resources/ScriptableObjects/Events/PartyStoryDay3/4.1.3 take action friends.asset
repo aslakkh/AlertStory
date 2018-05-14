@@ -20,11 +20,17 @@ MonoBehaviour:
   dependencies: {fileID: 114243368543028338}
   choices:
   - choiceDescription: Yes
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: 50
     functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No
-    scores: []
+    scores:
+    - requirementName: 
+      setting: 2
+      value: -50
     functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114243368543028338

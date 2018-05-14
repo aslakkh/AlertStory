@@ -53,9 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   privateScore: 0
-  dayCount: 2
+  dayCount: 1
   turnCount: 0
-  endDay: 3
+  endDay: 4
   playerCharacterScriptableObject: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685,
     type: 2}
   playerCharacter: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
@@ -63,26 +63,19 @@ MonoBehaviour:
     type: 2}
   characterList: []
   objectivesList:
-  - description: What is the full name of everyone in your friendlist?
+  - description: No active objectives currently.
+    tasks: []
+  - description: What is the name of your common friends with your mother, Karen Reiter,
+      on Friendsbook? And what did one of them post on your mothers birthday?
     tasks:
-    - Marie Bradley
-    - Tom Hansen
-    - Trine Johnson
     - Sara Scoffield
     - Hugo Seingrass
-    - Hank Rudy
-  - description: What is the adress of Tom and Trine? And what did your mother post
-      on friendsbook on her birthday?
-    tasks:
-    - Tompson Street 48, Fictionia
-    - Gamers Street 101, Fictionia
-    - Im so glad to be 50 years old. I know i'm getting old, but you know what keeps
-      me up and going? My children. They're the best thing that ever happened to me,
-      and I'm so proud of them. Thanks for all birthday wishes!
-  - description: None
+    - 'Happy birthday! You''re such a cool lady! Much cooler than your little brat
+      kid. '
+  - description: No active objectives currently.
     tasks: []
   informationPackageManager: {fileID: 0}
-  backupRequirementDict: {fileID: 11400000, guid: 852e4bb7e3018f043985048db18f4f38,
+  backupRequirementDict: {fileID: 11400000, guid: fdd29f6164357254284bb51c6fc78340,
     type: 2}
   requirementDict:
     m_keys: []

@@ -14,8 +14,7 @@ MonoBehaviour:
   title: 2.2.3 Message friends
   text: "There are two suspects. I've never heard of them before. One is called Sophie
     Davids, the other is Wolf Avery. Try to find information about these people.\r\n\r\nWe
-    should look for their address, their phone number, and any evidence that either
-    of them is our suspect."
+    should look for their address, and any evidence that either of them is our suspect."
   isMessage: 1
   fireNextEventImmediately: 1
   requirements: {fileID: 114207499379834326}

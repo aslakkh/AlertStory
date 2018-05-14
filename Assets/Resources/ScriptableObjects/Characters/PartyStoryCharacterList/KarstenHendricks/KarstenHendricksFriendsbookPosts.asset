@@ -11,4 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
   m_Name: KarstenHendricksFriendsbookPosts
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - content: Hello world! Just got this app! Crazy idea!
+    date:
+      year: 2008
+      month: 1
+      day: 1
+      hour: 12
+      minute: 22
+    to: {fileID: 11400000, guid: 9ae70c131eb5680409688e231a79c9cb, type: 2}
+    from: {fileID: 11400000, guid: 9ae70c131eb5680409688e231a79c9cb, type: 2}
