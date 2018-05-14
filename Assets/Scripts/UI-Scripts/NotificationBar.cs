@@ -24,12 +24,19 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     public GameObject dropDown;
     private GameManager gameManager;
 
+    //colors used to differentiate list items in information package
+    private Color informationPackageListItemsColor1;
+    private Color informationPackageListItemsColor2;
+
     void Start()
     {
         settingsList = GameManager.Instance.requirements;
         informationPackage = GameManager.Instance.informationPackage;
         objectivesList = GameManager.Instance.objectives;
         stats.text = "Score: " + gameManager.score.ToString();
+
+        informationPackageListItemsColor2 = new Color(0.8f, 0.8f, 0.8f, 1);
+        informationPackageListItemsColor1 = new Color(1, 1, 1, 1);
     }
 
     void Awake()
@@ -107,9 +114,9 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
             informationPackage = GameManager.Instance.informationPackage;
             for (int i = 0; i < informationPackage.Count; i += 2)
             {
-                int a = i;
                 GameObject temp = GameObject.Instantiate(informationPackageItem);
                 temp.transform.SetParent(informationSpawn, false);
+                temp.GetComponent<Image>().color = (i % 4 == 0) ? informationPackageListItemsColor1 : informationPackageListItemsColor2;
                 temp.transform.GetChild(0).GetComponent<Text>().text = informationPackage[i];
                 temp.transform.GetChild(1).GetComponent<Text>().text = informationPackage[i + 1];
                 temp.GetComponent<Button>().onClick.AddListener(delegate ()

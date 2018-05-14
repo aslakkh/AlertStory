@@ -35,7 +35,7 @@ public class FriendsbookAboutView : MonoBehaviour {
     {
         if (!nameText.text.Equals("NA") && !currentDay.Contains(nameText.text))
         {
-            currentDay.Add("Information");
+            currentDay.Add("Information:");
             currentDay.Add(nameText.text);
         }
     }
@@ -44,7 +44,7 @@ public class FriendsbookAboutView : MonoBehaviour {
     {
         if (!addressText.text.Equals("NA") && !currentDay.Contains(addressText.text))
         {
-            currentDay.Add("Information");
+            currentDay.Add("Information:");
             currentDay.Add(addressText.text);
         }
     }
@@ -53,7 +53,7 @@ public class FriendsbookAboutView : MonoBehaviour {
     {
         if (!emailText.text.Equals("NA") && !currentDay.Contains(emailText.text))
         {
-            currentDay.Add("Information");
+            currentDay.Add("Information:");
             currentDay.Add(emailText.text);
         }
     }
@@ -62,7 +62,7 @@ public class FriendsbookAboutView : MonoBehaviour {
     {
         if (!phoneNumberText.text.Equals("NA") && !currentDay.Contains(phoneNumberText.text))
         {
-            currentDay.Add("Information");
+            currentDay.Add("Information:");
             currentDay.Add(phoneNumberText.text);
         }
     }
