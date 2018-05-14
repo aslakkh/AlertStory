@@ -18,22 +18,23 @@ public class DropDownItemController : MonoBehaviour {
 
     public bool validated = false;
 
+    private string infoText = "Friendsbook is a social media platform. The settings you set refer to what and with who you share of your personal information. \n \nPersonal information includes name, adress, posts and more. Basically all you have on your own Friendsbook page. \n\nFriendsbook is where you want to announce your party. However, keep in mind what settings you choose to use as these will affect the choices you have to make in order to achieve the perfect party.";
+
 
     // Dict with the setting name and its description.
     private Dictionary<string, string> settingsInfo = new Dictionary<string, string>() {
-        {"Private","Private mean noone else can see the actions you do in the app, but yourself" },
-        {"Friends","Friends mean that you and the friends you have in the app can see you actions there."},
-        {"Public", "Public is the setting which makes any other use of the same app, able to see your actions in that app." }
+        {"Private","When choosing private settings, you will not share your personal information with anyone." },
+        {"Friends","When choosing friends settings, you will share your information with friends."},
+        {"Public", "When choosing public settings, you will share your information with everyone." }
     };
 
     // Use this for initialization
     void Start() {
         List<string> tempSettings = new List<string>(settingsInfo.Keys);
-        tempSettings.Add("Select option");
+        tempSettings.Add("Select an option");
         tempSettings.Reverse();
         populatelist(settingsFacebookDropdown, tempSettings);
-        settingsFacebookInformationText.text = "Please choose a option for the app.";
-        settingsFacebookInformationText.color = Color.red;
+        settingsFacebookInformationText.text = infoText;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -55,31 +56,22 @@ public class DropDownItemController : MonoBehaviour {
 
     public void settingsDropdown_OnIndexChanged(Text text, int index)
     {
-
-        if (index == 0)
-        {
-            text.text = "Please choose a option for the app.";
-            text.color = Color.red;
-        }
-        else if (index == 1)
+        // Changes the information underneath the dropdown menu according to what is chosen
+        if (index == 1)
         {
             text.text = settingsInfo["Public"];
-            text.color = Color.black;
         }
         else if (index == 2)
         {
             text.text = settingsInfo["Friends"];
-            text.color = Color.black;
         }
         else if (index == 3)
         {
             text.text = settingsInfo["Private"];
-            text.color = Color.black;
         }
         else
         {
-            text.text = "Please choose a option for the  app.";
-            text.color = Color.red;
+            text.text = infoText;
         }
 
     }
@@ -104,21 +96,12 @@ public class DropDownItemController : MonoBehaviour {
         if (validated == true)
         {
             saveRequirements();
-            // change scene after saving the requirements.
-            //StartCoroutine(SceneTransition());
         }
-        // if no dropdowns are present, change scene anyway. 
-        //SceneManager.LoadScene("TEMP_EventsScene");
     }
 
 
-    // Saves the requirements in the gamemanager script in the gamemanager object.
     public void saveRequirements()
     {
-        //GameObject gm = GameObject.Find("GameManager");
-        //GameManager gamemanager = gm.GetComponent<GameManager>();
-
-        // loop trough all dropdowns and store their values.
         foreach (Dropdown d in GameObject.FindObjectsOfType<Dropdown>()) {
             Transform text = d.transform.parent.GetChild(1);
             if (text.name.Contains("NameText")) {
@@ -138,7 +121,7 @@ public class DropDownItemController : MonoBehaviour {
 
             }
         }
-        //load first day
+        // Load first day
         GameObject.Find("SceneLoader").GetComponent<SceneLoader>().LoadFirstDayScene();
     }
     
