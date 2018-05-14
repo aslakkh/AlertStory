@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Name: 3.1 A unpleasant surprise
   m_EditorClassIdentifier: 
   title: 3.1 A unpleasant surprise
-  text: 'Despite your effort to investigate your mother, a friend just told you today
-    at school that your mother had sent him a friend request and he had accepted.
-
-    So it turns you have common friends with her after all...'
+  text: Despite your effort to investigate your mother, a friend just told you that
+    your mother had sent him a friend request and he had accepted. So it turns out
+    that you have friends in common with her after all.
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114804198897226532}

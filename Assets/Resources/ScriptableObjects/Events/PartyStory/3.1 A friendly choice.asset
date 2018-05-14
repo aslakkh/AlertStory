@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Name: 3.1 A friendly choice
   m_EditorClassIdentifier: 
   title: '3.1: A friendly choice'
-  text: You've gotten time to investigate. Who do you choose to innvite?
+  text: "Now that you\u2019ve had some time to investigate, who would you like to
+    invite to your party? "
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114568682735933794}

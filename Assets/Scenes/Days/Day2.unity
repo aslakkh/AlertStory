@@ -725,7 +725,7 @@ Prefab:
     - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: eventBreakpoints.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224590340510386470, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -835,7 +835,7 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126.52068
       objectReference: {fileID: 0}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -875,17 +875,27 @@ Prefab:
     - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: eventBreakpoints.Array.data[1]
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
-        type: 2}
-      propertyPath: eventBreakpoints.Array.data[2]
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
+      propertyPath: eventBreakpoints.Array.data[2]
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
       propertyPath: timeLenght
-      value: 40
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[3]
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: eventBreakpoints.Array.data[4]
+      value: 95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df9167830bae3c479311063872cc94b, type: 2}

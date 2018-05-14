@@ -9,39 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: 4. Public ground
+  m_Name: 5 The day ends
   m_EditorClassIdentifier: 
-  title: '4: Find out who to invite'
-  text: You should invite someone to the party. Find out if Tom Hansen or Trine Johnson
-    shares a lot of information on Friendsbook.
-  isMessage: 1
+  title: 5 The day ends
+  text: Great job today. If you ever feel that you are done storing important information
+    early, you can press the button underneath the information package to signal that
+    you are done for the day.
+  isMessage: 0
   fireNextEventImmediately: 0
-  requirements: {fileID: 114479526253892282}
-  dependencies: {fileID: 114339167176689150}
+  requirements: {fileID: 114629496493594580}
+  dependencies: {fileID: 114940525540186226}
   choices:
-  - choiceDescription: Ok, I will check it!
+  - choiceDescription: Ok
     scores: []
     functionCalls: []
     endGameTrigger: 0
---- !u!114 &114339167176689150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dependenciesDict:
-    m_keys:
-    - {fileID: 11400000, guid: a52abd310c21fab4598bba299112c146, type: 2}
-    m_values:
-    - fired: 1
-      choiceA: 0
-      choiceB: 0
---- !u!114 &114479526253892282
+--- !u!114 &114629496493594580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -53,6 +36,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementDictionary:
-    m_keys:
-    - Facebook
-    m_values: 02000000
+    m_keys: []
+    m_values: 
+--- !u!114 &114940525540186226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys: []
+    m_values: []

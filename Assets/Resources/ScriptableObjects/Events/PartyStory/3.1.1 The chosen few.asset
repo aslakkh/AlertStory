@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 3.1.1 The chosen few
   m_EditorClassIdentifier: 
   title: '3.1.1: The chosen few'
-  text: Trine Johnson shares a lot of information. She would like to add two common
-    friends between you and her, to the party event. Are you okay with it?
+  text: 'Trine shares a lot on Friendsbook. She would like you to invite two friends
+    that you have in common. Are you ok with that? '
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114690393532954248}

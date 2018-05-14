@@ -19,14 +19,14 @@ MonoBehaviour:
   requirements: {fileID: 114661214408612192}
   dependencies: {fileID: 114962677162913016}
   choices:
-  - choiceDescription: Choose Trine
+  - choiceDescription: Tom
     scores:
     - requirementName: 
       setting: 2
       value: 100
     functionCalls: []
     endGameTrigger: 0
-  - choiceDescription: Choose Tom
+  - choiceDescription: Trine
     scores:
     - requirementName: 
       setting: 2
