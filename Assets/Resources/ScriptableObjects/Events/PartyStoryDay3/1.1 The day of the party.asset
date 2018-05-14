@@ -20,7 +20,8 @@ MonoBehaviour:
   choices:
   - choiceDescription: Continue
     scores: []
-    functionCalls: []
+    functionCalls:
+    - {fileID: 11400000, guid: 29d0139867715174492822a2a2f520e9, type: 2}
     endGameTrigger: 0
 --- !u!114 &114110865572310626
 MonoBehaviour:
