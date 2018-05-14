@@ -14,7 +14,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 242e68115665b77468c3682a52b6e20d, type: 2}
   friends: []
   posts: {fileID: 11400000, guid: 9dfe9b7a2dd1681449bed3c34bf4ece1, type: 2}
-  profilePicture: {fileID: 0}
+  profilePicture: {fileID: 21300000, guid: 8b4b579989185ca4ebcaa3223bdff9c1, type: 3}
   acceptsFriendRequest: 0
   informationSetting: 2
   friendsSetting: 2
