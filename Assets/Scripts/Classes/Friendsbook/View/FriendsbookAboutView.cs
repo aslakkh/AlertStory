@@ -14,9 +14,11 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public GameObject informationPackage;
     public Button nameButton;
+    private SoundManager soundManager;
 
 
     void Awake () {
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();;
     }
 
     void Start () {
@@ -33,6 +35,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnNameClicked()
     {
+        soundManager.sfxSource.Play();
         if (!nameText.text.Equals("NA") && !currentDay.Contains(nameText.text))
         {
             currentDay.Add("Information:");
@@ -42,6 +45,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnAddressClicked()
     {
+        soundManager.sfxSource.Play();
         if (!addressText.text.Equals("NA") && !currentDay.Contains(addressText.text))
         {
             currentDay.Add("Information:");
@@ -51,6 +55,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnEmailClicked()
     {
+        soundManager.sfxSource.Play();
         if (!emailText.text.Equals("NA") && !currentDay.Contains(emailText.text))
         {
             currentDay.Add("Information:");
@@ -60,6 +65,7 @@ public class FriendsbookAboutView : MonoBehaviour {
 
     public void OnPhoneNumberClicked()
     {
+        soundManager.sfxSource.Play();
         if (!phoneNumberText.text.Equals("NA") && !currentDay.Contains(phoneNumberText.text))
         {
             currentDay.Add("Information:");

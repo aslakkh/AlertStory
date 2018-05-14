@@ -13,18 +13,20 @@ public class FriendsbookMainController : MonoBehaviour {
     private GameObject currentView; //reference to view currently being displayed
 
     private GameManager gameManager;
+    private SoundManager soundManager;
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start () {
         //Friendsbook main view is instantiated: find gamemanager and render friendsbook homepage
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        Debug.Assert(gameManager != null, "FriendsbookMainController could not find GameManager...");
+	    soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         EnterPlayerCharacterProfile();
 	}
 
     //Sets currentView to friendsbook's homepage
     public void EnterPlayerCharacterProfile()
     {
+        soundManager.sfxSource.Play();
         if (currentView != null) //only allow one view at a time
         {
             GameObject.Destroy(currentView);
@@ -39,6 +41,7 @@ public class FriendsbookMainController : MonoBehaviour {
     //Sets current view to profile page of character c
 	public void EnterFriendsbookProfile(Character c)
     {
+        
         if(currentView != null) //only allow one view at a time
         {
             GameObject.Destroy(currentView);

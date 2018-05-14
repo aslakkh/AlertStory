@@ -15,6 +15,7 @@ public class FriendsbookFriendsController : MonoBehaviour
     private List<Character> friends;
     private GameObject friendsListWrapper;
     private FriendsbookMainController friendsbookMain;
+    private SoundManager soundManager;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class FriendsbookFriendsController : MonoBehaviour
         Debug.Assert(friendsbookMain != null, "Error: FriendsbookFriendsController could not find FriendsbookMainController.", this);
         DisplayFriends();
         
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     public void SetFriends(List<Character> friends)
@@ -57,6 +59,7 @@ public class FriendsbookFriendsController : MonoBehaviour
 
     public void OnListElementClick(Character c)
     {
+        soundManager.sfxSource.Play();
         // if character is player profile, use the player chracter view
         if (c.fullName == friendsbookMain.GetGameManager().playerCharacter.fullName)
         {
@@ -71,6 +74,7 @@ public class FriendsbookFriendsController : MonoBehaviour
 
     public void IncrementFriendsListIndex()
     {
+        soundManager.sfxSource.Play();
         friendsListIndex += friendsPerPage;
         viewComponent.SetPreviousButtonInteractable(true);
         DisplayFriends();
@@ -78,6 +82,7 @@ public class FriendsbookFriendsController : MonoBehaviour
 
     public void DecrementFriendsListIndex()
     {
+        soundManager.sfxSource.Play();
         friendsListIndex -= friendsPerPage;
         viewComponent.SetNextButtonInteractable(true);
         if(friendsListIndex == 0) { viewComponent.SetPreviousButtonInteractable(false); }

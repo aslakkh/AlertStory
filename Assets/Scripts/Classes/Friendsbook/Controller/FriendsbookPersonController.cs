@@ -26,10 +26,11 @@ public class FriendsbookPersonController : MonoBehaviour {
     private GameObject currentSubView; //current subview being rendered
     private Character character; //character this friendsbook page belongs to 
     private FriendsbookMainController friendsbookMainController;
+    private SoundManager soundManager;
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start () {
-
+	    soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
         //set person name
         if (character != null)
         {
@@ -73,6 +74,7 @@ public class FriendsbookPersonController : MonoBehaviour {
     //checks if friend request is accepted. Displays feedback
     public void OnAddFriendButtonClick()
     {
+        soundManager.sfxSource.Play();
         if (character.friendsbookProfile.acceptsFriendRequest)
         {
             //add friendship, update view with feedback + remove friendsbutton
@@ -102,7 +104,9 @@ public class FriendsbookPersonController : MonoBehaviour {
         {
             GameObject.Destroy(currentSubView);
         }
-
+        
+        soundManager.sfxSource.Play();
+        
         //subview content is decided by informationSetting
         if(informationSetting == Setting.Public)
         {
@@ -134,6 +138,9 @@ public class FriendsbookPersonController : MonoBehaviour {
         {
             GameObject.Destroy(currentSubView);
         }
+        
+        soundManager.sfxSource.Play();
+        
         if(postsSetting == Setting.Public)
         {
             if(character.friendsbookProfile.HasPosts())
@@ -173,6 +180,9 @@ public class FriendsbookPersonController : MonoBehaviour {
         {
             GameObject.Destroy(currentSubView);
         }
+        
+        soundManager.sfxSource.Play();
+        
         if (friendsSetting == Setting.Public)
         {
             if (character.friendsbookProfile.HasFriends())
