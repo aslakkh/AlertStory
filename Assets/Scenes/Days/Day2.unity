@@ -835,7 +835,7 @@ Prefab:
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 131.14754
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224470795190957040, guid: 0df9167830bae3c479311063872cc94b,
         type: 2}
@@ -881,6 +881,11 @@ Prefab:
         type: 2}
       propertyPath: eventBreakpoints.Array.data[2]
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114588024711813310, guid: 0df9167830bae3c479311063872cc94b,
+        type: 2}
+      propertyPath: timeLenght
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0df9167830bae3c479311063872cc94b, type: 2}

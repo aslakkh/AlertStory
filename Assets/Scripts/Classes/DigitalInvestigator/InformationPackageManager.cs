@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class InformationPackageManager : MonoBehaviour {
@@ -38,26 +39,26 @@ public class InformationPackageManager : MonoBehaviour {
                         for (int i = 0; i < informationPackage.Count; i += 2)
                         {
                             bool taskmatch = false;
-                            string temp = informationPackage[i + 1];
+                            string temp = Regex.Replace(informationPackage[i + 1], @"\n", " "); //newlines are added by Text component. This removes them
                             for(int j = 0; j < o.tasks.Count;j++)
                             {
                                 if (taskmatch == false)
                                 {
                                     // DEBUGGING START
                                     // DEBUGGING FOR SPECIAL ANNOYING STRING THAT WONT MATCH (mother post task on day 2)
-                                    string x = "Im so glad to be 50 years old. I know i'm getting old, but you know what keeps me up and going? My children. They're the best thing that ever happened to me, and I'm so proud of them. Thanks for all birthday wishes!";
-                                    if (o.tasks[j].Equals(x))
-                                    {
-                                        Debug.Log(temp.Length);
-                                        string newString = temp.Replace("\n","").Replace("\r","");
-                                        Debug.Log(o.tasks[j].Equals(newString));
-                                        Debug.Log(o.tasks[j].Length);
-                                        Debug.Log("tasks compare to x");
-                                    }
-                                    if (temp.Equals(x))
-                                    {
-                                        Debug.Log("temp compares to x");
-                                    }
+                                    //string x = "Im so glad to be 50 years old. I know i'm getting old, but you know what keeps me up and going? My children. They're the best thing that ever happened to me, and I'm so proud of them. Thanks for all birthday wishes!";
+                                    //if (o.tasks[j].Equals(x))
+                                    //{
+                                    //    Debug.Log(temp.Length);
+                                    //    string newString = temp.Replace("\n","").Replace("\r","");
+                                    //    Debug.Log(o.tasks[j].Equals(newString));
+                                    //    Debug.Log(o.tasks[j].Length);
+                                    //    Debug.Log("tasks compare to x");
+                                    //}
+                                    //if (temp.Equals(x))
+                                    //{
+                                    //    Debug.Log("temp compares to x");
+                                    //}
                                     // DEBUGGING END
                                     if (o.tasks[j].Equals(temp) || temp.Contains(o.tasks[j]))
                                     {
@@ -73,7 +74,7 @@ public class InformationPackageManager : MonoBehaviour {
                             }
                             if (taskmatch == false)
                             {
-                                Debug.Log("This one is not a match: " + temp);
+                                //Debug.Log("This one is not a match: " + temp);
                                 minusScore -= 10;
                             }
                             else
@@ -90,6 +91,8 @@ public class InformationPackageManager : MonoBehaviour {
                     }
                 }
             }
+            Debug.Log("Plusscore: " + plusScore);
+            Debug.Log("minusscore: " + minusScore);
             gameManager.AddToScore(plusScore);
             gameManager.AddToScore(minusScore);
         }
