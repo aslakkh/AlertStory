@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Name: OscarMitchellFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
-  friends: []
-  posts: {fileID: 0}
+  friends:
+  - {fileID: 11400000, guid: 0c46f83e2da673441b17cfd458bda091, type: 2}
+  - {fileID: 11400000, guid: ba7702f9df5145a46a718870542a1c9d, type: 2}
+  - {fileID: 11400000, guid: e382dbe371c8eff41a90de0c5a16f022, type: 2}
+  - {fileID: 11400000, guid: 56204cd59607ee641908f6327763a05c, type: 2}
+  - {fileID: 11400000, guid: ffa6fd5be0e8a2742bbf0561c5468c3a, type: 2}
+  - {fileID: 11400000, guid: 242e68115665b77468c3682a52b6e20d, type: 2}
+  - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
+  - {fileID: 11400000, guid: 82fd36c643fa533489bf485338207c3e, type: 2}
+  posts: {fileID: 11400000, guid: 4917eb335e24d1649b1afb5f211c6245, type: 2}
   profilePicture: {fileID: 21300000, guid: c55c9f5a53a41e34781cd8cf665fd6ec, type: 3}
-  acceptsFriendRequest: 0
+  acceptsFriendRequest: 1
   informationSetting: 1
   friendsSetting: 2
   postsSetting: 1

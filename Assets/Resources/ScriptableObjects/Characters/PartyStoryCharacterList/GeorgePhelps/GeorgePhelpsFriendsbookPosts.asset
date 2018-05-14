@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Name: GeorgePhelpsFriendsbookPosts
   m_EditorClassIdentifier: 
   list:
+  - content: That party was sick duuuude. So glad I shared it with EVERYBODY!!!!!!!!!!!
+    date:
+      year: 2017
+      month: 3
+      day: 7
+      hour: 0
+      minute: 0
+    to: {fileID: 11400000, guid: c71537a3c36f1224e9b1019f6e1d5a73, type: 2}
+    from: {fileID: 11400000, guid: e23dbf1da1ee9fa4eaa21b15a781cff2, type: 2}
   - content: Hey man. Wanna go for a swim tomorrow? I've been training all week to
       beat you!
     date:

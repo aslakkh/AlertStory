@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 56204cd59607ee641908f6327763a05c, type: 2}
   friends:
+  - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
   - {fileID: 11400000, guid: 3f9dbfb4b8d74994eb966d60e7ca3b5c, type: 2}
   posts: {fileID: 11400000, guid: b03be25e67eddc542970d7f7ca21402f, type: 2}
   profilePicture: {fileID: 21300000, guid: 37e5d75b3791ded42901b302ac0d53da, type: 3}

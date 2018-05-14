@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Name: 1.2 The day of the party
   m_EditorClassIdentifier: 
   title: 1.2 The day of the party
-  text: 
+  text: It is the day of the party. If all goes well, it will be a nice get together
+    with your friends.
   isMessage: 0
-  fireNextEventImmediately: 0
+  fireNextEventImmediately: 1
   requirements: {fileID: 114090387144201438}
   dependencies: {fileID: 114516396603470658}
   choices:
   - choiceDescription: Continue
     scores: []
-    functionCalls: []
+    functionCalls:
+    - {fileID: 11400000, guid: c26f9e330634d3449a0baff8ed801a89, type: 2}
     endGameTrigger: 0
 --- !u!114 &114090387144201438
 MonoBehaviour:

@@ -14,6 +14,7 @@ MonoBehaviour:
   character: {fileID: 11400000, guid: 516cd8c417dfb054a9a6e311e2fb501f, type: 2}
   friends:
   - {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
+  - {fileID: 11400000, guid: 242e68115665b77468c3682a52b6e20d, type: 2}
   - {fileID: 11400000, guid: 8347e532acdc67a43ad8fffb7ff9bf9d, type: 2}
   posts: {fileID: 11400000, guid: f2d2e7f27c55de34a9986287dbba1f61, type: 2}
   profilePicture: {fileID: 21300000, guid: 65955cdf330d8d8498d2da4f09b11e50, type: 3}

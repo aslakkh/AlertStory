@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Name: SophieDavidsFriendsbook
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: 242e68115665b77468c3682a52b6e20d, type: 2}
-  friends: []
+  friends:
+  - {fileID: 11400000, guid: 3029f16ab0ea995409c1492ac779827a, type: 2}
+  - {fileID: 11400000, guid: 516cd8c417dfb054a9a6e311e2fb501f, type: 2}
+  - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
+  - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
   posts: {fileID: 11400000, guid: 9dfe9b7a2dd1681449bed3c34bf4ece1, type: 2}
   profilePicture: {fileID: 21300000, guid: 8b4b579989185ca4ebcaa3223bdff9c1, type: 3}
   acceptsFriendRequest: 0

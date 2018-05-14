@@ -15,13 +15,14 @@ MonoBehaviour:
   text: "This is it. It is the day of the party. Hopefully it will the be the party
     of the century!\r"
   isMessage: 0
-  fireNextEventImmediately: 0
+  fireNextEventImmediately: 1
   requirements: {fileID: 114629338388849310}
   dependencies: {fileID: 114681081714042202}
   choices:
   - choiceDescription: Continue
     scores: []
-    functionCalls: []
+    functionCalls:
+    - {fileID: 11400000, guid: ecd31424f3c362b45ad9e3b03acbc580, type: 2}
     endGameTrigger: 0
 --- !u!114 &114629338388849310
 MonoBehaviour:
