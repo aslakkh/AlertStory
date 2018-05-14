@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
   - {fileID: 11400000, guid: 82fd36c643fa533489bf485338207c3e, type: 2}
   posts: {fileID: 11400000, guid: 4917eb335e24d1649b1afb5f211c6245, type: 2}
-  profilePicture: {fileID: 0}
+  profilePicture: {fileID: 21300000, guid: c55c9f5a53a41e34781cd8cf665fd6ec, type: 3}
   acceptsFriendRequest: 1
   informationSetting: 1
   friendsSetting: 2
