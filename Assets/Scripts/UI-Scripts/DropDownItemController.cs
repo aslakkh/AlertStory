@@ -33,6 +33,11 @@ public class DropDownItemController : MonoBehaviour {
         tempSettings.Reverse();
         populatelist(settingsFacebookDropdown, tempSettings);
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        settingsFacebookInformationText.text = "You are tasked with hosting a party. \n" +
+                "The settings you set refer to what personal information you share, and who you share it with.\n" +
+                "The settings represent the goal of your game, with focus on how you can manage privacy. Personal information includes name, adress, posts and more.\n" +
+                "Basically all you might find on a persons Friendsbook page. Friendsbook is where you want to announce your party." +
+                "\n \n However, keep in mind what settings you choose to use as these will affect the choices you have to make in order to achieve the perfect party.";
     }
 
 
@@ -68,7 +73,8 @@ public class DropDownItemController : MonoBehaviour {
         }
         else
         {
-            text.text = "The settings you set refer to what and with who you share of your personal information and the party you will host in the game.\n" +
+            text.text = "You are tasked with hosting a party. \n"+
+                "The settings you set refer to what personal information you share, and who you share it with.\n" +
                 "The settings represent the goal of your game, with focus on how you can manage privacy. Personal information includes name, adress, posts and more.\n" +
                 "Basically all you might find on a persons Friendsbook page. Friendsbook is where you want to announce your party." +
                 "\n \n However, keep in mind what settings you choose to use as these will affect the choices you have to make in order to achieve the perfect party.";
