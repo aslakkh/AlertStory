@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: '2.1: A private choice'
   text: "Now that you\u2019ve had some time to investigate, would you like to invite
-    Tom or Trine to your party? \r"
+    Tom or Trine to your party?\n(Remember - your choices affect both the story and
+    the score)"
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114686772017118404}

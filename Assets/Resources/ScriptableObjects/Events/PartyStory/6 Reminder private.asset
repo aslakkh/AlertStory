@@ -9,32 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
-  m_Name: 3.1 A friendly choice
+  m_Name: 6 Reminder private
   m_EditorClassIdentifier: 
-  title: '3.1: A friendly choice'
-  text: "Now that you\u2019ve had some time to investigate, who would you like to
-    invite to your party? \n(Remember - your choices affect both the story and the
-    score)"
+  title: 6 Reminder private
+  text: 'Reminder: you have chosen to play the game with private settings. This means
+    that you are awarded for making choices that prevent unwanted information about
+    the party from getting out.'
   isMessage: 0
   fireNextEventImmediately: 0
-  requirements: {fileID: 114568682735933794}
-  dependencies: {fileID: 114533417264354404}
+  requirements: {fileID: 114687488459400830}
+  dependencies: {fileID: 114316216190586908}
   choices:
-  - choiceDescription: Trine Johnson
-    scores:
-    - requirementName: 
-      setting: 2
-      value: 50
+  - choiceDescription: Continue
+    scores: []
     functionCalls: []
     endGameTrigger: 0
-  - choiceDescription: Karsten Hendricks
-    scores:
-    - requirementName: 
-      setting: 2
-      value: -50
-    functionCalls: []
-    endGameTrigger: 0
---- !u!114 &114533417264354404
+--- !u!114 &114316216190586908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -46,13 +36,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependenciesDict:
-    m_keys:
-    - {fileID: 11400000, guid: e0ebe272212ebe746a68ea12f1223231, type: 2}
-    m_values:
-    - fired: 1
-      choiceA: 0
-      choiceB: 0
---- !u!114 &114568682735933794
+    m_keys: []
+    m_values: []
+--- !u!114 &114687488459400830
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -66,4 +52,4 @@ MonoBehaviour:
   requirementDictionary:
     m_keys:
     - Facebook
-    m_values: 01000000
+    m_values: 00000000
