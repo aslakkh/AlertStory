@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 6.2.2 end public
   m_EditorClassIdentifier: 
-  title: 6.2.2 end public
+  title: 6.2.2 - This is the end
   text: The party began as planned. A huge amount of people showed up, including...
     the police!? What a let down. Your mom won't be happy about this.
   isMessage: 0

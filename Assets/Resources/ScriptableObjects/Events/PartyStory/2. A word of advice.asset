@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 2. A word of advice
   m_EditorClassIdentifier: 
-  title: '2: A word of advice...'
+  title: 2 - A word of advice...
   text: You need to invite people to your party, but first you need to see what they
     share of their information to figure out if it is safe. Try to find information
     about Tom Hansen or Trine Johnson on Friendsbook. Have a look at the objectives

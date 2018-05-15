@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 5.1.2.1 consequence public
   m_EditorClassIdentifier: 
-  title: 5.1.2.1 consequence public
+  title: 5.1.2.1 - Are you ready?
   text: With Sophie Davids removed, it should be safe to announce the location.
   isMessage: 0
   fireNextEventImmediately: 1

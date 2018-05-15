@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1.1 A thing called the Friendsbook
   m_EditorClassIdentifier: 
-  title: '1.1: A thing called the Friendsbook'
+  title: 1.1 - A thing called the Friendsbook
   text: Have you checked out Friendsbook yet? It is amazing, and you can use it to
     your advantage! Some people share stuff on Friendsbook mindlessly. You can add
     some information to your storage. This will help you make the greatest party ever!

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 6.2.1 end public
   m_EditorClassIdentifier: 
-  title: 6.2.1 end public
+  title: 6.2.1 - This is the end
   text: The party was out of control. People showed up left and right, exactly as
     you planned. Even your mom showed up. This won't end well for you, but then again,
     maybe that was what you were aiming for?

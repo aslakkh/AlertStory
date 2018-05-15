@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3.1.1 The chosen few
   m_EditorClassIdentifier: 
-  title: '3.1.1: The chosen few'
+  title: 3.1.1 - The chosen few
   text: 'Trine shares a lot on Friendsbook. She would like you to invite two friends
     that you have in common. Are you ok with that? '
   isMessage: 0

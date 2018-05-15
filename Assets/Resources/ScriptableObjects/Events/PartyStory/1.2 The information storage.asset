@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1.2 The information storage
   m_EditorClassIdentifier: 
-  title: '1.2: The information storage'
+  title: 1.2 - The information storage
   text: To make it easier, this device comes with an information package. It basically
     stores whatever you need when you are investigating and making party decisions.
     The device also comes with objectives you should follow.

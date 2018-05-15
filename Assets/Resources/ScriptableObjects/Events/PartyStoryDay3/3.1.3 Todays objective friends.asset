@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3.1.3 Todays objective friends
   m_EditorClassIdentifier: 
-  title: 3.1.3 Todays objective friends
+  title: 3.1.3 - Today's objective
   text: 'You have received todays objective: find the address of Sophie Davids and
     Wolf Avery. You should also add any information that may point to one of them
     planning on sabotaging the party.'

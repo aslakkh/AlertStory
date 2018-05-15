@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3. Exclusion is a choice
   m_EditorClassIdentifier: 
-  title: 3. Exclusion is a choice
+  title: 3 - Exclusion is a choice
   text: You've had time to investigate your mothers Friendsbook profile. Did she have
     any friends in common with you?
   isMessage: 0

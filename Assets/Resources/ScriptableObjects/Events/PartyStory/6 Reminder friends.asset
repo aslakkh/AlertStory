@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 6 Reminder friends
   m_EditorClassIdentifier: 
-  title: 6 Reminder friends
+  title: 6.3 - A reminder
   text: 'Reminder: you have chosen to play the game with the "friends" setting. This
     means that you are awarded for keeping information about the party from reaching
     unknowns (people who are not your friends, or friends of your friends).'

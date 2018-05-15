@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 5 The day ends
   m_EditorClassIdentifier: 
-  title: 5 The day ends
+  title: 5 - The day ends
   text: Great job today. If you ever feel that you are done storing important information
     early, you can press the button underneath the information package to signal that
     you are done for the day.

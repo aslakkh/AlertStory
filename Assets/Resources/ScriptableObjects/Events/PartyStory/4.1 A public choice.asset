@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 4.1 A public choice
   m_EditorClassIdentifier: 
-  title: '4.1: A public choice'
+  title: 4.1 - A public choice
   text: 'You''ve had time to investigate both Tom Hansen and Trine Johnson. Who do
     you choose to invite?
 

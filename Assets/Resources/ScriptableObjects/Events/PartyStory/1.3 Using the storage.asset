@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1.3 Using the storage
   m_EditorClassIdentifier: 
-  title: 1.3 Using the storage
+  title: 1.3 - Using the storage
   text: 'Using it is easy. You can add personal information about people, and posts
     from their Friendsbook wall. To add an item, simply press the item.
 
