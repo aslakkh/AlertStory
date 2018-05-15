@@ -19,6 +19,7 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
     private Requirement requirement;
     private List<string> informationPackage;
     private Button submitButton; //reference to submitbutton
+    public Image dropdownArrow;
 
 
     public GameObject scrollView;
@@ -134,6 +135,8 @@ public class NotificationBar : MonoBehaviour, IPointerClickHandler
 
             }
         }
+
+        dropdownArrow.transform.Rotate(180, 0, 0);
     }
 
 }
