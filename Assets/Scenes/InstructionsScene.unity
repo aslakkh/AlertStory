@@ -545,7 +545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175, y: 265}
+  m_AnchoredPosition: {x: -172.50636, y: 400.6128}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992648341
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -679,7 +679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -257.7275, y: 222.96407}
+  m_AnchoredPosition: {x: -257.7275, y: 341}
   m_SizeDelta: {x: 521.03, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1386850991
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -727,10 +727,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This is a short introduction to the game
-
-
-    cool'
+  m_Text: "The navigation bar is where you can see your score and battery timer. \n\nIf
+    you click (or tap) on the notification bar a drop down screen will appear. This
+    is where objectives and what you have stored in your information package are displayed.
+    To get rid of this drop down screen you click the top bar again. You will be taken
+    to where you were before you clicked the notification bar. \n\nThe information
+    package is where you deliver information that matches the objectives. You simply
+    click on a piece of information or a post to add it to the information package.
+    If you want to get rid of it you click on the item again, but this time inside
+    the information package. \n\nYou can deliver your information package early if
+    you want. You do this by clicking the \u201CSubmit information package\u201D button
+    inside the drop down screen. "
 --- !u!222 &1386850993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -851,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
