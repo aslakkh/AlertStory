@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3.1.2 Todays objective public
   m_EditorClassIdentifier: 
-  title: 3.1.2 Today's objective public
+  title: 3.1.2 - Today's objective
   text: 'You have received todays objective: find the address of Oscar Mitchell and
     Sophie Davids. You should also add any information that may point to one of them
     planning on sabotaging the party.'

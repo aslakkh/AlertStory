@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1.1 The day of the party
   m_EditorClassIdentifier: 
-  title: 1.1 The day of the party
+  title: 1.1 - The day of the party
   text: It is the day of the party. Hopefully, no uninvited guests will show up...
   isMessage: 0
   fireNextEventImmediately: 1

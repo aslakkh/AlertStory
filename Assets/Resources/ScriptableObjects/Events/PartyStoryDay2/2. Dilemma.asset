@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 2. Dilemma
   m_EditorClassIdentifier: 
-  title: 2. Dilemma
+  title: 2 - Dilemma
   text: 'The party event should stay private as long as your mother is on Friendsbook.
     You should find out who she is friends with on Friendsbook and add their names
     to the information package.

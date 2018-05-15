@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 4. Public ground
   m_EditorClassIdentifier: 
-  title: '4: Find out who to invite'
+  title: 4 - Find out who to invite
   text: 'You should invite someone to the party. Find out if Tom Hansen or Trine Johnson
     shares a lot of information on Friendsbook.
 

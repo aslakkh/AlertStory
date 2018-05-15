@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 2 First message
   m_EditorClassIdentifier: 
-  title: 2 Message
+  title: '2 - Message from: Unknown'
   text: 'Hi! The party is today right? But where is the location? You should publish
     it in the friendsbook event. I can''t wait. '
   isMessage: 1

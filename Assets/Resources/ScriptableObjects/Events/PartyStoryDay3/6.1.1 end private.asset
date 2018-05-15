@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 6.1.1 end private
   m_EditorClassIdentifier: 
-  title: 6.1.1 end private
+  title: 6.1.1 - This is the end
   text: The party began as planned, but suddenly, uninvited people started showing
     up. And even worse, your mom found out about it! It was a disaster.
   isMessage: 0

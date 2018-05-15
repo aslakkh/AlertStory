@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1.2 The day of the party
   m_EditorClassIdentifier: 
-  title: 1.2 The day of the party
+  title: 1.2 - The day of the party
   text: It is the day of the party. If all goes well, it will be a nice get together
     with your friends.
   isMessage: 0

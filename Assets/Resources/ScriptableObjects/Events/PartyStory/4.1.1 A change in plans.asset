@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 4.1.1 A change in plans
   m_EditorClassIdentifier: 
-  title: 4.1.1 A change in plans
+  title: 4.1.1 - A change in plans
   text: Tom Hansen would like to make the party event on the friendsbook app private.
     Would you let him?
   isMessage: 0

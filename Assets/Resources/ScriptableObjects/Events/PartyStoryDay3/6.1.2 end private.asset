@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 6.1.2 end private
   m_EditorClassIdentifier: 
-  title: 6.1.2 end private
+  title: 6.1.2 - This is the end
   text: The party was a success. Everyone had a good time, and no unforeseen guests
     showed up. Great job!
   isMessage: 0

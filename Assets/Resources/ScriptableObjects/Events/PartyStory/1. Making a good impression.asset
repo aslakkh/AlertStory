@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1. Making a good impression
   m_EditorClassIdentifier: 
-  title: 1:Making a good impression
-  text: You want to host a party, and you need to create a party on facebook. Which
-    privacy option should it have?
-  isMessage: 0
+  title: 1 - Making a good impression
+  text: You want to host a party, and you need to create an event for the party on
+    Friendsbook. Which privacy option should it have?
+  isMessage: 1
   fireNextEventImmediately: 1
   requirements: {fileID: 114262023523116466}
   dependencies: {fileID: 114981256081103564}

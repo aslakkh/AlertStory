@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3.1 A unpleasant surprise
   m_EditorClassIdentifier: 
-  title: 3.1 A unpleasant surprise
+  title: 3.1 - An unpleasant surprise
   text: Despite your effort to investigate your mother, a friend just told you that
     your mother had sent him a friend request and he had accepted. So it turns out
     that you have friends in common with her after all.

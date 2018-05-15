@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: Unexpected turn of events
   m_EditorClassIdentifier: 
-  title: '2.1.2: Unexpected turn of events'
+  title: 2.1.2 - Unexpected turn of events
   text: 'Trine shares a lot of information on Friendsbook. She has now invited two
     of her friends to your party, and she wants you to make the party public so that
     more people will show up. Are you OK with making the event public? '

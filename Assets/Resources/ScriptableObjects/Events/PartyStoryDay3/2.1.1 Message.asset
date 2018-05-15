@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 2.1.1 Message
   m_EditorClassIdentifier: 
-  title: 2.1.1 Message private
+  title: '2.1.1 - Message from: Unknown'
   text: Hold on! I just heard that somebody got into the event uninvited, and that
     they plan on sharing the location to everyone.
   isMessage: 1

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 6.3.3 end friends
   m_EditorClassIdentifier: 
-  title: 6.3.3 end friends
+  title: 6.3.3 - This is the end
   text: The party began as planned, but before long, unexpected guests started showing
     up. Hundreds of people came, including your mom! Not ideal...
   isMessage: 0

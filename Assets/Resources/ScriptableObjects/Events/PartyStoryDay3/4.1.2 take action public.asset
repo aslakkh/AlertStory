@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 4.1.2 take action public
   m_EditorClassIdentifier: 
-  title: 4.1.2 take action public
+  title: 4.1.2 - Take action
   text: The time has come to announce the location of the party. But first, you have
     to to remove the saboteur from the event. Who do you think is guilty?
   isMessage: 0
