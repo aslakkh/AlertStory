@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aName: FunctionCallScript
   objectivesList:
-  - description: What is the full name of Karsten and Trine, and where to do they
-      live? Also, submit the newest post on both of their profiles.
+  - description: What is the full name of Karsten and Trine, and where do they live?
+      Also, submit the newest post on both of their profiles.
     tasks:
     - Hello world! Just got this app! Crazy idea!
     - Karsten Hendricks
