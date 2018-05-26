@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aName: FunctionCallScript
   objectivesList:
-  - description: What is the full name of Tom and Trine, and where to do they live?
-      Also, submit the newest post on both of their profiles.
+  - description: What is the full name of Tom and Trine, and where do they live? Also,
+      submit the newest post on both of their profiles.
     tasks:
     - Tompson Street 48, Fictionia
     - Hah, I told you Ravendale FC would relegate. You owe me 300 man, I never forget
