@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8914c6ecea26f0c43a2f61c447707e3f, type: 3}
+  m_Name: Day1ObjectiveFriends
+  m_EditorClassIdentifier: 
+  aName: FunctionCallScript
+  objectivesList:
+  - description: What is the full name of Karsten and Trine, and where to do they
+      live? Also, submit the newest post on both of their profiles.
+    tasks:
+    - Hello world! Just got this app! Crazy idea!
+    - Karsten Hendricks
+    - Nohere Street 2, Fictionia
+    - Thanks for the ride today. I'm so glad we did this. Snowwhite is such a beautiful
+      horse. Hope you keep her for a long time!
+    - Gamers Street 101, Fictionia
+    - Trine Johnson
+  targetDay: 1

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 5 The day ends
+  m_EditorClassIdentifier: 
+  title: 5 - The day ends
+  text: Great job today. If you ever feel that you are done storing important information
+    early, you can press the button underneath the information package to signal that
+    you are done for the day.
+  isMessage: 0
+  fireNextEventImmediately: 0
+  requirements: {fileID: 114629496493594580}
+  dependencies: {fileID: 114940525540186226}
+  choices:
+  - choiceDescription: Ok
+    scores: []
+    functionCalls: []
+    endGameTrigger: 0
+--- !u!114 &114629496493594580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys: []
+    m_values: 
+--- !u!114 &114940525540186226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys: []
+    m_values: []

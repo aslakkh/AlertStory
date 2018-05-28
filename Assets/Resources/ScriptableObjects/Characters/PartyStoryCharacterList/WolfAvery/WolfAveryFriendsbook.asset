@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
+  m_Name: WolfAveryFriendsbook
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 82fd36c643fa533489bf485338207c3e, type: 2}
+  friends:
+  - {fileID: 11400000, guid: 0c46f83e2da673441b17cfd458bda091, type: 2}
+  - {fileID: 11400000, guid: ba7702f9df5145a46a718870542a1c9d, type: 2}
+  - {fileID: 11400000, guid: 3029f16ab0ea995409c1492ac779827a, type: 2}
+  - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
+  - {fileID: 11400000, guid: ffa6fd5be0e8a2742bbf0561c5468c3a, type: 2}
+  - {fileID: 11400000, guid: 6234cf7a3e7746f429823dc4afcb1653, type: 2}
+  posts: {fileID: 11400000, guid: 8d755b6d496e2d14182325434c87ef72, type: 2}
+  profilePicture: {fileID: 21300000, guid: 7ba20d30f9958134285a5eac80c2dd6d, type: 3}
+  acceptsFriendRequest: 1
+  informationSetting: 0
+  friendsSetting: 2
+  postsSetting: 1

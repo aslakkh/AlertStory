@@ -11,12 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 1.1 Dilemma
   m_EditorClassIdentifier: 
-  title: 1.1 Turn around
-  text: 'A friend of you told you a horrostory about how his family gained full controll
-    over his activities on friendsbook after he became friends with them there. He
-    strongly
-
-    advices you to not accept your mothers friend request.'
+  title: 1.1 - Turn around
+  text: "A friend, Sara Scoffield, told you a horror story about how her family gained
+    full controll over her activities on friendsbook after she became friends with
+    them there. \nShe strongly advices you to not accept your mothers friend request."
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114582019626736254}
@@ -26,7 +24,8 @@ MonoBehaviour:
     scores:
     - requirementName: 
       setting: 2
-      value: 50
+      value: 0
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114259593278285548
 MonoBehaviour:

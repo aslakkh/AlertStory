@@ -7,6 +7,13 @@ public class PostView : MonoBehaviour {
     public Text title;
     public Text content;
     public Text date;
+    private List<string> currentDay;
+
+    private void Start()
+    {
+        currentDay = GameManager.Instance.informationPackage;
+    }
+
 
     public void SetTitle(string s)
     {
@@ -22,5 +29,13 @@ public class PostView : MonoBehaviour {
     {
         date.text = s;
     }
-	
+
+    public void OnPostClicked()
+    {
+        if(!currentDay.Contains(content.text) && !content.text.Equals(""))
+        {
+            currentDay.Add("Post:");
+            currentDay.Add(content.text.ToString());
+        }
+    }
 }

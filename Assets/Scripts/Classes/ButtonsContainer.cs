@@ -18,17 +18,17 @@ public class ButtonsContainer : MonoBehaviour {
 
     public void OnStateChanged(object source, GameStateEventArgs args)
     {
-        if(args.newState == GameState.investigator)
+        if(args.newState == GameState.investigator) //moving into investigator --> make interactable
         {
             SetInteractable(true);
         }
-        else //buttons should only be interactable in investigator state
+        else if(args.newState == GameState.eventhandler) //moving into eventhandler --> disable interactivity
         {
             SetInteractable(false);
-            Debug.Log(buttons[0].interactable);
         }
     }
 
+    //set interactable status of all buttons contained within this
     public void SetInteractable(bool interactable)
     {
         foreach (Button b in buttons)
@@ -37,9 +37,10 @@ public class ButtonsContainer : MonoBehaviour {
         }
     }
 
-    private void Start()
+    //remove subscriber from gamemanager
+    private void OnDestroy()
     {
-        buttons[0].onClick.AddListener(delegate () { gameManager.FireEvent(); });
+        gameManager.stateChanged -= OnStateChanged;
     }
 
 }

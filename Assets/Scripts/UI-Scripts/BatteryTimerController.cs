@@ -15,10 +15,11 @@ public class BatteryTimerController : MonoBehaviour {
     public Image imageHolder;
     public bool runTimer = false;
     public float warningThreshold = 10f;
-    public GameObject warningPanel;
-    public Text timerText;
+    public GameObject warningPanel; //prefab for warningpanel
+    public Transform warningPanelSpawnPoint; //where to instantiate prefab
     private bool warned = false;
     private GameManager gameManager;
+    private SoundManager soundManager;
     
 
     private void Awake() {
@@ -39,7 +40,7 @@ public class BatteryTimerController : MonoBehaviour {
     void Start() {
         //Set battery image to correnspond with starting battery
         imageHolder.sprite = imageList.SingleOrDefault(item => (item.name.Equals("100_battery")));
-        warningPanel.SetActive(false);
+        StartTimer();
     }
 
     // Update is called once per frame
@@ -55,12 +56,12 @@ public class BatteryTimerController : MonoBehaviour {
                 if (warned || !(Math.Abs(batteryPrecentage - warningThreshold) < 1f)) return;
                 warned = true;
                 var timeRemaining = timeLenght * (batteryPrecentage / 100);
-                timerText.text = Mathf.Floor(timeRemaining).ToString();
-                warningPanel.SetActive(true);
+                string timeRemainingText = Mathf.Floor(timeRemaining).ToString();
+                DisplayWarning(timeRemainingText);
             }
             else {
                 runTimer = false;
-                gameManager.NextDay();
+                gameManager.NextDay(batteryDepleted: true);
             }
         }
     }
@@ -76,6 +77,8 @@ public class BatteryTimerController : MonoBehaviour {
         {
             //Set new timeStart
             timeStart = Time.time;
+            Time.timeScale = 1;
+            batteryPrecentage = 100;
             runTimer = true;
         }
     }
@@ -87,7 +90,23 @@ public class BatteryTimerController : MonoBehaviour {
         if (Mathf.FloorToInt(batteryPrecentage) % 10 == 0) {
             imageHolder.sprite = imageList.SingleOrDefault(item =>
                 (item.name.Equals(Mathf.FloorToInt(batteryPrecentage).ToString() + "_battery")));
+
         }
+    }
+
+    //instantiate warning in scene
+    private void DisplayWarning(string timeRemainingText)
+    {
+        
+        var panel = GameObject.Instantiate(warningPanel);
+        panel.transform.SetParent(warningPanelSpawnPoint, false); //recommended way of setting parent of UI element
+        panel.transform.SetAsLastSibling(); //always on top
+        panel.transform.Find("TimerText").GetComponent<Text>().text = timeRemainingText;
+    }
+
+    public void OnDestroy()
+    {
+        gameManager.stateChanged -= OnStateChanged;
     }
 }
 

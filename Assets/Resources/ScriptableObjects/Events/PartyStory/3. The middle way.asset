@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3. The middle way
   m_EditorClassIdentifier: 
-  title: '3: The middle way'
-  text: 'You''ve got a new friend in Tom on Facebook. He wants to invite Trine, who
-    is your friend, but also Karsten which you dont know, to the party.
-
-    You should investigate how much they share on facebook.'
+  title: 3 - The middle way
+  text: "You've got a friend in Tom Hansen on Facebook. He wants you to invite Trine
+    Johnson, who is also your friend. He also wants you to invite Karsten Hendricks
+    to the party.\r\nYou should investigate how much Trine and Karsten shares on Friendsbook.\r
+    Have a look at the objectives for more information.\n"
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114946385950728158}
@@ -23,6 +23,8 @@ MonoBehaviour:
   choices:
   - choiceDescription: Ok, I will check it!
     scores: []
+    functionCalls:
+    - {fileID: 11400000, guid: 29b0545774c7f78489b0f335cd9bff40, type: 2}
     endGameTrigger: 0
 --- !u!114 &114282149084888246
 MonoBehaviour:

@@ -8,30 +8,14 @@ public class EventManager : MonoBehaviour {
 
     public GameObject binaryChoicePrefab;
     public GameObject informativeEventPrefab;
+    public GameObject batteryDepletionEventPrefab;
+    public GameObject informationPackageSentEventPrefab;
     public GameObject messagePrefab;
 
     //public List<StoryEvent> storyEvents;
     public StoryEventList storyEvents;
 
     private List<StoryEvent> storyEventsInternal;
-
-    //Singleton instanciating
-    public static EventManager Instance { get; private set; }
-
-    private void Awake()
-    {
-        //Check if there are any other instances conflicting
-        if (Instance != null && Instance != this)
-        {
-            // If that is the case, we destroy other instances
-            Destroy(gameObject);
-        }
-        // Here we save our singleton instance
-        Instance = this;
-
-        // Makes sure that we don't destroy between scenes
-        DontDestroyOnLoad(gameObject);
-    }
 
     private void Start()
     {
@@ -76,7 +60,6 @@ public class EventManager : MonoBehaviour {
         }
         else
         {
-            Debug.Log("No relevant storyevents can be fired. ", this);
             return null;
         }
         
@@ -101,6 +84,22 @@ public class EventManager : MonoBehaviour {
     {
         return (e.requirements.FitsRequirements(gameManager.requirements) && e.dependencies.FitsRequirements(gameManager.eventsFired));
         //turn true;
+    }
+
+    //instantiates battery depletion event (from prefab) 
+    public void InstantiateBatteryDepletionEvent()
+    {
+        Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
+        GameObject eventObject = Instantiate(batteryDepletionEventPrefab);
+        eventObject.transform.SetParent(phoneMainScreen, false);
+    }
+
+    //instantiates battery depletion event (from prefab) 
+    public void InstantiateInformationPackageSentEvent()
+    {
+        Transform phoneMainScreen = GameObject.Find("PhoneMainScreen").transform;
+        GameObject eventObject = Instantiate(informationPackageSentEventPrefab);
+        eventObject.transform.SetParent(phoneMainScreen, false);
     }
 
 }

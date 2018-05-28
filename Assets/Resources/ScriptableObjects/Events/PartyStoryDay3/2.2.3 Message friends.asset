@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 2.2.3 Message friends
+  m_EditorClassIdentifier: 
+  title: '2.2.3 - Message from: Unknown'
+  text: "There are two suspects. I've never heard of them before. One is called Sophie
+    Davids, the other is Wolf Avery. Try to find information about these people.\r\n\r\nWe
+    should look for their address, and any evidence that either of them is our suspect."
+  isMessage: 1
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114207499379834326}
+  dependencies: {fileID: 114015069309710948}
+  choices:
+  - choiceDescription: Good idea
+    scores: []
+    functionCalls: []
+    endGameTrigger: 0
+--- !u!114 &114015069309710948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys: []
+    m_values: []
+--- !u!114 &114207499379834326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys:
+    - Facebook
+    m_values: 01000000

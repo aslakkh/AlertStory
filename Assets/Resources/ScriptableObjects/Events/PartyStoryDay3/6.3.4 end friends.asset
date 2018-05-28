@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 6.3.4 end friends
+  m_EditorClassIdentifier: 
+  title: 6.3.4 - This is the end
+  text: The party began as planned... before the police showed up! Turns out someone
+    had warned them about a huge, illegal party about to go down. When they arrived,
+    all they found was a safe little get together amongst friends, so the jokes on
+    whoever called them.
+  isMessage: 0
+  fireNextEventImmediately: 0
+  requirements: {fileID: 114755305512977510}
+  dependencies: {fileID: 114101378969844152}
+  choices:
+  - choiceDescription: End game
+    scores: []
+    functionCalls: []
+    endGameTrigger: 0
+--- !u!114 &114101378969844152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: 4cdbd43c6d60dc04ab328b6fc452cfff, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 0
+--- !u!114 &114755305512977510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys:
+    - Facebook
+    m_values: 01000000

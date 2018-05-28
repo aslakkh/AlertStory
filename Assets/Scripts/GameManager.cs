@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameState
 {
@@ -22,11 +23,26 @@ public class GameManager : MonoBehaviour {
 
     public int score;
     public int privateScore;
-    private int dayCount;
+    public int dayCount;
     public int turnCount;
     public int endDay; // The day which the game ends on regardless of story progress
-    public Character playerCharacter; //reference to scriptable object holding information about playercharacter
-    private List<string> _objectives;
+
+    public Character playerCharacterScriptableObject; //reference to player character to be loaded on play
+    [HideInInspector]
+    public Character playerCharacter; //playerCharacter used during play
+    public CharacterList characterListScriptableObject; //reference to character list to be loaded on play
+    [HideInInspector]
+    public List<Character> characterList; //characterList used during play
+
+
+    // Dict with day-number as key and a list of information from information package as values
+    private Dictionary<int, List<string>> _informationDict;
+    private Dictionary<int, List<string>> informationPackageDict;
+    private List<string> informationPackageList = new List<string>();
+    public List<Objective> objectivesList;
+    public Dictionary<int, List<Objective>> objectivesDict;
+    public InformationPackageManager informationPackageManager;
+
     public RequirementDict backupRequirementDict; // Used if requirement dict is empty
     public StringSettingDictionary requirementDict;
     private StoryEventChoiceDictionary _eventsFired;
@@ -35,10 +51,10 @@ public class GameManager : MonoBehaviour {
     private GameState _gameState;
 
     //gameState property. Publishes event on change
-    private GameState gameState
+    public GameState gameState
     {
         get { return _gameState; }
-        set
+        private set
         {
             if (_gameState != value)
             {
@@ -56,6 +72,11 @@ public class GameManager : MonoBehaviour {
         get { return requirementDict; }
         set { requirementDict = value; }
     }
+
+    public Dictionary<int, List<Objective>> objectives {
+        get { return objectivesDict; }
+        set { objectivesDict = value; }
+    }
     
     //Add all events that has fired here.
     public StoryEventChoiceDictionary eventsFired {
@@ -63,11 +84,17 @@ public class GameManager : MonoBehaviour {
         set { _eventsFired = value; }
     }
 
-    //Contains objectives displayed in dropdown
-    public List<string> objectives
+    //Contains objectivesDict displayed in dropdown
+    public Dictionary<int, List<string>> informationDict
     {
-        get { return _objectives; }
-        set { _objectives = value; }
+        get { return _informationDict; }
+        set { _informationDict = value; }
+    }
+
+    public List<string> informationPackage
+    {
+        get { return informationPackageList; }
+        set { informationPackageList = value; }
     }
 
     //Singleton instanciating
@@ -79,13 +106,23 @@ public class GameManager : MonoBehaviour {
             // If that is the case, we destroy other instances
             Destroy(gameObject);
         }
-        // Here we save our singleton instance
-        Instance = this;
+
+        if (Instance == null)
+        {
+            Instance = GameObject.FindObjectOfType<GameManager>();
+            if (Instance == null)
+            {
+                Instance = this; //save singleton instance
+            }
+        }
+
         
         // Makes sure that we don't destroy between scenes
         DontDestroyOnLoad(gameObject);
 
-        eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        //eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
+        objectivesDict = new Dictionary<int, List<Objective>>();
 
         // for playtesting eventscene
         if (requirementDict == null || requirementDict.Count == 0)
@@ -96,18 +133,46 @@ public class GameManager : MonoBehaviour {
             }
             else
             {
-                Debug.Log("backupRequirementdict in GameManager == Null");
             }
+        }
+
+        // Instantiating objectivesDict
+        int i = 1;
+        foreach (Objective obj in objectivesList) {
+            List<Objective> objectiveList1 = new List<Objective>();
+            objectiveList1.Add(obj);
+            objectivesDict.Add(i, objectiveList1);
+            i++;
+        }
+
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        try
+        {
+            eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+            informationPackageManager = GameObject.Find("InformationPackageManager").GetComponent<InformationPackageManager>();
+        }
+        catch(NullReferenceException e)
+        {
+            Debug.Log(e);
         }
     }
 
     private void Start()
     {
-        //TODO: implement proper state flow
+        LoadScriptableObjectCopies();
+
         gameState = GameState.investigator;
         _eventsFired = new StoryEventChoiceDictionary();
         sceneLoader = GameObject.Find("SceneLoader").GetComponent<SceneLoader>();
-        dayCount = 0;
+        //dayCount = 0;
     }
 
     public bool FireEvent() {
@@ -116,6 +181,13 @@ public class GameManager : MonoBehaviour {
         {
             gameState = GameState.eventhandler;
             _eventsFired.Add(eventFired, null);
+        }
+        else
+        {
+            if(gameState != GameState.investigator)
+            {
+                gameState = GameState.investigator;
+            }
         }
         return eventFired;
 
@@ -130,9 +202,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    //handles a choice taken in a story event. Applies any scores, and either fires a new event or returns to investigator state
     public void HandleChoice(StoryEvent storyEvent, Choice choice)
     {
-        //TODO: Add score handling
         _eventsFired[storyEvent] = choice;
 
         //add scores
@@ -154,6 +226,11 @@ public class GameManager : MonoBehaviour {
                 }
             }
         }
+        //Loops for each FunctionCall added.
+        foreach (FunctionCall functionCall in choice.functionCalls) {
+            functionCall.triggerFunction();
+        }
+        gameState = GameState.investigator;
         if (storyEvent.fireNextEventImmediately)
         {
             FireEvent();
@@ -164,28 +241,68 @@ public class GameManager : MonoBehaviour {
             {
                 sceneLoader.LoadEndScene();
             }
-            gameState = GameState.investigator;
+            
         }
 
     }
 
-    public void NextDay() {
-        
-        //Will be called untill there is no more Events in List
-        bool eventFired;
-        do {
-            eventFired = FireEvent();
-        } while (eventFired);
-        
+    //choice handler for choices made in events with no storyevents attached
+    public void HandleChoice()
+    {
+        gameState = GameState.investigator;
+    }
+
+    public void NextDay(bool batteryDepleted)
+    {
+            StartCoroutine(FireRemainingEvents(batteryDepleted));
+    }
+
+    public IEnumerator EndDay(bool batteryDepleted)
+    {
+        //validate information package
+        informationPackageManager.ValidateInformationGathered();
+        informationPackage.Clear();
+
+        if (batteryDepleted)
+        {
+            //fire an event to signal battery depletion
+            gameState = GameState.eventhandler;
+            eventManager.InstantiateBatteryDepletionEvent();
+        }
+        else //information package was submitted
+        {
+            gameState = GameState.eventhandler;
+            eventManager.InstantiateInformationPackageSentEvent();
+        }
+        yield return new WaitUntil(() => gameState == GameState.investigator);
+
+
+        //end day
         if (++dayCount >= endDay)
         {
             sceneLoader.LoadEndScene();
         }
-        else 
+        else
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);    
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             sceneLoader.LoadNextDay();
-        }       
+        }
+    }
+
+    public IEnumerator FireRemainingEvents(bool batteryDepleted)
+    {
+        //fire all remaining events in eventlist
+        bool eventFired = FireEvent();
+        if (eventFired)
+        {
+            yield return new WaitUntil(() => gameState == GameState.investigator);
+            StartCoroutine(FireRemainingEvents(batteryDepleted));
+        }
+        else
+        {
+            StartCoroutine(EndDay(batteryDepleted));
+        }
+        
     }
 
     public void AddToScore(int value)
@@ -193,9 +310,48 @@ public class GameManager : MonoBehaviour {
         score += value;
     }
 
-    //getters
+    // Getters
     public int GetDayCount()
     {
         return dayCount;
+    }
+
+    // Setters
+    public void ResetDayCount()
+    {
+        this.dayCount = 0;
+    }
+
+    //load copies of scriptableobjects to be used during runtime
+    public void LoadScriptableObjectCopies()
+    {
+        //copy playercharacter
+        playerCharacter = Instantiate(playerCharacterScriptableObject) as Character;
+        playerCharacter.friendsbookProfile = Instantiate(playerCharacterScriptableObject.friendsbookProfile) as FriendsbookProfile;
+
+
+        characterList = new List<Character>();
+        foreach(Character c in characterListScriptableObject.list)
+        {
+            Character characterClone = Instantiate(c) as Character;
+            characterClone.friendsbookProfile = Instantiate(c.friendsbookProfile) as FriendsbookProfile;
+            characterList.Add(characterClone);
+        }
+
+    }
+
+
+    //pause or unpaused
+    public void SetPaused()
+    {
+        if(gameState == GameState.paused)
+        {
+            gameState = GameState.investigator;
+        }
+        else
+        {
+            gameState = GameState.paused;
+        }
+
     }
 }

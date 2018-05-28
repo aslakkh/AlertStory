@@ -53,10 +53,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   privateScore: 0
+  dayCount: 1
   turnCount: 0
-  endDay: 0
-  playerCharacter: {fileID: 11400000, guid: 5d43877be599b114fbd6748eb58aa7e4, type: 2}
-  backupRequirementDict: {fileID: 11400000, guid: 852e4bb7e3018f043985048db18f4f38,
+  endDay: 4
+  playerCharacterScriptableObject: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685,
+    type: 2}
+  playerCharacter: {fileID: 11400000, guid: ca6dafac2c5e4f445aca25eb2e282685, type: 2}
+  characterListScriptableObject: {fileID: 11400000, guid: ff8527f3fb2a14244a835307031d02a4,
+    type: 2}
+  characterList: []
+  objectivesList:
+  - description: No active objectives currently.
+    tasks: []
+  - description: What is the name of your common friends with your mother, Karen Reiter,
+      on Friendsbook? And what did one of them post on your mothers birthday?
+    tasks:
+    - Sara Scoffield
+    - Hugo Seingrass
+    - 'Happy birthday! You''re such a cool lady! Much cooler than your little brat
+      kid. '
+  - description: No active objectives currently.
+    tasks: []
+  informationPackageManager: {fileID: 0}
+  backupRequirementDict: {fileID: 11400000, guid: fdd29f6164357254284bb51c6fc78340,
     type: 2}
   requirementDict:
     m_keys: []

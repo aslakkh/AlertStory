@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 5.1.3.4 consequence friends
+  m_EditorClassIdentifier: 
+  title: 5.1.3.4 - Are you ready?
+  text: With Wolf Avery removed, it should be safe to announce the location.
+  isMessage: 0
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114532030963413464}
+  dependencies: {fileID: 114130516702924504}
+  choices:
+  - choiceDescription: Let's party!
+    scores: []
+    functionCalls: []
+    endGameTrigger: 0
+--- !u!114 &114130516702924504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: f0708519fd27a094cb261c755c6c87fd, type: 2}
+    - {fileID: 11400000, guid: 40fcb53e1b6b64f4f9de7cbfc03aeb0f, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 1
+    - fired: 1
+      choiceA: 1
+      choiceB: 0
+--- !u!114 &114532030963413464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys:
+    - Facebook
+    m_values: 01000000

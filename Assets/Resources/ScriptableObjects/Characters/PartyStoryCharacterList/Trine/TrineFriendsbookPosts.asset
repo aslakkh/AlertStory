@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Name: TrineFriendsbookPosts
   m_EditorClassIdentifier: 
   list:
+  - content: Thanks for the ride today. I'm so glad we did this. Snowwhite is such
+      a beautiful horse. Hope you keep her for a long time!
+    date:
+      year: 2017
+      month: 6
+      day: 15
+      hour: 12
+      minute: 59
+    to: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+    from: {fileID: 11400000, guid: 6e37169fcc542cc468e773bddec769f3, type: 2}
   - content: 'Thanks for all birthday wishes. The day was spent doing school work
       and with a secret date ;-) '
     date:
@@ -31,3 +41,16 @@ MonoBehaviour:
       minute: 24
     to: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
     from: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+  - content: 'Do you have any idea how much noise you made last night????? If you
+      wonder who called the cops - it was me!!!
+
+      And I''ll do it again to everyone who has a party that loud in this neighborhood,
+      just you wait and see!!!!'
+    date:
+      year: 2016
+      month: 1
+      day: 1
+      hour: 12
+      minute: 16
+    to: {fileID: 11400000, guid: 5c24bd61d3a42f34c8acf7fa20d82fc1, type: 2}
+    from: {fileID: 11400000, guid: 9f996f065b1668147b108a6cf40d5cb3, type: 2}

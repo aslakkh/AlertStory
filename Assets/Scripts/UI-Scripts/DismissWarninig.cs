@@ -5,8 +5,14 @@ using UnityEngine;
 public class DismissWarninig : MonoBehaviour {
 
 	public GameObject WarningPannel;
+	private SoundManager soundManager;
+
+	private void Awake() {
+		soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+	}
 
 	public void HideWarningPanel() {
-		WarningPannel.SetActive(false);
+		soundManager.sfxSource.Play();
+        GameObject.Destroy(WarningPannel);
 	}
 }

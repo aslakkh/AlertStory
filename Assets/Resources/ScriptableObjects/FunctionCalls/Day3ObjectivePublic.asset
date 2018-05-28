@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8914c6ecea26f0c43a2f61c447707e3f, type: 3}
+  m_Name: Day3ObjectivePublic
+  m_EditorClassIdentifier: 
+  aName: FunctionCallScript
+  objectivesList:
+  - description: Find information about the address of Sophie Davids and Oscar Mitchell.
+      Add information if you think it supports them being the saboteur who wants to
+      call the police.
+    tasks:
+    - Berkley Street 123
+    - 'Hello all my neighbors: John Stevens, Sam Reiter, Jack & John Smith: I invite
+      you all for tea at my house. Hope you can come. I have baked some fresh cookies!'
+    - Do you have any idea how much noise you made last night????? If you wonder who
+      called the cops - it was me!!! And I'll do it again to everyone who has a party
+      that loud in this neighborhood, just you wait and see!!!!
+  targetDay: 3

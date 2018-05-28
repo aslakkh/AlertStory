@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3. Exclusion is a choice
   m_EditorClassIdentifier: 
-  title: 3. Exclusion is a choice
-  text: You've gotten time to investigate your mothers friendsbook profile. Did she
-    have any common friends with you ?
+  title: 3 - Exclusion is a choice
+  text: You've had time to investigate your mothers Friendsbook profile. Did she have
+    any friends in common with you?
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114792126859254680}
@@ -24,12 +24,14 @@ MonoBehaviour:
     - requirementName: 
       setting: 2
       value: 100
+    functionCalls: []
     endGameTrigger: 0
   - choiceDescription: No.
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114598908233483654
 MonoBehaviour:

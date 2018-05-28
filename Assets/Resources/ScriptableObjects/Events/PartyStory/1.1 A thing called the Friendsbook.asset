@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 1.1 A thing called the Friendsbook
+  m_EditorClassIdentifier: 
+  title: 1.1 - A thing called the Friendsbook
+  text: Have you checked out Friendsbook yet? It is amazing, and you can use it to
+    your advantage! Some people share stuff on Friendsbook mindlessly. You can add
+    some information to your storage. This will help you make the greatest party ever!
+  isMessage: 0
+  fireNextEventImmediately: 1
+  requirements: {fileID: 114708649523873514}
+  dependencies: {fileID: 114237443539208382}
+  choices:
+  - choiceDescription: My storage?
+    scores: []
+    functionCalls: []
+    endGameTrigger: 0
+--- !u!114 &114237443539208382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys: []
+    m_values: []
+--- !u!114 &114708649523873514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys: []
+    m_values: 

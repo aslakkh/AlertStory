@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8914c6ecea26f0c43a2f61c447707e3f, type: 3}
+  m_Name: Day1ObjectivePublic
+  m_EditorClassIdentifier: 
+  aName: FunctionCallScript
+  objectivesList:
+  - description: What is the full name of Tom and Trine, and where to do they live?
+      Also, submit the newest post on both of their profiles.
+    tasks:
+    - Tompson Street 48, Fictionia
+    - Hah, I told you Ravendale FC would relegate. You owe me 300 man, I never forget
+      a bet.
+    - Gamers Street 101, Fictionia
+    - Thanks for the ride today. I'm so glad we did this. Snowwhite is such a beautiful
+      horse. Hope you keep her for a long time!
+    - Tom Hansen
+    - Trine Johnson
+  targetDay: 1

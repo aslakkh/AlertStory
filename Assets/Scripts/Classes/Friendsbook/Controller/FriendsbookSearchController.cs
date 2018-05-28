@@ -5,31 +5,41 @@ using UnityEngine.UI;
 
 public class FriendsbookSearchController : MonoBehaviour {
 
-    /// TODO
-    /// - optimization
-    /// 
-
-    public CharacterList characterList; //reference to ScriptableObject containing all in-game characters
+    public List<Character> characterList; //reference to ScriptableObject containing all in-game characters
     public InputField searchBar;
     public FriendsbookSearchView view;
     public Text text;
 
     private List<Character> friendsbookProfiles; //internal reference to all characters with friendsbookProfiles
     private List<Character> searchResult;
+    private SoundManager soundManager;
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start () {
+        characterList = GameObject.FindObjectOfType<GameManager>().characterList;
         if(characterList != null)
         {
-            friendsbookProfiles = characterList.list.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
+            friendsbookProfiles = characterList.FindAll(c => c.hasFriendsbookProfile()); //filters out characters without friendsbookProfiles
         }
         
         searchResult = new List<Character>();
+	    
+	    soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
 
     public void SetFriendsbookProfiles(List<Character> list) //can be used to search from lists other than characterList
     {
         friendsbookProfiles = list;
+    }
+
+    public void SetCharacterList(List<Character> l)
+    {
+        characterList = l;
+    }
+
+    public List<Character> GetCharacterList()
+    {
+        return characterList;
     }
 
     public void Search(string term)
@@ -48,6 +58,7 @@ public class FriendsbookSearchController : MonoBehaviour {
 
     public void OnClick()
     {
+        soundManager.sfxSource.Play();
         Search(text.text);
     }
 	

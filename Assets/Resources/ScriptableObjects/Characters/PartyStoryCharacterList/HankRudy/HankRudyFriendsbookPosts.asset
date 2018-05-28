@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a38f405705f3b4096a887080eefe58, type: 3}
+  m_Name: HankRudyFriendsbookPosts
+  m_EditorClassIdentifier: 
+  list:
+  - content: I love my new skateboard. Thanks mom and dad for this amazing christmas
+      present!
+    date:
+      year: 2008
+      month: 12
+      day: 25
+      hour: 8
+      minute: 56
+    to: {fileID: 11400000, guid: d72d7e5abe77550469de749738037449, type: 2}
+    from: {fileID: 11400000, guid: d72d7e5abe77550469de749738037449, type: 2}

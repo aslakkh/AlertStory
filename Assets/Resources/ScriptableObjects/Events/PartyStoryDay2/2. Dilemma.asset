@@ -11,9 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 2. Dilemma
   m_EditorClassIdentifier: 
-  title: 2. Dilemma
-  text: The party event on friendsbook should stay private as long as your mother
-    is on friendsbook. You should find out who she is friends with on friendsbook.
+  title: 2 - Dilemma
+  text: 'The party event should stay private as long as your mother is on Friendsbook.
+    You should find out who she is friends with on Friendsbook and add their names
+    to the information package.
+
+    Your mother is popular character in the neighbourhood. Maybe she has some birthday
+    congratulations on her wall from your common friends?'
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114693990989404902}
@@ -21,6 +25,7 @@ MonoBehaviour:
   choices:
   - choiceDescription: Ok. I will find out!
     scores: []
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114302666339645128
 MonoBehaviour:
@@ -37,15 +42,11 @@ MonoBehaviour:
     m_keys:
     - {fileID: 11400000, guid: a52abd310c21fab4598bba299112c146, type: 2}
     - {fileID: 11400000, guid: b803b7524e4f7f846acf26174ab88bb9, type: 2}
-    - {fileID: 11400000, guid: 4bb55177c236b3d4b93363691ab6a8e6, type: 2}
     m_values:
     - fired: 1
       choiceA: 0
       choiceB: 0
     - fired: 1
-      choiceA: 0
-      choiceB: 0
-    - fired: 0
       choiceA: 0
       choiceB: 0
 --- !u!114 &114693990989404902

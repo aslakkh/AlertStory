@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
+  m_Name: 6.3.2 end friends
+  m_EditorClassIdentifier: 
+  title: 6.3.2 - This is the end
+  text: The party was a catastrophe. First, hundreds of unannounced guests showed
+    up, including your mom. Everything was topped off by a small visit by the police.
+    You will never hear the end of this...
+  isMessage: 0
+  fireNextEventImmediately: 0
+  requirements: {fileID: 114266239823386544}
+  dependencies: {fileID: 114996797221426464}
+  choices:
+  - choiceDescription: End game
+    scores: []
+    functionCalls: []
+    endGameTrigger: 0
+--- !u!114 &114266239823386544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25af674c86160241bfa4879fbe2483c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requirementDictionary:
+    m_keys:
+    - Facebook
+    m_values: 01000000
+--- !u!114 &114996797221426464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7173f727d41542d48a7cc308ac3f6d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dependenciesDict:
+    m_keys:
+    - {fileID: 11400000, guid: 5be3f2c80750b214ba0f3b14b5ae11d2, type: 2}
+    m_values:
+    - fired: 1
+      choiceA: 0
+      choiceB: 0

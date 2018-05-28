@@ -11,6 +11,8 @@ public class InformativeEventView : EventView {
     private void Awake()
     {
         buttonText = button.gameObject.GetComponentInChildren<Text>();
+        var soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        button.onClick.AddListener(delegate { soundManager.sfxSource.PlayOneShot(soundManager.sfxSource.clip); });
     }
 
     public void SetButtonText(string text)

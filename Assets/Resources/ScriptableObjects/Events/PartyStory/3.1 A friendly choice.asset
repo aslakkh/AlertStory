@@ -11,24 +11,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3.1 A friendly choice
   m_EditorClassIdentifier: 
-  title: '3.1: A friendly choice'
-  text: You've gotten time to investigate. Who do you choose to innvite?
+  title: 3.1 - A friendly choice
+  text: "Now that you\u2019ve had some time to investigate, who would you like to
+    invite to your party? \n(Remember - your choices affect both the story and the
+    score)"
   isMessage: 0
   fireNextEventImmediately: 0
   requirements: {fileID: 114568682735933794}
   dependencies: {fileID: 114533417264354404}
   choices:
-  - choiceDescription: Trine
+  - choiceDescription: Trine Johnson
     scores:
     - requirementName: 
       setting: 2
       value: 50
+    functionCalls: []
     endGameTrigger: 0
-  - choiceDescription: Karsten
+  - choiceDescription: Karsten Hendricks
     scores:
     - requirementName: 
       setting: 2
       value: -50
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114533417264354404
 MonoBehaviour:

@@ -11,16 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 2. A word of advice
   m_EditorClassIdentifier: 
-  title: '2: A word of advice...'
-  text: You should invite someone to the party. Find out if Tom or Trine shares alot
-    of information on facebook.
+  title: 2 - A word of advice...
+  text: You need to invite people to your party, but first you need to see what they
+    share of their information to figure out if it is safe. Try to find information
+    about Tom Hansen or Trine Johnson on Friendsbook. Have a look at the objectives
+    for more information.
   isMessage: 1
   fireNextEventImmediately: 0
   requirements: {fileID: 114344350500551362}
   dependencies: {fileID: 114346480977133312}
   choices:
-  - choiceDescription: Ok, I will check it in the investigator.
+  - choiceDescription: Got it
     scores: []
+    functionCalls:
+    - {fileID: 11400000, guid: 579f7f356fa799a498030adbf79fa146, type: 2}
     endGameTrigger: 0
 --- !u!114 &114344350500551362
 MonoBehaviour:

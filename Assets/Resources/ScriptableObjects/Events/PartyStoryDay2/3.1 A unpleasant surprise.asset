@@ -11,12 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c576165fb4687074f8193e59db75932d, type: 3}
   m_Name: 3.1 A unpleasant surprise
   m_EditorClassIdentifier: 
-  title: 3.1 A unpleasant surprise
-  text: 'Despite your effort to investigate your mother, a friend of you just told
-    you today at school that your mother had sent him a friend request and he had
-    accepted.
-
-    So it turns you have common friends with her after all... You need to remove him.'
+  title: 3.1 - An unpleasant surprise
+  text: Despite your effort to investigate your mother, a friend just told you that
+    your mother had sent him a friend request and he had accepted. So it turns out
+    that you have friends in common with her after all.
   isMessage: 0
   fireNextEventImmediately: 1
   requirements: {fileID: 114804198897226532}
@@ -24,6 +22,7 @@ MonoBehaviour:
   choices:
   - choiceDescription: Remove him then..
     scores: []
+    functionCalls: []
     endGameTrigger: 0
 --- !u!114 &114393485640617142
 MonoBehaviour:

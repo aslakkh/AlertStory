@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cb302d58f8cad48bd54addb00bc5fd, type: 3}
+  m_Name: KarenReiterFriendsbook
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 56204cd59607ee641908f6327763a05c, type: 2}
+  friends:
+  - {fileID: 11400000, guid: 4adc1b65fce0e14499459da4d55f2a0a, type: 2}
+  - {fileID: 11400000, guid: 3f9dbfb4b8d74994eb966d60e7ca3b5c, type: 2}
+  posts: {fileID: 11400000, guid: b03be25e67eddc542970d7f7ca21402f, type: 2}
+  profilePicture: {fileID: 21300000, guid: 37e5d75b3791ded42901b302ac0d53da, type: 3}
+  acceptsFriendRequest: 0
+  informationSetting: 0
+  friendsSetting: 2
+  postsSetting: 2

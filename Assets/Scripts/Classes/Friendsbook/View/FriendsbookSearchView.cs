@@ -75,7 +75,14 @@ public class FriendsbookSearchView : MonoBehaviour {
     public void OnSearchElementClick(Character c)
     {
         Hide();
-        controller.EnterFriendsbookProfile(c);
+        if(c.fullName == controller.GetGameManager().playerCharacter.fullName)
+        {
+            controller.EnterPlayerCharacterProfile();
+        }
+        else
+        {
+            controller.EnterFriendsbookProfile(c);
+        }
     }
 
     public void SetVisible()
